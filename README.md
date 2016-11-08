@@ -24,7 +24,7 @@ $ npm install ng2-device-detector --save
 In your app.module.ts
 ```bash
 import { NgModule } from '@angular/core';
-import {Ng2DeviceDetector} from '<path-to-node_modules>/ng2-device-detector';
+import {Ng2DeviceDetector} from 'ng2-device-detector';
 ...
 @NgModule({
   declarations: [
@@ -48,7 +48,7 @@ In your component where you want to use the Device Service
 ```bash
 import { Component } from '@angular/core';
 ...
-import {Device} from '<path-to-node_modules>/ng2-device-detector/services/ng2-device.service';
+import {Device} from 'ng2-device-detector';
 ...
 @Component({
   selector: 'home',  // <home></home>
