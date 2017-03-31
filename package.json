@@ -61,7 +61,6 @@
     "rxjs": "^5.0.1",
     "tslint": "^3.15.1",
     "typescript": "2.2.x",
-    "tsc": "^1.5",
     "zone.js": "0.7.2",
     "@types/es6-shim": "^0.31.32",
     "@types/protractor": "^4.0.0",
@@ -99,7 +98,6 @@
   },
   "scripts": {
     "lint": "tslint src/**/*.ts",
-    "postinstall": "tsc",
     "prepublish": "tsc",
     "test": "tsc && karma start",
     "tsc": "tsc"
