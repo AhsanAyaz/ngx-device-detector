@@ -150,7 +150,6 @@ export class Device{
         let self = this;
         return [
             Constants.DEVICES.ANDROID,
-            Constants.DEVICES.I_PAD,
             Constants.DEVICES.IPHONE,
             Constants.DEVICES.I_POD,
             Constants.DEVICES.BLACKBERRY,
