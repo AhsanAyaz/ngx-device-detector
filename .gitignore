@@ -3,9 +3,9 @@ node_modules/*
 npm-debug.log
 
 # TypeScript
-*.js
-*.map
-*.d.ts
+src/*.js
+src/*.map
+src/*.d.ts
 
 # JetBrains
 .idea
@@ -14,6 +14,9 @@ npm-debug.log
 .idea/*
 *.iml
 
+# VS Code
+.vscode/*
+
 # Windows
 Thumbs.db
 Desktop.ini
@@ -21,3 +24,15 @@ Desktop.ini
 # Mac
 .DS_Store
 **/.DS_Store
+
+# Ngc generated files
+**/*.ngfactory.ts
+
+# Build files
+dist/*
+
+
+# Demo ignore folders
+
+demo/node_modules
+demo/dist

@@ -1,0 +1,31 @@
+{
+  "name": "ng2-device-detector",
+  "version": "1.0.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/KoderLabs/ng2-device-detector.git"
+  },
+  "author": {
+    "name": "Ahsan Ayaz",
+    "email": "ahsan.ubitian@gmail.com"
+  },
+  "keywords": [
+    "angular",
+    "device",
+    "device detector",
+    "device detection",
+    "angular2",
+    "angular4"
+  ],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/KoderLabs/ng2-device-detector.git/issues"
+  },
+  "module": "ng2-device-detector.js",
+  "typings": "ng2-device-detector.d.ts",
+  "peerDependencies": {
+    "@angular/core": "^4.0.0",
+    "rxjs": "^5.1.0",
+    "zone.js": "^0.8.4"
+  }
+}

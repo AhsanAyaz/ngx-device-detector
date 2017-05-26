@@ -1,0 +1,26 @@
+<div id="demoApp" class="container">
+  <div class="demo-container">
+    <div class="demo-heading">
+      <h2 class="text-center demo-heading-text">
+        ng2-device-detector demo
+      </h2>
+      <p class="text-center">
+        Open this page from different devices to see the appropriate details
+      </p>
+      <h4 class="text-center">Device Information</h4>
+    </div>
+    <div class="information-table">
+      <table class="table table-hover">
+        <tr>
+          <th>Property</th>
+          <th>Value</th>
+        </tr>
+        <tr *ngFor="let info of device | keys: propsToShow" class="info-item w3-hover-blue">
+          <td>{{info.key}}</td>
+          <td>{{info.value}}</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>
+<router-outlet></router-outlet>

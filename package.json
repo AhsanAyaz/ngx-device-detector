@@ -1,109 +1,72 @@
 {
-  "_args": [
-    [
-      {
-        "raw": "ng2-device-detector@^0.1.0",
-        "scope": null,
-        "escapedName": "ng2-device-detector",
-        "name": "ng2-device-detector",
-        "rawSpec": "^0.1.0",
-        "spec": ">=0.1.0 <0.2.0",
-        "type": "range"
-      },
-      "/apps/nup-frontend-ng"
-    ]
-  ],
-  "_from": "ng2-device-detector@>=0.1.0 <0.2.0",
-  "_id": "ng2-device-detector@0.1.0",
-  "_inCache": true,
-  "_location": "/ng2-device-detector",
-  "_nodeVersion": "6.1.0",
-  "_npmOperationalInternal": {
-    "host": "packages-18-east.internal.npmjs.com",
-    "tmp": "tmp/ng2-device-detector-0.1.0.tgz_1478612187119_0.24305898393504322"
+  "name": "ng2-device-detector",
+  "version": "1.0.0",
+  "scripts": {
+    "build": "gulp build",
+    "build:watch": "gulp",
+    "docs": "npm run docs:build",
+    "docs:build": "compodoc -p tsconfig.json -n ng2-device-detector -d docs --hideGenerator",
+    "docs:serve": "npm run docs:build -- -s",
+    "docs:watch": "npm run docs:build -- -s -w",
+    "lint": "tslint --type-check \"src/**/*.ts\"",
+    "test": "tsc && karma start"
   },
-  "_npmUser": {
-    "name": "ahsanayaz",
-    "email": "ahsan.ubitian@gmail.com"
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/KoderLabs/ng2-device-detector.git"
   },
-  "_npmVersion": "3.10.7",
-  "_phantomChildren": {},
-  "_requested": {
-    "raw": "ng2-device-detector@^0.1.0",
-    "scope": null,
-    "escapedName": "ng2-device-detector",
-    "name": "ng2-device-detector",
-    "rawSpec": "^0.1.0",
-    "spec": ">=0.1.0 <0.2.0",
-    "type": "range"
-  },
-  "_requiredBy": [
-    "/"
-  ],
-  "_resolved": "https://registry.npmjs.org/ng2-device-detector/-/ng2-device-detector-0.1.0.tgz",
-  "_shasum": "c8915a4a325c1e3207887299d8ef74750f1889a4",
-  "_shrinkwrap": null,
-  "_spec": "ng2-device-detector@^0.1.0",
-  "_where": "/apps/nup-frontend-ng",
   "author": {
     "name": "Ahsan Ayaz",
     "email": "ahsan.ubitian@gmail.com"
   },
-  "bugs": {
-    "url": "https://github.com/AhsanAyaz/ng2-device-detector/issues"
-  },
-  "dependencies": {
-    "typings": "^2.1.1"
-  },
-  "description": "",
-  "devDependencies": {
-    "@angular/common": "^2.0.0",
-    "@angular/core": "^2.0.0",
-    "@types/es6-shim": "^0.31.32",
-    "@types/jasmine": "^2.5.40",
-    "@types/protractor": "^4.0.0",
-    "@types/selenium-webdriver": "^2.53.39",
-    "codelyzer": "^0.0.28",
-    "rxjs": "^5.0.1",
-    "tslint": "^3.15.1",
-    "typescript": "2.2.x",
-    "typings": "^2.1.1",
-    "zone.js": "0.7.2"
-  },
-  "directories": {},
-  "dist": {
-    "shasum": "c8915a4a325c1e3207887299d8ef74750f1889a4",
-    "tarball": "https://ci-repo.azlife.allianz.co.id/nexus3/repository/npm-public/ng2-device-detector/-/ng2-device-detector-0.1.0.tgz"
-  },
-  "engines": {
-    "node": ">=0.8.0"
-  },
-  "gitHead": "b020acd4937450acf615f63f8517f97b1169f16d",
-  "homepage": "https://github.com/AhsanAyaz/ng2-device-detector#readme",
   "keywords": [
     "angular",
-    "angular2"
+    "device",
+    "device detector",
+    "device detection",
+    "angular2",
+    "angular4"
   ],
   "license": "MIT",
-  "main": "./dist/index.js",
-  "maintainers": [
-    {
-      "name": "ahsanayaz",
-      "email": "ahsan.ubitian@gmail.com"
-    }
-  ],
-  "name": "ng2-device-detector",
-  "optionalDependencies": {},
-  "readme": "ERROR: No README data found!",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/AhsanAyaz/ng2-device-detector.git"
+  "bugs": {
+    "url": "https://github.com/AhsanAyaz/ng2-device-detector.git/issues"
   },
-  "scripts": {
-    "lint": "tslint src/**/*.ts",
-    "prepublish": "tsc",
-    "test": "tsc && karma start",
-    "tsc": "tsc"
+  "devDependencies": {
+    "@angular/common": "^4.0.0",
+    "@angular/compiler": "^4.0.0",
+    "@angular/compiler-cli": "^4.0.0",
+    "@angular/core": "^4.0.0",
+    "@angular/platform-browser": "^4.0.0",
+    "@angular/platform-browser-dynamic": "^4.0.0",
+    "@compodoc/compodoc": "^1.0.0-beta.7",
+    "@types/jasmine": "2.5.38",
+    "@types/node": "~6.0.60",
+    "codelyzer": "~2.0.0",
+    "core-js": "^2.4.1",
+    "del": "^2.2.2",
+    "gulp": "^3.9.1",
+    "gulp-rename": "^1.2.2",
+    "gulp-rollup": "^2.11.0",
+    "jasmine-core": "~2.5.2",
+    "jasmine-spec-reporter": "~3.2.0",
+    "karma": "~1.4.1",
+    "karma-chrome-launcher": "~2.0.0",
+    "karma-cli": "~1.0.1",
+    "karma-coverage-istanbul-reporter": "^0.2.0",
+    "karma-jasmine": "~1.1.0",
+    "karma-jasmine-html-reporter": "^0.2.2",
+    "node-sass": "^4.5.2",
+    "node-watch": "^0.5.2",
+    "protractor": "~5.1.0",
+    "rollup": "^0.41.6",
+    "run-sequence": "^1.2.2",
+    "rxjs": "^5.1.0",
+    "ts-node": "~2.0.0",
+    "tslint": "~4.5.0",
+    "typescript": "~2.2.0",
+    "zone.js": "^0.8.4"
   },
-  "version": "0.1.0"
+  "engines": {
+    "node": ">=6.0.0"
+  }
 }
