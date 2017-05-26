@@ -1,10 +1,11 @@
 
 ## ng2-device-detector
-
+[![CI Status](http://img.shields.io/travis/KoderLabs/ng2-device-detector.svg?style=flat)](https://travis-ci.org/KoderLabs/ng2-device-detector)
 [![npm version](https://img.shields.io/npm/v/ng2-device-detector.svg)](https://www.npmjs.com/package/ng2-device-detector) [![npm downloads](https://img.shields.io/npm/dm/ng2-device-detector.svg)](https://www.npmjs.com/package/ng2-device-detector)
 [![npm](https://img.shields.io/npm/dt/ng2-device-detector.svg?style=flat-square)](https://github.com/KoderLabs/ng2-device-detector)
 [![GitHub stars](https://img.shields.io/github/stars/KoderLabs/ng2-device-detector.svg?style=social&label=Star&style=flat-square)](https://github.com/KoderLabs/ng2-device-detector)
 [![npm](https://img.shields.io/npm/l/ng2-device-detector.svg?style=flat-square)](https://github.com/KoderLabs/ng2-device-detector)
+
 
 > An Angular 2 (and beyond) powered AOT compatible device detector that helps to identify browser, os and other useful information regarding the device using the app. The processing is based on user-agent.
 
