@@ -36,6 +36,7 @@ script:
   - cd demo
   - yarn
   - node_modules/.bin/ng test --watch false
+  - node_modules/.bin/webdriver-manager update
   - npm run e2e
   - ng build -bh "https://koderlabs.github.io/ng2-device-detector/" --prod --aot
 
