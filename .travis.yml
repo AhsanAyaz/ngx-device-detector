@@ -28,6 +28,7 @@ before_script:
  - sudo mv -f ~/selenium-server-standalone-3.0.1.jar /usr/local/share/
  - sudo chmod +x /usr/local/share/selenium-server-standalone-3.0.1.jar
  - sudo ln -s /usr/local/share/selenium-server-standalone-3.0.1.jar /usr/local/bin/selenium-server-standalone-3.0.1.jar
+ - npm install -g yarn
 
 script: 
   - npm run lint
