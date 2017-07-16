@@ -2,7 +2,8 @@
  * Created by ahsanayaz on 08/11/2016.
  */
 
-import { Injectable } from '@angular/core';
+import { PLATFORM_ID, Inject, Injectable } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common'
 import * as Constants from './ng2-device.constants';
 import { ReTree } from './retree.service';
 @Injectable()
@@ -14,8 +15,10 @@ export class Ng2DeviceService {
     device = '';
     os_version = '';
     browser_version = '';
-    constructor() {
-        this.ua = window.navigator.userAgent;
+    constructor(@Inject(PLATFORM_ID) platformId) {
+        if (isPlatformBrowser(platformId)) {
+            this.ua = window.navigator.userAgent;
+        }
         this._setDeviceInfo();
     }
 
