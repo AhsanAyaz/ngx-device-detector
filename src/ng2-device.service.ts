@@ -3,7 +3,7 @@
  */
 
 import { PLATFORM_ID, Inject, Injectable } from '@angular/core';
-import { isPlatformBrowser } from '@angular/common'
+import { isPlatformBrowser } from '@angular/common';
 import * as Constants from './ng2-device.constants';
 import { ReTree } from './retree.service';
 @Injectable()
