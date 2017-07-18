@@ -1,8 +1,9 @@
 /**
  * Created by ahsanayaz on 08/11/2016.
  */
+import { REQUEST } from '@nguniversal/express-engine/tokens';
 
-import { PLATFORM_ID, Inject, Injectable } from '@angular/core';
+import { PLATFORM_ID, Inject, Injectable, Injector } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
 import * as Constants from './ng2-device.constants';
 import { ReTree } from './retree.service';
@@ -15,9 +16,12 @@ export class Ng2DeviceService {
     device = '';
     os_version = '';
     browser_version = '';
-    constructor(@Inject(PLATFORM_ID) platformId) {
+    constructor(@Inject(PLATFORM_ID) platformId, private injector: Injector) {
         if (isPlatformBrowser(platformId)) {
             this.ua = window.navigator.userAgent;
+        } else {
+            let req: any = this.injector.get(REQUEST);
+            this.ua = req.get('User-Agent');
         }
         this._setDeviceInfo();
     }
