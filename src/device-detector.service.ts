@@ -8,9 +8,9 @@ import { ReTree } from './retree.service';
 
 export interface DeviceInfo {
     userAgent: string;
-    os : string;
+    os: string;
     browser: string;
-    device : string;
+    device: string;
     os_version: string;
     browser_version: string;
 }
