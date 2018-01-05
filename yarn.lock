@@ -87,6 +87,10 @@
     fs-extra "^4.0.1"
     viz.js "^1.8.0"
 
+"@nguniversal/express-engine@^5.0.0-beta.5":
+  version "5.0.0-beta.5"
+  resolved "https://registry.yarnpkg.com/@nguniversal/express-engine/-/express-engine-5.0.0-beta.5.tgz#3cbc0fb7f928012d61240681631581fb0ad327f5"
+
 "@types/jasmine@2.5.53":
   version "2.5.53"
   resolved "https://registry.yarnpkg.com/@types/jasmine/-/jasmine-2.5.53.tgz#4e0cefad09df5ec48c8dd40433512f84b1568d61"
