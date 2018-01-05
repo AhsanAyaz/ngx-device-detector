@@ -18,7 +18,10 @@ const distFolder = path.join(rootFolder, 'dist');
  * 1. Delete /dist folder
  */
 gulp.task('clean:dist', function () {
-  return deleteFolders([distFolder]);
+
+  // Delete contents but not dist folder to avoid broken npm links
+  // when dist directory is removed while npm link references it.
+  return deleteFolders([distFolder + '/**', '!' + distFolder]);
 });
 
 /**
@@ -62,18 +65,24 @@ gulp.task('rollup:fesm', function () {
     .pipe(rollup({
 
       // Bundle's entry point
-      // See https://github.com/rollup/rollup/wiki/JavaScript-API#entry
+      // See "input" in https://rollupjs.org/#core-functionality
       input: `${buildFolder}/index.js`,
 
+      // Allow mixing of hypothetical and actual files. "Actual" files can be files
+      // accessed by Rollup or produced by plugins further down the chain.
+      // This prevents errors like: 'path/file' does not exist in the hypothetical file system
+      // when subdirectories are used in the `src` directory.
+      allowRealFiles: true,
+
       // A list of IDs of modules that should remain external to the bundle
-      // See https://github.com/rollup/rollup/wiki/JavaScript-API#external
+      // See "external" in https://rollupjs.org/#core-functionality
       external: [
         '@angular/core',
         '@angular/common'
       ],
 
       // Format of generated bundle
-      // See https://github.com/rollup/rollup/wiki/JavaScript-API#format
+      // See "format" in https://rollupjs.org/#core-functionality
       format: 'es'
     }))
     .pipe(gulp.dest(distFolder));
@@ -89,36 +98,42 @@ gulp.task('rollup:umd', function () {
     .pipe(rollup({
 
       // Bundle's entry point
-      // See https://github.com/rollup/rollup/wiki/JavaScript-API#entry
+      // See "input" in https://rollupjs.org/#core-functionality
       input: `${buildFolder}/index.js`,
 
+      // Allow mixing of hypothetical and actual files. "Actual" files can be files
+      // accessed by Rollup or produced by plugins further down the chain.
+      // This prevents errors like: 'path/file' does not exist in the hypothetical file system
+      // when subdirectories are used in the `src` directory.
+      allowRealFiles: true,
+
       // A list of IDs of modules that should remain external to the bundle
-      // See https://github.com/rollup/rollup/wiki/JavaScript-API#external
+      // See "external" in https://rollupjs.org/#core-functionality
       external: [
         '@angular/core',
         '@angular/common'
       ],
 
       // Format of generated bundle
-      // See https://github.com/rollup/rollup/wiki/JavaScript-API#format
+      // See "format" in https://rollupjs.org/#core-functionality
       format: 'umd',
 
       // Export mode to use
-      // See https://github.com/rollup/rollup/wiki/JavaScript-API#exports
+      // See "exports" in https://rollupjs.org/#danger-zone
       exports: 'named',
 
       // The name to use for the module for UMD/IIFE bundles
       // (required for bundles with exports)
-      // See https://github.com/rollup/rollup/wiki/JavaScript-API#modulename
-      name: 'ng2-device-detector',
+      // See "name" in https://rollupjs.org/#core-functionality
+      name: 'ngx-device-detector',
 
-      // See https://github.com/rollup/rollup/wiki/JavaScript-API#globals
+      // See "globals" in https://rollupjs.org/#core-functionality
       globals: {
         typescript: 'ts'
       }
 
     }))
-    .pipe(rename('ng2-device-detector.umd.js'))
+    .pipe(rename('ngx-device-detector.umd.js'))
     .pipe(gulp.dest(distFolder));
 });
 

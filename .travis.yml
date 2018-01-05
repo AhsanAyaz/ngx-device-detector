@@ -25,7 +25,7 @@ script:
   - yarn
   - node_modules/.bin/ng test --watch false
   - node_modules/.bin/webdriver-manager update
-  - ng build -bh "https://koderlabs.github.io/ng2-device-detector/" --prod --aot
+  - ng build -bh "https://koderlabs.github.io/ngx-device-detector/" --prod --aot
   - cd ..
 
 deploy:
