@@ -2,7 +2,7 @@
   <div class="demo-container">
     <div class="demo-heading">
       <h2 class="text-center demo-heading-text">
-        ng2-device-detector demo
+        ngx-device-detector demo
       </h2>
       <p class="text-center">
         Open this page from different devices to see the appropriate details
@@ -10,12 +10,27 @@
       <h4 class="text-center">Device Information</h4>
     </div>
     <div class="information-table">
+      <div class="device-icon">
+        <div
+          class="fa"
+          [ngClass]="{'fa-desktop': isDesktop, 'fa-mobile': isMobile, 'fa-tablet': isTablet}">
+        </div>
+        <div class="device-text" *ngIf="isMobile">
+          Mobile
+        </div>
+        <div class="device-text" *ngIf="isTablet">
+          Tablet
+        </div>
+        <div class="device-text" *ngIf="isDesktop">
+          Desktop
+        </div>
+      </div>
       <table class="table table-hover">
         <tr>
           <th>Property</th>
           <th>Value</th>
         </tr>
-        <tr *ngFor="let info of device | keys: propsToShow" class="info-item w3-hover-blue">
+        <tr *ngFor="let info of deviceInfo | keys: propsToShow" class="info-item w3-hover-blue">
           <td>{{info.key}}</td>
           <td>{{info.value}}</td>
         </tr>

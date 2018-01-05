@@ -6,14 +6,14 @@ export class Ng2DeviceDetectorDemoPage {
   }
 
   getDemoHeadingText() {
-    return element(by.css('ng2-dd-root .demo-heading-text')).getText();
+    return element(by.css('dd-root .demo-heading-text')).getText();
   }
 
-  getDeviceInfoElements(){
-    return element.all(by.css('ng2-dd-root .information-table .info-item'));
+  getDeviceInfoElements() {
+    return element.all(by.css('dd-root .information-table .info-item'));
   }
 
   getParagraphText() {
-    return element(by.css('ng2-dd-root h1')).getText();
+    return element(by.css('dd-root h1')).getText();
   }
 }

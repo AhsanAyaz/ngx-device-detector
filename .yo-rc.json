@@ -1,7 +1,7 @@
 {
   "generator-angular2-library": {
     "promptValues": {
-      "gitRepositoryUrl": "https://github.com/AhsanAyaz/ng2-device-detector.git"
+      "gitRepositoryUrl": "https://github.com/AhsanAyaz/ngx-device-detector.git"
     }
   }
 }
