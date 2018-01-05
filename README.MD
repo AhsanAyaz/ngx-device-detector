@@ -1,21 +1,24 @@
+<a href="https://koderlabs.github.io/ngx-device-detector">
+    <h1 align="center">ngx-device-detector</h1> 
+</a>
 
-## ng2-device-detector
-[![CI Status](http://img.shields.io/travis/KoderLabs/ng2-device-detector.svg?style=flat)](https://travis-ci.org/KoderLabs/ng2-device-detector)
-[![npm version](https://img.shields.io/npm/v/ng2-device-detector.svg)](https://www.npmjs.com/package/ng2-device-detector) [![npm downloads](https://img.shields.io/npm/dm/ng2-device-detector.svg)](https://www.npmjs.com/package/ng2-device-detector)
-[![npm](https://img.shields.io/npm/dt/ng2-device-detector.svg?style=flat-square)](https://github.com/KoderLabs/ng2-device-detector)
-[![GitHub stars](https://img.shields.io/github/stars/KoderLabs/ng2-device-detector.svg?style=social&label=Star&style=flat-square)](https://github.com/KoderLabs/ng2-device-detector)
-[![npm](https://img.shields.io/npm/l/ng2-device-detector.svg?style=flat-square)](https://github.com/KoderLabs/ng2-device-detector)
+<p align="center">
+An Angular 2 (and beyond) powered AOT compatible device detector that helps to identify browser, os and other useful information regarding the device using the app. The processing is based on user-agent.
+</p>
 
+<p align="center">
+<a href="https://travis-ci.org/KoderLabs/ngx-device-detector"><img src="http://img.shields.io/travis/KoderLabs/ngx-device-detector.svg?style=flat" alt="travis build status" ></a>
+<a href="https://www.npmjs.com/package/ngx-device-detector"><img src="https://img.shields.io/npm/v/ngx-device-detector.svg" alt="npm version" ></a>
+<a href="https://www.npmjs.com/package/ngx-device-detector"><img src="https://img.shields.io/npm/dm/ngx-device-detector.svg" alt="npm downloads/month" ></a>
+<a href="https://www.npmjs.com/package/ngx-device-detector"><img src="https://img.shields.io/npm/dt/ngx-device-detector.svg?style=flat-square" alt="npm downloads total" ></a>
+<a href="https://www.npmjs.com/package/ngx-device-detector"><img src="https://img.shields.io/github/stars/KoderLabs/ngx-device-detector.svg?style=social&label=Star&style=flat-square" alt="github stars" ></a>
+<a href="https://www.npmjs.com/package/ngx-device-detector"><img src="https://img.shields.io/npm/l/ngx-device-detector.svg?style=flat-square" alt="license" ></a>
+</p>
 
-> An Angular 2 (and beyond) powered AOT compatible device detector that helps to identify browser, os and other useful information regarding the device using the app. The processing is based on user-agent.
-
-## Breaking changes in 1.0.0
-The module name and the service name has been changed. See the Usage and Change Log sections below
 
 ## Live DEMO
 
-[Ng2 Device Detector Demo](https://koderlabs.github.io/ng2-device-detector)
-
+[Ngx Device Detector Demo](https://koderlabs.github.io/ngx-device-detector)
 
 
 ## Installation
@@ -23,14 +26,14 @@ The module name and the service name has been changed. See the Usage and Change 
 To install this library, run:
 
 ```bash
-$ npm install ng2-device-detector --save
+$ npm install ngx-device-detector --save
 ```
 
 ## Usage
-Import `Ng2DeviceDetectorModule` in your app.module.ts
+Import `DeviceDetectorModule` in your app.module.ts
 ```bash
   import { NgModule } from '@angular/core';
-  import { Ng2DeviceDetectorModule } from 'ng2-device-detector';
+  import { DeviceDetectorModule } from 'ngx-device-detector';
   ...
   @NgModule({
     declarations: [
@@ -42,7 +45,7 @@ Import `Ng2DeviceDetectorModule` in your app.module.ts
     imports: [
       CommonModule,
       FormsModule,
-      Ng2DeviceDetectorModule.forRoot()
+      DeviceDetectorModule.forRoot()
     ],
     providers:[
       AuthService
@@ -55,7 +58,7 @@ In your component where you want to use the Device Service
 ```bash
   import { Component } from '@angular/core';
   ...
-  import { Ng2DeviceService } from 'ng2-device-detector';
+  import { DeviceDetectorService } from 'ngx-device-detector';
   ...
   @Component({
     selector: 'home',  // <home></home>
@@ -67,7 +70,7 @@ In your component where you want to use the Device Service
   export class HomeComponent {
     deviceInfo = null;
     ...
-    constructor(..., private http: Http, private deviceService: Ng2DeviceService) {
+    constructor(..., private http: Http, private deviceService: DeviceDetectorService) {
       this.epicFunction();
     }
     ...
@@ -142,7 +145,14 @@ MIT © [Ahsan Ayaz](https://github.com/AhsanAyaz)
 
 ## Change Log
 
-#1.0.0 
+#1.1.0 **(contains breaking changes)**
+
+- Added official support to Angular5
+- The package name has been changed to `ngx-device-detector`
+- Renamed the Service from `Ng2DeviceService` to `DeviceDetectorService`
+- Renamed the Module from `Ng2DeviceDetector` to `DeviceDetectorModule`
+
+#1.0.0 **(contains breaking changes)**
 
 - Renamed the Service from `Device` to `Ng2DeviceService`
 - Renamed the Module from `Ng2DeviceDetector` to `Ng2DeviceDetectorModule`

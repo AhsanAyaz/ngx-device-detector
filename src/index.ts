@@ -1,6 +1,6 @@
 import { NgModule, ModuleWithProviders } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { Ng2DeviceService } from './ng2-device.service';
+import { DeviceDetectorService } from './device-detector.service';
 import { ReTree } from './retree.service';
 
 @NgModule({
@@ -13,18 +13,20 @@ import { ReTree } from './retree.service';
   exports: [
   ]
 })
-export class Ng2DeviceDetectorModule {
+export class DeviceDetectorModule {
   static forRoot(): ModuleWithProviders {
     return {
-      ngModule: Ng2DeviceDetectorModule,
+      ngModule: DeviceDetectorModule,
       providers: [
         ReTree,
-        Ng2DeviceService
+        DeviceDetectorService
       ]
     };
   }
 }
 
 
-export { Ng2DeviceService } from './ng2-device.service';
+export { DeviceDetectorService, DeviceInfo } from './device-detector.service';
 export { ReTree } from './retree.service';
+export * from './device-detector.constants';
+

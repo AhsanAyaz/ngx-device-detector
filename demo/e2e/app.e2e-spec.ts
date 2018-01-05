@@ -1,6 +1,6 @@
 import { Ng2DeviceDetectorDemoPage } from './app.po';
 
-describe('ng2-device-detector-demo App', () => {
+describe('ngx-device-detector-demo App', () => {
   let page: Ng2DeviceDetectorDemoPage;
 
   beforeEach(() => {
@@ -9,7 +9,7 @@ describe('ng2-device-detector-demo App', () => {
 
   it('should display message saying app works', () => {
     page.navigateTo();
-    expect(page.getDemoHeadingText()).toEqual('ng2-device-detector demo');
+    expect(page.getDemoHeadingText()).toEqual('ngx-device-detector demo');
   });
 
   it('should display device information in table', () => {

@@ -21,8 +21,8 @@
     "annotateForClosureCompiler": true,
     "strictMetadataEmit": true,
     "skipTemplateCodegen": true,
-    "flatModuleOutFile": "ng2-device-detector.js",
-    "flatModuleId": "ng2-device-detector"
+    "flatModuleOutFile": "ngx-device-detector.js",
+    "flatModuleId": "ngx-device-detector"
   },
   "files": [
     "./index.ts"

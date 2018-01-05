@@ -1,3 +1,10 @@
 #demoApp{
     max-width: 600px;
+    .device-icon {
+      text-align: center;
+      padding: 20px;
+      .fa {
+        font-size: 100px;
+      }
+    }
 }

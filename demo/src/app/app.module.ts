@@ -6,7 +6,7 @@ import { HttpModule } from '@angular/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
-import { Ng2DeviceDetectorModule } from 'ng2-device-detector';
+import { DeviceDetectorModule } from 'ngx-device-detector';
 import { KeysPipe } from './pipes/keys.pipe';
 
 @NgModule({
@@ -19,7 +19,7 @@ import { KeysPipe } from './pipes/keys.pipe';
     FormsModule,
     HttpModule,
     AppRoutingModule,
-    Ng2DeviceDetectorModule.forRoot()
+    DeviceDetectorModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]
