@@ -421,7 +421,7 @@
 
                                     <tr>
                                         <td class="col-md-4">
-                                            <div class="io-line">Defined in <a href="" data-line="12" class="link-to-prism">src/device-detector.service.ts:12</a></div>
+                                            <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">src/device-detector.service.ts:14</a></div>
                                         </td>
                                     </tr>
 
@@ -454,7 +454,7 @@
 
                                     <tr>
                                         <td class="col-md-4">
-                                            <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">src/device-detector.service.ts:15</a></div>
+                                            <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">src/device-detector.service.ts:17</a></div>
                                         </td>
                                     </tr>
 
@@ -487,7 +487,7 @@
 
                                     <tr>
                                         <td class="col-md-4">
-                                            <div class="io-line">Defined in <a href="" data-line="13" class="link-to-prism">src/device-detector.service.ts:13</a></div>
+                                            <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">src/device-detector.service.ts:15</a></div>
                                         </td>
                                     </tr>
 
@@ -520,7 +520,7 @@
 
                                     <tr>
                                         <td class="col-md-4">
-                                            <div class="io-line">Defined in <a href="" data-line="11" class="link-to-prism">src/device-detector.service.ts:11</a></div>
+                                            <div class="io-line">Defined in <a href="" data-line="13" class="link-to-prism">src/device-detector.service.ts:13</a></div>
                                         </td>
                                     </tr>
 
@@ -553,7 +553,7 @@
 
                                     <tr>
                                         <td class="col-md-4">
-                                            <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">src/device-detector.service.ts:14</a></div>
+                                            <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">src/device-detector.service.ts:16</a></div>
                                         </td>
                                     </tr>
 
@@ -586,7 +586,7 @@
 
                                     <tr>
                                         <td class="col-md-4">
-                                            <div class="io-line">Defined in <a href="" data-line="10" class="link-to-prism">src/device-detector.service.ts:10</a></div>
+                                            <div class="io-line">Defined in <a href="" data-line="12" class="link-to-prism">src/device-detector.service.ts:12</a></div>
                                         </td>
                                     </tr>
 
@@ -597,15 +597,18 @@
 
 
     <div class="tab-pane fade tab-source-code" id="c-source">
-        <pre class="line-numbers"><code class="language-typescript">import { Injectable } from &#x27;@angular/core&#x27;;
+        <pre class="line-numbers"><code class="language-typescript">import { REQUEST } from &#x27;@nguniversal/express-engine/tokens&#x27;;
+
+import { PLATFORM_ID, Inject, Injectable, Injector } from &#x27;@angular/core&#x27;;
+import { isPlatformBrowser } from &#x27;@angular/common&#x27;;
 import * as Constants from &#x27;./device-detector.constants&#x27;;
 import { ReTree } from &#x27;./retree.service&#x27;;
 
 export interface DeviceInfo {
     userAgent: string;
-    os : string;
+    os: string;
     browser: string;
-    device : string;
+    device: string;
     os_version: string;
     browser_version: string;
 }
@@ -619,8 +622,13 @@ export class DeviceDetectorService {
     device &#x3D; &#x27;&#x27;;
     os_version &#x3D; &#x27;&#x27;;
     browser_version &#x3D; &#x27;&#x27;;
-    constructor() {
-        this.ua &#x3D; window.navigator.userAgent;
+    constructor(@Inject(PLATFORM_ID) platformId, private injector: Injector) {
+        if (isPlatformBrowser(platformId)) {
+            this.ua &#x3D; window.navigator.userAgent;
+        } else {
+            let req: any &#x3D; this.injector.get(REQUEST);
+            this.ua &#x3D; req.get(&#x27;User-Agent&#x27;);
+        }
         this._setDeviceInfo();
     }
 

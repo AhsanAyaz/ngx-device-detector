@@ -1,6 +1,6 @@
 {
   "name": "ngx-device-detector",
-  "version": "1.1.1",
+  "version": "1.1.4",
   "scripts": {
     "build": "gulp build",
     "build:watch": "gulp",
@@ -12,7 +12,9 @@
     "lite": "lite-server",
     "playground:build": "tsc -p playground -w",
     "playground": "concurrently \"npm run build:watch\" \"npm run playground:build\" \"npm run lite\"",
-    "test": "tsc && karma start"
+    "test": "tsc && karma start",
+    "pre-release": "npm run lint && npm run build && npm run docs:build",
+    "release": "npm publish dist"
   },
   "repository": {
     "type": "git",
