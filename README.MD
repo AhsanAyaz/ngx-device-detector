@@ -27,6 +27,9 @@ To install this library, run:
 
 ```bash
 $ npm install ngx-device-detector --save
+
+# if you are NOT using Angular Universal, you need to install @nguniversal/express-engine as well. 
+$ npm install @nguniversal/express-engine --save
 ```
 
 ## Usage
@@ -144,6 +147,28 @@ MIT © [Ahsan Ayaz](https://github.com/AhsanAyaz)
 
 
 ## Change Log
+
+#1.1.7
+- minor fixes
+
+#1.1.6
+- fixes. Readme Updated with Angular Universal dependency info
+
+#1.1.5
+- fixes #22, #23
+
+#1.1.4
+- fixes
+- Support added for Angular Universal
+
+#1.1.3
+- fixes
+
+#1.1.2
+- fixes
+
+#1.1.1
+- fixes
 
 #1.1.0 **(contains breaking changes)**
 

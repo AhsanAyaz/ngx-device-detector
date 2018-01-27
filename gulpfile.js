@@ -78,7 +78,8 @@ gulp.task('rollup:fesm', function () {
       // See "external" in https://rollupjs.org/#core-functionality
       external: [
         '@angular/core',
-        '@angular/common'
+        '@angular/common',
+        '@nguniversal/express-engine/tokens'
       ],
 
       // Format of generated bundle
@@ -111,7 +112,8 @@ gulp.task('rollup:umd', function () {
       // See "external" in https://rollupjs.org/#core-functionality
       external: [
         '@angular/core',
-        '@angular/common'
+        '@angular/common',
+        '@nguniversal/express-engine/tokens'
       ],
 
       // Format of generated bundle
