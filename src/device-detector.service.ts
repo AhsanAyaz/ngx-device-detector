@@ -2,7 +2,7 @@
  * Created by ahsanayaz on 08/11/2016.
  */
 import { REQUEST } from '@nguniversal/express-engine/tokens';
-import { PLATFORM_ID, Inject, Injectable, Injector } from '@angular/core';
+import { PLATFORM_ID, Inject, Injectable, Optional} from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
 import * as Constants from './device-detector.constants';
 import { ReTree } from './retree.service';
@@ -25,13 +25,8 @@ export class DeviceDetectorService {
     device = '';
     os_version = '';
     browser_version = '';
-    constructor(@Inject(PLATFORM_ID) private platformId, private injector: Injector) {
-        if (isPlatformBrowser(this.platformId)) {
-            this.ua = window.navigator.userAgent;
-        } else {
-            let req: any = this.injector.get(REQUEST);
-            this.ua = req.get('User-Agent');
-        }
+    constructor(@Inject(PLATFORM_ID) private platformId, @Optional() @Inject(REQUEST) req: any) {
+        this.ua = isPlatformBrowser(this.platformId) ? window.navigator.userAgent : req.get('User-Agent');
         this._setDeviceInfo();
     }
 
