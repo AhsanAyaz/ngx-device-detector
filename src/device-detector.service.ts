@@ -1,7 +1,7 @@
 /**
  * Created by ahsanayaz on 08/11/2016.
  */
-import { REQUEST } from '@nguniversal/express-engine/tokens';
+import { REQUEST } from '@nguniversal/express-engine';
 import { PLATFORM_ID, Inject, Injectable, Optional} from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
 import * as Constants from './device-detector.constants';

@@ -79,12 +79,12 @@ gulp.task('rollup:fesm', function () {
       external: [
         '@angular/core',
         '@angular/common',
-        '@nguniversal/express-engine/tokens'
+        '@nguniversal/express-engine'
       ],
 
       // Format of generated bundle
       // See "format" in https://rollupjs.org/#core-functionality
-      format: 'es'
+      output: {format: 'es'}
     }))
     .pipe(gulp.dest(distFolder));
 });
@@ -113,27 +113,20 @@ gulp.task('rollup:umd', function () {
       external: [
         '@angular/core',
         '@angular/common',
-        '@nguniversal/express-engine/tokens'
+        '@nguniversal/express-engine'
       ],
-
-      // Format of generated bundle
-      // See "format" in https://rollupjs.org/#core-functionality
-      format: 'umd',
-
-      // Export mode to use
-      // See "exports" in https://rollupjs.org/#danger-zone
-      exports: 'named',
 
       // The name to use for the module for UMD/IIFE bundles
       // (required for bundles with exports)
       // See "name" in https://rollupjs.org/#core-functionality
-      name: 'ngx-device-detector',
-
-      // See "globals" in https://rollupjs.org/#core-functionality
-      globals: {
-        typescript: 'ts'
+      output: {
+        name: 'ngx-device-detector',
+        globals: {
+          typescript: 'ts'
+        },
+        format: 'umd',
+        exports: 'named'
       }
-
     }))
     .pipe(rename('ngx-device-detector.umd.js'))
     .pipe(gulp.dest(distFolder));
