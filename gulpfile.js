@@ -84,7 +84,8 @@ gulp.task('rollup:fesm', function () {
 
       // Format of generated bundle
       // See "format" in https://rollupjs.org/#core-functionality
-      output: {format: 'es'}
+      // output: {format: 'es'},
+      format: 'es'
     }))
     .pipe(gulp.dest(distFolder));
 });
@@ -122,11 +123,23 @@ gulp.task('rollup:umd', function () {
       output: {
         name: 'ngx-device-detector',
         globals: {
-          typescript: 'ts'
+          typescript: 'ts',
+          '@angular/core': 'core',
+          '@angular/common': 'common',
+          '@nguniversal/express-engine': 'expressEngine'
         },
         format: 'umd',
         exports: 'named'
-      }
+      },
+      name: 'ngx-device-detector',
+      globals: {
+        typescript: 'ts',
+        '@angular/core': 'core',
+        '@angular/common': 'common',
+        '@nguniversal/express-engine': 'expressEngine'
+      },
+      format: 'umd',
+      exports: 'named'
     }))
     .pipe(rename('ngx-device-detector.umd.js'))
     .pipe(gulp.dest(distFolder));

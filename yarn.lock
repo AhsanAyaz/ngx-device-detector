@@ -45,6 +45,14 @@
   dependencies:
     tslib "^1.7.1"
 
+"@angular/platform-server@^5.2.7":
+  version "5.2.7"
+  resolved "https://registry.yarnpkg.com/@angular/platform-server/-/platform-server-5.2.7.tgz#e2eb290952dbe6ab04b4edae115a0d02b8b2dc4c"
+  dependencies:
+    domino "^1.0.29"
+    tslib "^1.7.1"
+    xhr2 "^0.1.4"
+
 "@compodoc/compodoc@^1.0.5":
   version "1.0.5"
   resolved "https://registry.yarnpkg.com/@compodoc/compodoc/-/compodoc-1.0.5.tgz#82c867e223a6c5a5186f1e22c5f882a64c30fc74"
@@ -87,9 +95,9 @@
     fs-extra "^4.0.1"
     viz.js "^1.8.0"
 
-"@nguniversal/express-engine@^5.0.0-beta.5":
-  version "5.0.0-beta.5"
-  resolved "https://registry.yarnpkg.com/@nguniversal/express-engine/-/express-engine-5.0.0-beta.5.tgz#3cbc0fb7f928012d61240681631581fb0ad327f5"
+"@nguniversal/express-engine@^5.0.0-beta.6":
+  version "5.0.0-beta.6"
+  resolved "https://registry.yarnpkg.com/@nguniversal/express-engine/-/express-engine-5.0.0-beta.6.tgz#7054354be3b06367051cca628fc9c1ea8fc42600"
 
 "@types/jasmine@2.5.53":
   version "2.5.53"
@@ -1245,6 +1253,10 @@ domhandler@^2.3.0:
   resolved "https://registry.yarnpkg.com/domhandler/-/domhandler-2.4.1.tgz#892e47000a99be55bbf3774ffea0561d8879c259"
   dependencies:
     domelementtype "1"
+
+domino@^1.0.29:
+  version "1.0.30"
+  resolved "https://registry.yarnpkg.com/domino/-/domino-1.0.30.tgz#54a4154ecae968616680f8feba3cedff355c71f4"
 
 domutils@1.5.1:
   version "1.5.1"
@@ -5536,6 +5548,10 @@ ws@~3.3.1:
 wtf-8@1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/wtf-8/-/wtf-8-1.0.0.tgz#392d8ba2d0f1c34d1ee2d630f15d0efb68e1048a"
+
+xhr2@^0.1.4:
+  version "0.1.4"
+  resolved "https://registry.yarnpkg.com/xhr2/-/xhr2-0.1.4.tgz#7f87658847716db5026323812f818cadab387a5f"
 
 xml2js@0.4.4:
   version "0.4.4"
