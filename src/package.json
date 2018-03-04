@@ -1,6 +1,6 @@
 {
   "name": "ngx-device-detector",
-  "version": "1.1.7",
+  "version": "1.2.0",
   "repository": {
     "type": "git",
     "url": "https://github.com/KoderLabs/ngx-device-detector.git"

@@ -148,6 +148,10 @@ MIT © [Ahsan Ayaz](https://github.com/AhsanAyaz)
 
 ## Change Log
 
+#1.2.0
+- minor fixes
+- fixed [#27](https://github.com/KoderLabs/ngx-device-detector/issues/27).
+
 #1.1.7
 - minor fixes
 
