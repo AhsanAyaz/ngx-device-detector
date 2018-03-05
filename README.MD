@@ -148,6 +148,9 @@ MIT © [Ahsan Ayaz](https://github.com/AhsanAyaz)
 
 ## Change Log
 
+#1.2.1
+- moved @angular/platform-server to peer-dependencies
+
 #1.2.0
 - minor fixes
 - fixed [#27](https://github.com/KoderLabs/ngx-device-detector/issues/27).
