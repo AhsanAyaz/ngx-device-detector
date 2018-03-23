@@ -27,9 +27,6 @@ To install this library, run:
 
 ```bash
 $ npm install ngx-device-detector --save
-
-# if you are NOT using Angular Universal, you need to install @nguniversal/express-engine as well. 
-$ npm install @nguniversal/express-engine --save
 ```
 
 ## Usage
@@ -145,8 +142,11 @@ The library is inspired by and based on the work from [ng-device-detector ](http
 MIT © [Ahsan Ayaz](https://github.com/AhsanAyaz)
 
 
-
 ## Change Log
+
+#1.2.2 **(contains breaking changes)**
+- Removing the SSR (Universal) support because of the raising issues. 
+- Will be revisiting SSR support properly in April.
 
 #1.2.1
 - moved @angular/platform-server to peer-dependencies
