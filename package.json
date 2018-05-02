@@ -1,6 +1,6 @@
 {
   "name": "ngx-device-detector",
-  "version": "1.2.2",
+  "version": "1.2.3",
   "scripts": {
     "build": "gulp build",
     "build:watch": "gulp",
