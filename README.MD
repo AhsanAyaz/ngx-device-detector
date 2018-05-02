@@ -133,6 +133,16 @@ Make sure you have @angular/cli installed
 
 the demo will be up at `localhost:4200`
 
+## IE9, IE10, IE11 Compatibility
+
+If you're consuming the library for IE9, IE10 & IE11, make sure to uncomment these lines from `src/polyfills.ts` in your project.
+
+```typescript
+import 'core-js/es6/string';
+import 'core-js/es6/array';
+import 'core-js/es6/map';
+```
+
 ## Credits
 
 The library is inspired by and based on the work from [ng-device-detector ](https://github.com/srfrnk/ng-device-detector). Also used a typescript wrapper of the amazing work in [ReTree](https://github.com/srfrnk/re-tree) for regex based needs and an Angular2 Library Creator boilerplate to get the work started fast. I.e. [Generator Angular2 library](https://github.com/jvandemo/generator-angular2-library).
