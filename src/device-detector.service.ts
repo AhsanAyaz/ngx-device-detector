@@ -26,7 +26,7 @@ export class DeviceDetectorService {
     browser_version = '';
 
     constructor(@Inject(PLATFORM_ID) private platformId) {
-        if (isPlatformBrowser(platformId)) {
+        if (isPlatformBrowser(this.platformId)) {
             this.ua = window.navigator.userAgent;
         }
         this._setDeviceInfo();
