@@ -1,7 +1,8 @@
 /**
  * Created by ahsanayaz on 08/11/2016.
  */
-import { Injectable} from '@angular/core';
+import { PLATFORM_ID, Inject, Injectable } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
 import * as Constants from './device-detector.constants';
 import { ReTree } from './retree.service';
 
@@ -23,8 +24,11 @@ export class DeviceDetectorService {
     device = '';
     os_version = '';
     browser_version = '';
-    constructor() {
-        this.ua = window.navigator.userAgent;
+
+    constructor(@Inject(PLATFORM_ID) private platformId) {
+        if (isPlatformBrowser(this.platformId)) {
+            this.ua = window.navigator.userAgent;
+        }
         this._setDeviceInfo();
     }
 
