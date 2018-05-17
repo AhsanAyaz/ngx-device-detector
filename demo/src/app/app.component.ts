@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { DeviceDetectorService } from 'ngx-device-detector';
+
 @Component({
   selector: 'dd-root',
   templateUrl: './app.component.html',

@@ -5,17 +5,16 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class KeysPipe implements PipeTransform {
 
-  transform(value, props: string[] = []) : any {
-    let keys = [];
-    let noFilter = props.length === 0;
-    for (let key in value) {
-      if(noFilter){
-        if(value.hasOwnProperty(key)){
+  transform(value, props: string[] = []): any {
+    const keys = [];
+    const noFilter = props.length === 0;
+    for (const key in value) {
+      if (noFilter) {
+        if (value.hasOwnProperty(key)) {
           keys.push({key: key, value: value[key]});
         }
-      }
-      else{
-        if(props.indexOf(key) !== -1){
+      } else {
+        if (props.indexOf(key) !== -1) {
           keys.push({key: key, value: value[key]});
         }
       }
