@@ -15,7 +15,7 @@
     "src/index.ts",
     "src/device-detector.service.ts",
     "src/device-detector.constants.ts",
-    "src/retree.service.ts"
+    "src/retree.ts"
   ],
   "exclude": [
      "node_modules",

@@ -2,7 +2,6 @@
 
 #1.3.0 **(contains breaking changes)**
 - Added support for angular 6 [#37](https://github.com/KoderLabs/ngx-device-detector/issues/37)
-- Drop support for node 6
 - Drop support for angular 4
 
 #1.2.3
