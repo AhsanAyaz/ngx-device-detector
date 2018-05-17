@@ -4,7 +4,7 @@
 import { PLATFORM_ID, Inject, Injectable } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
 import * as Constants from './device-detector.constants';
-import { ReTree } from './retree.service';
+import { ReTree } from './retree';
 
 export interface DeviceInfo {
     userAgent: string;
