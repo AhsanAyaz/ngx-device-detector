@@ -109,6 +109,10 @@ a[href] {
     margin-top: 25px;
 }
 
+.container-fluid.modules {
+    overflow-y: scroll;
+}
+
 .container-fluid.module {
     padding: 0;
     margin-top: 0;
@@ -161,10 +165,10 @@ a[href] {
     height: 100%;
     overflow-y: auto;
     -webkit-overflow-scrolling: touch;
-    width: calc(100% - 300px);
+    width: calc(100% - 320px);
     position: absolute;
     top: 0;
-    left: 300px;
+    left: 320px;
     padding: 15px 30px;
 }
 
@@ -184,6 +188,24 @@ a[href] {
     margin-top: 20px;
 }
 
+.content-data {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.content-data .tab-content {
+    flex: 1;
+}
+
+.content-data .tab-pane {
+    height: 100%;
+}
+
+.content-data iframe {
+    height: 100%;
+    width: 100%;
+}
 
 /**
  * Icons
@@ -260,7 +282,7 @@ a[href] {
     border-right: 1px solid #e7e7e7;
     height: 100%;
     padding: 0;
-    width: 300px;
+    width: 320px;
     overflow-y: auto;
     -webkit-overflow-scrolling: touch;
 }
@@ -318,6 +340,14 @@ a[href] {
 .menu ul.list li.chapter .simple {
     padding: 10px 15px;
     position: relative;
+}
+
+.menu ul.list li.chapter .inner .simple {
+    padding-left: 35px;
+}
+
+.menu ul.list li.chapter .inner ul.links {
+    padding-left: 40px;
 }
 
 .menu .panel-group {
@@ -521,6 +551,20 @@ code {
 .search-results ul.search-results-list li p em {
   background-color: rgba(255, 220, 0, 0.4);
   font-style: normal;
+}
+.search-results-item {
+    margin-bottom: 1rem !important;
+    margin-top: 1rem;
+    padding-bottom: 0 !important;
+}
+.search-results-item a {
+    font-size: 18px;
+}
+.search-results-group, .search-results-group .search-results-list {
+    margin-bottom: 0 !important;
+}
+.search-results-group h3 {
+    margin-top: 10px;
 }
 
 .jsdoc-params {
@@ -763,6 +807,10 @@ path.link {
 #module-graph-svg svg {
     width: 100%;
     height: 100%;
+}
+
+.content ul.type-parameters {
+    margin-bottom: 5px;
 }
 
 table.params {
