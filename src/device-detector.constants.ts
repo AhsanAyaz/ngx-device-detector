@@ -3,7 +3,7 @@
  */
 
 
-export const BROWSERS: any = {
+export const BROWSERS = {
     CHROME: 'chrome',
     FIREFOX: 'firefox',
     SAFARI: 'safari',
@@ -14,7 +14,7 @@ export const BROWSERS: any = {
     UNKNOWN: 'unknown'
 };
 
-export const DEVICES: any = {
+export const DEVICES = {
     ANDROID: 'android',
     I_PAD: 'ipad',
     IPHONE: 'iphone',
@@ -31,7 +31,7 @@ export const DEVICES: any = {
     UNKNOWN: 'unknown'
 };
 
-export const OS: any = {
+export const OS = {
     WINDOWS: 'windows',
     MAC: 'mac',
     IOS: 'ios',

@@ -1,13 +1,11 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
-import { HttpModule } from '@angular/http';
 
-import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
-import { DeviceDetectorModule } from 'ngx-device-detector';
 import { KeysPipe } from './pipes/keys.pipe';
+import { CommonModule } from '@angular/common';
+import { DeviceDetectorModule } from 'ngx-device-detector';
 
 @NgModule({
   declarations: [
@@ -16,9 +14,7 @@ import { KeysPipe } from './pipes/keys.pipe';
   ],
   imports: [
     BrowserModule,
-    FormsModule,
-    HttpModule,
-    AppRoutingModule,
+    CommonModule,
     DeviceDetectorModule.forRoot()
   ],
   providers: [],

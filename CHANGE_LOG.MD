@@ -1,6 +1,10 @@
 # Change Log
 
-#1.2.3 
+#1.3.0 **(contains breaking changes)**
+- Added support for angular 6 [#37](https://github.com/KoderLabs/ngx-device-detector/issues/37)
+- Drop support for angular 4
+
+#1.2.3
 - Updated the readme for IE support
 
 #1.2.2 **(contains breaking changes)**

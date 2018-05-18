@@ -18,7 +18,7 @@ var core_2 = require("@angular/core");
 var platform_browser_dynamic_1 = require("@angular/platform-browser-dynamic");
 var core_3 = require("@angular/core");
 var dist_1 = require("../dist");
-var KeysPipe = (function () {
+var KeysPipe = /** @class */ (function () {
     function KeysPipe() {
     }
     KeysPipe.prototype.transform = function (value, props) {
@@ -47,7 +47,7 @@ var KeysPipe = (function () {
     return KeysPipe;
 }());
 exports.KeysPipe = KeysPipe;
-var AppComponent = (function () {
+var AppComponent = /** @class */ (function () {
     function AppComponent(deviceService) {
         this.deviceService = deviceService;
         this.propsToShow = ["userAgent", "os", "browser", "device", "os_version", "browser_version"];
@@ -64,7 +64,7 @@ var AppComponent = (function () {
     ], AppComponent);
     return AppComponent;
 }());
-var AppModule = (function () {
+var AppModule = /** @class */ (function () {
     function AppModule() {
     }
     AppModule = __decorate([

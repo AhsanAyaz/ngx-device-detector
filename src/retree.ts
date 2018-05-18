@@ -16,17 +16,17 @@ export class ReTree {
 
         if (regex instanceof RegExp) {
             return regex.test(string);
-        }else if (regex && Array.isArray(regex.and)) {
+        } else if (regex && Array.isArray(regex.and)) {
             return regex.and.every(function (item: any) {
                 return self.test(string, item);
             });
-        }else if (regex && Array.isArray(regex.or)) {
+        } else if (regex && Array.isArray(regex.or)) {
             return regex.or.some(function (item: any) {
                 return self.test(string, item);
             });
-        }else if (regex && regex.not) {
+        } else if (regex && regex.not) {
             return !self.test(string, regex.not);
-        }else {
+        } else {
             return false;
         }
     }
@@ -39,11 +39,11 @@ export class ReTree {
 
         if (regex instanceof RegExp) {
             return regex.exec(string);
-        }else if (regex && Array.isArray(regex)) {
+        } else if (regex && Array.isArray(regex)) {
             return regex.reduce(function (res: any, item: any) {
                 return (!!res) ? res : self.exec(string, item);
             }, null);
-        }else {
+        } else {
             return null;
         }
     }

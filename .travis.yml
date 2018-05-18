@@ -1,7 +1,7 @@
 language: node_js
 sudo: true
 node_js:
-  - "7"
+  - "8"
 
 demo/dist: trusty
 
@@ -25,7 +25,7 @@ script:
   - yarn
   - node_modules/.bin/ng test --watch false
   - node_modules/.bin/webdriver-manager update
-  - ng build -bh "https://koderlabs.github.io/ngx-device-detector/" --prod --aot
+  - ng build --base-href "https://koderlabs.github.io/ngx-device-detector/" --prod --aot
   - cd ..
 
 deploy:
