@@ -9,10 +9,18 @@ An Angular 2 (and beyond) powered AOT compatible device detector that helps to i
 <p align="center">
 <a href="https://travis-ci.org/KoderLabs/ngx-device-detector"><img src="http://img.shields.io/travis/KoderLabs/ngx-device-detector.svg?style=flat" alt="travis build status" ></a>
 <a href="https://www.npmjs.com/package/ngx-device-detector"><img src="https://img.shields.io/npm/v/ngx-device-detector.svg" alt="npm version" ></a>
-<a href="https://www.npmjs.com/package/ngx-device-detector"><img src="https://img.shields.io/npm/dm/ngx-device-detector.svg" alt="npm downloads/month" ></a>
-<a href="https://www.npmjs.com/package/ngx-device-detector"><img src="https://img.shields.io/npm/dt/ngx-device-detector.svg?style=flat-square" alt="npm downloads total" ></a>
 <a href="https://www.npmjs.com/package/ngx-device-detector"><img src="https://img.shields.io/github/stars/KoderLabs/ngx-device-detector.svg?style=social&label=Star&style=flat-square" alt="github stars" ></a>
 <a href="https://www.npmjs.com/package/ngx-device-detector"><img src="https://img.shields.io/npm/l/ngx-device-detector.svg?style=flat-square" alt="license" ></a>
+</p>
+<p align="center">
+  <a href="https://www.npmjs.com/package/ng2-device-detector">Deprecated package :</a>
+  <a href="https://www.npmjs.com/package/ng2-device-detector"><img src="https://img.shields.io/npm/dt/ng2-device-detector.svg?style=flat-square" alt="npm downloads total" ></a>
+  <a href="https://www.npmjs.com/package/ng2-device-detector"><img src="https://img.shields.io/npm/dm/ng2-device-detector.svg" alt="npm downloads/month" ></a>
+</p>
+<p align="center">
+  <a href="https://www.npmjs.com/package/ngx-device-detector">New package :</a>
+  <a href="https://www.npmjs.com/package/ngx-device-detector"><img src="https://img.shields.io/npm/dt/ngx-device-detector.svg?style=flat-square" alt="npm downloads total" ></a>
+  <a href="https://www.npmjs.com/package/ngx-device-detector"><img src="https://img.shields.io/npm/dm/ngx-device-detector.svg" alt="npm downloads/month" ></a>
 </p>
 
 
