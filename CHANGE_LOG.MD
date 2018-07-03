@@ -11,10 +11,6 @@
 - Removing the SSR (Universal) support because of the raising issues. 
 - Will be revisiting SSR support properly in April.
 
-#1.2.2 **(contains breaking changes)**
-- Removing the SSR (Universal) support because of the raising issues. 
-- Will be revisiting SSR support properly in April.
-
 #1.2.1
 - moved @angular/platform-server to peer-dependencies
 
