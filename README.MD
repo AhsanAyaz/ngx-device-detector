@@ -39,7 +39,7 @@ $ npm install ngx-device-detector --save
 
 ## Usage
 Import `DeviceDetectorModule` in your app.module.ts
-```bash
+```typescript
   import { NgModule } from '@angular/core';
   import { DeviceDetectorModule } from 'ngx-device-detector';
   ...
@@ -63,7 +63,7 @@ Import `DeviceDetectorModule` in your app.module.ts
 ```
 
 In your component where you want to use the Device Service
-```bash
+```typescript
   import { Component } from '@angular/core';
   ...
   import { DeviceDetectorService } from 'ngx-device-detector';
@@ -85,7 +85,13 @@ In your component where you want to use the Device Service
     epicFunction() {
       console.log('hello `Home` component');
       this.deviceInfo = this.deviceService.getDeviceInfo();
+      const isMobile = this.deviceService.isMobile();
+      const isTablet = this.deviceService.isTablet();
+      const isDesktopDevice = this.deviceService.isDesktop();
       console.log(this.deviceInfo);
+      console.log(isMobile);  // returns if the device is a mobile device (android / iPhone / windows-phone etc)
+      console.log(isTablet);  // returns if the device us a tablet (iPad etc)
+      console.log(isDesktopDevice); // returns if the app is running on a Desktop browser.
     }
     ...
   }
@@ -99,6 +105,11 @@ Holds the following properties
 * device
 * userAgent
 * os_version
+
+## Helper Methods
+* **isMobile() :** returns if the device is a mobile device (android / iPhone/ windows-phone etc)
+* **isTablet() :** returns if the device us a tablet (iPad etc)
+* **isDesktop() :** returns if the app is running on a Desktop browser.
 
 ## Development
 
