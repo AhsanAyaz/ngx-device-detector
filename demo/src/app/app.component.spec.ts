@@ -38,6 +38,6 @@ describe('AppComponent', () => {
 
   it('should render device information inside table in <tr> tags ', async(() => {
     const compiled = fixture.debugElement.nativeElement;
-    expect(compiled.querySelectorAll('table tr.info-item').length).toEqual(6);  // all the 6 required properties
+    expect(compiled.querySelectorAll('table tr.info-item').length).toEqual(9);  // all the 6 required properties
   }));
 });

@@ -15,6 +15,6 @@ describe('ngx-device-detector-demo App', () => {
   it('should display device information in table', () => {
     page.navigateTo();
     const infoElements = page.getDeviceInfoElements();
-    expect(infoElements.count()).toEqual(6);
+    expect(infoElements.count()).toEqual(9);
   });
 });
