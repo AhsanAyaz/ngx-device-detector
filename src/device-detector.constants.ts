@@ -96,12 +96,12 @@ export const OS_RE: any = {
 };
 
 export const BROWSERS_RE: any = {
-    CHROME: {and: [{or: [/\bChrome\b/, /\bCriOS\b/]}, {not: {or: [/\bOPR\b/, /\bEdg[eA]\b/, /\bSamsungBrowser\b/]}}]},
+    CHROME: {and: [{or: [/\bChrome\b/, /\bCriOS\b/]}, {not: {or: [/\bOPR\b/, /\bEdg(e|A|iOS)\b/, /\bSamsungBrowser\b/]}}]},
     FIREFOX: /\bFirefox\b/,
-    SAFARI: {and: [/^((?!CriOS).)*\Safari\b.*$/, {not: {or: [/\bOPR\b/, /\bEdg[eA]\b/, /\bWindows Phone\b/, /\bSamsungBrowser\b/]}}]},
+    SAFARI: {and: [/^((?!CriOS).)*\Safari\b.*$/, {not: {or: [/\bOPR\b/, /\bEdg(e|A|iOS)\b/, /\bWindows Phone\b/, /\bSamsungBrowser\b/]}}]},
     OPERA: {or: [/Opera\b/, /\bOPR\b/]},
     IE: {or: [/\bMSIE\b/, /\bTrident\b/, /^Mozilla\/5\.0 \(Windows NT 10\.0; Win64; x64\)$/]},
-    MS_EDGE: {or: [/\bEdg[eA]\b/]},
+    MS_EDGE: {or: [/\bEdg(e|A|iOS)\b/]},
     PS4: /\bMozilla\/5.0 \(PlayStation 4\b/,
     VITA: /\bMozilla\/5.0 \(Play(S|s)tation Vita\b/,
     FB_MESSANGER: /\bFBAN\/MessengerForiOS\b/,
@@ -164,7 +164,7 @@ export const BROWSER_VERSIONS_RE_MAP: any = {
     SAFARI: /\bVersion\/([\d\.]+)\b/,
     OPERA: [/\bVersion\/([\d\.]+)\b/, /\bOPR\/([\d\.]+)\b/],
     IE: [/\bMSIE ([\d\.]+\w?)\b/, /\brv:([\d\.]+\w?)\b/],
-    MS_EDGE: /\bEdg[eA]\/([\d\.]+)\b/,
+    MS_EDGE: /\bEdg(e|A|iOS)\/([\d\.]+)\b/,
     SAMSUNG: /\bSamsungBrowser\/([\d\.]+)\b/
 };
 
