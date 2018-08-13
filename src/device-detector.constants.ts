@@ -11,6 +11,7 @@ export const BROWSERS = {
     IE: 'ie',
     MS_EDGE: 'ms-edge',
     FB_MESSANGER: 'fb-messanger',
+    SAMSUNG: 'samsung',
     UNKNOWN: 'unknown'
 };
 
@@ -82,9 +83,9 @@ export const OS_VERSIONS: any = {
 
 export const OS_RE: any = {
     WINDOWS: {and: [{or: [/\bWindows|(Win\d\d)\b/, /\bWin 9x\b/]}, {not: /\bWindows Phone\b/}]},
-    MAC: {and: [/\bMac OS\b/, {not: /Windows Phone/}]},
-    IOS: {and: [{or: [/\biPad\b/, /\biPhone\b/, /\biPod\b/]}, {not: /Windows Phone/}]},
-    ANDROID: {and: [/\bAndroid\b/, {not: /Windows Phone/}]},
+    MAC: {and: [/\bMac OS\b/, {not: /\bWindows Phone\b/}]},
+    IOS: {and: [{or: [/\biPad\b/, /\biPhone\b/, /\biPod\b/]}, {not: /\bWindows Phone\b/}]},
+    ANDROID: {and: [/\bAndroid\b/, {not: /\bWindows Phone\b/}]},
     LINUX: /\bLinux\b/,
     UNIX: /\bUNIX\b/,
     FIREFOX_OS: {and: [/\bFirefox\b/, /Mobile\b/]},
@@ -95,15 +96,16 @@ export const OS_RE: any = {
 };
 
 export const BROWSERS_RE: any = {
-    CHROME: {and: [{or: [/\bChrome\b/, /\bCriOS\b/]}, {not: {or: [/\bOPR\b/, /\bEdge\b/]}}]},
+    CHROME: {and: [{or: [/\bChrome\b/, /\bCriOS\b/]}, {not: {or: [/\bOPR\b/, /\bEdg[eA]\b/, /\bSamsungBrowser\b/]}}]},
     FIREFOX: /\bFirefox\b/,
-    SAFARI: {and: [/^((?!CriOS).)*\Safari\b.*$/, {not: {or: [/\bOPR\b/, /\bEdge\b/, /Windows Phone/]}}]},
+    SAFARI: {and: [/^((?!CriOS).)*\Safari\b.*$/, {not: {or: [/\bOPR\b/, /\bEdg[eA]\b/, /\bWindows Phone\b/, /\bSamsungBrowser\b/]}}]},
     OPERA: {or: [/Opera\b/, /\bOPR\b/]},
     IE: {or: [/\bMSIE\b/, /\bTrident\b/, /^Mozilla\/5\.0 \(Windows NT 10\.0; Win64; x64\)$/]},
-    MS_EDGE: {or: [/\bEdge\b/]},
+    MS_EDGE: {or: [/\bEdg[eA]\b/]},
     PS4: /\bMozilla\/5.0 \(PlayStation 4\b/,
     VITA: /\bMozilla\/5.0 \(Play(S|s)tation Vita\b/,
-    FB_MESSANGER: /\bFBAN\/MessengerForiOS\b/
+    FB_MESSANGER: /\bFBAN\/MessengerForiOS\b/,
+    SAMSUNG: /\bSamsungBrowser\b/
 };
 
 export const DEVICES_RE: any = {
@@ -162,7 +164,8 @@ export const BROWSER_VERSIONS_RE_MAP: any = {
     SAFARI: /\bVersion\/([\d\.]+)\b/,
     OPERA: [/\bVersion\/([\d\.]+)\b/, /\bOPR\/([\d\.]+)\b/],
     IE: [/\bMSIE ([\d\.]+\w?)\b/, /\brv:([\d\.]+\w?)\b/],
-    MS_EDGE: /\bEdge\/([\d\.]+)\b/
+    MS_EDGE: /\bEdg[eA]\/([\d\.]+)\b/,
+    SAMSUNG: /\bSamsungBrowser\/([\d\.]+)\b/
 };
 
 export const BROWSER_VERSIONS_RE: any = Object.keys(BROWSER_VERSIONS_RE_MAP).reduce(function (obj: any, key: any) {
