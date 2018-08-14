@@ -97,7 +97,7 @@ export const OS_RE: any = {
 
 export const BROWSERS_RE: any = {
     CHROME: {and: [{or: [/\bChrome\b/, /\bCriOS\b/]}, {not: {or: [/\bOPR\b/, /\bEdg(e|A|iOS)\b/, /\bSamsungBrowser\b/]}}]},
-    FIREFOX: /\bFirefox\b/,
+    FIREFOX: { or: [/\bFirefox\b/, /\bFxiOS\b/] },
     SAFARI: {and: [/^((?!CriOS).)*\Safari\b.*$/, {not: {or: [/\bOPR\b/, /\bEdg(e|A|iOS)\b/, /\bWindows Phone\b/, /\bSamsungBrowser\b/]}}]},
     OPERA: {or: [/Opera\b/, /\bOPR\b/]},
     IE: {or: [/\bMSIE\b/, /\bTrident\b/, /^Mozilla\/5\.0 \(Windows NT 10\.0; Win64; x64\)$/]},
