@@ -1,5 +1,8 @@
 # Change Log
 
+#1.3.1
+- Added better support for Android Browsers [#48](https://github.com/Koderlabs/ngx-device-detector/pulls/48). Thanks to [Gailbear](https://github.com/Gailbear)
+
 #1.3.0 **(contains breaking changes)**
 - Added support for angular 6 [#37](https://github.com/KoderLabs/ngx-device-detector/issues/37)
 - Drop support for angular 4

@@ -24,9 +24,13 @@ An Angular 2 (and beyond) powered AOT compatible device detector that helps to i
 </p>
 
 
+## DOCS
+
+[Ngx Device Detector DOCS](https://koderlabs.github.io/ngx-device-detector)
+
 ## Live DEMO
 
-[Ngx Device Detector Demo](https://koderlabs.github.io/ngx-device-detector)
+[Ngx Device Detector Demo](https://koderlabs.github.io/ngx-device-detector/demo)
 
 
 ## Installation
