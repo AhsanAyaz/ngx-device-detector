@@ -24,9 +24,13 @@ An Angular 2 (and beyond) powered AOT compatible device detector that helps to i
 </p>
 
 
+## DOCS
+
+[Ngx Device Detector DOCS](https://koderlabs.github.io/ngx-device-detector)
+
 ## Live DEMO
 
-[Ngx Device Detector Demo](https://koderlabs.github.io/ngx-device-detector)
+[Ngx Device Detector Demo](https://koderlabs.github.io/ngx-device-detector/demo)
 
 
 ## Installation
@@ -152,6 +156,10 @@ Make sure you have @angular/cli installed
 
 the demo will be up at `localhost:4200`
 
+## Change Log
+
+Please see [CHANGE_LOG.MD](CHANGE_LOG.MD) for the updates.
+
 ## IE10, IE11 Compatibility
 
 If you're consuming the library for IE10 & IE11, make sure to uncomment (at least) these lines from `src/polyfills.ts` in your project.
@@ -169,8 +177,3 @@ The library is inspired by and based on the work from [ng-device-detector ](http
 ## License
 
 MIT © [Ahsan Ayaz](https://github.com/AhsanAyaz)
-
-
-## Change Log
-
-Please see [CHANGE_LOG.MD](CHANGE_LOG.MD) for the updates.

@@ -451,7 +451,8 @@
     SAFARI: /\bVersion\/([\d\.]+)\b/,
     OPERA: [/\bVersion\/([\d\.]+)\b/, /\bOPR\/([\d\.]+)\b/],
     IE: [/\bMSIE ([\d\.]+\w?)\b/, /\brv:([\d\.]+\w?)\b/],
-    MS_EDGE: /\bEdge\/([\d\.]+)\b/
+    MS_EDGE: /\bEdg(?:e|A|iOS)\/([\d\.]+)\b/,
+    SAMSUNG: /\bSamsungBrowser\/([\d\.]+)\b/
 }</code>
                         </td>
                     </tr>
@@ -494,6 +495,7 @@
     IE: &#x27;ie&#x27;,
     MS_EDGE: &#x27;ms-edge&#x27;,
     FB_MESSANGER: &#x27;fb-messanger&#x27;,
+    SAMSUNG: &#x27;samsung&#x27;,
     UNKNOWN: &#x27;unknown&#x27;
 }</code>
                         </td>
@@ -536,15 +538,16 @@
                     <tr>
                         <td class="col-md-4">
                             <i>Default value : </i><code>{
-    CHROME: {and: [{or: [/\bChrome\b/, /\bCriOS\b/]}, {not: {or: [/\bOPR\b/, /\bEdge\b/]}}]},
-    FIREFOX: /\bFirefox\b/,
-    SAFARI: {and: [/^((?!CriOS).)*\Safari\b.*$/, {not: {or: [/\bOPR\b/, /\bEdge\b/, /Windows Phone/]}}]},
+    CHROME: {and: [{or: [/\bChrome\b/, /\bCriOS\b/]}, {not: {or: [/\bOPR\b/, /\bEdg(e|A|iOS)\b/, /\bSamsungBrowser\b/]}}]},
+    FIREFOX: { or: [/\bFirefox\b/, /\bFxiOS\b/] },
+    SAFARI: {and: [/^((?!CriOS).)*\Safari\b.*$/, {not: {or: [/\bOPR\b/, /\bEdg(e|A|iOS)\b/, /\bWindows Phone\b/, /\bSamsungBrowser\b/]}}]},
     OPERA: {or: [/Opera\b/, /\bOPR\b/]},
     IE: {or: [/\bMSIE\b/, /\bTrident\b/, /^Mozilla\/5\.0 \(Windows NT 10\.0; Win64; x64\)$/]},
-    MS_EDGE: {or: [/\bEdge\b/]},
+    MS_EDGE: {or: [/\bEdg(e|A|iOS)\b/]},
     PS4: /\bMozilla\/5.0 \(PlayStation 4\b/,
     VITA: /\bMozilla\/5.0 \(Play(S|s)tation Vita\b/,
-    FB_MESSANGER: /\bFBAN\/MessengerForiOS\b/
+    FB_MESSANGER: /\bFBAN\/MessengerForiOS\b/,
+    SAMSUNG: /\bSamsungBrowser\b/
 }</code>
                         </td>
                     </tr>
@@ -723,9 +726,9 @@
                         <td class="col-md-4">
                             <i>Default value : </i><code>{
     WINDOWS: {and: [{or: [/\bWindows|(Win\d\d)\b/, /\bWin 9x\b/]}, {not: /\bWindows Phone\b/}]},
-    MAC: {and: [/\bMac OS\b/, {not: /Windows Phone/}]},
-    IOS: {and: [{or: [/\biPad\b/, /\biPhone\b/, /\biPod\b/]}, {not: /Windows Phone/}]},
-    ANDROID: {and: [/\bAndroid\b/, {not: /Windows Phone/}]},
+    MAC: {and: [/\bMac OS\b/, {not: /\bWindows Phone\b/}]},
+    IOS: {and: [{or: [/\biPad\b/, /\biPhone\b/, /\biPod\b/]}, {not: /\bWindows Phone\b/}]},
+    ANDROID: {and: [/\bAndroid\b/, {not: /\bWindows Phone\b/}]},
     LINUX: /\bLinux\b/,
     UNIX: /\bUNIX\b/,
     FIREFOX_OS: {and: [/\bFirefox\b/, /Mobile\b/]},
