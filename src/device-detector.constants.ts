@@ -12,6 +12,7 @@ export const BROWSERS = {
     MS_EDGE: 'ms-edge',
     FB_MESSANGER: 'fb-messanger',
     SAMSUNG: 'samsung',
+    UCBROWSER: 'uc-browser',
     UNKNOWN: 'unknown'
 };
 
@@ -96,16 +97,18 @@ export const OS_RE: any = {
 };
 
 export const BROWSERS_RE: any = {
-    CHROME: {and: [{or: [/\bChrome\b/, /\bCriOS\b/]}, {not: {or: [/\bOPR\b/, /\bEdg(e|A|iOS)\b/, /\bSamsungBrowser\b/]}}]},
+    CHROME: {and: [{or: [/\bChrome\b/, /\bCriOS\b/]}, {not: {or: [/\bOPR\b/, /\bEdg(e|A|iOS)\b/, /\bSamsungBrowser\b/, /\bUCBrowser\b/]}}]},
     FIREFOX: { or: [/\bFirefox\b/, /\bFxiOS\b/] },
-    SAFARI: {and: [/^((?!CriOS).)*\Safari\b.*$/, {not: {or: [/\bOPR\b/, /\bEdg(e|A|iOS)\b/, /\bWindows Phone\b/, /\bSamsungBrowser\b/]}}]},
+    SAFARI: {and: [/^((?!CriOS).)*\Safari\b.*$/, {not: {
+      or: [/\bOPR\b/, /\bEdg(e|A|iOS)\b/, /\bWindows Phone\b/, /\bSamsungBrowser\b/, /\bUCBrowser\b/]}}]},
     OPERA: {or: [/Opera\b/, /\bOPR\b/]},
     IE: {or: [/\bMSIE\b/, /\bTrident\b/, /^Mozilla\/5\.0 \(Windows NT 10\.0; Win64; x64\)$/]},
     MS_EDGE: {or: [/\bEdg(e|A|iOS)\b/]},
     PS4: /\bMozilla\/5.0 \(PlayStation 4\b/,
     VITA: /\bMozilla\/5.0 \(Play(S|s)tation Vita\b/,
     FB_MESSANGER: /\bFBAN\/MessengerForiOS\b/,
-    SAMSUNG: /\bSamsungBrowser\b/
+    SAMSUNG: /\bSamsungBrowser\b/,
+    UCBROWSER: /\bUCBrowser\b/,
 };
 
 export const DEVICES_RE: any = {
@@ -165,7 +168,8 @@ export const BROWSER_VERSIONS_RE_MAP: any = {
     OPERA: [/\bVersion\/([\d\.]+)\b/, /\bOPR\/([\d\.]+)\b/],
     IE: [/\bMSIE ([\d\.]+\w?)\b/, /\brv:([\d\.]+\w?)\b/],
     MS_EDGE: /\bEdg(?:e|A|iOS)\/([\d\.]+)\b/,
-    SAMSUNG: /\bSamsungBrowser\/([\d\.]+)\b/
+    SAMSUNG: /\bSamsungBrowser\/([\d\.]+)\b/,
+    UCBROWSER: /\bUCBrowser\/([\d\.]+)\b/,
 };
 
 export const BROWSER_VERSIONS_RE: any = Object.keys(BROWSER_VERSIONS_RE_MAP).reduce(function (obj: any, key: any) {
