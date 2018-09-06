@@ -164,7 +164,7 @@ export const BROWSER_VERSIONS_RE_MAP: any = {
     SAFARI: /\bVersion\/([\d\.]+)\b/,
     OPERA: [/\bVersion\/([\d\.]+)\b/, /\bOPR\/([\d\.]+)\b/],
     IE: [/\bMSIE ([\d\.]+\w?)\b/, /\brv:([\d\.]+\w?)\b/],
-    MS_EDGE: /\bEdg(e|A|iOS)\/([\d\.]+)\b/,
+    MS_EDGE: /\bEdg(?:e|A|iOS)\/([\d\.]+)\b/,
     SAMSUNG: /\bSamsungBrowser\/([\d\.]+)\b/
 };
 
