@@ -1,5 +1,8 @@
 # Change Log
 
+#1.3.3
+- Minor patch for UC browser detection [#51](https://github.com/KoderLabs/ngx-device-detector/pull/51). Thanks to [Gailbear](https://github.com/Gailbear)
+
 #1.3.2
 - Minor patch for edge version detection [#49](https://github.com/KoderLabs/ngx-device-detector/pull/49). Thanks to [pmcelreavy](https://github.com/pmcelreavy)
 

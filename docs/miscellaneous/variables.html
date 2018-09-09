@@ -452,7 +452,8 @@
     OPERA: [/\bVersion\/([\d\.]+)\b/, /\bOPR\/([\d\.]+)\b/],
     IE: [/\bMSIE ([\d\.]+\w?)\b/, /\brv:([\d\.]+\w?)\b/],
     MS_EDGE: /\bEdg(?:e|A|iOS)\/([\d\.]+)\b/,
-    SAMSUNG: /\bSamsungBrowser\/([\d\.]+)\b/
+    SAMSUNG: /\bSamsungBrowser\/([\d\.]+)\b/,
+    UCBROWSER: /\bUCBrowser\/([\d\.]+)\b/,
 }</code>
                         </td>
                     </tr>
@@ -496,6 +497,7 @@
     MS_EDGE: &#x27;ms-edge&#x27;,
     FB_MESSANGER: &#x27;fb-messanger&#x27;,
     SAMSUNG: &#x27;samsung&#x27;,
+    UCBROWSER: &#x27;uc-browser&#x27;,
     UNKNOWN: &#x27;unknown&#x27;
 }</code>
                         </td>
@@ -538,16 +540,18 @@
                     <tr>
                         <td class="col-md-4">
                             <i>Default value : </i><code>{
-    CHROME: {and: [{or: [/\bChrome\b/, /\bCriOS\b/]}, {not: {or: [/\bOPR\b/, /\bEdg(e|A|iOS)\b/, /\bSamsungBrowser\b/]}}]},
+    CHROME: {and: [{or: [/\bChrome\b/, /\bCriOS\b/]}, {not: {or: [/\bOPR\b/, /\bEdg(e|A|iOS)\b/, /\bSamsungBrowser\b/, /\bUCBrowser\b/]}}]},
     FIREFOX: { or: [/\bFirefox\b/, /\bFxiOS\b/] },
-    SAFARI: {and: [/^((?!CriOS).)*\Safari\b.*$/, {not: {or: [/\bOPR\b/, /\bEdg(e|A|iOS)\b/, /\bWindows Phone\b/, /\bSamsungBrowser\b/]}}]},
+    SAFARI: {and: [/^((?!CriOS).)*\Safari\b.*$/, {not: {
+      or: [/\bOPR\b/, /\bEdg(e|A|iOS)\b/, /\bWindows Phone\b/, /\bSamsungBrowser\b/, /\bUCBrowser\b/]}}]},
     OPERA: {or: [/Opera\b/, /\bOPR\b/]},
     IE: {or: [/\bMSIE\b/, /\bTrident\b/, /^Mozilla\/5\.0 \(Windows NT 10\.0; Win64; x64\)$/]},
     MS_EDGE: {or: [/\bEdg(e|A|iOS)\b/]},
     PS4: /\bMozilla\/5.0 \(PlayStation 4\b/,
     VITA: /\bMozilla\/5.0 \(Play(S|s)tation Vita\b/,
     FB_MESSANGER: /\bFBAN\/MessengerForiOS\b/,
-    SAMSUNG: /\bSamsungBrowser\b/
+    SAMSUNG: /\bSamsungBrowser\b/,
+    UCBROWSER: /\bUCBrowser\b/,
 }</code>
                         </td>
                     </tr>
