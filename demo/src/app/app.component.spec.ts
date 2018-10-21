@@ -33,7 +33,7 @@ describe('AppComponent', () => {
 
   it('should render demo heading in an element having class demo-heading-text', async(() => {
     const compiled = fixture.debugElement.nativeElement;
-    expect(compiled.querySelector('.demo-heading-text').textContent).toContain('ngx-device-detector demo');
+    expect(compiled.querySelector('.demo-heading-text').textContent).toContain('ngx-device-detector');
   }));
 
   it('should render device information inside table in <tr> tags ', async(() => {

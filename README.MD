@@ -1,9 +1,9 @@
 <a href="https://koderlabs.github.io/ngx-device-detector">
-    <h1 align="center">ngx-device-detector</h1> 
+  <h1 align="center">ngx-device-detector</h1> 
 </a>
 
 <p align="center">
-An Angular 2 (and beyond) powered AOT compatible device detector that helps to identify browser, os and other useful information regarding the device using the app. The processing is based on user-agent.
+An Angular 5+ powered AOT compatible device detector that helps to identify browser, os and other useful information regarding the device using the app. The processing is based on user-agent.
 </p>
 
 <p align="center">

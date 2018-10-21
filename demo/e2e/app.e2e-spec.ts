@@ -9,7 +9,7 @@ describe('ngx-device-detector-demo App', () => {
 
   it('should display message saying app works', () => {
     page.navigateTo();
-    expect(page.getDemoHeadingText()).toEqual('ngx-device-detector demo');
+    expect(page.getDemoHeadingText()).toEqual('ngx-device-detector');
   });
 
   it('should display device information in table', () => {
