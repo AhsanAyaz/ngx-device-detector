@@ -4,46 +4,46 @@
 
 
 export const BROWSERS = {
-    CHROME: 'chrome',
-    FIREFOX: 'firefox',
-    SAFARI: 'safari',
-    OPERA: 'opera',
-    IE: 'ie',
-    MS_EDGE: 'ms-edge',
-    FB_MESSANGER: 'fb-messanger',
-    SAMSUNG: 'samsung',
-    UCBROWSER: 'uc-browser',
-    UNKNOWN: 'unknown'
+    CHROME: 'Chrome',
+    FIREFOX: 'Firefox',
+    SAFARI: 'Safari',
+    OPERA: 'Opera',
+    IE: 'IE',
+    MS_EDGE: 'MS-Edge',
+    FB_MESSANGER: 'FB-Messanger',
+    SAMSUNG: 'Samsung',
+    UCBROWSER: 'UC-Browser',
+    UNKNOWN: 'Unknown'
 };
 
 export const DEVICES = {
-    ANDROID: 'android',
-    I_PAD: 'ipad',
-    IPHONE: 'iphone',
-    I_POD: 'ipod',
-    BLACKBERRY: 'blackberry',
-    FIREFOX_OS: 'firefox-os',
-    CHROME_BOOK: 'chrome-book',
-    WINDOWS_PHONE: 'windows-phone',
-    PS4: 'ps4',
-    VITA: 'vita',
-    CHROMECAST: 'chromecast',
-    APPLE_TV: 'apple-tv',
-    GOOGLE_TV: 'google-tv',
-    UNKNOWN: 'unknown'
+    ANDROID: 'Android',
+    I_PAD: 'iPad',
+    IPHONE: 'iPhone',
+    I_POD: 'iPod',
+    BLACKBERRY: 'Blackberry',
+    FIREFOX_OS: 'Firefox-OS',
+    CHROME_BOOK: 'Chrome-Book',
+    WINDOWS_PHONE: 'Windows-Phone',
+    PS4: 'PS4',
+    VITA: 'Vita',
+    CHROMECAST: 'Chromecast',
+    APPLE_TV: 'Apple-TV',
+    GOOGLE_TV: 'Google-TV',
+    UNKNOWN: 'Unknown'
 };
 
 export const OS = {
-    WINDOWS: 'windows',
-    MAC: 'mac',
-    IOS: 'ios',
-    ANDROID: 'android',
-    LINUX: 'linux',
-    UNIX: 'unix',
-    FIREFOX_OS: 'firefox-os',
-    CHROME_OS: 'chrome-os',
-    WINDOWS_PHONE: 'windows-phone',
-    UNKNOWN: 'unknown'
+    WINDOWS: 'Windows',
+    MAC: 'Mac',
+    IOS: 'iOS',
+    ANDROID: 'Android',
+    LINUX: 'Linux',
+    UNIX: 'Unix',
+    FIREFOX_OS: 'Firefox-OS',
+    CHROME_OS: 'Chrome-OS',
+    WINDOWS_PHONE: 'Windows-Phone',
+    UNKNOWN: 'Unknown'
 };
 
 export const OS_VERSIONS: any = {
