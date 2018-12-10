@@ -1,5 +1,14 @@
 # Change Log
 
+#1.3.5
+- Minor patches
+- Uppercased names/descriptions of the properties for the UI
+- (https://github.com/KoderLabs/ngx-device-detector/pull/58). Thanks to [ccd2008](https://github.com/ccd2008)
+- (https://github.com/KoderLabs/ngx-device-detector/pull/57). Thanks to [sumitgupta0627](https://github.com/sumitgupta0627)
+
+#1.3.4
+- Minor patches
+
 #1.3.3
 - Minor patch for UC browser detection [#51](https://github.com/KoderLabs/ngx-device-detector/pull/51). Thanks to [Gailbear](https://github.com/Gailbear)
 

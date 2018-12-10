@@ -489,16 +489,16 @@
                     <tr>
                         <td class="col-md-4">
                             <i>Default value : </i><code>{
-    CHROME: &#x27;chrome&#x27;,
-    FIREFOX: &#x27;firefox&#x27;,
-    SAFARI: &#x27;safari&#x27;,
-    OPERA: &#x27;opera&#x27;,
-    IE: &#x27;ie&#x27;,
-    MS_EDGE: &#x27;ms-edge&#x27;,
-    FB_MESSANGER: &#x27;fb-messanger&#x27;,
-    SAMSUNG: &#x27;samsung&#x27;,
-    UCBROWSER: &#x27;uc-browser&#x27;,
-    UNKNOWN: &#x27;unknown&#x27;
+    CHROME: &#x27;Chrome&#x27;,
+    FIREFOX: &#x27;Firefox&#x27;,
+    SAFARI: &#x27;Safari&#x27;,
+    OPERA: &#x27;Opera&#x27;,
+    IE: &#x27;IE&#x27;,
+    MS_EDGE: &#x27;MS-Edge&#x27;,
+    FB_MESSANGER: &#x27;FB-Messanger&#x27;,
+    SAMSUNG: &#x27;Samsung&#x27;,
+    UCBROWSER: &#x27;UC-Browser&#x27;,
+    UNKNOWN: &#x27;Unknown&#x27;
 }</code>
                         </td>
                     </tr>
@@ -587,20 +587,20 @@
                     <tr>
                         <td class="col-md-4">
                             <i>Default value : </i><code>{
-    ANDROID: &#x27;android&#x27;,
-    I_PAD: &#x27;ipad&#x27;,
-    IPHONE: &#x27;iphone&#x27;,
-    I_POD: &#x27;ipod&#x27;,
-    BLACKBERRY: &#x27;blackberry&#x27;,
-    FIREFOX_OS: &#x27;firefox-os&#x27;,
-    CHROME_BOOK: &#x27;chrome-book&#x27;,
-    WINDOWS_PHONE: &#x27;windows-phone&#x27;,
-    PS4: &#x27;ps4&#x27;,
-    VITA: &#x27;vita&#x27;,
-    CHROMECAST: &#x27;chromecast&#x27;,
-    APPLE_TV: &#x27;apple-tv&#x27;,
-    GOOGLE_TV: &#x27;google-tv&#x27;,
-    UNKNOWN: &#x27;unknown&#x27;
+    ANDROID: &#x27;Android&#x27;,
+    I_PAD: &#x27;iPad&#x27;,
+    IPHONE: &#x27;iPhone&#x27;,
+    I_POD: &#x27;iPod&#x27;,
+    BLACKBERRY: &#x27;Blackberry&#x27;,
+    FIREFOX_OS: &#x27;Firefox-OS&#x27;,
+    CHROME_BOOK: &#x27;Chrome-Book&#x27;,
+    WINDOWS_PHONE: &#x27;Windows-Phone&#x27;,
+    PS4: &#x27;PS4&#x27;,
+    VITA: &#x27;Vita&#x27;,
+    CHROMECAST: &#x27;Chromecast&#x27;,
+    APPLE_TV: &#x27;Apple-TV&#x27;,
+    GOOGLE_TV: &#x27;Google-TV&#x27;,
+    UNKNOWN: &#x27;Unknown&#x27;
 }</code>
                         </td>
                     </tr>
@@ -684,16 +684,16 @@
                     <tr>
                         <td class="col-md-4">
                             <i>Default value : </i><code>{
-    WINDOWS: &#x27;windows&#x27;,
-    MAC: &#x27;mac&#x27;,
-    IOS: &#x27;ios&#x27;,
-    ANDROID: &#x27;android&#x27;,
-    LINUX: &#x27;linux&#x27;,
-    UNIX: &#x27;unix&#x27;,
-    FIREFOX_OS: &#x27;firefox-os&#x27;,
-    CHROME_OS: &#x27;chrome-os&#x27;,
-    WINDOWS_PHONE: &#x27;windows-phone&#x27;,
-    UNKNOWN: &#x27;unknown&#x27;
+    WINDOWS: &#x27;Windows&#x27;,
+    MAC: &#x27;Mac&#x27;,
+    IOS: &#x27;iOS&#x27;,
+    ANDROID: &#x27;Android&#x27;,
+    LINUX: &#x27;Linux&#x27;,
+    UNIX: &#x27;Unix&#x27;,
+    FIREFOX_OS: &#x27;Firefox-OS&#x27;,
+    CHROME_OS: &#x27;Chrome-OS&#x27;,
+    WINDOWS_PHONE: &#x27;Windows-Phone&#x27;,
+    UNKNOWN: &#x27;Unknown&#x27;
 }</code>
                         </td>
                     </tr>
@@ -730,7 +730,7 @@
                         <td class="col-md-4">
                             <i>Default value : </i><code>{
     WINDOWS: {and: [{or: [/\bWindows|(Win\d\d)\b/, /\bWin 9x\b/]}, {not: /\bWindows Phone\b/}]},
-    MAC: {and: [/\bMac OS\b/, {not: /\bWindows Phone\b/}]},
+    MAC: { and: [/\bMac OS\b/, { not: { or: [/\biPhone\b/, /\bWindows Phone\b/]}}] },
     IOS: {and: [{or: [/\biPad\b/, /\biPhone\b/, /\biPod\b/]}, {not: /\bWindows Phone\b/}]},
     ANDROID: {and: [/\bAndroid\b/, {not: /\bWindows Phone\b/}]},
     LINUX: /\bLinux\b/,
