@@ -23,7 +23,7 @@
 
       // other libraries
       'rxjs': 'npm:rxjs',
-      'ngx-device-detector': '../dist'
+      'ngx-device-detector': '../dist/bundles/ngx-device-detector.umd.js'
     },
     // packages tells the System loader how to load when no filename and/or no extension
     packages: {
@@ -41,10 +41,6 @@
       },
       'rxjs/operators' : {
         main: 'index.js',
-        defaultExtension: 'js'
-      },
-      'ngx-device-detector': {
-        main: 'ngx-device-detector.umd.js',
         defaultExtension: 'js'
       }
     }
