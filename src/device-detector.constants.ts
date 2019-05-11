@@ -97,7 +97,8 @@ export const OS_RE: any = {
 };
 
 export const BROWSERS_RE: any = {
-    CHROME: {and: [{or: [/\bChrome\b/, /\bCriOS\b/]}, {not: {or: [/\bOPR\b/, /\bEdg(e|A|iOS)\b/, /\bSamsungBrowser\b/, /\bUCBrowser\b/]}}]},
+    CHROME: {and: [{or: [/\bChrome\b/, /\bCriOS\b/, /\bHeadlessChrome\b/]}, {not: {
+      or: [/\bOPR\b/, /\bEdg(e|A|iOS)\b/, /\bSamsungBrowser\b/, /\bUCBrowser\b/]}}]},
     FIREFOX: { or: [/\bFirefox\b/, /\bFxiOS\b/] },
     SAFARI: {and: [/^((?!CriOS).)*\Safari\b.*$/, {not: {
       or: [/\bOPR\b/, /\bEdg(e|A|iOS)\b/, /\bWindows Phone\b/, /\bSamsungBrowser\b/, /\bUCBrowser\b/]}}]},
@@ -162,7 +163,7 @@ export const OS_VERSIONS_RE: any = {
 };
 
 export const BROWSER_VERSIONS_RE_MAP: any = {
-    CHROME: [/\bChrome\/([\d\.]+)\b/, /\bCriOS\/([\d\.]+)\b/],
+    CHROME: [/\bChrome\/([\d\.]+)\b/, /\bCriOS\/([\d\.]+)\b/, /\bHeadlessChrome\/([\d\.]+)\b/],
     FIREFOX: /\bFirefox\/([\d\.]+)\b/,
     SAFARI: /\bVersion\/([\d\.]+)\b/,
     OPERA: [/\bVersion\/([\d\.]+)\b/, /\bOPR\/([\d\.]+)\b/],
