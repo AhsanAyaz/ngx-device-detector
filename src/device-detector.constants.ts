@@ -10,6 +10,7 @@ export const BROWSERS = {
     OPERA: 'Opera',
     IE: 'IE',
     MS_EDGE: 'MS-Edge',
+    MS_EDGE_CHROMIUM: 'MS-Edge-Chromium',
     FB_MESSANGER: 'FB-Messanger',
     SAMSUNG: 'Samsung',
     UCBROWSER: 'UC-Browser',
@@ -83,28 +84,39 @@ export const OS_VERSIONS: any = {
 };
 
 export const OS_RE: any = {
-    WINDOWS: {and: [{or: [/\bWindows|(Win\d\d)\b/, /\bWin 9x\b/]}, {not: /\bWindows Phone\b/}]},
-    MAC: { and: [/\bMac OS\b/, { not: { or: [/\biPhone\b/, /\bWindows Phone\b/]}}] },
-    IOS: {and: [{or: [/\biPad\b/, /\biPhone\b/, /\biPod\b/]}, {not: /\bWindows Phone\b/}]},
-    ANDROID: {and: [/\bAndroid\b/, {not: /\bWindows Phone\b/}]},
+    WINDOWS: { and: [{ or: [/\bWindows|(Win\d\d)\b/, /\bWin 9x\b/] }, { not: /\bWindows Phone\b/ }] },
+    MAC: { and: [/\bMac OS\b/, { not: { or: [/\biPhone\b/, /\bWindows Phone\b/] } }] },
+    IOS: { and: [{ or: [/\biPad\b/, /\biPhone\b/, /\biPod\b/] }, { not: /\bWindows Phone\b/ }] },
+    ANDROID: { and: [/\bAndroid\b/, { not: /\bWindows Phone\b/ }] },
     LINUX: /\bLinux\b/,
     UNIX: /\bUNIX\b/,
-    FIREFOX_OS: {and: [/\bFirefox\b/, /Mobile\b/]},
+    FIREFOX_OS: { and: [/\bFirefox\b/, /Mobile\b/] },
     CHROME_OS: /\bCrOS\b/,
-    WINDOWS_PHONE: {or: [/\bIEMobile\b/, /\bWindows Phone\b/]},
+    WINDOWS_PHONE: { or: [/\bIEMobile\b/, /\bWindows Phone\b/] },
     PS4: /\bMozilla\/5.0 \(PlayStation 4\b/,
     VITA: /\bMozilla\/5.0 \(Play(S|s)tation Vita\b/
 };
 
 export const BROWSERS_RE: any = {
-    CHROME: {and: [{or: [/\bChrome\b/, /\bCriOS\b/, /\bHeadlessChrome\b/]}, {not: {
-      or: [/\bOPR\b/, /\bEdg(e|A|iOS)\b/, /\bSamsungBrowser\b/, /\bUCBrowser\b/]}}]},
+    CHROME: {
+        and: [{ or: [/\bChrome\b/, /\bCriOS\b/, /\bHeadlessChrome\b/] }, {
+            not: {
+                or: [/\bOPR\b/, /\bEdg(e|A|iOS)\b/, /\bEdg\/\b/, /\bSamsungBrowser\b/, /\bUCBrowser\b/]
+            }
+        }]
+    },
     FIREFOX: { or: [/\bFirefox\b/, /\bFxiOS\b/] },
-    SAFARI: {and: [/^((?!CriOS).)*\Safari\b.*$/, {not: {
-      or: [/\bOPR\b/, /\bEdg(e|A|iOS)\b/, /\bWindows Phone\b/, /\bSamsungBrowser\b/, /\bUCBrowser\b/]}}]},
-    OPERA: {or: [/Opera\b/, /\bOPR\b/]},
-    IE: {or: [/\bMSIE\b/, /\bTrident\b/, /^Mozilla\/5\.0 \(Windows NT 10\.0; Win64; x64\)$/]},
-    MS_EDGE: {or: [/\bEdg(e|A|iOS)\b/]},
+    SAFARI: {
+        and: [/^((?!CriOS).)*\Safari\b.*$/, {
+            not: {
+                or: [/\bOPR\b/, /\bEdg(e|A|iOS)\b/, /\bEdg\/\b/, /\bWindows Phone\b/, /\bSamsungBrowser\b/, /\bUCBrowser\b/]
+            }
+        }]
+    },
+    OPERA: { or: [/Opera\b/, /\bOPR\b/] },
+    IE: { or: [/\bMSIE\b/, /\bTrident\b/, /^Mozilla\/5\.0 \(Windows NT 10\.0; Win64; x64\)$/] },
+    MS_EDGE: { or: [/\bEdg(e|A|iOS)\b/] },
+    MS_EDGE_CHROMIUM: /\bEdg\/\b/,
     PS4: /\bMozilla\/5.0 \(PlayStation 4\b/,
     VITA: /\bMozilla\/5.0 \(Play(S|s)tation Vita\b/,
     FB_MESSANGER: /\bFBAN\/MessengerForiOS\b/,
@@ -113,14 +125,14 @@ export const BROWSERS_RE: any = {
 };
 
 export const DEVICES_RE: any = {
-    ANDROID: {and: [/\bAndroid\b/, {not: /Windows Phone/}]},
+    ANDROID: { and: [/\bAndroid\b/, { not: /Windows Phone/ }] },
     I_PAD: /\biPad\b/,
-    IPHONE: {and: [/\biPhone\b/, {not: /Windows Phone/}]},
+    IPHONE: { and: [/\biPhone\b/, { not: /Windows Phone/ }] },
     I_POD: /\biPod\b/,
     BLACKBERRY: /\bblackberry\b/,
-    FIREFOX_OS: {and: [/\bFirefox\b/, /\bMobile\b/]},
+    FIREFOX_OS: { and: [/\bFirefox\b/, /\bMobile\b/] },
     CHROME_BOOK: /\bCrOS\b/,
-    WINDOWS_PHONE: {or: [/\bIEMobile\b/, /\bWindows Phone\b/]},
+    WINDOWS_PHONE: { or: [/\bIEMobile\b/, /\bWindows Phone\b/] },
     PS4: /\bMozilla\/5.0 \(PlayStation 4\b/,
     CHROMECAST: /\bCrKey\b/,
     APPLE_TV: /^iTunes-AppleTV\/4.1$/,
@@ -145,7 +157,7 @@ export const OS_VERSIONS_RE: any = {
     WINDOWS_PHONE_7_5: /(Windows Phone OS 7.5)/,
     WINDOWS_PHONE_8_1: /(Windows Phone 8.1)/,
     WINDOWS_PHONE_10: /(Windows Phone 10)/,
-    WINDOWS_NT_4_0: {and: [/(Windows NT 4.0|WinNT4.0|WinNT|Windows NT)/, {not: /Windows NT 10.0/}]},
+    WINDOWS_NT_4_0: { and: [/(Windows NT 4.0|WinNT4.0|WinNT|Windows NT)/, { not: /Windows NT 10.0/ }] },
     MACOSX: /(MAC OS X\s*[^ 0-9])/,
     MACOSX_3: /(Darwin 10.3|Mac OS X 10.3)/,
     MACOSX_4: /(Darwin 10.4|Mac OS X 10.4)/,
@@ -169,6 +181,7 @@ export const BROWSER_VERSIONS_RE_MAP: any = {
     OPERA: [/\bVersion\/([\d\.]+)\b/, /\bOPR\/([\d\.]+)\b/],
     IE: [/\bMSIE ([\d\.]+\w?)\b/, /\brv:([\d\.]+\w?)\b/],
     MS_EDGE: /\bEdg(?:e|A|iOS)\/([\d\.]+)\b/,
+    MS_EDGE_CHROMIUM: /\bEdg\/([\d\.]+)\b/,
     SAMSUNG: /\bSamsungBrowser\/([\d\.]+)\b/,
     UCBROWSER: /\bUCBrowser\/([\d\.]+)\b/,
 };
