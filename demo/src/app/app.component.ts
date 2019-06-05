@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, VERSION } from '@angular/core';
 import { DeviceDetectorService } from 'ngx-device-detector';
 
 @Component({
@@ -9,6 +9,7 @@ import { DeviceDetectorService } from 'ngx-device-detector';
 export class AppComponent {
   propsToShow = ['userAgent', 'os', 'browser', 'device', 'os_version', 'browser_version'];
   deviceInfo = null;
+  version = VERSION.full;
   constructor(private deviceService: DeviceDetectorService) {
     this.deviceInfo = deviceService.getDeviceInfo();
     console.log(this.deviceInfo);

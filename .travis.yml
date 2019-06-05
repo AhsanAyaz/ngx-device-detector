@@ -1,7 +1,7 @@
 language: node_js
 sudo: true
 node_js:
-  - "8"
+  - "10.14.2"
 
 demo/dist: trusty
 
@@ -16,16 +16,15 @@ before_script:
  - sudo apt-get update
  - wget -N https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb -P ~/
  - sudo dpkg -i --force-depends ~/google-chrome-stable_current_amd64.deb
- - npm install -g yarn
 
 script: 
   - npm run lint
   - node_modules/.bin/karma start --single-run --no-fail-on-empty-test-suite
   - cd demo
-  - yarn
+  - npm install
   - node_modules/.bin/ng test --watch false
   - node_modules/.bin/webdriver-manager update
-  - ng build --base-href "https://koderlabs.github.io/ngx-device-detector/demo/" --prod --aot --output-hashing=all
+  - ng build --base-href "https://koderlabs.github.io/ngx-device-detector/demo/" --prod --output-hashing=all
   - cd ..
   - cp -R ./demo/dist ./docs/demo
 

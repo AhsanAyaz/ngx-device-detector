@@ -1,5 +1,11 @@
 # Change Log
 
+#1.3.6
+- Added support for Angular 8.0
+- Works with IVY engine now. (https://github.com/KoderLabs/ngx-device-detector/pull/69). Thanks to [mattlewis92](https://github.com/mattlewis92)
+- Detects ms edge chromium (https://github.com/KoderLabs/ngx-device-detector/pull/73). Thanks to [jrrod507](https://github.com/jrrod507)
+- Support headless chrome to be detected as Chrome browser (https://github.com/KoderLabs/ngx-device-detector/pull/61). Thanks to [tmair](https://github.com/tmair)
+
 #1.3.5
 - Minor patches
 - Uppercased names/descriptions of the properties for the UI
