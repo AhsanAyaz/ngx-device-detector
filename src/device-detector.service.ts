@@ -95,21 +95,25 @@ export class DeviceDetectorService {
     /**
      * @author Ahsan Ayaz
      * @desc Compares the current device info with the mobile devices to check
-     * if the current device is a mobile.
+     * if the current device is a mobile and also check current device is tablet so it will return false.
      * @returns whether the current device is a mobile
      */
     public isMobile(): boolean {
-        return [
-            Constants.DEVICES.ANDROID,
-            Constants.DEVICES.IPHONE,
-            Constants.DEVICES.I_POD,
-            Constants.DEVICES.BLACKBERRY,
-            Constants.DEVICES.FIREFOX_OS,
-            Constants.DEVICES.WINDOWS_PHONE,
-            Constants.DEVICES.VITA
-        ].some((item) => {
-            return this.device === item;
-        });
+        if (this.isTablet()) {
+            return false;
+        }
+        const mobiles = Constants.MOBILES;
+        let isMob = false;
+        for (const key in mobiles) {
+            if (mobiles.hasOwnProperty(key)) {
+                const pattern = new RegExp(mobiles[key]);
+                if (pattern.test(this.userAgent)) {
+                    isMob = true;
+                    break;
+                }
+            }
+        }
+        return isMob;
     };
 
     /**
@@ -119,12 +123,18 @@ export class DeviceDetectorService {
      * @returns whether the current device is a tablet
      */
     public isTablet() {
-        return [
-            Constants.DEVICES.I_PAD,
-            Constants.DEVICES.FIREFOX_OS
-        ].some((item) => {
-            return this.device === item;
-        });
+        const tablets = Constants.TABLETS;
+        let isTab = false;
+        for (const key in tablets) {
+            if (tablets.hasOwnProperty(key)) {
+                const pattern = new RegExp(tablets[key]);
+                if (pattern.test(this.userAgent)) {
+                    isTab = true;
+                    break;
+                }
+            }
+        }
+        return isTab;
     };
 
     /**
@@ -134,12 +144,16 @@ export class DeviceDetectorService {
      * @returns whether the current device is a desktop device
      */
     public isDesktop() {
-        return [
+        const destopDevices = [
             Constants.DEVICES.PS4,
             Constants.DEVICES.CHROME_BOOK,
             Constants.DEVICES.UNKNOWN
-        ].some((item) => {
-            return this.device === item;
-        });
+        ];
+        if (this.device === Constants.DEVICES.UNKNOWN) {
+            if (this.isMobile() || this.isTablet()) {
+                return false;
+            }
+        }
+        return destopDevices.indexOf(this.device) > -1;
     };
 }
