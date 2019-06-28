@@ -158,7 +158,7 @@ the demo will be up at `localhost:4200`
 
 ## Change Log
 
-Please see [CHANGELOG.MD](CHANGELOG.MD) for the updates.
+Please see [CHANGELOG.md](CHANGELOG.md) for the updates.
 
 ## IE10, IE11 Compatibility
 
