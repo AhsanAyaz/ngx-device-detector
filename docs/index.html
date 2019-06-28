@@ -9,6 +9,7 @@
 
         <link rel="icon" type="image/x-icon" href="./images/favicon.ico">
 	      <link rel="stylesheet" href="./styles/style.css">
+        <link rel="stylesheet" href="./styles/material.css">
     </head>
     <body>
 
@@ -30,143 +31,20 @@
                <div class="content getting-started">
                    <div class="content-data">
 
-<a href="https://koderlabs.github.io/ngx-device-detector">
-  <h1 align="center">ngx-device-detector</h1> 
-</a>
-
-<p align="center">
-An Angular 5+ powered AOT compatible device detector that helps to identify browser, os and other useful information regarding the device using the app. The processing is based on user-agent.
-</p>
-
-<p align="center">
-<a href="https://travis-ci.org/KoderLabs/ngx-device-detector"><img src="http://img.shields.io/travis/KoderLabs/ngx-device-detector.svg?style=flat" alt="travis build status" ></a>
-<a href="https://www.npmjs.com/package/ngx-device-detector"><img src="https://img.shields.io/npm/v/ngx-device-detector.svg" alt="npm version" ></a>
-<a href="https://www.npmjs.com/package/ngx-device-detector"><img src="https://img.shields.io/github/stars/KoderLabs/ngx-device-detector.svg?style=social&label=Star&style=flat-square" alt="github stars" ></a>
-<a href="https://www.npmjs.com/package/ngx-device-detector"><img src="https://img.shields.io/npm/l/ngx-device-detector.svg?style=flat-square" alt="license" ></a>
-</p>
-<p align="center">
-  <a href="https://www.npmjs.com/package/ng2-device-detector">Deprecated package :</a>
-  <a href="https://www.npmjs.com/package/ng2-device-detector"><img src="https://img.shields.io/npm/dt/ng2-device-detector.svg?style=flat-square" alt="npm downloads total" ></a>
-  <a href="https://www.npmjs.com/package/ng2-device-detector"><img src="https://img.shields.io/npm/dm/ng2-device-detector.svg" alt="npm downloads/month" ></a>
-</p>
-<p align="center">
-  <a href="https://www.npmjs.com/package/ngx-device-detector">New package :</a>
-  <a href="https://www.npmjs.com/package/ngx-device-detector"><img src="https://img.shields.io/npm/dt/ngx-device-detector.svg?style=flat-square" alt="npm downloads total" ></a>
-  <a href="https://www.npmjs.com/package/ngx-device-detector"><img src="https://img.shields.io/npm/dm/ngx-device-detector.svg" alt="npm downloads/month" ></a>
-</p>
-
-
-<h2 id="docs">DOCS</h2>
-<p><a href="https://koderlabs.github.io/ngx-device-detector">Ngx Device Detector DOCS</a></p>
-<h2 id="live-demo">Live DEMO</h2>
-<p><a href="https://koderlabs.github.io/ngx-device-detector/demo">Ngx Device Detector Demo</a></p>
-<h2 id="installation">Installation</h2>
-<p>To install this library, run:</p>
-<p><code>bash
-$ npm install ngx-device-detector --save</code></p>
-<h2 id="usage">Usage</h2>
-<p>Import <code>DeviceDetectorModule</code> in your app.module.ts
-<code>typescript
-  import { NgModule } from &#39;@angular/core&#39;;
-  import { DeviceDetectorModule } from &#39;ngx-device-detector&#39;;
-  ...
-  @NgModule({
-    declarations: [
-      ...
-      LoginComponent,
-      SignupComponent
-      ...
-    ],
-    imports: [
-      CommonModule,
-      FormsModule,
-      DeviceDetectorModule.forRoot()
-    ],
-    providers:[
-      AuthService
-    ]
-    ...
-  })</code></p>
-<p>In your component where you want to use the Device Service
-```typescript
-  import { Component } from &#39;@angular/core&#39;;
-  ...
-  import { DeviceDetectorService } from &#39;ngx-device-detector&#39;;
-  ...
-  @Component({
-    selector: &#39;home&#39;,  // <home></home>
-    styleUrls: [ &#39;./home.component.scss&#39; ],
-    templateUrl: &#39;./home.component.html&#39;,
-    ...
-  })</p>
-<p>  export class HomeComponent {
-    deviceInfo = null;
-    ...
-    constructor(..., private http: Http, private deviceService: DeviceDetectorService) {
-      this.epicFunction();
-    }
-    ...
-    epicFunction() {
-      console.log(&#39;hello <code>Home</code> component&#39;);
-      this.deviceInfo = this.deviceService.getDeviceInfo();
-      const isMobile = this.deviceService.isMobile();
-      const isTablet = this.deviceService.isTablet();
-      const isDesktopDevice = this.deviceService.isDesktop();
-      console.log(this.deviceInfo);
-      console.log(isMobile);  // returns if the device is a mobile device (android / iPhone / windows-phone etc)
-      console.log(isTablet);  // returns if the device us a tablet (iPad etc)
-      console.log(isDesktopDevice); // returns if the app is running on a Desktop browser.
-    }
-    ...
-  }</p>
-<p>```</p>
-<h2 id="device-service">Device service</h2>
-<p>Holds the following properties
-* browser
-* os
-* device
-* userAgent
-* os_version</p>
-<h2 id="helper-methods">Helper Methods</h2>
-<ul>
-<li><strong>isMobile() :</strong> returns if the device is a mobile device (android / iPhone/ windows-phone etc)</li>
-<li><strong>isTablet() :</strong> returns if the device us a tablet (iPad etc)</li>
-<li><strong>isDesktop() :</strong> returns if the app is running on a Desktop browser.</li>
-</ul>
-<h2 id="development">Development</h2>
-<p>To generate all <code>*.js</code>, <code>*.js.map</code> and <code>*.d.ts</code> files:</p>
-<p><code>bash
-  $ npm run tsc</code></p>
-<p>To lint all <code>*.ts</code> files:</p>
-<p><code>bash
-  $ npm run lint</code></p>
-<p>To run unit tests
-<code>bash
-  $ npm run test</code></p>
-<p>To build the library
-<code>bash
-  $ npm run build</code></p>
-<h2 id="run-the-demo">Run the DEMO</h2>
-<p>Make sure you have @angular/cli installed</p>
-<p><code>bash
-  $ npm install -g @angular/cli</code></p>
-<p><code>bash
-  $ cd demo
-  $ npm install
-  $ ng serve</code></p>
-<p>the demo will be up at <code>localhost:4200</code></p>
-<h2 id="change-log">Change Log</h2>
-<p>Please see <a href="CHANGE_LOG.MD">CHANGE_LOG.MD</a> for the updates.</p>
-<h2 id="ie10-ie11-compatibility">IE10, IE11 Compatibility</h2>
-<p>If you&#39;re consuming the library for IE10 &amp; IE11, make sure to uncomment (at least) these lines from <code>src/polyfills.ts</code> in your project.</p>
-<p><code>typescript
-import &#39;core-js/es6/string&#39;;
-import &#39;core-js/es6/array&#39;;
-import &#39;core-js/es6/map&#39;;</code></p>
-<h2 id="credits">Credits</h2>
-<p>The library is inspired by and based on the work from <a href="https://github.com/srfrnk/ng-device-detector">ng-device-detector </a>. Also used a typescript wrapper of the amazing work in <a href="https://github.com/srfrnk/re-tree">ReTree</a> for regex based needs and an Angular2 Library Creator boilerplate to get the work started fast. I.e. <a href="https://github.com/jvandemo/generator-angular2-library">Generator Angular2 library</a>.</p>
-<h2 id="license">License</h2>
-<p>MIT © <a href="https://github.com/AhsanAyaz">Ahsan Ayaz</a></p>
+<h1 id="ngxdevicedetectorws">NgxDeviceDetectorWs</h1>
+<p>This project was generated with <a href="https://github.com/angular/angular-cli">Angular CLI</a> version 8.0.6.</p>
+<h2 id="development-server">Development server</h2>
+<p>Run <code>ng serve</code> for a dev server. Navigate to <code>http://localhost:4200/</code>. The app will automatically reload if you change any of the source files.</p>
+<h2 id="code-scaffolding">Code scaffolding</h2>
+<p>Run <code>ng generate component component-name</code> to generate a new component. You can also use <code>ng generate directive|pipe|service|class|guard|interface|enum|module</code>.</p>
+<h2 id="build">Build</h2>
+<p>Run <code>ng build</code> to build the project. The build artifacts will be stored in the <code>dist/</code> directory. Use the <code>--prod</code> flag for a production build.</p>
+<h2 id="running-unit-tests">Running unit tests</h2>
+<p>Run <code>ng test</code> to execute the unit tests via <a href="https://karma-runner.github.io">Karma</a>.</p>
+<h2 id="running-end-to-end-tests">Running end-to-end tests</h2>
+<p>Run <code>ng e2e</code> to execute the end-to-end tests via <a href="http://www.protractortest.org/">Protractor</a>.</p>
+<h2 id="further-help">Further help</h2>
+<p>To get more help on the Angular CLI use <code>ng help</code> or go check out the <a href="https://github.com/angular/angular-cli/blob/master/README.md">Angular CLI README</a>.</p>
 
 
 

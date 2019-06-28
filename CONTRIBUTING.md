@@ -25,7 +25,7 @@ Want to fix a bug, implement a feature or help with the tests / docs? Please rea
 - Be active in your relevant issue and PR threads.
 - Make sure no one else is assigned or working on the issue. It's a good idea to leave a comment stating that you're going to implement it before sending in your PR. 
 - This way no two devs are working on the same thing.
-- If required, update the CHANGELOG.md file with a small summary of your changes in the latest version (add a new section if needed)
+- If required, update the [CHANGELOG.md](CHANGELOG.md) file with a small summary of your changes in the latest version (add a new section if needed)
 
 
 ### Finally, Thank you!
