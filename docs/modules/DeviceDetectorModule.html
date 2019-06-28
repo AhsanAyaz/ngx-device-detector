@@ -9,6 +9,7 @@
 
         <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
 	      <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/material.css">
     </head>
     <body>
 
@@ -54,7 +55,7 @@
             <h3>File</h3>
         </p>
         <p class="comment">
-            <code>src/index.ts</code>
+            <code>projects/ngx-device-detector/src/lib/ngx-device-detector.module.ts</code>
         </p>
 
 
@@ -65,79 +66,22 @@
             </div>
         </div>
 
-        <section>
-    
-    <h3 id="methods">
-        Methods
-    </h3>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="forRoot"></a>
-                    <span class="name">
-                        <b>
-                            <span class="modifier">Static</span>
-                            forRoot
-                        </b>
-                        <a href="#forRoot"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-                    <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>forRoot()</code>
-                </td>
-            </tr>
 
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="11"
-                            class="link-to-prism">src/index.ts:11</a></div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-
-                    <div class="io-description">
-                        <b>Returns : </b>        <code><a href="https://angular.io/api/core/ModuleWithProviders" target="_blank" >ModuleWithProviders</a></code>
-
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-</section>
     </div>
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { NgModule, ModuleWithProviders } from &#x27;@angular/core&#x27;;
-import { CommonModule } from &#x27;@angular/common&#x27;;
-import { DeviceDetectorService } from &#x27;./device-detector.service&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { NgModule } from &#x27;@angular/core&#x27;;
 
 @NgModule({
+  declarations: [],
   imports: [
-    CommonModule
+  ],
+  exports: [],
+  providers: [
   ]
 })
-export class DeviceDetectorModule {
-  static forRoot(): ModuleWithProviders {
-    return {
-      ngModule: DeviceDetectorModule,
-      providers: [DeviceDetectorService]
-    };
-  }
-}
-
-export { DeviceDetectorService, DeviceInfo } from &#x27;./device-detector.service&#x27;;
-export { ReTree } from &#x27;./retree&#x27;;
-export * from &#x27;./device-detector.constants&#x27;;
-
+export class DeviceDetectorModule { }
 </code></pre>
     </div>
 </div>

@@ -1,26 +1,30 @@
 {
+  "compileOnSave": false,
   "compilerOptions": {
-    "baseUrl": "./src",
+    "baseUrl": "./",
+    "outDir": "./dist/out-tsc",
+    "sourceMap": true,
+    "declaration": false,
+    "downlevelIteration": true,
     "experimentalDecorators": true,
+    "module": "esnext",
     "moduleResolution": "node",
-    "rootDir": "./src",
+    "importHelpers": true,
+    "target": "es2015",
+    "typeRoots": [
+      "node_modules/@types"
+    ],
     "lib": [
-      "es2015",
+      "es2018",
       "dom"
     ],
-    "skipLibCheck": true,
-    "types": []
-  },
-  "files": [
-    "src/index.ts",
-    "src/device-detector.service.ts",
-    "src/device-detector.constants.ts",
-    "src/retree.ts"
-  ],
-  "exclude": [
-     "node_modules",
-     "demo",
-     "dist",
-     "playground"
-  ]
+    "paths": {
+      "ngx-device-detector": [
+        "dist/ngx-device-detector"
+      ],
+      "ngx-device-detector/*": [
+        "dist/ngx-device-detector/*"
+      ]
+    }
+  }
 }

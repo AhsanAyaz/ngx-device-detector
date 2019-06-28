@@ -1,0 +1,203 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>ngx-device-detector</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="./images/favicon.ico">
+	      <link rel="stylesheet" href="./styles/style.css">
+        <link rel="stylesheet" href="./styles/material.css">
+    </head>
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top visible-xs">
+            <a href="./" class="navbar-brand">ngx-device-detector</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content getting-started">
+                   <div class="content-data">
+
+<h1 id="change-log">Change Log</h1>
+<h2 id="137-contains-breaking-changes">1.3.7 <strong>(contains breaking changes)</strong></h2>
+<ul>
+<li>Fixed tablet and mobile devices and also fixed desktop issue. Thanks to <a href="https://github.com/Syed-Saad-Qamar">Syed Saad Qamar</a> for the <a href="https://github.com/KoderLabs/ngx-device-detector/pull/84">PR</a></li>
+<li>Detect ms edge chromium. Thanks to <a href="https://github.com/jrrod507">jrrod507</a> for the <a href="https://github.com/KoderLabs/ngx-device-detector/pull/73">PR</a></li>
+</ul>
+<p><strong>BREAKING CHANGE</strong>
+- <code>DeviceDetectorModule.forRoot()</code> is not supported any more. Please just import <code>DeviceDetectorModule</code> in your <code>imports</code>.</p>
+<h2 id="136">1.3.6</h2>
+<ul>
+<li>Added support for Angular 8.0</li>
+<li>Works with IVY engine now. (https://github.com/KoderLabs/ngx-device-detector/pull/69). Thanks to <a href="https://github.com/mattlewis92">mattlewis92</a></li>
+<li>Detects ms edge chromium (https://github.com/KoderLabs/ngx-device-detector/pull/73). Thanks to <a href="https://github.com/jrrod507">jrrod507</a></li>
+<li>Support headless chrome to be detected as Chrome browser (https://github.com/KoderLabs/ngx-device-detector/pull/61). Thanks to <a href="https://github.com/tmair">tmair</a></li>
+</ul>
+<h2 id="135">1.3.5</h2>
+<ul>
+<li>Minor patches</li>
+<li>Uppercased names/descriptions of the properties for the UI</li>
+<li>(https://github.com/KoderLabs/ngx-device-detector/pull/58). Thanks to <a href="https://github.com/ccd2008">ccd2008</a></li>
+<li>(https://github.com/KoderLabs/ngx-device-detector/pull/57). Thanks to <a href="https://github.com/sumitgupta0627">sumitgupta0627</a></li>
+</ul>
+<h2 id="134">1.3.4</h2>
+<ul>
+<li>Minor patches</li>
+</ul>
+<h2 id="133">1.3.3</h2>
+<ul>
+<li>Minor patch for UC browser detection <a href="https://github.com/KoderLabs/ngx-device-detector/pull/51">#51</a>. Thanks to <a href="https://github.com/Gailbear">Gailbear</a></li>
+</ul>
+<h2 id="132">1.3.2</h2>
+<ul>
+<li>Minor patch for edge version detection <a href="https://github.com/KoderLabs/ngx-device-detector/pull/49">#49</a>. Thanks to <a href="https://github.com/pmcelreavy">pmcelreavy</a></li>
+</ul>
+<h2 id="131">1.3.1</h2>
+<ul>
+<li>Added better support for Android Browsers <a href="https://github.com/Koderlabs/ngx-device-detector/pulls/48">#48</a>. Thanks to <a href="https://github.com/Gailbear">Gailbear</a></li>
+</ul>
+<h2 id="130-contains-breaking-changes">1.3.0 <strong>(contains breaking changes)</strong></h2>
+<ul>
+<li>Added support for angular 6 <a href="https://github.com/KoderLabs/ngx-device-detector/issues/37">#37</a></li>
+<li>Drop support for angular 4</li>
+</ul>
+<h2 id="123">1.2.3</h2>
+<ul>
+<li>Updated the readme for IE support</li>
+</ul>
+<h2 id="122-contains-breaking-changes">1.2.2 <strong>(contains breaking changes)</strong></h2>
+<ul>
+<li>Removing the SSR (Universal) support because of the raising issues. </li>
+<li>Will be revisiting SSR support properly in April.</li>
+</ul>
+<h2 id="121">1.2.1</h2>
+<ul>
+<li>moved @angular/platform-server to peer-dependencies</li>
+</ul>
+<h2 id="120">1.2.0</h2>
+<ul>
+<li>minor fixes</li>
+<li>fixed <a href="https://github.com/KoderLabs/ngx-device-detector/issues/27">#27</a>.</li>
+</ul>
+<h2 id="117">1.1.7</h2>
+<ul>
+<li>minor fixes</li>
+</ul>
+<h2 id="116">1.1.6</h2>
+<ul>
+<li>fixes. Readme Updated with Angular Universal dependency info</li>
+</ul>
+<h2 id="115">1.1.5</h2>
+<ul>
+<li>fixes #22, #23</li>
+</ul>
+<h2 id="114">1.1.4</h2>
+<ul>
+<li>fixes</li>
+<li>Support added for Angular Universal</li>
+</ul>
+<h2 id="113">1.1.3</h2>
+<ul>
+<li>fixes</li>
+</ul>
+<h2 id="112">1.1.2</h2>
+<ul>
+<li>fixes</li>
+</ul>
+<h2 id="111">1.1.1</h2>
+<ul>
+<li>fixes</li>
+</ul>
+<h2 id="110-contains-breaking-changes">1.1.0 <strong>(contains breaking changes)</strong></h2>
+<ul>
+<li>Added official support to Angular5</li>
+<li>The package name has been changed to <code>ngx-device-detector</code></li>
+<li>Renamed the Service from <code>Ng2DeviceService</code> to <code>DeviceDetectorService</code></li>
+<li>Renamed the Module from <code>Ng2DeviceDetector</code> to <code>DeviceDetectorModule</code></li>
+</ul>
+<h2 id="100-contains-breaking-changes">1.0.0 <strong>(contains breaking changes)</strong></h2>
+<ul>
+<li>Renamed the Service from <code>Device</code> to <code>Ng2DeviceService</code></li>
+<li>Renamed the Module from <code>Ng2DeviceDetector</code> to <code>Ng2DeviceDetectorModule</code></li>
+<li>Import has changed from <code>imports: [Ng2DeviceDetectorModule]</code> to <code>imports: [Ng2DeviceDetectorModule.forRoot()]</code></li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> result-matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 0;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'getting-started';
+            var COMPODOC_CURRENT_PAGE_URL = 'changelog.html';
+       </script>
+
+       <script src="./js/libs/custom-elements.min.js"></script>
+       <script src="./js/libs/lit-html.js"></script>
+       <!-- Required to polyfill modern browsers as code is ES5 for IE... -->
+       <script src="./js/libs/custom-elements-es5-adapter.js" charset="utf-8" defer></script>
+       <script src="./js/menu-wc.js" defer></script>
+
+       <script src="./js/libs/bootstrap-native.js"></script>
+
+       <script src="./js/libs/es6-shim.min.js"></script>
+       <script src="./js/libs/EventDispatcher.js"></script>
+       <script src="./js/libs/promise.min.js"></script>
+       <script src="./js/libs/zepto.min.js"></script>
+
+       <script src="./js/compodoc.js"></script>
+
+       <script src="./js/tabs.js"></script>
+       <script src="./js/menu.js"></script>
+       <script src="./js/libs/clipboard.min.js"></script>
+       <script src="./js/libs/prism.js"></script>
+       <script src="./js/sourceCode.js"></script>
+          <script src="./js/search/search.js"></script>
+          <script src="./js/search/lunr.min.js"></script>
+          <script src="./js/search/search-lunr.js"></script>
+          <script src="./js/search/search_index.js"></script>
+       <script src="./js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

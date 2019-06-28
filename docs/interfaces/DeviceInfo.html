@@ -9,6 +9,7 @@
 
         <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
 	      <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/material.css">
     </head>
     <body>
 
@@ -61,7 +62,7 @@
             <h3>File</h3>
         </p>
         <p class="comment">
-            <code>src/device-detector.service.ts</code>
+            <code>projects/ngx-device-detector/src/lib/device-info.interface.ts</code>
         </p>
 
 
@@ -286,147 +287,13 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { PLATFORM_ID, Inject, Injectable } from &#x27;@angular/core&#x27;;
-import { isPlatformBrowser } from &#x27;@angular/common&#x27;;
-import * as Constants from &#x27;./device-detector.constants&#x27;;
-import { ReTree } from &#x27;./retree&#x27;;
-
-export interface DeviceInfo {
-    userAgent: string;
-    os: string;
-    browser: string;
-    device: string;
-    os_version: string;
-    browser_version: string;
-}
-
-@Injectable()
-export class DeviceDetectorService {
-    ua &#x3D; &#x27;&#x27;;
-    userAgent &#x3D; &#x27;&#x27;;
-    os &#x3D; &#x27;&#x27;;
-    browser &#x3D; &#x27;&#x27;;
-    device &#x3D; &#x27;&#x27;;
-    os_version &#x3D; &#x27;&#x27;;
-    browser_version &#x3D; &#x27;&#x27;;
-
-    constructor(@Inject(PLATFORM_ID) private platformId) {
-        if (isPlatformBrowser(this.platformId)) {
-            this.ua &#x3D; window.navigator.userAgent;
-        }
-        this._setDeviceInfo();
-    }
-
-    /**
-     * @author Ahsan Ayaz
-     * @desc Sets the initial value of the device when the service is initiated.
-     * This value is later accessible for usage
-     */
-    private _setDeviceInfo() {
-        let reTree &#x3D; new ReTree();
-        let ua &#x3D; this.ua;
-        this.userAgent &#x3D; ua;
-        let mappings &#x3D; [
-            { const : &#x27;OS&#x27; , prop: &#x27;os&#x27;},
-            { const : &#x27;BROWSERS&#x27; , prop: &#x27;browser&#x27;},
-            { const : &#x27;DEVICES&#x27; , prop: &#x27;device&#x27;},
-            { const : &#x27;OS_VERSIONS&#x27; , prop: &#x27;os_version&#x27;},
-        ];
-
-        mappings.forEach((mapping) &#x3D;&gt; {
-            this[mapping.prop] &#x3D; Object.keys(Constants[mapping.const]).reduce((obj: any, item: any) &#x3D;&gt; {
-                obj[Constants[mapping.const][item]] &#x3D; reTree.test(ua, Constants[&#x60;${mapping.const}_RE&#x60;][item]);
-                return obj;
-            }, {});
-        });
-
-        mappings.forEach((mapping) &#x3D;&gt; {
-            this[mapping.prop] &#x3D; Object.keys(Constants[mapping.const])
-            .map((key) &#x3D;&gt; {
-                return Constants[mapping.const][key];
-            }).reduce((previousValue, currentValue) &#x3D;&gt; {
-                return (previousValue &#x3D;&#x3D;&#x3D; Constants[mapping.const].UNKNOWN &amp;&amp; this[mapping.prop][currentValue])
-                        ? currentValue : previousValue;
-            }, Constants[mapping.const].UNKNOWN);
-        });
-
-        this.browser_version &#x3D; &#x27;0&#x27;;
-        if (this.browser !&#x3D;&#x3D; Constants.BROWSERS.UNKNOWN) {
-            let re &#x3D; Constants.BROWSER_VERSIONS_RE[this.browser];
-            let res &#x3D; reTree.exec(ua, re);
-            if (!!res) {
-                this.browser_version &#x3D; res[1];
-            }
-        }
-    }
-
-    /**
-     * @author Ahsan Ayaz
-     * @desc Returns the device information
-     * @returns the device information object.
-     */
-    public getDeviceInfo(): DeviceInfo {
-        const deviceInfo: DeviceInfo &#x3D; {
-            userAgent: this.userAgent,
-            os : this.os,
-            browser: this.browser,
-            device : this.device,
-            os_version: this.os_version,
-            browser_version: this.browser_version
-        };
-        return deviceInfo;
-    }
-
-    /**
-     * @author Ahsan Ayaz
-     * @desc Compares the current device info with the mobile devices to check
-     * if the current device is a mobile.
-     * @returns whether the current device is a mobile
-     */
-    public isMobile(): boolean {
-        return [
-            Constants.DEVICES.ANDROID,
-            Constants.DEVICES.IPHONE,
-            Constants.DEVICES.I_POD,
-            Constants.DEVICES.BLACKBERRY,
-            Constants.DEVICES.FIREFOX_OS,
-            Constants.DEVICES.WINDOWS_PHONE,
-            Constants.DEVICES.VITA
-        ].some((item) &#x3D;&gt; {
-            return this.device &#x3D;&#x3D;&#x3D; item;
-        });
-    };
-
-    /**
-     * @author Ahsan Ayaz
-     * @desc Compares the current device info with the tablet devices to check
-     * if the current device is a tablet.
-     * @returns whether the current device is a tablet
-     */
-    public isTablet() {
-        return [
-            Constants.DEVICES.I_PAD,
-            Constants.DEVICES.FIREFOX_OS
-        ].some((item) &#x3D;&gt; {
-            return this.device &#x3D;&#x3D;&#x3D; item;
-        });
-    };
-
-    /**
-     * @author Ahsan Ayaz
-     * @desc Compares the current device info with the desktop devices to check
-     * if the current device is a desktop device.
-     * @returns whether the current device is a desktop device
-     */
-    public isDesktop() {
-        return [
-            Constants.DEVICES.PS4,
-            Constants.DEVICES.CHROME_BOOK,
-            Constants.DEVICES.UNKNOWN
-        ].some((item) &#x3D;&gt; {
-            return this.device &#x3D;&#x3D;&#x3D; item;
-        });
-    };
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">export interface DeviceInfo {
+  userAgent: string;
+  os: string;
+  browser: string;
+  device: string;
+  os_version: string;
+  browser_version: string;
 }
 </code></pre>
     </div>
