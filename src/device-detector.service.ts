@@ -144,7 +144,7 @@ export class DeviceDetectorService {
      * @returns whether the current device is a desktop device
      */
     public isDesktop() {
-        const destopDevices = [
+        const desktopDevices = [
             Constants.DEVICES.PS4,
             Constants.DEVICES.CHROME_BOOK,
             Constants.DEVICES.UNKNOWN
