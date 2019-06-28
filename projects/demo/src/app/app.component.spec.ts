@@ -1,31 +1,44 @@
 import { TestBed, async } from '@angular/core/testing';
+
 import { AppComponent } from './app.component';
+import { DeviceDetectorModule } from 'ngx-device-detector';
+import { KeysPipe } from './pipes/keys.pipe';
 
 describe('AppComponent', () => {
+
+  let fixture;
+  let app;
+
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [
-        AppComponent
+      imports: [
+        DeviceDetectorModule
       ],
+      declarations: [
+        AppComponent,
+        KeysPipe
+      ],
+      providers: []
     }).compileComponents();
   }));
 
-  it('should create the app', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.debugElement.componentInstance;
-    expect(app).toBeTruthy();
-  });
-
-  it(`should have as title 'demo'`, () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.debugElement.componentInstance;
-    expect(app.title).toEqual('demo');
-  });
-
-  it('should render title in a h1 tag', () => {
-    const fixture = TestBed.createComponent(AppComponent);
+  beforeEach(() => {
+    fixture = TestBed.createComponent(AppComponent);
+    app = fixture.debugElement.componentInstance;
     fixture.detectChanges();
-    const compiled = fixture.debugElement.nativeElement;
-    expect(compiled.querySelector('h1').textContent).toContain('Welcome to demo!');
   });
+
+  it('should create the app', async(() => {
+    expect(app).toBeTruthy();
+  }));
+
+  it('should render demo heading in an element having class demo-heading-text', async(() => {
+    const compiled = fixture.debugElement.nativeElement;
+    expect(compiled.querySelector('.demo-heading-text').textContent).toContain('ngx-device-detector');
+  }));
+
+  it('should render device information inside table in <tr> tags ', async(() => {
+    const compiled = fixture.debugElement.nativeElement;
+    expect(compiled.querySelectorAll('table tr.info-item').length).toEqual(9);  // all the 6 required properties
+  }));
 });
