@@ -19,13 +19,9 @@ before_script:
 
 script:
   - npm run lint
-  - cd ./projects/demo
-  - npm install
   - node_modules/.bin/ng test --watch false
   - node_modules/.bin/webdriver-manager update
-  - cd ..
   - ng build demo --base-href "https://koderlabs.github.io/ngx-device-detector/demo/" --prod --output-hashing=all
-  - cd ..
   - cp -R ./dist/demo ./docs/demo
 
 deploy:
