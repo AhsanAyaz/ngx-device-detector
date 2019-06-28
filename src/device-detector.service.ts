@@ -154,6 +154,6 @@ export class DeviceDetectorService {
                 return false;
             }
         }
-        return destopDevices.indexOf(this.device) > -1;
+        return desktopDevices.indexOf(this.device) > -1;
     };
 }
