@@ -57,7 +57,7 @@ Import `DeviceDetectorModule` in your app.module.ts
     imports: [
       CommonModule,
       FormsModule,
-      DeviceDetectorModule
+      DeviceDetectorModule.forRoot()
     ],
     providers:[
       AuthService

@@ -15,7 +15,7 @@ import { DeviceDetectorModule } from 'ngx-device-detector';
   imports: [
     BrowserModule,
     CommonModule,
-    DeviceDetectorModule
+    DeviceDetectorModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]

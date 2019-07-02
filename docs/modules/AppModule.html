@@ -215,7 +215,7 @@ import { AppComponent } from &#x27;./app.component&#x27;;
 
 import { KeysPipe } from &#x27;./pipes/keys.pipe&#x27;;
 import { CommonModule } from &#x27;@angular/common&#x27;;
-import { DeviceDetectorModule } from &#x27;ngx-device-detector&#x27;;
+import { DeviceDetectorModule } from &#x27;../../../ngx-device-detector/src/public-api&#x27;;
 
 @NgModule({
   declarations: [
@@ -225,7 +225,7 @@ import { DeviceDetectorModule } from &#x27;ngx-device-detector&#x27;;
   imports: [
     BrowserModule,
     CommonModule,
-    DeviceDetectorModule
+    DeviceDetectorModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]

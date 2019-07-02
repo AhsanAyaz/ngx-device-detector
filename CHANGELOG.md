@@ -1,5 +1,12 @@
 # Change Log
 
+## 1.3.8 (just reverts the breaking changes introduced in 1.3.7)
+- Compatible with v7 and v8 projects
+- Library compiled with Angular v7
+- `.forRoot()` resurrected again
+- fixes issue https://github.com/KoderLabs/ngx-device-detector/issues/92 and https://github.com/KoderLabs/ngx-device-detector/issues/91
+
+
 ## 1.3.7 **(contains breaking changes)**
 - Fixed tablet and mobile devices and also fixed desktop issue. Thanks to [Syed Saad Qamar](https://github.com/Syed-Saad-Qamar) for the [PR](https://github.com/KoderLabs/ngx-device-detector/pull/84)
 - Detect ms edge chromium. Thanks to [jrrod507](https://github.com/jrrod507) for the [PR](https://github.com/KoderLabs/ngx-device-detector/pull/73)
