@@ -3,19 +3,21 @@ sudo: true
 node_js:
   - "10.14.2"
 
-demo/dist: trusty
+demo/dist: xenial
 
 branches:
   only:
   - master
 
 before_script:
- - export CHROME_BIN=/usr/bin/google-chrome
- - export DISPLAY=:99.0
- - sh -e /etc/init.d/xvfb start
- - sudo apt-get update
- - wget -N https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb -P ~/
- - sudo dpkg -i --force-depends ~/google-chrome-stable_current_amd64.deb
+  - export CHROME_BIN=/usr/bin/google-chrome
+  - export DISPLAY=:99.0
+  - sudo apt-get update
+  - wget -N https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb -P ~/
+  - sudo dpkg -i --force-depends ~/google-chrome-stable_current_amd64.deb
+
+services:
+  - xvfb
 
 script: 
   - npm run lint
