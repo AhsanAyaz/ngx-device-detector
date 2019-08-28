@@ -54,16 +54,18 @@ var AppComponent = /** @class */ (function () {
         this.device = null;
         this.device = deviceService.getDeviceInfo();
         console.log(this.device);
+        console.log('isMobile', this.deviceService.isMobile());
+        console.log('isTablet', this.deviceService.isTablet());
     }
+    var _a;
     AppComponent = __decorate([
         core_2.Component({
             selector: 'app',
             template: "\n  <div id=\"demoApp\" class=\"container\">\n    <div class=\"demo-container\">\n      <div class=\"demo-heading\">\n        <h2 class=\"text-center demo-heading-text\">\n          ngx-device-detector demo\n        </h2>\n        <p class=\"text-center\">\n          Open this page from different devices to see the appropriate details\n        </p>\n        <h4 class=\"text-center\">Device Information</h4>\n      </div>\n      <div class=\"information-table\">\n        <table class=\"table table-hover\">\n          <tr>\n            <th>Property</th>\n            <th>Value</th>\n          </tr>\n          <tr *ngFor=\"let info of device | keys: propsToShow\" class=\"info-item w3-hover-blue\">\n            <td>{{info.key}}</td>\n            <td>{{info.value}}</td>\n          </tr>\n        </table>\n      </div>\n    </div>\n  </div>\n"
         }),
-        __metadata("design:paramtypes", [typeof (_a = typeof ngx_device_detector_1.DeviceDetectorService !== "undefined" && ngx_device_detector_1.DeviceDetectorService) === "function" && _a || Object])
+        __metadata("design:paramtypes", [typeof (_a = typeof ngx_device_detector_1.DeviceDetectorService !== "undefined" && ngx_device_detector_1.DeviceDetectorService) === "function" ? _a : Object])
     ], AppComponent);
     return AppComponent;
-    var _a;
 }());
 var AppModule = /** @class */ (function () {
     function AppModule() {

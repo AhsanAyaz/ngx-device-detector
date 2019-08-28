@@ -608,6 +608,7 @@ export class DeviceDetectorService {
     device &#x3D; &#x27;&#x27;;
     os_version &#x3D; &#x27;&#x27;;
     browser_version &#x3D; &#x27;&#x27;;
+    reTree &#x3D; new ReTree();
 
     constructor(@Inject(PLATFORM_ID) private platformId) {
         if (isPlatformBrowser(this.platformId)) {
@@ -622,7 +623,6 @@ export class DeviceDetectorService {
      * This value is later accessible for usage
      */
     private _setDeviceInfo() {
-        let reTree &#x3D; new ReTree();
         let ua &#x3D; this.ua;
         this.userAgent &#x3D; ua;
         let mappings &#x3D; [
@@ -634,7 +634,7 @@ export class DeviceDetectorService {
 
         mappings.forEach((mapping) &#x3D;&gt; {
             this[mapping.prop] &#x3D; Object.keys(Constants[mapping.const]).reduce((obj: any, item: any) &#x3D;&gt; {
-                obj[Constants[mapping.const][item]] &#x3D; reTree.test(ua, Constants[&#x60;${mapping.const}_RE&#x60;][item]);
+                obj[Constants[mapping.const][item]] &#x3D; this.reTree.test(ua, Constants[&#x60;${mapping.const}_RE&#x60;][item]);
                 return obj;
             }, {});
         });
@@ -644,15 +644,21 @@ export class DeviceDetectorService {
             .map((key) &#x3D;&gt; {
                 return Constants[mapping.const][key];
             }).reduce((previousValue, currentValue) &#x3D;&gt; {
+              if (mapping.prop &#x3D;&#x3D;&#x3D; &#x27;device&#x27; &amp;&amp; previousValue &#x3D;&#x3D;&#x3D; Constants[mapping.const].ANDROID) {
+                // if we have the actual device found, instead of &#x27;Android&#x27;, return the actual device
+                return (this[mapping.prop][currentValue])
+                  ? currentValue : previousValue;
+              } else {
                 return (previousValue &#x3D;&#x3D;&#x3D; Constants[mapping.const].UNKNOWN &amp;&amp; this[mapping.prop][currentValue])
-                        ? currentValue : previousValue;
+                  ? currentValue : previousValue;
+              }
             }, Constants[mapping.const].UNKNOWN);
         });
 
         this.browser_version &#x3D; &#x27;0&#x27;;
         if (this.browser !&#x3D;&#x3D; Constants.BROWSERS.UNKNOWN) {
             let re &#x3D; Constants.BROWSER_VERSIONS_RE[this.browser];
-            let res &#x3D; reTree.exec(ua, re);
+            let res &#x3D; this.reTree.exec(ua, re);
             if (!!res) {
                 this.browser_version &#x3D; res[1];
             }
@@ -683,21 +689,13 @@ export class DeviceDetectorService {
      * @returns whether the current device is a mobile
      */
     public isMobile(): boolean {
-        if (this.isTablet()) {
-            return false;
-        }
-        const mobiles &#x3D; Constants.MOBILES;
-        let isMob &#x3D; false;
-        for (const key in mobiles) {
-            if (mobiles.hasOwnProperty(key)) {
-                const pattern &#x3D; new RegExp(mobiles[key]);
-                if (pattern.test(this.userAgent)) {
-                    isMob &#x3D; true;
-                    break;
-                }
-            }
-        }
-        return isMob;
+      if (this.isTablet()) {
+        return false;
+      }
+      const match &#x3D; Object.keys(Constants.MOBILES_RE).find((mobile) &#x3D;&gt; {
+        return this.reTree.test(this.userAgent, Constants.MOBILES_RE[mobile]);
+      });
+      return !!match;
     };
 
     /**
@@ -707,18 +705,10 @@ export class DeviceDetectorService {
      * @returns whether the current device is a tablet
      */
     public isTablet() {
-        const tablets &#x3D; Constants.TABLETS;
-        let isTab &#x3D; false;
-        for (const key in tablets) {
-            if (tablets.hasOwnProperty(key)) {
-                const pattern &#x3D; new RegExp(tablets[key]);
-                if (pattern.test(this.userAgent)) {
-                    isTab &#x3D; true;
-                    break;
-                }
-            }
-        }
-        return isTab;
+        const match &#x3D; Object.keys(Constants.TABLETS_RE).find((mobile) &#x3D;&gt; {
+          return !!this.reTree.test(this.userAgent, Constants.TABLETS_RE[mobile]);
+        });
+        return !!match;
     };
 
     /**

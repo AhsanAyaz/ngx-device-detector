@@ -71,6 +71,8 @@ class AppComponent {
   constructor(private deviceService: DeviceDetectorService){
     this.device = deviceService.getDeviceInfo();
     console.log(this.device);
+    console.log('isMobile', this.deviceService.isMobile());
+    console.log('isTablet', this.deviceService.isTablet());
   }
 }
 

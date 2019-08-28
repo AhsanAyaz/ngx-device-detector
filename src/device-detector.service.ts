@@ -24,6 +24,7 @@ export class DeviceDetectorService {
     device = '';
     os_version = '';
     browser_version = '';
+    reTree = new ReTree();
 
     constructor(@Inject(PLATFORM_ID) private platformId) {
         if (isPlatformBrowser(this.platformId)) {
@@ -38,7 +39,6 @@ export class DeviceDetectorService {
      * This value is later accessible for usage
      */
     private _setDeviceInfo() {
-        let reTree = new ReTree();
         let ua = this.ua;
         this.userAgent = ua;
         let mappings = [
@@ -50,7 +50,7 @@ export class DeviceDetectorService {
 
         mappings.forEach((mapping) => {
             this[mapping.prop] = Object.keys(Constants[mapping.const]).reduce((obj: any, item: any) => {
-                obj[Constants[mapping.const][item]] = reTree.test(ua, Constants[`${mapping.const}_RE`][item]);
+                obj[Constants[mapping.const][item]] = this.reTree.test(ua, Constants[`${mapping.const}_RE`][item]);
                 return obj;
             }, {});
         });
@@ -60,15 +60,21 @@ export class DeviceDetectorService {
             .map((key) => {
                 return Constants[mapping.const][key];
             }).reduce((previousValue, currentValue) => {
+              if (mapping.prop === 'device' && previousValue === Constants[mapping.const].ANDROID) {
+                // if we have the actual device found, instead of 'Android', return the actual device
+                return (this[mapping.prop][currentValue])
+                  ? currentValue : previousValue;
+              } else {
                 return (previousValue === Constants[mapping.const].UNKNOWN && this[mapping.prop][currentValue])
-                        ? currentValue : previousValue;
+                  ? currentValue : previousValue;
+              }
             }, Constants[mapping.const].UNKNOWN);
         });
 
         this.browser_version = '0';
         if (this.browser !== Constants.BROWSERS.UNKNOWN) {
             let re = Constants.BROWSER_VERSIONS_RE[this.browser];
-            let res = reTree.exec(ua, re);
+            let res = this.reTree.exec(ua, re);
             if (!!res) {
                 this.browser_version = res[1];
             }
@@ -99,21 +105,13 @@ export class DeviceDetectorService {
      * @returns whether the current device is a mobile
      */
     public isMobile(): boolean {
-        if (this.isTablet()) {
-            return false;
-        }
-        const mobiles = Constants.MOBILES;
-        let isMob = false;
-        for (const key in mobiles) {
-            if (mobiles.hasOwnProperty(key)) {
-                const pattern = new RegExp(mobiles[key]);
-                if (pattern.test(this.userAgent)) {
-                    isMob = true;
-                    break;
-                }
-            }
-        }
-        return isMob;
+      if (this.isTablet()) {
+        return false;
+      }
+      const match = Object.keys(Constants.MOBILES_RE).find((mobile) => {
+        return this.reTree.test(this.userAgent, Constants.MOBILES_RE[mobile]);
+      });
+      return !!match;
     };
 
     /**
@@ -123,18 +121,10 @@ export class DeviceDetectorService {
      * @returns whether the current device is a tablet
      */
     public isTablet() {
-        const tablets = Constants.TABLETS;
-        let isTab = false;
-        for (const key in tablets) {
-            if (tablets.hasOwnProperty(key)) {
-                const pattern = new RegExp(tablets[key]);
-                if (pattern.test(this.userAgent)) {
-                    isTab = true;
-                    break;
-                }
-            }
-        }
-        return isTab;
+        const match = Object.keys(Constants.TABLETS_RE).find((mobile) => {
+          return !!this.reTree.test(this.userAgent, Constants.TABLETS_RE[mobile]);
+        });
+        return !!match;
     };
 
     /**

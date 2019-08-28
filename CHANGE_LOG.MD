@@ -1,5 +1,8 @@
 # Change Log
 
+## 1.3.10
+- resolved the issue of device being "Unknown"
+
 ## 1.3.9
 - minor fixes
 - resolved a packaging issue
