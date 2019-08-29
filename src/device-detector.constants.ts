@@ -112,6 +112,13 @@ export const MOBILES_RE = {
   NINTENDO: /Nintendo (3DS|Switch)/,
   AMOI: /Amoi/,
   INQ: /INQ/,
+  VITA: /\bVita\b/,
+  BLACKBERRY: /\bBlackBerry\b|\bBB10\b|rim[0-9]+/,
+  FIREFOX_OS: /\bFirefox-OS\b/,
+  IPHONE: /\biPhone\b/,
+  iPod: /\biPod\b/,
+  ANDROID: /\bAndroid\b/,
+  WINDOWS_PHONE: /\bWindows-Phone\b/,
   GENERIC_PHONE: new RegExp(`Tapatalk|PDA;|SAGEM|\\bmmp\\b|pocket|\\bpsp\\b|symbian|Smartphone|smartfon|treo|up.browser|
         up.link|vodafone|\\bwap\\b|nokia|Nokia|Series40|Series60|S60|SonyEricsson|N900|MAUI.*WAP.*Browser`),
 }
@@ -335,13 +342,6 @@ export const TABLETS_RE = {
   GenericTablet: new RegExp(`Android.*\\b97D\\b|Tablet(?!.*PC)|BNTV250A|MID-WCDMA|LogicPD Zoom2|\\bA7EB\\b|CatNova8|
         A1_07|CT704|CT1002|\\bM721\\b|rk30sdk|\\bEVOTAB\\b|M758A|ET904|ALUMIUM10|Smartfren Tab|Endeavour 1010|
         Tablet-PC-4|Tagi Tab|\\bM6pro\\b|CT1020W|arc 10HD|\\bTP750\\b|\\bQTAQZ3\\b|WVT101|TM1088|KT107`),
-  VITA: /\bVita\b/,
-  BLACKBERRY: /\bBlackBerry\b|\bBB10\b|rim[0-9]+/,
-  FIREFOX_OS: /\bFirefox-OS\b/,
-  IPHONE: /\biPhone\b/,
-  iPod: /\biPod\b/,
-  ANDROID: /\bAndroid\b/,
-  WINDOWS_PHONE: /\bWindows-Phone\b/,
 }
 
 export const DEVICES = {

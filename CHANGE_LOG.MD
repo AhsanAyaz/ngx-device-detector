@@ -1,6 +1,9 @@
 # Change Log
 
-## 1.3.10
+## 1.3.11
+- Fixed [#109 - The mobile device is determined to be a tablet](https://github.com/KoderLabs/ngx-device-detector/issues/109)
+
+## 1.3.11
 - resolved the issue of device being "Unknown"
 
 ## 1.3.9
