@@ -36,3 +36,6 @@ dist/*
 
 demo/node_modules
 demo/dist
+
+#Test Coverage
+coverage/*
