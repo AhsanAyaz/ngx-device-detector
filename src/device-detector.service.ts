@@ -121,6 +121,11 @@ export class DeviceDetectorService {
      * @returns whether the current device is a tablet
      */
     public isTablet() {
+        // User agent same of ipad os13 and mac so this condition is checked, device is touchable or not
+        // because there's no official touch screen for Mac
+        if (!!this.reTree.test(this.userAgent, Constants.TABLETS_RE['iPad']) && 'ontouchend' in document) {
+            return true;
+        }
         const match = Object.keys(Constants.TABLETS_RE).find((mobile) => {
           return !!this.reTree.test(this.userAgent, Constants.TABLETS_RE[mobile]);
         });
