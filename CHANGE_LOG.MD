@@ -1,5 +1,8 @@
 # Change Log
 
+## 1.3.12
+- Fixed [#113 - iPad OS13 detection](https://github.com/KoderLabs/ngx-device-detector/issues/113). Thanks to [Syed Saad Qamar](https://github.com/SaadQamar01)
+
 ## 1.3.11
 - Fixed [#109 - The mobile device is determined to be a tablet](https://github.com/KoderLabs/ngx-device-detector/issues/109)
 
