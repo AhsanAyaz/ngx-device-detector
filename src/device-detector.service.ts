@@ -28,9 +28,9 @@ export class DeviceDetectorService {
 
     constructor(@Inject(PLATFORM_ID) private platformId) {
         if (isPlatformBrowser(this.platformId)) {
-            this.ua = window.navigator.userAgent;
+            this.userAgent = window.navigator.userAgent;
         }
-        this._setDeviceInfo();
+        this._setDeviceInfo(this.userAgent);
     }
 
     /**
@@ -38,9 +38,10 @@ export class DeviceDetectorService {
      * @desc Sets the initial value of the device when the service is initiated.
      * This value is later accessible for usage
      */
-    private _setDeviceInfo() {
-        let ua = this.ua;
-        this.userAgent = ua;
+    private _setDeviceInfo(ua = this.userAgent) {
+        if (ua !== this.userAgent) {
+          this.userAgent = ua;
+        }
         let mappings = [
             { const : 'OS' , prop: 'os'},
             { const : 'BROWSERS' , prop: 'browser'},
@@ -104,12 +105,12 @@ export class DeviceDetectorService {
      * if the current device is a mobile and also check current device is tablet so it will return false.
      * @returns whether the current device is a mobile
      */
-    public isMobile(): boolean {
-      if (this.isTablet()) {
+    public isMobile(userAgent = this.userAgent): boolean {
+      if (this.isTablet(userAgent)) {
         return false;
       }
       const match = Object.keys(Constants.MOBILES_RE).find((mobile) => {
-        return this.reTree.test(this.userAgent, Constants.MOBILES_RE[mobile]);
+        return this.reTree.test(userAgent, Constants.MOBILES_RE[mobile]);
       });
       return !!match;
     };
@@ -120,14 +121,9 @@ export class DeviceDetectorService {
      * if the current device is a tablet.
      * @returns whether the current device is a tablet
      */
-    public isTablet() {
-        // User agent same of ipad os13 and mac so this condition is checked, device is touchable or not
-        // because there's no official touch screen for Mac
-        if (!!this.reTree.test(this.userAgent, Constants.TABLETS_RE['iPad']) && 'ontouchend' in document) {
-            return true;
-        }
+    public isTablet(userAgent = this.userAgent) {
         const match = Object.keys(Constants.TABLETS_RE).find((mobile) => {
-          return !!this.reTree.test(this.userAgent, Constants.TABLETS_RE[mobile]);
+          return !!this.reTree.test(userAgent, Constants.TABLETS_RE[mobile]);
         });
         return !!match;
     };
@@ -138,14 +134,14 @@ export class DeviceDetectorService {
      * if the current device is a desktop device.
      * @returns whether the current device is a desktop device
      */
-    public isDesktop() {
+    public isDesktop(userAgent = this.userAgent) {
         const desktopDevices = [
             Constants.DEVICES.PS4,
             Constants.DEVICES.CHROME_BOOK,
             Constants.DEVICES.UNKNOWN
         ];
         if (this.device === Constants.DEVICES.UNKNOWN) {
-            if (this.isMobile() || this.isTablet()) {
+            if (this.isMobile(userAgent) || this.isTablet(userAgent)) {
                 return false;
             }
         }
