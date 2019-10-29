@@ -106,4 +106,12 @@ describe('DeviceDetectorService', () => {
     expect(service.isTablet(userAgent)).toBeFalsy();
   }))
 
+  it('should not consider a desktop device as tablet', inject([DeviceDetectorService], (service: DeviceDetectorService) => {
+    // tslint:disable-next-line:max-line-length
+    const userAgent = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/77.0.3865.120 Safari/537.36'
+    expect(service.isMobile(userAgent)).toBeFalsy();
+    expect(service.isDesktop(userAgent)).toBeTruthy();
+    expect(service.isTablet(userAgent)).toBeFalsy();
+  }))
+
 });
