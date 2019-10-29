@@ -1,5 +1,8 @@
 # Change Log
 
+## 1.3.13
+- Minor fixes
+
 ## 1.3.12
 - Fixed [#113 - iPad OS13 detection](https://github.com/KoderLabs/ngx-device-detector/issues/113). Thanks to [Syed Saad Qamar](https://github.com/SaadQamar01)
 
