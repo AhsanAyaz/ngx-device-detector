@@ -124,7 +124,7 @@ export const MOBILES_RE = {
 }
 
 export const TABLETS_RE = {
-  iPad: /iPad|iPad.*Mobile|Macintosh.*Mac OS X.*Version\/13\.0/,
+  iPad: /iPad|iPad.*Mobile/,
   NexusTablet: /Android.*Nexus[\s]+(7|9|10)/,
   GoogleTablet: /Android.*Pixel C/,
   SamsungTablet: new RegExp(`SAMSUNG.*Tablet|Galaxy.*Tab|SC-01C|GT-P1000|GT-P1003|GT-P1010|GT-P3105|GT-P6210|
