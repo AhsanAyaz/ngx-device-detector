@@ -1,5 +1,11 @@
 # Change Log
 
+## 1.3.15
+- Minor fixes
+
+## 1.3.14
+- Minor fixes
+
 ## 1.3.13
 - Minor fixes
 

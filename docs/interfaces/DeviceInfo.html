@@ -337,6 +337,15 @@ export class DeviceDetectorService {
 
         mappings.forEach((mapping) &#x3D;&gt; {
             this[mapping.prop] &#x3D; Object.keys(Constants[mapping.const]).reduce((obj: any, item: any) &#x3D;&gt; {
+                if (Constants[mapping.const][item] &#x3D;&#x3D;&#x3D; &#x27;device&#x27;) { // hack for iOS 13 Tablet
+                  if (
+                    !!this.reTree.test(this.userAgent, Constants.TABLETS_RE[&#x27;iPad&#x27;]) ||
+                    (navigator.platform &#x3D;&#x3D;&#x3D; &#x27;MacIntel&#x27; &amp;&amp; navigator.maxTouchPoints &gt; 1)
+                  ) {
+                    obj[Constants[mapping.const][item]] &#x3D; &#x27;iPad&#x27;;
+                    return Object;
+                  }
+                }
                 obj[Constants[mapping.const][item]] &#x3D; this.reTree.test(ua, Constants[&#x60;${mapping.const}_RE&#x60;][item]);
                 return obj;
             }, {});
@@ -408,6 +417,12 @@ export class DeviceDetectorService {
      * @returns whether the current device is a tablet
      */
     public isTablet(userAgent &#x3D; this.userAgent) {
+        if (
+          !!this.reTree.test(this.userAgent, Constants.TABLETS_RE[&#x27;iPad&#x27;]) ||
+          (navigator.platform &#x3D;&#x3D;&#x3D; &#x27;MacIntel&#x27; &amp;&amp; navigator.maxTouchPoints &gt; 1)
+        ) {
+          return true;
+        }
         const match &#x3D; Object.keys(Constants.TABLETS_RE).find((mobile) &#x3D;&gt; {
           return !!this.reTree.test(userAgent, Constants.TABLETS_RE[mobile]);
         });
