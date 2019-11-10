@@ -21,7 +21,7 @@ describe('DeviceDetectorService', () => {
       os: 'iOS',
       browser: 'Safari',
       device: 'iPhone',
-      os_version: 'unknown',
+      os_version: 'iOS',
       browser_version: '11.0'
     }
     expect(service.getDeviceInfo()).toEqual(deviceInformations);
@@ -113,6 +113,20 @@ describe('DeviceDetectorService', () => {
     expect(service.isMobile(userAgent)).toBeFalsy();
     expect(service.isDesktop(userAgent)).toBeTruthy();
     expect(service.isTablet(userAgent)).toBeFalsy();
+  }))
+
+  it('should detect Firefox in iOS',inject([DeviceDetectorService], (service: DeviceDetectorService) => {
+    // tslint:disable-next-line:max-line-length
+    const userAgent = 'Mozilla/5.0 (iPhone; CPU iPhone OS 13_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) FxiOS/20.1 Mobile/15E148 Safari/605.1.15';
+    (service as any)._setDeviceInfo(userAgent);
+    expect(service.isMobile(userAgent)).toBeTruthy();
+    expect(service.isDesktop(userAgent)).toBeFalsy();
+    expect(service.isTablet(userAgent)).toBeFalsy();
+    const deviceInfo = service.getDeviceInfo();
+    expect(deviceInfo.device).toBe('iPhone');
+    expect(deviceInfo.browser).toBe('Firefox');
+    expect(deviceInfo.browser_version).toBe('20.1');
+    expect(deviceInfo.os_version).toBe('iOS');
   }))
 
 });

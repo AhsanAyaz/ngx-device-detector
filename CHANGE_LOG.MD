@@ -1,5 +1,8 @@
 # Change Log
 
+## 1.3.16
+- iOS Firefox detection fix
+
 ## 1.3.15
 - Minor fixes
 
