@@ -289,8 +289,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="99"
-                            class="link-to-prism">src/device-detector.service.ts:99</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="100"
+                            class="link-to-prism">src/device-detector.service.ts:100</a></div>
                 </td>
             </tr>
 
@@ -336,8 +336,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="152"
-                            class="link-to-prism">src/device-detector.service.ts:152</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="154"
+                            class="link-to-prism">src/device-detector.service.ts:154</a></div>
                 </td>
             </tr>
 
@@ -409,8 +409,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="117"
-                            class="link-to-prism">src/device-detector.service.ts:117</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="118"
+                            class="link-to-prism">src/device-detector.service.ts:118</a></div>
                 </td>
             </tr>
 
@@ -482,8 +482,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="133"
-                            class="link-to-prism">src/device-detector.service.ts:133</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="134"
+                            class="link-to-prism">src/device-detector.service.ts:134</a></div>
                 </td>
             </tr>
 
@@ -845,6 +845,7 @@ export class DeviceDetectorService {
             this[mapping.prop] &#x3D; Object.keys(Constants[mapping.const]).reduce((obj: any, item: any) &#x3D;&gt; {
                 if (Constants[mapping.const][item] &#x3D;&#x3D;&#x3D; &#x27;device&#x27;) { // hack for iOS 13 Tablet
                   if (
+                    navigator &amp;&amp;
                     !!this.reTree.test(this.userAgent, Constants.TABLETS_RE[&#x27;iPad&#x27;]) ||
                     (navigator.platform &#x3D;&#x3D;&#x3D; &#x27;MacIntel&#x27; &amp;&amp; navigator.maxTouchPoints &gt; 1)
                   ) {
@@ -924,6 +925,7 @@ export class DeviceDetectorService {
      */
     public isTablet(userAgent &#x3D; this.userAgent) {
         if (
+          navigator &amp;&amp;
           !!this.reTree.test(this.userAgent, Constants.TABLETS_RE[&#x27;iPad&#x27;]) ||
           (navigator.platform &#x3D;&#x3D;&#x3D; &#x27;MacIntel&#x27; &amp;&amp; navigator.maxTouchPoints &gt; 1)
         ) {
