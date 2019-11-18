@@ -53,6 +53,7 @@ export class DeviceDetectorService {
             this[mapping.prop] = Object.keys(Constants[mapping.const]).reduce((obj: any, item: any) => {
                 if (Constants[mapping.const][item] === 'device') { // hack for iOS 13 Tablet
                   if (
+                    navigator &&
                     !!this.reTree.test(this.userAgent, Constants.TABLETS_RE['iPad']) ||
                     (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1)
                   ) {
@@ -132,6 +133,7 @@ export class DeviceDetectorService {
      */
     public isTablet(userAgent = this.userAgent) {
         if (
+          navigator &&
           !!this.reTree.test(this.userAgent, Constants.TABLETS_RE['iPad']) ||
           (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1)
         ) {
