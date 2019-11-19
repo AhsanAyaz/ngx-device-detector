@@ -9,11 +9,12 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "build:both:ci": "ng build --base-href \"https://koderlabs.github.io/ngx-device-detector/demo/\" --prod --output-hashing=all && npm run build:ssr",
+    "build:both:ci": "ng build --base-href \"https://koderlabs.github.io/ngx-device-detector/demo/\" --prod --output-hashing=all && npm run build:server",
+    "build:server": "ng run ngx-device-detector-demo:server:production --bundleDependencies all",
     "compile:server": "webpack --config webpack.server.config.js --progress --colors",
     "serve:ssr": "node dist/server",
     "build:ssr": "npm run build:client-and-server-bundles && npm run compile:server",
-    "build:client-and-server-bundles": "ng build --prod && ng run ngx-device-detector-demo:server:production --bundleDependencies all"
+    "build:client-and-server-bundles": "ng build --prod && npm run build:server"
   },
   "private": true,
   "dependencies": {
