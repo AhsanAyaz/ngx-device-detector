@@ -1,5 +1,11 @@
 # Change Log
 
+## 1.3.19
+- Fixes of Angular Universal breaking for `navigator` (same as 1.3.17 because I was sleepy)
+
+## 1.3.18
+- Fixes of Angular Universal breaking for `navigator`
+
 ## 1.3.16
 - iOS Firefox detection fix
 

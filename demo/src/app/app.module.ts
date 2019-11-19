@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { KeysPipe } from './pipes/keys.pipe';
 import { CommonModule } from '@angular/common';
 import { DeviceDetectorModule } from 'ngx-device-detector';
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -13,7 +14,8 @@ import { DeviceDetectorModule } from 'ngx-device-detector';
     KeysPipe
   ],
   imports: [
-    BrowserModule,
+    NoopAnimationsModule,
+    BrowserModule.withServerTransition({ appId: 'serverApp' }),
     CommonModule,
     DeviceDetectorModule.forRoot()
   ],
