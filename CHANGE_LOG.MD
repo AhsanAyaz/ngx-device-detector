@@ -1,5 +1,8 @@
 # Change Log
 
+## 1.3.20
+- Fixes [Windows 10 detection](https://github.com/KoderLabs/ngx-device-detector/issues). Thanks to [Nabeel Hassan](https://github.com/Nabeelhassan).
+
 ## 1.3.19
 - Fixes of Angular Universal breaking for `navigator` (same as 1.3.17 because I was sleepy)
 

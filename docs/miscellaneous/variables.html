@@ -662,7 +662,7 @@
                     <tr>
                         <td class="col-md-4">
                             <i>Default value : </i><code>Object.keys(OS_VERSIONS_RE_MAP).reduce(function (obj: any, key: any) {
-  obj[OS_VERSIONS[key]] &#x3D; OS_VERSIONS_RE_MAP[key];
+  obj[key] &#x3D; OS_VERSIONS_RE_MAP[key];
   return obj;
 }, {})</code>
                         </td>
@@ -692,16 +692,38 @@
                     <tr>
                         <td class="col-md-4">
                             <i>Default value : </i><code>{
-  CHROME: [/\bChrome\/([\d\.]+)\b/, /\bCriOS\/([\d\.]+)\b/, /\bHeadlessChrome\/([\d\.]+)\b/],
-  FIREFOX: [/\bFirefox\/([\d\.]+)\b/, /\bFxiOS\/([\d\.]+)\b/],
-  SAFARI: [/\bVersion\/([\d\.]+)\b/, /\bSafari\/([\d\.]+)\b/],
-  OPERA: [/\bVersion\/([\d\.]+)\b/, /\bOPR\/([\d\.]+)\b/],
-  IE: [/\bMSIE ([\d\.]+\w?)\b/, /\brv:([\d\.]+\w?)\b/],
-  MS_EDGE: /\bEdg(?:e|A|iOS)\/([\d\.]+)\b/,
-  MS_EDGE_CHROMIUM: /\bEdg\/([\d\.]+)\b/,
-  SAMSUNG: /\bSamsungBrowser\/([\d\.]+)\b/,
-  UCBROWSER: /\bUCBrowser\/([\d\.]+)\b/,
-  iOS: /\biPhone OS ([0-9_]+)\b/,
+  WINDOWS_3_11: /Win16/,
+  WINDOWS_95: /(Windows 95|Win95|Windows_95)/,
+  WINDOWS_ME: /(Win 9x 4.90|Windows ME)/,
+  WINDOWS_98: /(Windows 98|Win98)/,
+  WINDOWS_CE: /Windows CE/,
+  WINDOWS_2000: /(Windows NT 5.0|Windows 2000)/,
+  WINDOWS_XP: /(Windows NT 5.1|Windows XP)/,
+  WINDOWS_SERVER_2003: /Windows NT 5.2/,
+  WINDOWS_VISTA: /Windows NT 6.0/,
+  WINDOWS_7: /(Windows 7|Windows NT 6.1)/,
+  WINDOWS_8_1: /(Windows 8.1|Windows NT 6.3)/,
+  WINDOWS_8: /(Windows 8|Windows NT 6.2)/,
+  WINDOWS_10: /(Windows NT 10.0)/,
+  WINDOWS_PHONE_7_5: /(Windows Phone OS 7.5)/,
+  WINDOWS_PHONE_8_1: /(Windows Phone 8.1)/,
+  WINDOWS_PHONE_10: /(Windows Phone 10)/,
+  WINDOWS_NT_4_0: { and: [/(Windows NT 4.0|WinNT4.0|WinNT|Windows NT)/, { not: /Windows NT 10.0/ }] },
+  MACOSX: /(MAC OS X\s*[^ 0-9])/,
+  MACOSX_3: /(Darwin 10.3|Mac OS X 10.3)/,
+  MACOSX_4: /(Darwin 10.4|Mac OS X 10.4)/,
+  MACOSX_5: /(Mac OS X 10.5)/,
+  MACOSX_6: /(Mac OS X 10.6)/,
+  MACOSX_7: /(Mac OS X 10.7)/,
+  MACOSX_8: /(Mac OS X 10.8)/,
+  MACOSX_9: /(Mac OS X 10.9)/,
+  MACOSX_10: /(Mac OS X 10.10)/,
+  MACOSX_11: /(Mac OS X 10.11)/,
+  MACOSX_12: /(Mac OS X 10.12)/,
+  MACOSX_13: /(Mac OS X 10.13)/,
+  MACOSX_14: /(Mac OS X 10.14)/,
+  MACOSX_15: /(Mac OS X 10.15)/,
+  iOS: /(iPhone OS\s*[0-9_]+)/,
 }</code>
                         </td>
                     </tr>
