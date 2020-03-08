@@ -355,6 +355,7 @@ export const DEVICES = {
   APPLE_TV: 'Apple-TV',
   GOOGLE_TV: 'Google-TV',
   ANDROID: 'Android',
+  Tesla: 'Tesla',
   iPad: 'iPad',
   IPHONE: 'iPhone',
   iPod: 'iPod',
@@ -485,6 +486,7 @@ export const DEVICES_RE: any = {
   CHROMECAST: /\bCrKey\b/,
   APPLE_TV: /^iTunes-AppleTV\/4.1$/,
   GOOGLE_TV: /\bGoogleTV\b/,
+  Tesla: /Tesla\/([0-9]{4}.[0-9]{1,2}.?[0-9]{0,2}.?[0-9]{0,2})-(.{7})/
 };
 
 export const OS_VERSIONS_RE_MAP: any = {

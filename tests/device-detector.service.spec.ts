@@ -15,7 +15,7 @@ describe('DeviceDetectorService', () => {
 
   it('should return device info object when getDeviceInfo is called', inject([DeviceDetectorService], (service: DeviceDetectorService) => {
     const userAgent = 'Mozilla/5.0 (iPhone; CPU iPhone OS 11_0 like Mac OS X) AppleWebKit/604.1.38 Version/11.0 Mobile/15A372 Safari/604.1';
-    (service as any)._setDeviceInfo(userAgent);
+    service.setDeviceInfo(userAgent);
     const deviceInformations = {
       userAgent: `Mozilla/5.0 (iPhone; CPU iPhone OS 11_0 like Mac OS X) AppleWebKit/604.1.38 Version/11.0 Mobile/15A372 Safari/604.1`,
       os: 'iOS',
@@ -29,7 +29,7 @@ describe('DeviceDetectorService', () => {
 
   it('should return device details when system is desktop', inject([DeviceDetectorService], (service: DeviceDetectorService) => {
     const userAgent = 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.131 Safari/537.36';
-    (service as any)._setDeviceInfo(userAgent);
+    service.setDeviceInfo(userAgent);
     expect(service.isDesktop(userAgent)).toBeTruthy();
     expect(service.os).toBe('Linux');
     expect(service.browser).toBe('Chrome');
@@ -46,7 +46,7 @@ describe('DeviceDetectorService', () => {
   it('should return true, os=`Mac`, browser=`Safari`, device=`iPad` and browser_version=`11.0` when system is tablet',
     inject([DeviceDetectorService], (service: DeviceDetectorService) => {
     const userAgent = `Mozilla/5.0 (iPad; CPU OS 11_0 like Mac OS X) AppleWebKit/604.1.34 Version/11.0 Mobile/15A5341f Safari/604.1`;
-    (service as any)._setDeviceInfo(userAgent);
+    service.setDeviceInfo(userAgent);
     expect(service.isTablet(userAgent)).toBeTruthy();
     expect(service.os).toBe('Mac');
     expect(service.browser).toBe('Safari');
@@ -64,7 +64,7 @@ describe('DeviceDetectorService', () => {
     inject([DeviceDetectorService], (service: DeviceDetectorService) => {
       // tslint:disable-next-line:max-line-length
       const userAgent = `Mozilla/5.0 (iPhone; CPU iPhone OS 11_0 like Mac OS X) AppleWebKit/604.1.38 Version/11.0 Mobile/15A372 Safari/604.1`;
-      (service as any)._setDeviceInfo(userAgent);
+      service.setDeviceInfo(userAgent);
       expect(service.isMobile(userAgent)).toBeTruthy();
       expect(service.os).toBe('iOS');
       expect(service.browser).toBe('Safari');
@@ -75,6 +75,13 @@ describe('DeviceDetectorService', () => {
   it('should return false when system is not mobile', inject([DeviceDetectorService], (service: DeviceDetectorService) => {
     const userAgent = `Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.131 Safari/537.36`;
     expect(service.isMobile(userAgent)).toBeFalsy();
+  }));
+
+  it('should detect Tesla given the user agents', inject([DeviceDetectorService], (service: DeviceDetectorService) => {
+    // tslint:disable-next-line: max-line-length
+    const userAgent = `Mozilla/5.0 (X11; GNU/Linux) AppleWebKit/537.36 (KHTML, like Gecko) Chromium/75.0.3770.100 Chrome/75.0.3770.100 Safari/537.36 Tesla/2019.32.11.1-d39e85a`;
+    service.setDeviceInfo(userAgent);
+    expect(service.device).toBe('Tesla');
   }));
 
   // commenting this test for now until we have a good way of detecting using userAgent
@@ -115,10 +122,10 @@ describe('DeviceDetectorService', () => {
     expect(service.isTablet(userAgent)).toBeFalsy();
   }))
 
-  it('should detect Firefox in iOS',inject([DeviceDetectorService], (service: DeviceDetectorService) => {
+  it('should detect Firefox in iOS', inject([DeviceDetectorService], (service: DeviceDetectorService) => {
     // tslint:disable-next-line:max-line-length
     const userAgent = 'Mozilla/5.0 (iPhone; CPU iPhone OS 13_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) FxiOS/20.1 Mobile/15E148 Safari/605.1.15';
-    (service as any)._setDeviceInfo(userAgent);
+    service.setDeviceInfo(userAgent);
     expect(service.isMobile(userAgent)).toBeTruthy();
     expect(service.isDesktop(userAgent)).toBeFalsy();
     expect(service.isTablet(userAgent)).toBeFalsy();
