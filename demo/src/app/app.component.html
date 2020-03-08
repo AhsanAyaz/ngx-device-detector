@@ -29,6 +29,19 @@
       </p>
       <h4 class="text-center">Device Information</h4>
     </div>
+    <div class="user-agent">
+      <div class="user-agent__input">
+        <div class="form-group">
+          <label for="userAgentInput">Test User Agent</label>
+          <input class="form-control" id="userAgentInput" #userAgentInput type="text" placeholder="">
+          <small id="uaHelp" class="form-text text-muted">Paste the user agent (window.navigator.userAgent) here</small>
+        </div>
+      </div>
+      <div class="user-agent__buttons">
+        <button class="btn btn-primary btn-sm" (click)="applyDevice(userAgentInput.value)">Apply test user agent</button>
+        <button class="btn btn-warning btn-sm" (click)="resetDeviceInfo()">Reset device info</button>
+      </div>
+    </div>
     <div class="information-table">
       <div class="device-icon">
         <div

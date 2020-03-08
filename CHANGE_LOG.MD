@@ -1,5 +1,10 @@
 # Change Log
 
+## 1.4.0
+- Fixes [Add Tesla detection](https://github.com/KoderLabs/ngx-device-detector/issues/132).
+- Fixes [Galaxy Tab A is not detected (SM-T290)](https://github.com/KoderLabs/ngx-device-detector/issues/131)
+- Exposed `setDeviceInfo` method from the `DeviceDetectorService`
+
 ## 1.3.20
 - Fixes [Windows 10 detection](https://github.com/KoderLabs/ngx-device-detector/issues). Thanks to [Nabeel Hassan](https://github.com/Nabeelhassan).
 

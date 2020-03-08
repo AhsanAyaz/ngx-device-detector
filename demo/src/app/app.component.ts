@@ -10,8 +10,13 @@ export class AppComponent {
   propsToShow = ['userAgent', 'os', 'browser', 'device', 'os_version', 'browser_version'];
   deviceInfo = null;
   version = VERSION.full;
+  userAgentInputVal = null;
   constructor(private deviceService: DeviceDetectorService) {
-    this.deviceInfo = deviceService.getDeviceInfo();
+    this.applyDevice();
+  }
+
+  getDeviceInfo() {
+    this.deviceInfo = this.deviceService.getDeviceInfo();
     console.log(this.deviceInfo);
   }
 
@@ -25,5 +30,14 @@ export class AppComponent {
 
   get isDesktop() {
     return this.deviceService.isDesktop();
+  }
+
+  applyDevice(userAgent = window.navigator.userAgent) {
+    this.deviceService.setDeviceInfo(userAgent);
+    this.getDeviceInfo();
+  }
+
+  resetDeviceInfo() {
+    this.applyDevice();
   }
 }

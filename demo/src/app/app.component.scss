@@ -37,4 +37,25 @@
       font-size: 100px;
     }
   }
+
+  .user-agent {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    &__input {
+      flex: 1;
+      input {
+        width: 100%;
+      }
+    }
+    &__buttons {
+      display: flex;
+      justify-content: flex-end;
+      > button {
+        &:first-child {
+          margin-right: 10px;
+        }
+      }
+    }
+  }
 }

@@ -316,7 +316,7 @@ export class DeviceDetectorService {
         if (isPlatformBrowser(this.platformId)) {
             this.userAgent &#x3D; window.navigator.userAgent;
         }
-        this._setDeviceInfo(this.userAgent);
+        this.setDeviceInfo(this.userAgent);
     }
 
     /**
@@ -324,7 +324,7 @@ export class DeviceDetectorService {
      * @desc Sets the initial value of the device when the service is initiated.
      * This value is later accessible for usage
      */
-    private _setDeviceInfo(ua &#x3D; this.userAgent) {
+    setDeviceInfo(ua &#x3D; this.userAgent) {
         if (ua !&#x3D;&#x3D; this.userAgent) {
           this.userAgent &#x3D; ua;
         }

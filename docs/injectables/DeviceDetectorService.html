@@ -112,10 +112,6 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
-                                    <span class="modifier">Private</span>
-                                <a href="#_setDeviceInfo">_setDeviceInfo</a>
-                            </li>
-                            <li>
                                     <span class="modifier">Public</span>
                                 <a href="#getDeviceInfo">getDeviceInfo</a>
                             </li>
@@ -130,6 +126,9 @@
                             <li>
                                     <span class="modifier">Public</span>
                                 <a href="#isTablet">isTablet</a>
+                            </li>
+                            <li>
+                                <a href="#setDeviceInfo">setDeviceInfo</a>
                             </li>
                         </ul>
                     </td>
@@ -193,78 +192,6 @@
     <h3 id="methods">
         Methods
     </h3>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="_setDeviceInfo"></a>
-                    <span class="name">
-                        <b>
-                            <span class="modifier">Private</span>
-                            _setDeviceInfo
-                        </b>
-                        <a href="#_setDeviceInfo"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-                    <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>_setDeviceInfo(ua)</code>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="41"
-                            class="link-to-prism">src/device-detector.service.ts:41</a></div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-
-                    <div class="io-description">
-                        <b>Parameters :</b>
-                        <table class="params">
-                            <thead>
-                                <tr>
-                                    <td>Name</td>
-                                    <td>Optional</td>
-                                    <td>Default value</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>ua</td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-                                    <td>
-                                        <code>this.userAgent</code>
-                                    </td>
-
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div>
-                    </div>
-                    <div class="io-description">
-                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
-
-                    </div>
-                    <div class="io-description">
-                        
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
     <table class="table table-sm table-bordered">
         <tbody>
             <tr>
@@ -526,6 +453,76 @@
                     <div class="io-description">
                         <p>whether the current device is a tablet</p>
 
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="setDeviceInfo"></a>
+                    <span class="name">
+                        <b>
+                            setDeviceInfo
+                        </b>
+                        <a href="#setDeviceInfo"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>setDeviceInfo(ua)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="41"
+                            class="link-to-prism">src/device-detector.service.ts:41</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Optional</td>
+                                    <td>Default value</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>ua</td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+                                    <td>
+                                        <code>this.userAgent</code>
+                                    </td>
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
                     </div>
                 </td>
             </tr>
@@ -822,7 +819,7 @@ export class DeviceDetectorService {
         if (isPlatformBrowser(this.platformId)) {
             this.userAgent &#x3D; window.navigator.userAgent;
         }
-        this._setDeviceInfo(this.userAgent);
+        this.setDeviceInfo(this.userAgent);
     }
 
     /**
@@ -830,7 +827,7 @@ export class DeviceDetectorService {
      * @desc Sets the initial value of the device when the service is initiated.
      * This value is later accessible for usage
      */
-    private _setDeviceInfo(ua &#x3D; this.userAgent) {
+    setDeviceInfo(ua &#x3D; this.userAgent) {
         if (ua !&#x3D;&#x3D; this.userAgent) {
           this.userAgent &#x3D; ua;
         }
