@@ -27,7 +27,7 @@ export class DeviceDetectorService {
     reTree = new ReTree();
 
     constructor(@Inject(PLATFORM_ID) private platformId) {
-        if (isPlatformBrowser(this.platformId)) {
+        if (isPlatformBrowser(this.platformId) && typeof window !== 'undefined') {
             this.userAgent = window.navigator.userAgent;
         }
         this.setDeviceInfo(this.userAgent);
