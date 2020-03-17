@@ -17,7 +17,7 @@
     "release": "npm run pre-release && npm publish dist"
   },
   "precommit": [
-    "npm run release"
+    "npm run build"
   ],
   "repository": {
     "type": "git",
