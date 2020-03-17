@@ -313,7 +313,7 @@ export class DeviceDetectorService {
     reTree &#x3D; new ReTree();
 
     constructor(@Inject(PLATFORM_ID) private platformId) {
-        if (isPlatformBrowser(this.platformId)) {
+        if (isPlatformBrowser(this.platformId) &amp;&amp; typeof window !&#x3D;&#x3D; &#x27;undefined&#x27;) {
             this.userAgent &#x3D; window.navigator.userAgent;
         }
         this.setDeviceInfo(this.userAgent);
@@ -460,6 +460,7 @@ export class DeviceDetectorService {
 </div>
 
 
+                   
 
 
 
@@ -482,6 +483,7 @@ export class DeviceDetectorService {
             var COMPODOC_CURRENT_PAGE_DEPTH = 1;
             var COMPODOC_CURRENT_PAGE_CONTEXT = 'interface';
             var COMPODOC_CURRENT_PAGE_URL = 'DeviceInfo.html';
+            var MAX_SEARCH_RESULTS = 15;
        </script>
 
        <script src="../js/libs/custom-elements.min.js"></script>
