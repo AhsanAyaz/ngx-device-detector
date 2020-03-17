@@ -29,7 +29,7 @@ Desktop.ini
 **/*.ngfactory.ts
 
 # Build files
-dist/*
+#dist/*
 
 
 # Demo ignore folders
