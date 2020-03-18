@@ -138,7 +138,7 @@ export class DeviceDetectorService {
           isPlatformBrowser(this.platformId) &&
           (
             !!this.reTree.test(this.userAgent, Constants.TABLETS_RE['iPad']) ||
-            (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1)
+            (typeof navigator !== 'undefined' && navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1)
           )
         ) {
           return true;
