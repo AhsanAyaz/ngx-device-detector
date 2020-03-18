@@ -1,5 +1,8 @@
 # Change Log
 
+## 1.4.1
+- Fixes [Add angular 9.x universal support](https://github.com/KoderLabs/ngx-device-detector/issues/141). Thanks to [BruneXX](https://github.com/BruneXX) for [PR](https://github.com/KoderLabs/ngx-device-detector/pull/143)
+
 ## 1.4.0
 - Fixes [Add Tesla detection](https://github.com/KoderLabs/ngx-device-detector/issues/132).
 - Fixes [Galaxy Tab A is not detected (SM-T290)](https://github.com/KoderLabs/ngx-device-detector/issues/131)

@@ -313,7 +313,7 @@ export class DeviceDetectorService {
     reTree &#x3D; new ReTree();
 
     constructor(@Inject(PLATFORM_ID) private platformId) {
-        if (isPlatformBrowser(this.platformId)) {
+        if (isPlatformBrowser(this.platformId) &amp;&amp; typeof window !&#x3D;&#x3D; &#x27;undefined&#x27;) {
             this.userAgent &#x3D; window.navigator.userAgent;
         }
         this.setDeviceInfo(this.userAgent);
@@ -424,7 +424,7 @@ export class DeviceDetectorService {
           isPlatformBrowser(this.platformId) &amp;&amp;
           (
             !!this.reTree.test(this.userAgent, Constants.TABLETS_RE[&#x27;iPad&#x27;]) ||
-            (navigator.platform &#x3D;&#x3D;&#x3D; &#x27;MacIntel&#x27; &amp;&amp; navigator.maxTouchPoints &gt; 1)
+            (typeof navigator !&#x3D;&#x3D; &#x27;undefined&#x27; &amp;&amp; navigator.platform &#x3D;&#x3D;&#x3D; &#x27;MacIntel&#x27; &amp;&amp; navigator.maxTouchPoints &gt; 1)
           )
         ) {
           return true;
