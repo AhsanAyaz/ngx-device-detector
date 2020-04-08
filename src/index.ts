@@ -8,7 +8,7 @@ import { DeviceDetectorService } from './device-detector.service';
   ]
 })
 export class DeviceDetectorModule {
-  static forRoot(): ModuleWithProviders {
+  static forRoot(): ModuleWithProviders<DeviceDetectorModule> {
     return {
       ngModule: DeviceDetectorModule,
       providers: [DeviceDetectorService]
