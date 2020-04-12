@@ -1,6 +1,6 @@
 {
   "name": "ngx-device-detector",
-  "version": "1.4.1",
+  "version": "1.4.2",
   "scripts": {
     "build": "ng-packagr -p ng-package.json && cp dist/bundles/ngx-device-detector.umd.js dist/ngx-device-detector.umd.js",
     "build:watch": "ng-packagr -p ng-package.json -w",

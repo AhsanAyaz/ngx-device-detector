@@ -105,7 +105,7 @@
                 <td class="col-md-4">
 
                     <div class="io-description">
-                        <b>Returns : </b>        <code><a href="https://angular.io/api/core/ModuleWithProviders" target="_blank" >ModuleWithProviders</a></code>
+                        <b>Returns : </b>    <code>ModuleWithProviders&lt;DeviceDetectorModule&gt;</code>
 
                     </div>
                 </td>
@@ -127,7 +127,7 @@ import { DeviceDetectorService } from &#x27;./device-detector.service&#x27;;
   ]
 })
 export class DeviceDetectorModule {
-  static forRoot(): ModuleWithProviders {
+  static forRoot(): ModuleWithProviders&lt;DeviceDetectorModule&gt; {
     return {
       ngModule: DeviceDetectorModule,
       providers: [DeviceDetectorService]

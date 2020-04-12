@@ -1,5 +1,8 @@
 # Change Log
 
+## 1.4.2
+- Fixes [DeviceDetectorModule.forRoot returns a ModuleWithProviders type without a generic type argument](https://github.com/KoderLabs/ngx-device-detector/issues/144). Thanks to [PascalHonegger](https://github.com/PascalHonegger) for [PR](https://github.com/KoderLabs/ngx-device-detector/pull/145) and [millerf](https://github.com/millerf) for verifying.
+
 ## 1.4.1
 - Fixes [Add angular 9.x universal support](https://github.com/KoderLabs/ngx-device-detector/issues/141). Thanks to [BruneXX](https://github.com/BruneXX) for [PR](https://github.com/KoderLabs/ngx-device-detector/pull/143)
 
