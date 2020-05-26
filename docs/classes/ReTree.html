@@ -157,8 +157,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="34"
-                            class="link-to-prism">src/retree.ts:34</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="31"
+                            class="link-to-prism">src/retree.ts:31</a></div>
                 </td>
             </tr>
 
@@ -241,8 +241,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="11"
-                            class="link-to-prism">src/retree.ts:11</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="8"
+                            class="link-to-prism">src/retree.ts:8</a></div>
                 </td>
             </tr>
 
@@ -312,50 +312,47 @@
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">export class ReTree {
+  constructor() {}
 
-    constructor() {
-
+  public test(string: string, regex: any): any {
+    let self &#x3D; this
+    if (typeof regex &#x3D;&#x3D;&#x3D; &#x27;string&#x27;) {
+      regex &#x3D; new RegExp(regex)
     }
 
-    public test(string: string , regex: any): any {
-        let self &#x3D; this;
-        if (typeof regex &#x3D;&#x3D;&#x3D; &#x27;string&#x27;) {
-            regex &#x3D; new RegExp(regex);
-        }
+    if (regex instanceof RegExp) {
+      return regex.test(string)
+    } else if (regex &amp;&amp; Array.isArray(regex.and)) {
+      return regex.and.every(function (item: any) {
+        return self.test(string, item)
+      })
+    } else if (regex &amp;&amp; Array.isArray(regex.or)) {
+      return regex.or.some(function (item: any) {
+        return self.test(string, item)
+      })
+    } else if (regex &amp;&amp; regex.not) {
+      return !self.test(string, regex.not)
+    } else {
+      return false
+    }
+  }
 
-        if (regex instanceof RegExp) {
-            return regex.test(string);
-        } else if (regex &amp;&amp; Array.isArray(regex.and)) {
-            return regex.and.every(function (item: any) {
-                return self.test(string, item);
-            });
-        } else if (regex &amp;&amp; Array.isArray(regex.or)) {
-            return regex.or.some(function (item: any) {
-                return self.test(string, item);
-            });
-        } else if (regex &amp;&amp; regex.not) {
-            return !self.test(string, regex.not);
-        } else {
-            return false;
-        }
+  public exec(string: string, regex: any): any {
+    let self &#x3D; this
+    if (typeof regex &#x3D;&#x3D;&#x3D; &#x27;string&#x27;) {
+      regex &#x3D; new RegExp(regex)
     }
 
-    public exec(string: string, regex: any): any {
-        let self &#x3D; this;
-        if (typeof regex &#x3D;&#x3D;&#x3D; &#x27;string&#x27;) {
-            regex &#x3D; new RegExp(regex);
-        }
-
-        if (regex instanceof RegExp) {
-            return regex.exec(string);
-        } else if (regex &amp;&amp; Array.isArray(regex)) {
-            return regex.reduce(function (res: any, item: any) {
-                return (!!res) ? res : self.exec(string, item);
-            }, null);
-        } else {
-            return null;
-        }
+    if (regex instanceof RegExp) {
+      return regex.exec(string)
+    } else if (regex &amp;&amp; Array.isArray(regex)) {
+      return regex.reduce(function (res: any, item: any) {
+        return !!res ? res : self.exec(string, item)
+      }, null)
+    } else {
+      return null
     }
+  }
 }
 </code></pre>
     </div>
@@ -363,6 +360,7 @@
 
 
 
+                   
 
 
 
@@ -385,6 +383,7 @@
             var COMPODOC_CURRENT_PAGE_DEPTH = 1;
             var COMPODOC_CURRENT_PAGE_CONTEXT = 'class';
             var COMPODOC_CURRENT_PAGE_URL = 'ReTree.html';
+            var MAX_SEARCH_RESULTS = 15;
        </script>
 
        <script src="../js/libs/custom-elements.min.js"></script>

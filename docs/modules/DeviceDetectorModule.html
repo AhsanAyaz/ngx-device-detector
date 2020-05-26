@@ -95,8 +95,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="11"
-                            class="link-to-prism">src/index.ts:11</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="9"
+                            class="link-to-prism">src/index.ts:9</a></div>
                 </td>
             </tr>
 
@@ -117,28 +117,25 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { NgModule, ModuleWithProviders } from &#x27;@angular/core&#x27;;
-import { CommonModule } from &#x27;@angular/common&#x27;;
-import { DeviceDetectorService } from &#x27;./device-detector.service&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { NgModule, ModuleWithProviders } from &#x27;@angular/core&#x27;
+import { CommonModule } from &#x27;@angular/common&#x27;
+import { DeviceDetectorService } from &#x27;./device-detector.service&#x27;
 
 @NgModule({
-  imports: [
-    CommonModule
-  ]
+  imports: [CommonModule],
 })
 export class DeviceDetectorModule {
   static forRoot(): ModuleWithProviders&lt;DeviceDetectorModule&gt; {
     return {
       ngModule: DeviceDetectorModule,
-      providers: [DeviceDetectorService]
-    };
+      providers: [DeviceDetectorService],
+    }
   }
 }
 
-export { DeviceDetectorService, DeviceInfo } from &#x27;./device-detector.service&#x27;;
-export { ReTree } from &#x27;./retree&#x27;;
-export * from &#x27;./device-detector.constants&#x27;;
-
+export { DeviceDetectorService, DeviceInfo } from &#x27;./device-detector.service&#x27;
+export { ReTree } from &#x27;./retree&#x27;
+export * from &#x27;./device-detector.constants&#x27;
 </code></pre>
     </div>
 </div>
@@ -152,6 +149,7 @@ export * from &#x27;./device-detector.constants&#x27;;
 
 
 
+                   
 
 
 
@@ -174,6 +172,7 @@ export * from &#x27;./device-detector.constants&#x27;;
             var COMPODOC_CURRENT_PAGE_DEPTH = 1;
             var COMPODOC_CURRENT_PAGE_CONTEXT = 'module';
             var COMPODOC_CURRENT_PAGE_URL = 'DeviceDetectorModule.html';
+            var MAX_SEARCH_RESULTS = 15;
        </script>
 
        <script src="../js/libs/custom-elements.min.js"></script>

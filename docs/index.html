@@ -63,15 +63,12 @@ An Angular 5+ powered AOT compatible device detector that helps to identify brow
 <p><a href="https://koderlabs.github.io/ngx-device-detector/demo">Ngx Device Detector Demo</a></p>
 <h2 id="installation">Installation</h2>
 <p>To install this library, run:</p>
-<p><code>bash
-$ npm install ngx-device-detector --save</code></p>
-<h2 id="usage">Usage</h2>
-<p>Import <code>DeviceDetectorModule</code> in your app.module.ts
-<code>typescript
-  import { NgModule } from &#39;@angular/core&#39;;
+<div><pre class="line-numbers"><code class="language-bash">$ npm install ngx-device-detector --save</code></pre></div><h2 id="usage">Usage</h2>
+<p>Import <code>DeviceDetectorModule</code> in your app.module.ts</p>
+<div><pre class="line-numbers"><code class="language-typescript">  import { NgModule } from &#39;&#64;angular/core&#39;;
   import { DeviceDetectorModule } from &#39;ngx-device-detector&#39;;
   ...
-  @NgModule({
+  &#64;NgModule({
     declarations: [
       ...
       LoginComponent,
@@ -87,20 +84,19 @@ $ npm install ngx-device-detector --save</code></p>
       AuthService
     ]
     ...
-  })</code></p>
-<p>In your component where you want to use the Device Service
-```typescript
-  import { Component } from &#39;@angular/core&#39;;
+  })</code></pre></div><p>In your component where you want to use the Device Service</p>
+<div><pre class="line-numbers"><code class="language-typescript">  import { Component } from &#39;&#64;angular/core&#39;;
   ...
   import { DeviceDetectorService } from &#39;ngx-device-detector&#39;;
   ...
-  @Component({
-    selector: &#39;home&#39;,  // <home></home>
+  &#64;Component({
+    selector: &#39;home&#39;,  // &lt;home&gt;&lt;/home&gt;
     styleUrls: [ &#39;./home.component.scss&#39; ],
     templateUrl: &#39;./home.component.html&#39;,
     ...
-  })</p>
-<p>  export class HomeComponent {
+  })
+
+  export class HomeComponent {
     deviceInfo = null;
     ...
     constructor(..., private http: Http, private deviceService: DeviceDetectorService) {
@@ -108,7 +104,7 @@ $ npm install ngx-device-detector --save</code></p>
     }
     ...
     epicFunction() {
-      console.log(&#39;hello <code>Home</code> component&#39;);
+      console.log(&#39;hello `Home` component&#39;);
       this.deviceInfo = this.deviceService.getDeviceInfo();
       const isMobile = this.deviceService.isMobile();
       const isTablet = this.deviceService.isTablet();
@@ -119,15 +115,16 @@ $ npm install ngx-device-detector --save</code></p>
       console.log(isDesktopDevice); // returns if the app is running on a Desktop browser.
     }
     ...
-  }</p>
-<p>```</p>
-<h2 id="device-service">Device service</h2>
-<p>Holds the following properties
-* browser
-* os
-* device
-* userAgent
-* os_version</p>
+  }
+</code></pre></div><h2 id="device-service">Device service</h2>
+<p>Holds the following properties</p>
+<ul>
+<li>browser</li>
+<li>os</li>
+<li>device</li>
+<li>userAgent</li>
+<li>os_version</li>
+</ul>
 <h2 id="helper-methods">Helper Methods</h2>
 <ul>
 <li><strong>isMobile() :</strong> returns if the device is a mobile device (android / iPhone/ windows-phone etc)</li>
@@ -136,35 +133,21 @@ $ npm install ngx-device-detector --save</code></p>
 </ul>
 <h2 id="development">Development</h2>
 <p>To generate all <code>*.js</code>, <code>*.js.map</code> and <code>*.d.ts</code> files:</p>
-<p><code>bash
-  $ npm run tsc</code></p>
-<p>To lint all <code>*.ts</code> files:</p>
-<p><code>bash
-  $ npm run lint</code></p>
-<p>To run unit tests
-<code>bash
-  $ npm run test</code></p>
-<p>To build the library
-<code>bash
-  $ npm run build</code></p>
-<h2 id="run-the-demo">Run the DEMO</h2>
+<div><pre class="line-numbers"><code class="language-bash">  $ npm run tsc</code></pre></div><p>To lint all <code>*.ts</code> files:</p>
+<div><pre class="line-numbers"><code class="language-bash">  $ npm run lint</code></pre></div><p>To run unit tests</p>
+<div><pre class="line-numbers"><code class="language-bash">  $ npm run test</code></pre></div><p>To build the library</p>
+<div><pre class="line-numbers"><code class="language-bash">  $ npm run build</code></pre></div><h2 id="run-the-demo">Run the DEMO</h2>
 <p>Make sure you have @angular/cli installed</p>
-<p><code>bash
-  $ npm install -g @angular/cli</code></p>
-<p><code>bash
-  $ cd demo
+<div><pre class="line-numbers"><code class="language-bash">  $ npm install -g &#64;angular/cli</code></pre></div><div><pre class="line-numbers"><code class="language-bash">  $ cd demo
   $ npm install
-  $ ng serve</code></p>
-<p>the demo will be up at <code>localhost:4200</code></p>
+  $ ng serve</code></pre></div><p>the demo will be up at <code>localhost:4200</code></p>
 <h2 id="change-log">Change Log</h2>
 <p>Please see <a href="CHANGE_LOG.MD">CHANGE_LOG.MD</a> for the updates.</p>
 <h2 id="ie10-ie11-compatibility">IE10, IE11 Compatibility</h2>
 <p>If you&#39;re consuming the library for IE10 &amp; IE11, make sure to uncomment (at least) these lines from <code>src/polyfills.ts</code> in your project.</p>
-<p><code>typescript
-import &#39;core-js/es6/string&#39;;
+<div><pre class="line-numbers"><code class="language-typescript">import &#39;core-js/es6/string&#39;;
 import &#39;core-js/es6/array&#39;;
-import &#39;core-js/es6/map&#39;;</code></p>
-<h2 id="credits">Credits</h2>
+import &#39;core-js/es6/map&#39;;</code></pre></div><h2 id="credits">Credits</h2>
 <p>The library is inspired by and based on the work from <a href="https://github.com/srfrnk/ng-device-detector">ng-device-detector </a>. Also used a typescript wrapper of the amazing work in <a href="https://github.com/srfrnk/re-tree">ReTree</a> for regex based needs and an Angular2 Library Creator boilerplate to get the work started fast. I.e. <a href="https://github.com/jvandemo/generator-angular2-library">Generator Angular2 library</a>.</p>
 <h2 id="license">License</h2>
 <p>MIT © <a href="https://github.com/AhsanAyaz">Ahsan Ayaz</a></p>
@@ -182,6 +165,7 @@ import &#39;core-js/es6/map&#39;;</code></p>
 
 
 
+                   
 
 
 
@@ -204,6 +188,7 @@ import &#39;core-js/es6/map&#39;;</code></p>
             var COMPODOC_CURRENT_PAGE_DEPTH = 0;
             var COMPODOC_CURRENT_PAGE_CONTEXT = 'getting-started';
             var COMPODOC_CURRENT_PAGE_URL = 'index.html';
+            var MAX_SEARCH_RESULTS = 15;
        </script>
 
        <script src="./js/libs/custom-elements.min.js"></script>

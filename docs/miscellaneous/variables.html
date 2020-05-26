@@ -44,6 +44,7 @@
 
 
 
+                   
 
 <ol class="breadcrumb">
   <li>Miscellaneous</li>
@@ -126,8 +127,8 @@
                     <tr>
                         <td class="col-md-4">
                             <i>Default value : </i><code>Object.keys(BROWSER_VERSIONS_RE_MAP).reduce(function (obj: any, key: any) {
-  obj[BROWSERS[key]] &#x3D; BROWSER_VERSIONS_RE_MAP[key];
-  return obj;
+  obj[BROWSERS[key]] &#x3D; BROWSER_VERSIONS_RE_MAP[key]
+  return obj
 }, {})</code>
                         </td>
                     </tr>
@@ -203,7 +204,7 @@
   FB_MESSANGER: &#x27;FB-Messanger&#x27;,
   SAMSUNG: &#x27;Samsung&#x27;,
   UCBROWSER: &#x27;UC-Browser&#x27;,
-  UNKNOWN: &#x27;Unknown&#x27;
+  UNKNOWN: &#x27;Unknown&#x27;,
 }</code>
                         </td>
                     </tr>
@@ -239,19 +240,25 @@
                         <td class="col-md-4">
                             <i>Default value : </i><code>{
   CHROME: {
-    and: [{ or: [/\bChrome\b/, /\bCriOS\b/, /\bHeadlessChrome\b/] }, {
-      not: {
-        or: [/\bOPR\b/, /\bEdg(e|A|iOS)\b/, /\bEdg\/\b/, /\bSamsungBrowser\b/, /\bUCBrowser\b/]
-      }
-    }]
+    and: [
+      { or: [/\bChrome\b/, /\bCriOS\b/, /\bHeadlessChrome\b/] },
+      {
+        not: {
+          or: [/\bOPR\b/, /\bEdg(e|A|iOS)\b/, /\bEdg\/\b/, /\bSamsungBrowser\b/, /\bUCBrowser\b/],
+        },
+      },
+    ],
   },
   FIREFOX: { or: [/\bFirefox\b/, /\bFxiOS\b/] },
   SAFARI: {
-    and: [/^((?!CriOS).)*\Safari\b.*$/, {
-      not: {
-        or: [/\bOPR\b/, /\bEdg(e|A|iOS)\b/, /\bEdg\/\b/, /\bWindows Phone\b/, /\bSamsungBrowser\b/, /\bUCBrowser\b/]
-      }
-    }]
+    and: [
+      /^((?!CriOS).)*\Safari\b.*$/,
+      {
+        not: {
+          or: [/\bOPR\b/, /\bEdg(e|A|iOS)\b/, /\bEdg\/\b/, /\bWindows Phone\b/, /\bSamsungBrowser\b/, /\bUCBrowser\b/],
+        },
+      },
+    ],
   },
   OPERA: { or: [/Opera\b/, /\bOPR\b/] },
   IE: { or: [/\bMSIE\b/, /\bTrident\b/, /^Mozilla\/5\.0 \(Windows NT 10\.0; Win64; x64\)$/] },
@@ -365,7 +372,7 @@
   CHROMECAST: /\bCrKey\b/,
   APPLE_TV: /^iTunes-AppleTV\/4.1$/,
   GOOGLE_TV: /\bGoogleTV\b/,
-  Tesla: /Tesla\/([0-9]{4}.[0-9]{1,2}.?[0-9]{0,2}.?[0-9]{0,2})-(.{7})/
+  Tesla: /Tesla\/([0-9]{4}.[0-9]{1,2}.?[0-9]{0,2}.?[0-9]{0,2})-(.{7})/,
 }</code>
                         </td>
                     </tr>
@@ -534,7 +541,7 @@
   FIREFOX_OS: &#x27;Firefox-OS&#x27;,
   CHROME_OS: &#x27;Chrome-OS&#x27;,
   WINDOWS_PHONE: &#x27;Windows-Phone&#x27;,
-  UNKNOWN: &#x27;Unknown&#x27;
+  UNKNOWN: &#x27;Unknown&#x27;,
 }</code>
                         </td>
                     </tr>
@@ -573,7 +580,7 @@
   CHROME_OS: /\bCrOS\b/,
   WINDOWS_PHONE: { or: [/\bIEMobile\b/, /\bWindows Phone\b/] },
   PS4: /\bMozilla\/5.0 \(PlayStation 4\b/,
-  VITA: /\bMozilla\/5.0 \(Play(S|s)tation Vita\b/
+  VITA: /\bMozilla\/5.0 \(Play(S|s)tation Vita\b/,
 }</code>
                         </td>
                     </tr>
@@ -635,7 +642,7 @@
   MACOSX_2: &#x27;mac-os-x-2&#x27;,
   MACOSX: &#x27;mac-os-x&#x27;,
   iOS: &#x27;iOS&#x27;,
-  UNKNOWN: &#x27;unknown&#x27;
+  UNKNOWN: &#x27;unknown&#x27;,
 }</code>
                         </td>
                     </tr>
@@ -664,8 +671,8 @@
                     <tr>
                         <td class="col-md-4">
                             <i>Default value : </i><code>Object.keys(OS_VERSIONS_RE_MAP).reduce(function (obj: any, key: any) {
-  obj[key] &#x3D; OS_VERSIONS_RE_MAP[key];
-  return obj;
+  obj[key] &#x3D; OS_VERSIONS_RE_MAP[key]
+  return obj
 }, {})</code>
                         </td>
                     </tr>
@@ -1001,6 +1008,7 @@
             var COMPODOC_CURRENT_PAGE_DEPTH = 1;
             var COMPODOC_CURRENT_PAGE_CONTEXT = 'miscellaneous-variables';
             var COMPODOC_CURRENT_PAGE_URL = 'variables.html';
+            var MAX_SEARCH_RESULTS = 15;
        </script>
 
        <script src="../js/libs/custom-elements.min.js"></script>
