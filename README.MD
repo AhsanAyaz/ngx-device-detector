@@ -57,7 +57,8 @@ Import `DeviceDetectorModule` in your app.module.ts
     imports: [
       CommonModule,
       FormsModule,
-      DeviceDetectorModule.forRoot()
+      DeviceDetectorModule // <-----
+      // use DeviceDetectorModule.forRoot() for Angular v7 and below
     ],
     providers:[
       AuthService
