@@ -2,7 +2,6 @@
  * Created by ahsanayaz on 08/11/2016.
  */
 
-
 export const BROWSERS = {
   CHROME: 'Chrome',
   FIREFOX: 'Firefox',
@@ -14,8 +13,8 @@ export const BROWSERS = {
   FB_MESSANGER: 'FB-Messanger',
   SAMSUNG: 'Samsung',
   UCBROWSER: 'UC-Browser',
-  UNKNOWN: 'Unknown'
-};
+  UNKNOWN: 'Unknown',
+}
 
 export const MOBILES_RE = {
   // tslint:disable-next-line:max-line-length
@@ -384,7 +383,7 @@ export const DEVICES = {
   AMOI: 'Amoi',
   INQ: 'INQ',
   GENERIC_PHONE: 'Generic Phone',
-};
+}
 
 export const OS = {
   WINDOWS: 'Windows',
@@ -396,8 +395,8 @@ export const OS = {
   FIREFOX_OS: 'Firefox-OS',
   CHROME_OS: 'Chrome-OS',
   WINDOWS_PHONE: 'Windows-Phone',
-  UNKNOWN: 'Unknown'
-};
+  UNKNOWN: 'Unknown',
+}
 
 export const OS_VERSIONS: any = {
   WINDOWS_3_11: 'windows-3-11',
@@ -433,8 +432,8 @@ export const OS_VERSIONS: any = {
   MACOSX_2: 'mac-os-x-2',
   MACOSX: 'mac-os-x',
   iOS: 'iOS',
-  UNKNOWN: 'unknown'
-};
+  UNKNOWN: 'unknown',
+}
 
 export const OS_RE: any = {
   WINDOWS: { and: [{ or: [/\bWindows|(Win\d\d)\b/, /\bWin 9x\b/] }, { not: /\bWindows Phone\b/ }] },
@@ -447,24 +446,30 @@ export const OS_RE: any = {
   CHROME_OS: /\bCrOS\b/,
   WINDOWS_PHONE: { or: [/\bIEMobile\b/, /\bWindows Phone\b/] },
   PS4: /\bMozilla\/5.0 \(PlayStation 4\b/,
-  VITA: /\bMozilla\/5.0 \(Play(S|s)tation Vita\b/
-};
+  VITA: /\bMozilla\/5.0 \(Play(S|s)tation Vita\b/,
+}
 
 export const BROWSERS_RE: any = {
   CHROME: {
-    and: [{ or: [/\bChrome\b/, /\bCriOS\b/, /\bHeadlessChrome\b/] }, {
-      not: {
-        or: [/\bOPR\b/, /\bEdg(e|A|iOS)\b/, /\bEdg\/\b/, /\bSamsungBrowser\b/, /\bUCBrowser\b/]
-      }
-    }]
+    and: [
+      { or: [/\bChrome\b/, /\bCriOS\b/, /\bHeadlessChrome\b/] },
+      {
+        not: {
+          or: [/\bOPR\b/, /\bEdg(e|A|iOS)\b/, /\bEdg\/\b/, /\bSamsungBrowser\b/, /\bUCBrowser\b/],
+        },
+      },
+    ],
   },
   FIREFOX: { or: [/\bFirefox\b/, /\bFxiOS\b/] },
   SAFARI: {
-    and: [/^((?!CriOS).)*\Safari\b.*$/, {
-      not: {
-        or: [/\bOPR\b/, /\bEdg(e|A|iOS)\b/, /\bEdg\/\b/, /\bWindows Phone\b/, /\bSamsungBrowser\b/, /\bUCBrowser\b/]
-      }
-    }]
+    and: [
+      /^((?!CriOS).)*\Safari\b.*$/,
+      {
+        not: {
+          or: [/\bOPR\b/, /\bEdg(e|A|iOS)\b/, /\bEdg\/\b/, /\bWindows Phone\b/, /\bSamsungBrowser\b/, /\bUCBrowser\b/],
+        },
+      },
+    ],
   },
   OPERA: { or: [/Opera\b/, /\bOPR\b/] },
   IE: { or: [/\bMSIE\b/, /\bTrident\b/, /^Mozilla\/5\.0 \(Windows NT 10\.0; Win64; x64\)$/] },
@@ -475,7 +480,7 @@ export const BROWSERS_RE: any = {
   FB_MESSANGER: /\bFBAN\/MessengerForiOS\b/,
   SAMSUNG: /\bSamsungBrowser\b/,
   UCBROWSER: /\bUCBrowser\b/,
-};
+}
 
 export const DEVICES_RE: any = {
   ...MOBILES_RE,
@@ -486,8 +491,8 @@ export const DEVICES_RE: any = {
   CHROMECAST: /\bCrKey\b/,
   APPLE_TV: /^iTunes-AppleTV\/4.1$/,
   GOOGLE_TV: /\bGoogleTV\b/,
-  Tesla: /Tesla\/([0-9]{4}.[0-9]{1,2}.?[0-9]{0,2}.?[0-9]{0,2})-(.{7})/
-};
+  Tesla: /Tesla\/([0-9]{4}.[0-9]{1,2}.?[0-9]{0,2}.?[0-9]{0,2})-(.{7})/,
+}
 
 export const OS_VERSIONS_RE_MAP: any = {
   WINDOWS_3_11: /Win16/,
@@ -522,7 +527,7 @@ export const OS_VERSIONS_RE_MAP: any = {
   MACOSX_14: /(Mac OS X 10.14)/,
   MACOSX_15: /(Mac OS X 10.15)/,
   iOS: /(iPhone OS\s*[0-9_]+)/,
-};
+}
 
 export const BROWSER_VERSIONS_RE_MAP: any = {
   CHROME: [/\bChrome\/([\d\.]+)\b/, /\bCriOS\/([\d\.]+)\b/, /\bHeadlessChrome\/([\d\.]+)\b/],
@@ -534,14 +539,14 @@ export const BROWSER_VERSIONS_RE_MAP: any = {
   MS_EDGE_CHROMIUM: /\bEdg\/([\d\.]+)\b/,
   SAMSUNG: /\bSamsungBrowser\/([\d\.]+)\b/,
   UCBROWSER: /\bUCBrowser\/([\d\.]+)\b/,
-};
+}
 
 export const OS_VERSIONS_RE: any = Object.keys(OS_VERSIONS_RE_MAP).reduce(function (obj: any, key: any) {
-  obj[key] = OS_VERSIONS_RE_MAP[key];
-  return obj;
-}, {});
+  obj[key] = OS_VERSIONS_RE_MAP[key]
+  return obj
+}, {})
 
 export const BROWSER_VERSIONS_RE: any = Object.keys(BROWSER_VERSIONS_RE_MAP).reduce(function (obj: any, key: any) {
-  obj[BROWSERS[key]] = BROWSER_VERSIONS_RE_MAP[key];
-  return obj;
-}, {});
+  obj[BROWSERS[key]] = BROWSER_VERSIONS_RE_MAP[key]
+  return obj
+}, {})

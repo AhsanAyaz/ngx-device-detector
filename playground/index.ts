@@ -7,7 +7,7 @@ import { Component } from '@angular/core';
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 import { Pipe, PipeTransform } from '@angular/core';
 
-import { DeviceDetectorModule, DeviceDetectorService, DeviceInfo }  from 'ngx-device-detector';
+import { DeviceDetectorModule, DeviceDetectorService, DeviceInfo }  from '../src/index';
 
 
 @Pipe({

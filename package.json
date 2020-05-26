@@ -8,7 +8,7 @@
     "docs:build": "compodoc -p --tsconfig ./tsconfig.json -n ngx-device-detector -d docs --hideGenerator --theme material",
     "docs:serve": "npm run docs:build -- -s",
     "docs:watch": "npm run docs:build -- -s -w",
-    "lint": "tslint --type-check --project tsconfig.json src/**/*.ts",
+    "lint": "node_modules/.bin/prettier --check src/**/*.ts",
     "lite": "lite-server",
     "playground:build": "tsc -p playground -w",
     "playground": "node_modules/.bin/concurrently \"npm run build:watch\" \"npm run playground:build\" \"npm run lite\"",
