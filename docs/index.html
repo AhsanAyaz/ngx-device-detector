@@ -78,7 +78,8 @@ An Angular 5+ powered AOT compatible device detector that helps to identify brow
     imports: [
       CommonModule,
       FormsModule,
-      DeviceDetectorModule.forRoot()
+      DeviceDetectorModule // &lt;-----
+      // use DeviceDetectorModule.forRoot() for Angular v7 and below
     ],
     providers:[
       AuthService
