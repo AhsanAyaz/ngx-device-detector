@@ -1,5 +1,12 @@
 # Change Log
 
+## 1.5.0
+- using angular cli monorepo now
+- validated tests
+- linting issues fixed
+- super-duper happy
+- angular 5 support dropped
+
 ## 1.4.2
 - Fixes [DeviceDetectorModule.forRoot returns a ModuleWithProviders type without a generic type argument](https://github.com/KoderLabs/ngx-device-detector/issues/144). Thanks to [PascalHonegger](https://github.com/PascalHonegger) for [PR](https://github.com/KoderLabs/ngx-device-detector/pull/145) and [millerf](https://github.com/millerf) for verifying.
 
@@ -91,7 +98,7 @@
 - Updated the readme for IE support
 
 ## 1.2.2 **(contains breaking changes)**
-- Removing the SSR (Universal) support because of the raising issues. 
+- Removing the SSR (Universal) support because of the raising issues.
 - Will be revisiting SSR support properly in April.
 
 ## 1.2.1
