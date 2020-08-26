@@ -1,10 +1,10 @@
 {
-  "name": "ngx-device-detector",
+  "name": "ngx-device-detector-ws",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build:lib": "ng build ngx-device-detector",
+    "build:lib": "ng build ngx-device-detector --prod",
     "build:demo": "ng build demo --production",
     "build:both:ci": "ng build demo --base-href \"https://koderlabs.github.io/ngx-device-detector/demo/\" --prod --output-hashing=all && npm run build:ssr",
     "docs": "npm run docs:build",
@@ -41,6 +41,7 @@
     "@angular/router": "~10.0.11",
     "@nguniversal/express-engine": "^10.0.2",
     "express": "^4.15.2",
+    "ngx-device-detector": "^1.5.0",
     "rxjs": "~6.5.5",
     "tslib": "^2.0.0",
     "zone.js": "~0.10.3"
