@@ -1,26 +1,32 @@
+/*
+  This is a "Solution Style" tsconfig.json file, and is used by editors and TypeScript’s language server to improve development experience.
+  It is not intended to be used to perform a compilation.
+
+  To learn more about this file see: https://angular.io/config/solution-tsconfig.
+*/
 {
-  "compilerOptions": {
-    "baseUrl": "./src",
-    "experimentalDecorators": true,
-    "moduleResolution": "node",
-    "rootDir": "./src",
-    "lib": [
-      "es2015",
-      "dom"
-    ],
-    "skipLibCheck": true,
-    "types": []
-  },
-  "files": [
-    "src/index.ts",
-    "src/device-detector.service.ts",
-    "src/device-detector.constants.ts",
-    "src/retree.ts"
-  ],
-  "exclude": [
-     "node_modules",
-     "demo",
-     "dist",
-     "playground"
-  ]
+  "files": [],
+  "references": [
+    {
+      "path": "./projects/ngx-device-detector/tsconfig.lib.json"
+    },
+    {
+      "path": "./projects/ngx-device-detector/tsconfig.spec.json"
+    },
+    {
+      "path": "./projects/demo/tsconfig.app.json"
+    },
+    {
+      "path": "./projects/demo/tsconfig.spec.json"
+    },
+    {
+      "path": "./projects/demo/tsconfig.app.json"
+    },
+    {
+      "path": "./projects/demo/tsconfig.spec.json"
+    },
+    {
+      "path": "./projects/demo/tsconfig.server.json"
+    }
+]
 }
