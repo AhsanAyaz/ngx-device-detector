@@ -1,5 +1,9 @@
 # Change Log
 
+## 2.0.0 (BREAKING CHANGES)
+- **DeviceDetectorModule DOES NOT EXIST ANY MORE**. Please remove its imports from your code base
+- angular 5 support dropped
+
 ## 1.5.2 (REVERTED the introduced BREAKING CHANGES)
 - **DeviceDetectorModule PUT BACK IN THE PACKAGE**. Updating from 1.4.x to 1.5.2 will have no effect
 
