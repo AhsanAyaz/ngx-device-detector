@@ -3,7 +3,7 @@
 </a>
 
 <p align="center">
-An Angular 5+ powered AOT compatible device detector that helps to identify browser, os and other useful information regarding the device using the app. The processing is based on user-agent.
+An Angular 6+ powered AOT compatible device detector that helps to identify browser, os and other useful information regarding the device using the app. The processing is based on user-agent.
 </p>
 
 <p align="center">
@@ -20,9 +20,9 @@ An Angular 5+ powered AOT compatible device detector that helps to identify brow
 <p align="center">
   <a href="https://www.npmjs.com/package/ngx-device-detector">New package :</a>
   <a href="https://www.npmjs.com/package/ngx-device-detector"><img src="https://img.shields.io/npm/dt/ngx-device-detector.svg?style=flat-square" alt="npm downloads total" ></a>
-  <a href="https://www.npmjs.com/package/ngx-device-detector"><img src="https://img.shields.io/npm/dm/ngx-device-detector.svg" alt="npm downloads/month" ></a>
+  <a href="https://www.npmjs.com/package/ngx-device-detector"><img src="https://img.shields.io/npm/dm/ngx-device-detector.svg" alt="npm downloads/month" ></a><br><br>
+If you use Angular 5, you must use v1.5.2 or earlier
 </p>
-
 
 ## DOCS
 
