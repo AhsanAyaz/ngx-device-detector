@@ -4,4 +4,5 @@
 
 export * from './lib/device-detector.constants';
 export * from './lib/device-detector.service';
+export * from './lib/device-detector.module';
 export * from './lib/retree';

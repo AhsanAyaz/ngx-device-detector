@@ -1,5 +1,5 @@
 import { Component, VERSION } from '@angular/core';
-import { DeviceDetectorService } from 'ngx-device-detector';
+import { DeviceDetectorService } from '../../../ngx-device-detector/src/public-api';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',

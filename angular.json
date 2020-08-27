@@ -213,5 +213,8 @@
       }
     }
   },
-  "defaultProject": "ngx-device-detector"
+  "defaultProject": "ngx-device-detector",
+  "cli": {
+    "analytics": "16a03793-8b3c-4c78-a787-e82f61ef71be"
+  }
 }
