@@ -25,6 +25,26 @@
     "build:ssr": "ng build --prod && ng run demo:server:production",
     "prerender": "ng run demo:prerender"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/KoderLabs/ngx-device-detector.git"
+  },
+  "author": {
+    "name": "Muhammad Ahsan Ayaz",
+    "email": "ahsan.ubitian@gmail.com"
+  },
+  "keywords": [
+    "angular",
+    "device",
+    "device detector",
+    "device detection",
+    "ngx-device-detector",
+    "angular device detector",
+    "angular5",
+    "angular6",
+    "angular7",
+    "angular8"
+  ],
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/AhsanAyaz/ngx-device-detector.git/issues"

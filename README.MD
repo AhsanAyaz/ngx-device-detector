@@ -41,32 +41,6 @@ To install this library, run:
 $ npm install ngx-device-detector --save
 ```
 
-## Usage
-Import `DeviceDetectorModule` in your app.module.ts
-```typescript
-  import { NgModule } from '@angular/core';
-  import { DeviceDetectorModule } from 'ngx-device-detector';
-  ...
-  @NgModule({
-    declarations: [
-      ...
-      LoginComponent,
-      SignupComponent
-      ...
-    ],
-    imports: [
-      CommonModule,
-      FormsModule,
-      DeviceDetectorModule // <-----
-      // use DeviceDetectorModule.forRoot() for Angular v7 and below
-    ],
-    providers:[
-      AuthService
-    ]
-    ...
-  })
-```
-
 In your component where you want to use the Device Service
 ```typescript
   import { Component } from '@angular/core';
