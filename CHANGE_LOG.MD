@@ -1,5 +1,8 @@
 # Change Log
 
+## 1.5.1
+- just docs updates
+
 ## 1.5.0 (BREAKING CHANGES)
 - **DeviceDetectorModule DOES NOT EXIST ANY MORE**. Please remove its imports from your code base
 - using angular cli monorepo now

@@ -63,29 +63,7 @@ An Angular 5+ powered AOT compatible device detector that helps to identify brow
 <p><a href="https://koderlabs.github.io/ngx-device-detector/demo">Ngx Device Detector Demo</a></p>
 <h2 id="installation">Installation</h2>
 <p>To install this library, run:</p>
-<div><pre class="line-numbers"><code class="language-bash">$ npm install ngx-device-detector --save</code></pre></div><h2 id="usage">Usage</h2>
-<p>Import <code>DeviceDetectorModule</code> in your app.module.ts</p>
-<div><pre class="line-numbers"><code class="language-typescript">  import { NgModule } from &#39;&#64;angular/core&#39;;
-  import { DeviceDetectorModule } from &#39;ngx-device-detector&#39;;
-  ...
-  &#64;NgModule({
-    declarations: [
-      ...
-      LoginComponent,
-      SignupComponent
-      ...
-    ],
-    imports: [
-      CommonModule,
-      FormsModule,
-      DeviceDetectorModule // &lt;-----
-      // use DeviceDetectorModule.forRoot() for Angular v7 and below
-    ],
-    providers:[
-      AuthService
-    ]
-    ...
-  })</code></pre></div><p>In your component where you want to use the Device Service</p>
+<div><pre class="line-numbers"><code class="language-bash">$ npm install ngx-device-detector --save</code></pre></div><p>In your component where you want to use the Device Service</p>
 <div><pre class="line-numbers"><code class="language-typescript">  import { Component } from &#39;&#64;angular/core&#39;;
   ...
   import { DeviceDetectorService } from &#39;ngx-device-detector&#39;;
