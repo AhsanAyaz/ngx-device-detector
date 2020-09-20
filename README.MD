@@ -1,5 +1,5 @@
 <a href="https://koderlabs.github.io/ngx-device-detector">
-  <h1 align="center">ngx-device-detector</h1> 
+  <h1 align="center">ngx-device-detector</h1>
 </a>
 
 <p align="center">
@@ -81,16 +81,19 @@ To ensure Universal has the correct User Agent for device detection, you'll need
 
 **universal-device-detector.service.ts:**
 ```typescript
-import { Inject, Injectable, PLATFORM_ID } from '@angular/core';
+import { Inject, Injectable, Optional, PLATFORM_ID } from '@angular/core';
 import { REQUEST } from '@nguniversal/express-engine/tokens';
 import { Request } from 'express';
 import { DeviceDetectorService } from 'ngx-device-detector';
+import {isPlatformServer} from '@angular/common';
 
 @Injectable()
 export class UniversalDeviceDetectorService extends DeviceDetectorService {
-  constructor(@Inject(PLATFORM_ID) platformId: any, @Inject(REQUEST) request: Request) {
+  constructor(@Inject(PLATFORM_ID) platformId: any, @Optional() @Inject(REQUEST) request: Request) {
     super(platformId);
-    super.setDeviceInfo((request.headers['user-agent'] as string) || '');
+    if (isPlatformServer(platformId)){
+      super.setDeviceInfo((request.headers['user-agent'] as string) || '');
+    }
   }
 }
 ```
@@ -99,7 +102,7 @@ export class UniversalDeviceDetectorService extends DeviceDetectorService {
 ```typescript
 {
   provide: DeviceDetectorService,
-  useClass: UniversalDeviceDetectorService,
+  useClass: UniversalDeviceDetectorService
 },
 ```
 
