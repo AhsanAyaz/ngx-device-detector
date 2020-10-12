@@ -14,6 +14,7 @@ export interface DeviceInfo {
   device: string;
   os_version: string;
   browser_version: string;
+  deviceType: string;
 }
 
 const iPad = 'iPad';
@@ -30,6 +31,9 @@ export class DeviceDetectorService {
   os_version = '';
   browser_version = '';
   reTree = new ReTree();
+  storeDesktop: boolean = null;
+  storeMobile: boolean = null;
+  storeTablet: boolean = null;
   constructor(@Inject(PLATFORM_ID) private platformId: any) {
     if (isPlatformBrowser(this.platformId) && typeof window !== 'undefined') {
       this.userAgent = window.navigator.userAgent;
@@ -111,6 +115,7 @@ export class DeviceDetectorService {
       device: this.device,
       os_version: this.os_version,
       browser_version: this.browser_version,
+      deviceType: this.isTablet() ? 'tablet' : (this.isMobile(this.userAgent, false) ? 'mobile' : (this.isDesktop(this.userAgent, false) ? 'desktop' : 'unknown'))
     };
     return deviceInfo;
   }
@@ -121,14 +126,19 @@ export class DeviceDetectorService {
    * if the current device is a mobile and also check current device is tablet so it will return false.
    * @returns whether the current device is a mobile
    */
-  public isMobile(userAgent = this.userAgent): boolean {
-    if (this.isTablet(userAgent)) {
-      return false;
+  public isMobile(userAgent = this.userAgent, checkOtherDevice = true): boolean {
+    if (this.storeMobile !== null && userAgent === this.userAgent) { // return when we already have mobile value
+      return this.storeMobile;
+    }
+    if (checkOtherDevice && this.isTablet(userAgent)) { // checkOtherDevice = false: no need to check isTablet because we already checked in getDeviceInfo
+      this.storeMobile = false;
+      return this.storeMobile;
     }
     const match = Object.keys(Constants.MOBILES_RE).find(mobile => {
       return this.reTree.test(userAgent, Constants.MOBILES_RE[mobile]);
     });
-    return !!match;
+    this.storeMobile = !!match;
+    return this.storeMobile;
   }
 
   /**
@@ -138,17 +148,22 @@ export class DeviceDetectorService {
    * @returns whether the current device is a tablet
    */
   public isTablet(userAgent = this.userAgent): boolean {
+    if (this.storeTablet !== null && userAgent === this.userAgent) { // return when we already have tablet value
+      return this.storeTablet;
+    }
     if (
       isPlatformBrowser(this.platformId) &&
       (!!this.reTree.test(this.userAgent, Constants.TABLETS_RE[iPad]) ||
         (typeof navigator !== 'undefined' && navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1))
     ) {
-      return true;
+      this.storeTablet = true;
+      return this.storeTablet;
     }
     const match = Object.keys(Constants.TABLETS_RE).find(mobile => {
       return !!this.reTree.test(userAgent, Constants.TABLETS_RE[mobile]);
     });
-    return !!match;
+    this.storeTablet = !!match;
+    return this.storeTablet;
   }
 
   /**
@@ -157,13 +172,18 @@ export class DeviceDetectorService {
    * if the current device is a desktop device.
    * @returns whether the current device is a desktop device
    */
-  public isDesktop(userAgent = this.userAgent): boolean {
+  public isDesktop(userAgent = this.userAgent, checkOtherDevices = true): boolean {
+    if (this.storeDesktop !== null && userAgent === this.userAgent) { // return when we already have desktop value
+      return this.storeDesktop;
+    }
     const desktopDevices = [Constants.DEVICES.PS4, Constants.DEVICES.CHROME_BOOK, Constants.DEVICES.UNKNOWN];
-    if (this.device === Constants.DEVICES.UNKNOWN) {
+    if (checkOtherDevices && this.device === Constants.DEVICES.UNKNOWN) { // checkOtherDevices = false: no need to check isMobile & isTablet because we already checked in getDeviceInfo
       if (this.isMobile(userAgent) || this.isTablet(userAgent)) {
-        return false;
+        this.storeDesktop = false;
+        return this.storeDesktop;
       }
     }
-    return desktopDevices.indexOf(this.device) > -1;
+    this.storeDesktop = desktopDevices.indexOf(this.device) > -1;
+    return this.storeDesktop;
   }
 }
