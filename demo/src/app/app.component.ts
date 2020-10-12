@@ -7,7 +7,7 @@ import { DeviceDetectorService } from 'ngx-device-detector';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  propsToShow = ['userAgent', 'os', 'browser', 'device', 'os_version', 'browser_version'];
+  propsToShow = ['userAgent', 'os', 'browser', 'device', 'os_version', 'browser_version', 'deviceType'];
   deviceInfo = null;
   version = VERSION.full;
   constructor(private deviceService: DeviceDetectorService) {

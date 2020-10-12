@@ -13,6 +13,7 @@ export interface DeviceInfo {
     device: string;
     os_version: string;
     browser_version: string;
+    deviceType: string;
 }
 
 @Injectable()
@@ -25,6 +26,9 @@ export class DeviceDetectorService {
     os_version = '';
     browser_version = '';
     reTree = new ReTree();
+    storeDesktop: boolean = null;
+    storeMobile: boolean = null;
+    storeTablet: boolean = null;
 
     constructor(@Inject(PLATFORM_ID) private platformId) {
         if (isPlatformBrowser(this.platformId)) {
@@ -93,7 +97,8 @@ export class DeviceDetectorService {
             browser: this.browser,
             device : this.device,
             os_version: this.os_version,
-            browser_version: this.browser_version
+            browser_version: this.browser_version,
+            deviceType: this.isTablet() ? 'tablet' : (this.isMobile(false) ? 'mobile' : (this.isDesktop(false) ? 'desktop' : 'unknown'))
         };
         return deviceInfo;
     }
@@ -104,14 +109,19 @@ export class DeviceDetectorService {
      * if the current device is a mobile and also check current device is tablet so it will return false.
      * @returns whether the current device is a mobile
      */
-    public isMobile(): boolean {
-      if (this.isTablet()) {
-        return false;
-      }
-      const match = Object.keys(Constants.MOBILES_RE).find((mobile) => {
-        return this.reTree.test(this.userAgent, Constants.MOBILES_RE[mobile]);
-      });
-      return !!match;
+    public isMobile(checkOtherDevice = true): boolean {
+        if (this.storeMobile !== null) { // return when we already have mobile value
+            return this.storeMobile;
+        }
+        if (checkOtherDevice && this.isTablet()) { // checkOtherDevice = false: no need to check isTablet because we already checked in getDeviceInfo
+            this.storeMobile = false;
+            return this.storeMobile;
+        }
+        const match = Object.keys(Constants.MOBILES_RE).find((mobile) => {
+            return this.reTree.test(this.userAgent, Constants.MOBILES_RE[mobile]);
+        });
+        this.storeMobile = !!match;
+        return this.storeMobile;
     };
 
     /**
@@ -121,10 +131,14 @@ export class DeviceDetectorService {
      * @returns whether the current device is a tablet
      */
     public isTablet() {
+        if (this.storeTablet !== null) { // return when we already have tablet value
+            return this.storeTablet;
+        }
         const match = Object.keys(Constants.TABLETS_RE).find((mobile) => {
           return !!this.reTree.test(this.userAgent, Constants.TABLETS_RE[mobile]);
         });
-        return !!match;
+        this.storeTablet = !!match;
+        return this.storeTablet;
     };
 
     /**
@@ -133,17 +147,23 @@ export class DeviceDetectorService {
      * if the current device is a desktop device.
      * @returns whether the current device is a desktop device
      */
-    public isDesktop() {
+    public isDesktop(checkOtherDevices = true) {
+        if (this.storeDesktop !== null) { // return when we already have desktop value
+            return this.storeDesktop;
+        }
         const desktopDevices = [
             Constants.DEVICES.PS4,
             Constants.DEVICES.CHROME_BOOK,
             Constants.DEVICES.UNKNOWN
         ];
-        if (this.device === Constants.DEVICES.UNKNOWN) {
-            if (this.isMobile() || this.isTablet()) {
-                return false;
+        if (checkOtherDevices && this.device === Constants.DEVICES.UNKNOWN) {
+            if (this.isMobile() || this.isTablet()) { // checkOtherDevices = false: no need to check isMobile & isTablet because we already checked in getDeviceInfo
+                this.storeDesktop = false;
+                return this.storeDesktop;
             }
         }
-        return desktopDevices.indexOf(this.device) > -1;
+        this.storeDesktop = desktopDevices.indexOf(this.device) > -1;
+        return this.storeDesktop;
     };
+
 }
