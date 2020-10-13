@@ -26,6 +26,7 @@ describe('DeviceDetectorService', () => {
         device: 'iPhone',
         os_version: 'iOS',
         browser_version: '11.0',
+        deviceType: 'mobile',
       };
       expect(service.getDeviceInfo()).toEqual(deviceInformations);
     }
