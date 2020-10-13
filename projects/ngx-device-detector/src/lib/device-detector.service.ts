@@ -115,7 +115,8 @@ export class DeviceDetectorService {
       device: this.device,
       os_version: this.os_version,
       browser_version: this.browser_version,
-      deviceType: this.isTablet() ? 'tablet' : (this.isMobile(this.userAgent, false) ? 'mobile' : (this.isDesktop(this.userAgent, false) ? 'desktop' : 'unknown'))
+      deviceType: this.isTablet() ?
+        'tablet' : (this.isMobile(this.userAgent, false) ? 'mobile' : (this.isDesktop(this.userAgent, false) ? 'desktop' : 'unknown')),
     };
     return deviceInfo;
   }
@@ -130,7 +131,8 @@ export class DeviceDetectorService {
     if (this.storeMobile !== null && userAgent === this.userAgent) { // return when we already have mobile value
       return this.storeMobile;
     }
-    if (checkOtherDevice && this.isTablet(userAgent)) { // checkOtherDevice = false: no need to check isTablet because we already checked in getDeviceInfo
+    // checkOtherDevice = false: no need to check isTablet because we already checked in getDeviceInfo
+    if (checkOtherDevice && this.isTablet(userAgent)) {
       this.storeMobile = false;
       return this.storeMobile;
     }
@@ -177,7 +179,8 @@ export class DeviceDetectorService {
       return this.storeDesktop;
     }
     const desktopDevices = [Constants.DEVICES.PS4, Constants.DEVICES.CHROME_BOOK, Constants.DEVICES.UNKNOWN];
-    if (checkOtherDevices && this.device === Constants.DEVICES.UNKNOWN) { // checkOtherDevices = false: no need to check isMobile & isTablet because we already checked in getDeviceInfo
+    // checkOtherDevices = false: no need to check isMobile & isTablet because we already checked in getDeviceInfo
+    if (checkOtherDevices && this.device === Constants.DEVICES.UNKNOWN) {
       if (this.isMobile(userAgent) || this.isTablet(userAgent)) {
         this.storeDesktop = false;
         return this.storeDesktop;

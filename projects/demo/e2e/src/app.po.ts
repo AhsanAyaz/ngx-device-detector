@@ -14,7 +14,7 @@ export class AppPage {
     return element.all(by.css('app-root .information-table .info-item'));
   }
 
-  getParagraphText() {
+  getParagraphText(): wdpromise.Promise<any> {
     return element(by.css('app-root h1')).getText();
   }
 }
