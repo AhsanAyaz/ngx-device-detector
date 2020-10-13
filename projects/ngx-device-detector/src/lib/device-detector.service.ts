@@ -115,8 +115,13 @@ export class DeviceDetectorService {
       device: this.device,
       os_version: this.os_version,
       browser_version: this.browser_version,
-      deviceType: this.isTablet() ?
-        'tablet' : (this.isMobile(this.userAgent, false) ? 'mobile' : (this.isDesktop(this.userAgent, false) ? 'desktop' : 'unknown')),
+      deviceType: this.isTablet()
+        ? 'tablet'
+        : this.isMobile(this.userAgent, false)
+        ? 'mobile'
+        : this.isDesktop(this.userAgent, false)
+        ? 'desktop'
+        : 'unknown',
     };
     return deviceInfo;
   }
@@ -128,7 +133,8 @@ export class DeviceDetectorService {
    * @returns whether the current device is a mobile
    */
   public isMobile(userAgent = this.userAgent, checkOtherDevice = true): boolean {
-    if (this.storeMobile !== null && userAgent === this.userAgent) { // return when we already have mobile value
+    if (this.storeMobile !== null && userAgent === this.userAgent) {
+      // return when we already have mobile value
       return this.storeMobile;
     }
     // checkOtherDevice = false: no need to check isTablet because we already checked in getDeviceInfo
@@ -150,7 +156,8 @@ export class DeviceDetectorService {
    * @returns whether the current device is a tablet
    */
   public isTablet(userAgent = this.userAgent): boolean {
-    if (this.storeTablet !== null && userAgent === this.userAgent) { // return when we already have tablet value
+    // return when we already have tablet value
+    if (this.storeTablet !== null && userAgent === this.userAgent) {
       return this.storeTablet;
     }
     if (
@@ -175,7 +182,8 @@ export class DeviceDetectorService {
    * @returns whether the current device is a desktop device
    */
   public isDesktop(userAgent = this.userAgent, checkOtherDevices = true): boolean {
-    if (this.storeDesktop !== null && userAgent === this.userAgent) { // return when we already have desktop value
+    // return when we already have desktop value
+    if (this.storeDesktop !== null && userAgent === this.userAgent) {
       return this.storeDesktop;
     }
     const desktopDevices = [Constants.DEVICES.PS4, Constants.DEVICES.CHROME_BOOK, Constants.DEVICES.UNKNOWN];
