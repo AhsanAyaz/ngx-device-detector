@@ -16,6 +16,12 @@ export interface DeviceInfo {
   browser_version: string;
   deviceType: string;
 }
+export enum DeviceType {
+  Mobile = 'mobile',
+  Tablet = 'tablet',
+  Desktop = 'desktop',
+  Unknown = 'unknown',
+}
 
 const iPad = 'iPad';
 
@@ -31,9 +37,7 @@ export class DeviceDetectorService {
   os_version = '';
   browser_version = '';
   reTree = new ReTree();
-  storeDesktop: boolean = null;
-  storeMobile: boolean = null;
-  storeTablet: boolean = null;
+  deviceType = '';
   constructor(@Inject(PLATFORM_ID) private platformId: any) {
     if (isPlatformBrowser(this.platformId) && typeof window !== 'undefined') {
       this.userAgent = window.navigator.userAgent;
@@ -100,6 +104,13 @@ export class DeviceDetectorService {
         this.browser_version = res[1];
       }
     }
+    this.deviceType = this.isTablet()
+      ? DeviceType.Tablet
+      : this.isMobile(this.userAgent)
+      ? DeviceType.Mobile
+      : this.isDesktop(this.userAgent)
+      ? DeviceType.Desktop
+      : DeviceType.Unknown;
   }
 
   /**
@@ -115,13 +126,7 @@ export class DeviceDetectorService {
       device: this.device,
       os_version: this.os_version,
       browser_version: this.browser_version,
-      deviceType: this.isTablet()
-        ? 'tablet'
-        : this.isMobile(this.userAgent, false)
-        ? 'mobile'
-        : this.isDesktop(this.userAgent, false)
-        ? 'desktop'
-        : 'unknown',
+      deviceType: this.deviceType,
     };
     return deviceInfo;
   }
@@ -132,21 +137,14 @@ export class DeviceDetectorService {
    * if the current device is a mobile and also check current device is tablet so it will return false.
    * @returns whether the current device is a mobile
    */
-  public isMobile(userAgent = this.userAgent, checkOtherDevice = true): boolean {
-    if (this.storeMobile !== null && userAgent === this.userAgent) {
-      // return when we already have mobile value
-      return this.storeMobile;
-    }
-    // checkOtherDevice = false: no need to check isTablet because we already checked in getDeviceInfo
-    if (checkOtherDevice && this.isTablet(userAgent)) {
-      this.storeMobile = false;
-      return this.storeMobile;
+  public isMobile(userAgent = this.userAgent): boolean {
+    if (this.isTablet(userAgent)) {
+      return false;
     }
     const match = Object.keys(Constants.MOBILES_RE).find(mobile => {
       return this.reTree.test(userAgent, Constants.MOBILES_RE[mobile]);
     });
-    this.storeMobile = !!match;
-    return this.storeMobile;
+    return !!match;
   }
 
   /**
@@ -156,23 +154,17 @@ export class DeviceDetectorService {
    * @returns whether the current device is a tablet
    */
   public isTablet(userAgent = this.userAgent): boolean {
-    // return when we already have tablet value
-    if (this.storeTablet !== null && userAgent === this.userAgent) {
-      return this.storeTablet;
-    }
     if (
       isPlatformBrowser(this.platformId) &&
       (!!this.reTree.test(this.userAgent, Constants.TABLETS_RE[iPad]) ||
         (typeof navigator !== 'undefined' && navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1))
     ) {
-      this.storeTablet = true;
-      return this.storeTablet;
+      return true;
     }
     const match = Object.keys(Constants.TABLETS_RE).find(mobile => {
       return !!this.reTree.test(userAgent, Constants.TABLETS_RE[mobile]);
     });
-    this.storeTablet = !!match;
-    return this.storeTablet;
+    return !!match;
   }
 
   /**
@@ -181,20 +173,13 @@ export class DeviceDetectorService {
    * if the current device is a desktop device.
    * @returns whether the current device is a desktop device
    */
-  public isDesktop(userAgent = this.userAgent, checkOtherDevices = true): boolean {
-    // return when we already have desktop value
-    if (this.storeDesktop !== null && userAgent === this.userAgent) {
-      return this.storeDesktop;
-    }
+  public isDesktop(userAgent = this.userAgent): boolean {
     const desktopDevices = [Constants.DEVICES.PS4, Constants.DEVICES.CHROME_BOOK, Constants.DEVICES.UNKNOWN];
-    // checkOtherDevices = false: no need to check isMobile & isTablet because we already checked in getDeviceInfo
-    if (checkOtherDevices && this.device === Constants.DEVICES.UNKNOWN) {
+    if (this.device === Constants.DEVICES.UNKNOWN) {
       if (this.isMobile(userAgent) || this.isTablet(userAgent)) {
-        this.storeDesktop = false;
-        return this.storeDesktop;
+        return false;
       }
     }
-    this.storeDesktop = desktopDevices.indexOf(this.device) > -1;
-    return this.storeDesktop;
+    return desktopDevices.indexOf(this.device) > -1;
   }
 }
