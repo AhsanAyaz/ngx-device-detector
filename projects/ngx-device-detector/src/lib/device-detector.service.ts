@@ -110,7 +110,9 @@ export class DeviceDetectorService {
         this.browser_version = res[1];
       }
     }
-    this.orientation = window.matchMedia('(orientation: landscape)').matches ? OrientationType.Landscape : OrientationType.Portrait;
+    this.orientation = window.matchMedia('(orientation: landscape)').matches
+      ? OrientationType.Landscape
+      : OrientationType.Portrait;
     this.deviceType = this.isTablet()
       ? DeviceType.Tablet
       : this.isMobile(this.userAgent)
@@ -134,7 +136,7 @@ export class DeviceDetectorService {
       os_version: this.os_version,
       browser_version: this.browser_version,
       deviceType: this.deviceType,
-      orientation: this.orientation
+      orientation: this.orientation,
     };
     return deviceInfo;
   }

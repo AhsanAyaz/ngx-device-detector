@@ -27,7 +27,7 @@ describe('DeviceDetectorService', () => {
         os_version: 'iOS',
         browser_version: '11.0',
         deviceType: 'mobile',
-        orientation: 'landscape'
+        orientation: 'landscape',
       };
       expect(service.getDeviceInfo()).toEqual(deviceInformations);
     }
