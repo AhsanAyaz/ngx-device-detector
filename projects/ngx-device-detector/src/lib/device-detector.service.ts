@@ -111,6 +111,8 @@ export class DeviceDetectorService {
       : this.isDesktop(this.userAgent)
       ? DeviceType.Desktop
       : DeviceType.Unknown;
+
+    this.os = this.device === iPad ? Constants.OS.IOS : this.os;
   }
 
   /**
