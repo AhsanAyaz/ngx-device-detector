@@ -61,7 +61,7 @@ describe('DeviceDetectorService', () => {
       const userAgent = `Mozilla/5.0 (iPad; CPU OS 11_0 like Mac OS X) AppleWebKit/604.1.34 Version/11.0 Mobile/15A5341f Safari/604.1`;
       service.setDeviceInfo(userAgent);
       expect(service.isTablet(userAgent)).toBeTruthy();
-      expect(service.os).toBe('Mac');
+      expect(service.os).toBe('iOS');
       expect(service.browser).toBe('Safari');
       expect(service.device).toBe('iPad');
       expect(service.browser_version).toBe('11.0');
