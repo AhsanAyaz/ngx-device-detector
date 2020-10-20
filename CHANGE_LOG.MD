@@ -1,6 +1,5 @@
-# Change Log
-
-## 2.0.0 (BREAKING CHANGES)
+# [2.0.0](https://github.com/KoderLabs/ngx-device-detector/compare/v2.0.0...v1.5.2) (2020-18-27)
+## BREAKING CHANGES
 - **DeviceDetectorModule DOES NOT EXIST ANY MORE**. Please remove its imports from your code base
 - angular 5 support dropped
 

@@ -1,6 +1,6 @@
 {
   "name": "ngx-device-detector-ws",
-  "version": "0.0.0",
+  "version": "2.0.0",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -19,13 +19,15 @@
     "test": "ng test",
     "e2e": "ng e2e",
     "copy:readme": "cp README.MD ./projects/ngx-device-detector",
+    "changelog": "node_modules/.bin/conventional-changelog -p angular -i CHANGE_LOG.MD -s",
     "copy:changelog": "cp CHANGE_LOG.MD ./dist/ngx-device-detector",
     "pre-release": "npm run lint && npm run copy:readme && npm run build:lib && npm run docs:build && npm run copy:changelog",
     "release": "npm run pre-release && npm publish dist/ngx-device-detector",
     "dev:ssr": "ng run demo:serve-ssr",
     "serve:ssr": "node dist/demo/server/main.js",
     "build:ssr": "ng build --prod && ng run demo:server:production",
-    "prerender": "ng run demo:prerender"
+    "prerender": "ng run demo:prerender",
+    "postversion": "node scripts/post-version"
   },
   "repository": {
     "type": "git",
@@ -62,6 +64,7 @@
     "@angular/platform-server": "~10.0.11",
     "@angular/router": "~10.0.11",
     "@nguniversal/express-engine": "^10.0.2",
+    "conventional-changelog-cli": "^2.1.1",
     "express": "^4.15.2",
     "ngx-device-detector": "^2.0.0",
     "rxjs": "~6.5.5",
@@ -90,6 +93,7 @@
     "ng-packagr": "^10.0.0",
     "prettier": "^2.1.1",
     "protractor": "~7.0.0",
+    "semver": "^7.3.2",
     "ts-node": "~8.3.0",
     "tslint": "~6.1.0",
     "typescript": "~3.9.5"
