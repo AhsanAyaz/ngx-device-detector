@@ -15,12 +15,17 @@ export interface DeviceInfo {
   os_version: string;
   browser_version: string;
   deviceType: string;
+  orientation: string;
 }
 export enum DeviceType {
   Mobile = 'mobile',
   Tablet = 'tablet',
   Desktop = 'desktop',
   Unknown = 'unknown',
+}
+export enum OrientationType {
+  Portrait = 'portrait',
+  Landscape = 'landscape',
 }
 
 const iPad = 'iPad';
@@ -38,6 +43,7 @@ export class DeviceDetectorService {
   browser_version = '';
   reTree = new ReTree();
   deviceType = '';
+  orientation = '';
   constructor(@Inject(PLATFORM_ID) private platformId: any) {
     if (isPlatformBrowser(this.platformId) && typeof window !== 'undefined') {
       this.userAgent = window.navigator.userAgent;
@@ -104,6 +110,9 @@ export class DeviceDetectorService {
         this.browser_version = res[1];
       }
     }
+    this.orientation = window.matchMedia('(orientation: landscape)').matches
+      ? OrientationType.Landscape
+      : OrientationType.Portrait;
     this.deviceType = this.isTablet()
       ? DeviceType.Tablet
       : this.isMobile(this.userAgent)
@@ -129,6 +138,7 @@ export class DeviceDetectorService {
       os_version: this.os_version,
       browser_version: this.browser_version,
       deviceType: this.deviceType,
+      orientation: this.orientation,
     };
     return deviceInfo;
   }
