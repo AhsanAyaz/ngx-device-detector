@@ -1,9 +1,9 @@
 <a href="https://koderlabs.github.io/ngx-device-detector">
-  <h1 align="center">ngx-device-detector</h1> 
+  <h1 align="center">ngx-device-detector</h1>
 </a>
 
 <p align="center">
-An Angular 5+ powered AOT compatible device detector that helps to identify browser, os and other useful information regarding the device using the app. The processing is based on user-agent.
+An Angular 6+ powered AOT compatible device detector that helps to identify browser, os and other useful information regarding the device using the app. The processing is based on user-agent.
 </p>
 
 <p align="center">
@@ -20,9 +20,9 @@ An Angular 5+ powered AOT compatible device detector that helps to identify brow
 <p align="center">
   <a href="https://www.npmjs.com/package/ngx-device-detector">New package :</a>
   <a href="https://www.npmjs.com/package/ngx-device-detector"><img src="https://img.shields.io/npm/dt/ngx-device-detector.svg?style=flat-square" alt="npm downloads total" ></a>
-  <a href="https://www.npmjs.com/package/ngx-device-detector"><img src="https://img.shields.io/npm/dm/ngx-device-detector.svg" alt="npm downloads/month" ></a>
+  <a href="https://www.npmjs.com/package/ngx-device-detector"><img src="https://img.shields.io/npm/dm/ngx-device-detector.svg" alt="npm downloads/month" ></a><br><br>
+If you use Angular 5, you must use v1.5.2 or earlier
 </p>
-
 
 ## DOCS
 
@@ -75,6 +75,35 @@ In your component where you want to use the Device Service
     ...
   }
 
+```
+
+To ensure Universal has the correct User Agent for device detection, you'll need to provide it manually. If using ExpressJS for example:
+
+**universal-device-detector.service.ts:**
+```typescript
+import { Inject, Injectable, Optional, PLATFORM_ID } from '@angular/core';
+import { REQUEST } from '@nguniversal/express-engine/tokens';
+import { Request } from 'express';
+import { DeviceDetectorService } from 'ngx-device-detector';
+import {isPlatformServer} from '@angular/common';
+
+@Injectable()
+export class UniversalDeviceDetectorService extends DeviceDetectorService {
+  constructor(@Inject(PLATFORM_ID) platformId: any, @Optional() @Inject(REQUEST) request: Request) {
+    super(platformId);
+    if (isPlatformServer(platformId)){
+      super.setDeviceInfo((request.headers['user-agent'] as string) || '');
+    }
+  }
+}
+```
+
+**app.server.module.ts:**
+```typescript
+{
+  provide: DeviceDetectorService,
+  useClass: UniversalDeviceDetectorService
+},
 ```
 
 ## Device service
