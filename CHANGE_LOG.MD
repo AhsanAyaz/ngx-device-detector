@@ -1,6 +1,24 @@
 ## [2.0.3](https://github.com/KoderLabs/ngx-device-detector/compare/v2.0.2...v2.0.3) (2020-12-01)
 
 
+### Bug Fixes
+
+* **device-detector-service:** fix window.matchMedia is not a function ([800ba15](https://github.com/KoderLabs/ngx-device-detector/commit/800ba15a61f8f7ea389ecc3887a5e457ae332f00))
+
+
+
+## [2.0.3](https://github.com/KoderLabs/ngx-device-detector/compare/v2.0.2...v2.0.3) (2020-12-01)
+
+
+### Bug Fixes
+
+* **device-detector-service:** fix window.matchMedia is not a function ([800ba15](https://github.com/KoderLabs/ngx-device-detector/commit/800ba15a61f8f7ea389ecc3887a5e457ae332f00))
+
+
+
+## [2.0.3](https://github.com/KoderLabs/ngx-device-detector/compare/v2.0.2...v2.0.3) (2020-12-01)
+
+
 
 # [2.0.0](https://github.com/KoderLabs/ngx-device-detector/compare/v2.0.0...v1.5.2) (2020-18-27)
 ## BREAKING CHANGES
