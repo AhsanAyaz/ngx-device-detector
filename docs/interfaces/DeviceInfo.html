@@ -9,7 +9,7 @@
 
         <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
 	      <link rel="stylesheet" href="../styles/style.css">
-        <link rel="stylesheet" href="../styles/material.css">
+        <link rel="stylesheet" href="../styles/Vagrant.css">
     </head>
     <body>
 
@@ -62,7 +62,7 @@
             <h3>File</h3>
         </p>
         <p class="comment">
-            <code>src/device-detector.service.ts</code>
+            <code>projects/ngx-device-detector/src/lib/device-detector.service.ts</code>
         </p>
 
 
@@ -87,6 +87,12 @@
                                 </li>
                                 <li>
                                         <a href="#device">device</a>
+                                </li>
+                                <li>
+                                        <a href="#deviceType">deviceType</a>
+                                </li>
+                                <li>
+                                        <a href="#orientation">orientation</a>
                                 </li>
                                 <li>
                                         <a href="#os">os</a>
@@ -199,6 +205,64 @@
                         <tbody>
                                 <tr>
                                     <td class="col-md-4">
+                                        <a name="deviceType"></a>
+                                        <span class="name"><b>deviceType</b><a href="#deviceType"><span class="icon ion-ios-link"></span></a></span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>deviceType:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                                        </td>
+                                    </tr>
+
+
+
+
+
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="orientation"></a>
+                                        <span class="name"><b>orientation</b><a href="#orientation"><span class="icon ion-ios-link"></span></a></span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>orientation:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                                        </td>
+                                    </tr>
+
+
+
+
+
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
                                         <a name="os"></a>
                                         <span class="name"><b>os</b><a href="#os"><span class="icon ion-ios-link"></span></a></span>
                                     </td>
@@ -287,38 +351,53 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { PLATFORM_ID, Inject, Injectable } from &#x27;@angular/core&#x27;
-import { isPlatformBrowser } from &#x27;@angular/common&#x27;
-import * as Constants from &#x27;./device-detector.constants&#x27;
-import { ReTree } from &#x27;./retree&#x27;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { PLATFORM_ID, Inject, Injectable } from &#x27;@angular/core&#x27;;
+import { isPlatformBrowser } from &#x27;@angular/common&#x27;;
+import * as Constants from &#x27;./device-detector.constants&#x27;;
+import { ReTree } from &#x27;./retree&#x27;;
 
 export interface DeviceInfo {
-  userAgent: string
-  os: string
-  browser: string
-  device: string
-  os_version: string
-  browser_version: string
+  userAgent: string;
+  os: string;
+  browser: string;
+  device: string;
+  os_version: string;
+  browser_version: string;
+  deviceType: string;
+  orientation: string;
 }
+export enum DeviceType {
+  Mobile &#x3D; &#x27;mobile&#x27;,
+  Tablet &#x3D; &#x27;tablet&#x27;,
+  Desktop &#x3D; &#x27;desktop&#x27;,
+  Unknown &#x3D; &#x27;unknown&#x27;,
+}
+export enum OrientationType {
+  Portrait &#x3D; &#x27;portrait&#x27;,
+  Landscape &#x3D; &#x27;landscape&#x27;,
+}
+
+const iPad &#x3D; &#x27;iPad&#x27;;
 
 @Injectable({
   providedIn: &#x27;root&#x27;,
 })
 export class DeviceDetectorService {
-  ua &#x3D; &#x27;&#x27;
-  userAgent &#x3D; &#x27;&#x27;
-  os &#x3D; &#x27;&#x27;
-  browser &#x3D; &#x27;&#x27;
-  device &#x3D; &#x27;&#x27;
-  os_version &#x3D; &#x27;&#x27;
-  browser_version &#x3D; &#x27;&#x27;
-  reTree &#x3D; new ReTree()
-
+  ua &#x3D; &#x27;&#x27;;
+  userAgent &#x3D; &#x27;&#x27;;
+  os &#x3D; &#x27;&#x27;;
+  browser &#x3D; &#x27;&#x27;;
+  device &#x3D; &#x27;&#x27;;
+  os_version &#x3D; &#x27;&#x27;;
+  browser_version &#x3D; &#x27;&#x27;;
+  reTree &#x3D; new ReTree();
+  deviceType &#x3D; &#x27;&#x27;;
+  orientation &#x3D; &#x27;&#x27;;
   constructor(@Inject(PLATFORM_ID) private platformId: any) {
     if (isPlatformBrowser(this.platformId) &amp;&amp; typeof window !&#x3D;&#x3D; &#x27;undefined&#x27;) {
-      this.userAgent &#x3D; window.navigator.userAgent
+      this.userAgent &#x3D; window.navigator.userAgent;
     }
-    this.setDeviceInfo(this.userAgent)
+    this.setDeviceInfo(this.userAgent);
   }
 
   /**
@@ -326,16 +405,16 @@ export class DeviceDetectorService {
    * @desc Sets the initial value of the device when the service is initiated.
    * This value is later accessible for usage
    */
-  setDeviceInfo(ua &#x3D; this.userAgent) {
+  setDeviceInfo(ua &#x3D; this.userAgent): void {
     if (ua !&#x3D;&#x3D; this.userAgent) {
-      this.userAgent &#x3D; ua
+      this.userAgent &#x3D; ua;
     }
-    let mappings &#x3D; [
+    const mappings &#x3D; [
       { const: &#x27;OS&#x27;, prop: &#x27;os&#x27; },
       { const: &#x27;BROWSERS&#x27;, prop: &#x27;browser&#x27; },
       { const: &#x27;DEVICES&#x27;, prop: &#x27;device&#x27; },
       { const: &#x27;OS_VERSIONS&#x27;, prop: &#x27;os_version&#x27; },
-    ]
+    ];
 
     mappings.forEach(mapping &#x3D;&gt; {
       this[mapping.prop] &#x3D; Object.keys(Constants[mapping.const]).reduce((obj: any, item: any) &#x3D;&gt; {
@@ -343,43 +422,53 @@ export class DeviceDetectorService {
           // hack for iOS 13 Tablet
           if (
             isPlatformBrowser(this.platformId) &amp;&amp;
-            (!!this.reTree.test(this.userAgent, Constants.TABLETS_RE[&#x27;iPad&#x27;]) ||
+            (!!this.reTree.test(this.userAgent, Constants.TABLETS_RE[iPad]) ||
               (navigator.platform &#x3D;&#x3D;&#x3D; &#x27;MacIntel&#x27; &amp;&amp; navigator.maxTouchPoints &gt; 1))
           ) {
-            obj[Constants[mapping.const][item]] &#x3D; &#x27;iPad&#x27;
-            return Object
+            obj[Constants[mapping.const][item]] &#x3D; iPad;
+            return Object;
           }
         }
-        obj[Constants[mapping.const][item]] &#x3D; this.reTree.test(ua, Constants[&#x60;${mapping.const}_RE&#x60;][item])
-        return obj
-      }, {})
-    })
+        obj[Constants[mapping.const][item]] &#x3D; this.reTree.test(ua, Constants[&#x60;${mapping.const}_RE&#x60;][item]);
+        return obj;
+      }, {});
+    });
 
     mappings.forEach(mapping &#x3D;&gt; {
       this[mapping.prop] &#x3D; Object.keys(Constants[mapping.const])
         .map(key &#x3D;&gt; {
-          return Constants[mapping.const][key]
+          return Constants[mapping.const][key];
         })
         .reduce((previousValue, currentValue) &#x3D;&gt; {
           if (mapping.prop &#x3D;&#x3D;&#x3D; &#x27;device&#x27; &amp;&amp; previousValue &#x3D;&#x3D;&#x3D; Constants[mapping.const].ANDROID) {
             // if we have the actual device found, instead of &#x27;Android&#x27;, return the actual device
-            return this[mapping.prop][currentValue] ? currentValue : previousValue
+            return this[mapping.prop][currentValue] ? currentValue : previousValue;
           } else {
             return previousValue &#x3D;&#x3D;&#x3D; Constants[mapping.const].UNKNOWN &amp;&amp; this[mapping.prop][currentValue]
               ? currentValue
-              : previousValue
+              : previousValue;
           }
-        }, Constants[mapping.const].UNKNOWN)
-    })
+        }, Constants[mapping.const].UNKNOWN);
+    });
 
-    this.browser_version &#x3D; &#x27;0&#x27;
+    this.browser_version &#x3D; &#x27;0&#x27;;
     if (this.browser !&#x3D;&#x3D; Constants.BROWSERS.UNKNOWN) {
-      let re &#x3D; Constants.BROWSER_VERSIONS_RE[this.browser]
-      let res &#x3D; this.reTree.exec(ua, re)
+      const re &#x3D; Constants.BROWSER_VERSIONS_RE[this.browser];
+      const res &#x3D; this.reTree.exec(ua, re);
       if (!!res) {
-        this.browser_version &#x3D; res[1]
+        this.browser_version &#x3D; res[1];
       }
     }
+    this.orientation &#x3D; window.matchMedia(&#x27;(orientation: landscape)&#x27;).matches
+      ? OrientationType.Landscape
+      : OrientationType.Portrait;
+    this.deviceType &#x3D; this.isTablet()
+      ? DeviceType.Tablet
+      : this.isMobile(this.userAgent)
+      ? DeviceType.Mobile
+      : this.isDesktop(this.userAgent)
+      ? DeviceType.Desktop
+      : DeviceType.Unknown;
   }
 
   /**
@@ -395,8 +484,10 @@ export class DeviceDetectorService {
       device: this.device,
       os_version: this.os_version,
       browser_version: this.browser_version,
-    }
-    return deviceInfo
+      deviceType: this.deviceType,
+      orientation: this.orientation,
+    };
+    return deviceInfo;
   }
 
   /**
@@ -407,12 +498,12 @@ export class DeviceDetectorService {
    */
   public isMobile(userAgent &#x3D; this.userAgent): boolean {
     if (this.isTablet(userAgent)) {
-      return false
+      return false;
     }
     const match &#x3D; Object.keys(Constants.MOBILES_RE).find(mobile &#x3D;&gt; {
-      return this.reTree.test(userAgent, Constants.MOBILES_RE[mobile])
-    })
-    return !!match
+      return this.reTree.test(userAgent, Constants.MOBILES_RE[mobile]);
+    });
+    return !!match;
   }
 
   /**
@@ -421,18 +512,18 @@ export class DeviceDetectorService {
    * if the current device is a tablet.
    * @returns whether the current device is a tablet
    */
-  public isTablet(userAgent &#x3D; this.userAgent) {
+  public isTablet(userAgent &#x3D; this.userAgent): boolean {
     if (
       isPlatformBrowser(this.platformId) &amp;&amp;
-      (!!this.reTree.test(this.userAgent, Constants.TABLETS_RE[&#x27;iPad&#x27;]) ||
+      (!!this.reTree.test(this.userAgent, Constants.TABLETS_RE[iPad]) ||
         (typeof navigator !&#x3D;&#x3D; &#x27;undefined&#x27; &amp;&amp; navigator.platform &#x3D;&#x3D;&#x3D; &#x27;MacIntel&#x27; &amp;&amp; navigator.maxTouchPoints &gt; 1))
     ) {
-      return true
+      return true;
     }
     const match &#x3D; Object.keys(Constants.TABLETS_RE).find(mobile &#x3D;&gt; {
-      return !!this.reTree.test(userAgent, Constants.TABLETS_RE[mobile])
-    })
-    return !!match
+      return !!this.reTree.test(userAgent, Constants.TABLETS_RE[mobile]);
+    });
+    return !!match;
   }
 
   /**
@@ -441,14 +532,14 @@ export class DeviceDetectorService {
    * if the current device is a desktop device.
    * @returns whether the current device is a desktop device
    */
-  public isDesktop(userAgent &#x3D; this.userAgent) {
-    const desktopDevices &#x3D; [Constants.DEVICES.PS4, Constants.DEVICES.CHROME_BOOK, Constants.DEVICES.UNKNOWN]
+  public isDesktop(userAgent &#x3D; this.userAgent): boolean {
+    const desktopDevices &#x3D; [Constants.DEVICES.PS4, Constants.DEVICES.CHROME_BOOK, Constants.DEVICES.UNKNOWN];
     if (this.device &#x3D;&#x3D;&#x3D; Constants.DEVICES.UNKNOWN) {
       if (this.isMobile(userAgent) || this.isTablet(userAgent)) {
-        return false
+        return false;
       }
     }
-    return desktopDevices.indexOf(this.device) &gt; -1
+    return desktopDevices.indexOf(this.device) &gt; -1;
   }
 }
 </code></pre>
