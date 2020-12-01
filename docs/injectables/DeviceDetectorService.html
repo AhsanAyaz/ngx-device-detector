@@ -226,8 +226,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="131"
-                            class="link-to-prism">projects/ngx-device-detector/src/lib/device-detector.service.ts:131</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="135"
+                            class="link-to-prism">projects/ngx-device-detector/src/lib/device-detector.service.ts:135</a></div>
                 </td>
             </tr>
 
@@ -273,8 +273,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="187"
-                            class="link-to-prism">projects/ngx-device-detector/src/lib/device-detector.service.ts:187</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="191"
+                            class="link-to-prism">projects/ngx-device-detector/src/lib/device-detector.service.ts:191</a></div>
                 </td>
             </tr>
 
@@ -346,8 +346,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="151"
-                            class="link-to-prism">projects/ngx-device-detector/src/lib/device-detector.service.ts:151</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="155"
+                            class="link-to-prism">projects/ngx-device-detector/src/lib/device-detector.service.ts:155</a></div>
                 </td>
             </tr>
 
@@ -419,8 +419,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="167"
-                            class="link-to-prism">projects/ngx-device-detector/src/lib/device-detector.service.ts:167</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="171"
+                            class="link-to-prism">projects/ngx-device-detector/src/lib/device-detector.service.ts:171</a></div>
                 </td>
             </tr>
 
@@ -972,10 +972,14 @@ export class DeviceDetectorService {
         this.browser_version &#x3D; res[1];
       }
     }
-    this.orientation &#x3D;
-      typeof window !&#x3D;&#x3D; &#x27;undefined&#x27; &amp;&amp; window.matchMedia(&#x27;(orientation: landscape)&#x27;).matches
+    if (typeof window !&#x3D;&#x3D; &#x27;undefined&#x27; &amp;&amp; window.matchMedia) {
+      this.orientation &#x3D; window.matchMedia(&#x27;(orientation: landscape)&#x27;).matches
         ? OrientationType.Landscape
         : OrientationType.Portrait;
+    } else {
+      this.orientation &#x3D; Constants.GENERAL.UKNOWN;
+    }
+
     this.deviceType &#x3D; this.isTablet()
       ? DeviceType.Tablet
       : this.isMobile(this.userAgent)

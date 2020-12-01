@@ -1,3 +1,7 @@
+## [2.0.3](https://github.com/KoderLabs/ngx-device-detector/compare/v2.0.2...v2.0.3) (2020-12-01)
+
+
+
 # [2.0.0](https://github.com/KoderLabs/ngx-device-detector/compare/v2.0.0...v1.5.2) (2020-18-27)
 ## BREAKING CHANGES
 - **DeviceDetectorModule DOES NOT EXIST ANY MORE**. Please remove its imports from your code base

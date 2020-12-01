@@ -1,6 +1,6 @@
 {
   "name": "ngx-device-detector-ws",
-  "version": "2.0.2",
+  "version": "2.0.3",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -21,7 +21,7 @@
     "copy:readme": "cp README.MD ./projects/ngx-device-detector",
     "changelog": "node_modules/.bin/conventional-changelog -p angular -i CHANGE_LOG.MD -s",
     "copy:changelog": "cp CHANGE_LOG.MD ./dist/ngx-device-detector",
-    "pre-release": "npm run lint && npm run copy:readme && npm run build:lib && npm run docs:build && npm run copy:changelog",
+    "pre-release": "npm run changelog && npm run lint && npm run copy:readme && npm run build:lib && npm run docs:build && npm run copy:changelog",
     "release": "npm run pre-release && npm publish dist/ngx-device-detector",
     "dev:ssr": "ng run demo:serve-ssr",
     "serve:ssr": "node dist/demo/server/main.js",

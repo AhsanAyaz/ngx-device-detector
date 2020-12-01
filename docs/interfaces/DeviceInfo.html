@@ -459,10 +459,14 @@ export class DeviceDetectorService {
         this.browser_version &#x3D; res[1];
       }
     }
-    this.orientation &#x3D;
-      typeof window !&#x3D;&#x3D; &#x27;undefined&#x27; &amp;&amp; window.matchMedia(&#x27;(orientation: landscape)&#x27;).matches
+    if (typeof window !&#x3D;&#x3D; &#x27;undefined&#x27; &amp;&amp; window.matchMedia) {
+      this.orientation &#x3D; window.matchMedia(&#x27;(orientation: landscape)&#x27;).matches
         ? OrientationType.Landscape
         : OrientationType.Portrait;
+    } else {
+      this.orientation &#x3D; Constants.GENERAL.UKNOWN;
+    }
+
     this.deviceType &#x3D; this.isTablet()
       ? DeviceType.Tablet
       : this.isMobile(this.userAgent)

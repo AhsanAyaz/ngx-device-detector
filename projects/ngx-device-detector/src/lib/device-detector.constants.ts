@@ -2,6 +2,10 @@
  * Created by ahsanayaz on 08/11/2016.
  */
 
+export const GENERAL = {
+  UKNOWN: 'Unknown',
+};
+
 export const BROWSERS = {
   CHROME: 'Chrome',
   FIREFOX: 'Firefox',
@@ -13,7 +17,7 @@ export const BROWSERS = {
   FB_MESSANGER: 'FB-Messanger',
   SAMSUNG: 'Samsung',
   UCBROWSER: 'UC-Browser',
-  UNKNOWN: 'Unknown',
+  UNKNOWN: GENERAL.UKNOWN,
 };
 
 export const MOBILES_RE = {
@@ -358,7 +362,7 @@ export const DEVICES = {
   iPad: 'iPad',
   IPHONE: 'iPhone',
   iPod: 'iPod',
-  UNKNOWN: 'Unknown',
+  UNKNOWN: GENERAL.UKNOWN,
   HTC: 'HTC',
   NEXUS_PHONE: 'Nexus Phone',
   NexusTablet: 'Nexus Tablet',
@@ -395,7 +399,7 @@ export const OS = {
   FIREFOX_OS: 'Firefox-OS',
   CHROME_OS: 'Chrome-OS',
   WINDOWS_PHONE: 'Windows-Phone',
-  UNKNOWN: 'Unknown',
+  UNKNOWN: GENERAL.UKNOWN,
 };
 
 export const OS_VERSIONS: any = {
@@ -432,7 +436,7 @@ export const OS_VERSIONS: any = {
   MACOSX_2: 'mac-os-x-2',
   MACOSX: 'mac-os-x',
   iOS: 'iOS',
-  UNKNOWN: 'unknown',
+  UNKNOWN: GENERAL.UKNOWN.toLowerCase(),
 };
 
 export const OS_RE: any = {
