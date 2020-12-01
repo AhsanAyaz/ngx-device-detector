@@ -110,9 +110,10 @@ export class DeviceDetectorService {
         this.browser_version = res[1];
       }
     }
-    this.orientation = typeof window !== 'undefined' && window.matchMedia('(orientation: landscape)').matches
-      ? OrientationType.Landscape
-      : OrientationType.Portrait;
+    this.orientation =
+      typeof window !== 'undefined' && window.matchMedia('(orientation: landscape)').matches
+        ? OrientationType.Landscape
+        : OrientationType.Portrait;
     this.deviceType = this.isTablet()
       ? DeviceType.Tablet
       : this.isMobile(this.userAgent)
