@@ -30,7 +30,8 @@ If you use Angular 5, you must use v1.5.2 or earlier
 
 ## Live DEMO
 
-[Ngx Device Detector Demo](https://koderlabs.github.io/ngx-device-detector/demo)
+[Demo](https://koderlabs.github.io/ngx-device-detector/demo)
+[SSR Demo](https://ngx-device-detector-ssr.herokuapp.com/)
 
 
 ## Installation
