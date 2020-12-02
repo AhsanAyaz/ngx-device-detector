@@ -166,13 +166,9 @@ Please see [CHANGE_LOG.MD](CHANGE_LOG.MD) for the updates.
 
 ## IE10, IE11 Compatibility
 
-If you're consuming the library for IE10 & IE11, make sure to uncomment (at least) these lines from `src/polyfills.ts` in your project.
+If you're consuming the library for IE10 & IE11, please refer to the `polyfills.ts` file in your project.
 
-```typescript
-import 'core-js/es6/string';
-import 'core-js/es6/array';
-import 'core-js/es6/map';
-```
+For example, for an Angular 9.x+ project, you can refer to the changes done in [this PR](https://github.com/KoderLabs/ngx-device-detector/pull/184/files) for our [demo project](https://koderlabs.github.io/ngx-device-detector/demo/) that works on IE11
 
 ## Credits
 
