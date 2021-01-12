@@ -60,7 +60,8 @@ If you use Angular 5, you must use v1.5.2 or earlier
 <h2 id="docs">DOCS</h2>
 <p><a href="https://koderlabs.github.io/ngx-device-detector">Ngx Device Detector DOCS</a></p>
 <h2 id="live-demo">Live DEMO</h2>
-<p><a href="https://koderlabs.github.io/ngx-device-detector/demo">Ngx Device Detector Demo</a></p>
+<p><a href="https://koderlabs.github.io/ngx-device-detector/demo">Demo</a>
+<a href="https://ngx-device-detector-ssr.herokuapp.com/">SSR Demo</a></p>
 <h2 id="installation">Installation</h2>
 <p>To install this library, run:</p>
 <div><pre class="line-numbers"><code class="language-bash">$ npm install ngx-device-detector --save</code></pre></div><p>In your component where you want to use the Device Service</p>
@@ -143,10 +144,9 @@ export class UniversalDeviceDetectorService extends DeviceDetectorService {
 <h2 id="change-log">Change Log</h2>
 <p>Please see <a href="CHANGE_LOG.MD">CHANGE_LOG.MD</a> for the updates.</p>
 <h2 id="ie10-ie11-compatibility">IE10, IE11 Compatibility</h2>
-<p>If you&#39;re consuming the library for IE10 &amp; IE11, make sure to uncomment (at least) these lines from <code>src/polyfills.ts</code> in your project.</p>
-<div><pre class="line-numbers"><code class="language-typescript">import &#39;core-js/es6/string&#39;;
-import &#39;core-js/es6/array&#39;;
-import &#39;core-js/es6/map&#39;;</code></pre></div><h2 id="credits">Credits</h2>
+<p>If you&#39;re consuming the library for IE10 &amp; IE11, please refer to the <code>polyfills.ts</code> file in your project.</p>
+<p>For example, for an Angular 9.x+ project, you can refer to the changes done in <a href="https://github.com/KoderLabs/ngx-device-detector/pull/184/files">this PR</a> for our <a href="https://koderlabs.github.io/ngx-device-detector/demo/">demo project</a> that works on IE11</p>
+<h2 id="credits">Credits</h2>
 <p>The library is inspired by and based on the work from <a href="https://github.com/srfrnk/ng-device-detector">ng-device-detector </a>. Also used a typescript wrapper of the amazing work in <a href="https://github.com/srfrnk/re-tree">ReTree</a> for regex based needs and an Angular2 Library Creator boilerplate to get the work started fast. I.e. <a href="https://github.com/jvandemo/generator-angular2-library">Generator Angular2 library</a>.</p>
 <h2 id="license">License</h2>
 <p>MIT © <a href="https://github.com/AhsanAyaz">Ahsan Ayaz</a></p>

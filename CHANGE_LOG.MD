@@ -1,3 +1,13 @@
+## [2.0.5](https://github.com/KoderLabs/ngx-device-detector/compare/v2.0.3...v2.0.5) (2021-01-12)
+
+
+### Features
+
+* **ssr-demo:** add ssr demo ([e0cf90a](https://github.com/KoderLabs/ngx-device-detector/commit/e0cf90adcdbcd33d3240fe68e3b2df2c0fc56aa5))
+* **support-ie11:** make necessary changes to have the app run on ie11 ([cbca0c5](https://github.com/KoderLabs/ngx-device-detector/commit/cbca0c559e20cdfee0f955c9070645a17e99ce95))
+
+
+
 ## [2.0.3](https://github.com/KoderLabs/ngx-device-detector/compare/v2.0.2...v2.0.3) (2020-12-01)
 
 
