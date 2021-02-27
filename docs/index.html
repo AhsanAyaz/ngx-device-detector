@@ -40,10 +40,10 @@ An Angular 6+ powered AOT compatible device detector that helps to identify brow
 </p>
 
 <p align="center">
-<a href="https://travis-ci.org/KoderLabs/ngx-device-detector"><img src="http://img.shields.io/travis/KoderLabs/ngx-device-detector.svg?style=flat" alt="travis build status" ></a>
+<a href="https://travis-ci.org/KoderLabs/ngx-device-detector"><img src="https://img.shields.io/travis/koderlabs/ngx-device-detector?style=flat" alt="travis build status" ></a>
 <a href="https://www.npmjs.com/package/ngx-device-detector"><img src="https://img.shields.io/npm/v/ngx-device-detector.svg" alt="npm version" ></a>
 <a href="https://www.npmjs.com/package/ngx-device-detector"><img src="https://img.shields.io/github/stars/KoderLabs/ngx-device-detector.svg?style=social&label=Star&style=flat-square" alt="github stars" ></a>
-<a href="https://www.npmjs.com/package/ngx-device-detector"><img src="https://img.shields.io/npm/l/ngx-device-detector.svg?style=flat-square" alt="license" ></a>
+<a href="https://www.npmjs.com/package/ngx-device-detector"><img src="https://img.shields.io/github/license/koderlabs/ngx-device-detector?style=flat" alt="license" ></a>
 </p>
 <p align="center">
   <a href="https://www.npmjs.com/package/ng2-device-detector">Deprecated package :</a>
@@ -102,13 +102,13 @@ If you use Angular 5, you must use v1.5.2 or earlier
 import { REQUEST } from &#39;&#64;nguniversal/express-engine/tokens&#39;;
 import { Request } from &#39;express&#39;;
 import { DeviceDetectorService } from &#39;ngx-device-detector&#39;;
-import {isPlatformServer} from &#39;&#64;angular/common&#39;;
+import { isPlatformServer } from &#39;&#64;angular/common&#39;;
 
 &#64;Injectable()
 export class UniversalDeviceDetectorService extends DeviceDetectorService {
   constructor(&#64;Inject(PLATFORM_ID) platformId: any, &#64;Optional() &#64;Inject(REQUEST) request: Request) {
     super(platformId);
-    if (isPlatformServer(platformId)){
+    if (isPlatformServer(platformId)) {
       super.setDeviceInfo((request.headers[&#39;user-agent&#39;] as string) || &#39;&#39;);
     }
   }
@@ -149,7 +149,7 @@ export class UniversalDeviceDetectorService extends DeviceDetectorService {
 <h2 id="credits">Credits</h2>
 <p>The library is inspired by and based on the work from <a href="https://github.com/srfrnk/ng-device-detector">ng-device-detector </a>. Also used a typescript wrapper of the amazing work in <a href="https://github.com/srfrnk/re-tree">ReTree</a> for regex based needs and an Angular2 Library Creator boilerplate to get the work started fast. I.e. <a href="https://github.com/jvandemo/generator-angular2-library">Generator Angular2 library</a>.</p>
 <h2 id="license">License</h2>
-<p>MIT © <a href="https://github.com/AhsanAyaz">Ahsan Ayaz</a></p>
+<p><a href="https://github.com/KoderLabs/ngx-device-detector/blob/master/LICENSE">MIT</a></p>
 
 
 

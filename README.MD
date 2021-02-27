@@ -7,10 +7,10 @@ An Angular 6+ powered AOT compatible device detector that helps to identify brow
 </p>
 
 <p align="center">
-<a href="https://travis-ci.org/KoderLabs/ngx-device-detector"><img src="http://img.shields.io/travis/KoderLabs/ngx-device-detector.svg?style=flat" alt="travis build status" ></a>
+<a href="https://travis-ci.org/KoderLabs/ngx-device-detector"><img src="https://img.shields.io/travis/koderlabs/ngx-device-detector?style=flat" alt="travis build status" ></a>
 <a href="https://www.npmjs.com/package/ngx-device-detector"><img src="https://img.shields.io/npm/v/ngx-device-detector.svg" alt="npm version" ></a>
 <a href="https://www.npmjs.com/package/ngx-device-detector"><img src="https://img.shields.io/github/stars/KoderLabs/ngx-device-detector.svg?style=social&label=Star&style=flat-square" alt="github stars" ></a>
-<a href="https://www.npmjs.com/package/ngx-device-detector"><img src="https://img.shields.io/npm/l/ngx-device-detector.svg?style=flat-square" alt="license" ></a>
+<a href="https://www.npmjs.com/package/ngx-device-detector"><img src="https://img.shields.io/github/license/koderlabs/ngx-device-detector?style=flat" alt="license" ></a>
 </p>
 <p align="center">
   <a href="https://www.npmjs.com/package/ng2-device-detector">Deprecated package :</a>
@@ -33,7 +33,6 @@ If you use Angular 5, you must use v1.5.2 or earlier
 [Demo](https://koderlabs.github.io/ngx-device-detector/demo)
 [SSR Demo](https://ngx-device-detector-ssr.herokuapp.com/)
 
-
 ## Installation
 
 To install this library, run:
@@ -43,6 +42,7 @@ $ npm install ngx-device-detector --save
 ```
 
 In your component where you want to use the Device Service
+
 ```typescript
   import { Component } from '@angular/core';
   ...
@@ -81,18 +81,19 @@ In your component where you want to use the Device Service
 To ensure Universal has the correct User Agent for device detection, you'll need to provide it manually. If using ExpressJS for example:
 
 **universal-device-detector.service.ts:**
+
 ```typescript
 import { Inject, Injectable, Optional, PLATFORM_ID } from '@angular/core';
 import { REQUEST } from '@nguniversal/express-engine/tokens';
 import { Request } from 'express';
 import { DeviceDetectorService } from 'ngx-device-detector';
-import {isPlatformServer} from '@angular/common';
+import { isPlatformServer } from '@angular/common';
 
 @Injectable()
 export class UniversalDeviceDetectorService extends DeviceDetectorService {
   constructor(@Inject(PLATFORM_ID) platformId: any, @Optional() @Inject(REQUEST) request: Request) {
     super(platformId);
-    if (isPlatformServer(platformId)){
+    if (isPlatformServer(platformId)) {
       super.setDeviceInfo((request.headers['user-agent'] as string) || '');
     }
   }
@@ -100,6 +101,7 @@ export class UniversalDeviceDetectorService extends DeviceDetectorService {
 ```
 
 **app.server.module.ts:**
+
 ```typescript
 {
   provide: DeviceDetectorService,
@@ -108,17 +110,20 @@ export class UniversalDeviceDetectorService extends DeviceDetectorService {
 ```
 
 ## Device service
+
 Holds the following properties
-* browser
-* os
-* device
-* userAgent
-* os_version
+
+- browser
+- os
+- device
+- userAgent
+- os_version
 
 ## Helper Methods
-* **isMobile() :** returns if the device is a mobile device (android / iPhone/ windows-phone etc)
-* **isTablet() :** returns if the device us a tablet (iPad etc)
-* **isDesktop() :** returns if the app is running on a Desktop browser.
+
+- **isMobile() :** returns if the device is a mobile device (android / iPhone/ windows-phone etc)
+- **isTablet() :** returns if the device us a tablet (iPad etc)
+- **isDesktop() :** returns if the app is running on a Desktop browser.
 
 ## Development
 
@@ -135,15 +140,16 @@ To lint all `*.ts` files:
 ```
 
 To run unit tests
+
 ```bash
   $ npm run test
 ```
 
 To build the library
+
 ```bash
   $ npm run build
 ```
-
 
 ## Run the DEMO
 
@@ -177,4 +183,4 @@ The library is inspired by and based on the work from [ng-device-detector ](http
 
 ## License
 
-MIT © [Ahsan Ayaz](https://github.com/AhsanAyaz)
+[MIT](https://github.com/KoderLabs/ngx-device-detector/blob/master/LICENSE)
