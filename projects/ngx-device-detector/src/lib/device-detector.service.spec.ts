@@ -1,6 +1,11 @@
 import { TestBed, inject } from '@angular/core/testing';
-import {} from 'jasmine';
 import { DeviceDetectorService } from './device-detector.service';
+
+function expectAsTablet(service, userAgent) {
+  expect(service.isMobile(userAgent)).toBeFalsy();
+  expect(service.isDesktop(userAgent)).toBeFalsy();
+  expect(service.isTablet(userAgent)).toBeTruthy();
+}
 
 describe('DeviceDetectorService', () => {
   beforeEach(() => {
@@ -27,7 +32,7 @@ describe('DeviceDetectorService', () => {
         os_version: 'iOS',
         browser_version: '11.0',
         deviceType: 'mobile',
-        orientation: 'landscape',
+        orientation: 'portrait',
       };
       expect(service.getDeviceInfo()).toEqual(deviceInformations);
     }
@@ -56,12 +61,12 @@ describe('DeviceDetectorService', () => {
     }
   ));
 
-  it('should return true, os=`Mac`, browser=`Safari`, device=`iPad` and browser_version=`11.0` when system is tablet', inject(
+  it('should return true, os=`Mac`, browser=`Safari`, device=`iPad` and browser_version=`11.0` when system is iPad tablet', inject(
     [DeviceDetectorService],
     (service: DeviceDetectorService) => {
       const userAgent = `Mozilla/5.0 (iPad; CPU OS 11_0 like Mac OS X) AppleWebKit/604.1.34 Version/11.0 Mobile/15A5341f Safari/604.1`;
       service.setDeviceInfo(userAgent);
-      expect(service.isTablet(userAgent)).toBeTruthy();
+      expectAsTablet(service, userAgent);
       expect(service.os).toBe('iOS');
       expect(service.browser).toBe('Safari');
       expect(service.device).toBe('iPad');
@@ -108,14 +113,14 @@ describe('DeviceDetectorService', () => {
   }));
 
   // commenting this test for now until we have a good way of detecting using userAgent
-  xit('should detect iOS 13 for iPhone', inject([DeviceDetectorService], (service: DeviceDetectorService) => {
-    // tslint:disable-next-line:max-line-length
-    const userAgent =
-      'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0 Safari/605.1.15';
-    expect(service.isMobile(userAgent)).toBeFalsy();
-    expect(service.isDesktop(userAgent)).toBeFalsy();
-    expect(service.isTablet(userAgent)).toBeTruthy();
-  }));
+  // xit('should detect iOS 13 for iPhone', inject([DeviceDetectorService], (service: DeviceDetectorService) => {
+  //   // tslint:disable-next-line:max-line-length
+  //   const userAgent =
+  //     'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0 Safari/605.1.15';
+  //   expect(service.isMobile(userAgent)).toBeFalsy();
+  //   expect(service.isDesktop(userAgent)).toBeFalsy();
+  //   expect(service.isTablet(userAgent)).toBeTruthy();
+  // }));
 
   it('should detect iPhone 11', inject([DeviceDetectorService], (service: DeviceDetectorService) => {
     const userAgent =
@@ -157,7 +162,6 @@ describe('DeviceDetectorService', () => {
   ));
 
   it('should detect Firefox in iOS', inject([DeviceDetectorService], (service: DeviceDetectorService) => {
-    // tslint:disable-next-line:max-line-length
     const userAgent =
       'Mozilla/5.0 (iPhone; CPU iPhone OS 13_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) FxiOS/20.1 Mobile/15E148 Safari/605.1.15';
     service.setDeviceInfo(userAgent);
@@ -170,4 +174,28 @@ describe('DeviceDetectorService', () => {
     expect(deviceInfo.browser_version).toBe('20.1');
     expect(deviceInfo.os_version).toBe('iOS');
   }));
+
+  /**
+   * Issues list below
+   * https://github.com/KoderLabs/ngx-device-detector/issues/191
+   * https://github.com/KoderLabs/ngx-device-detector/issues/194
+   * https://github.com/KoderLabs/ngx-device-detector/issues/180
+   */
+  it('should detect the missing tablets reported by community', inject(
+    [DeviceDetectorService],
+    (service: DeviceDetectorService) => {
+      let userAgent =
+        'Mozilla/5.0 (Linux; Android 9; SM-T865) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.106 Safari/537.36';
+      service.setDeviceInfo(userAgent);
+      expectAsTablet(service, userAgent);
+      userAgent =
+        'Mozilla/5.0 (Linux; Android 9; Lenovo TB-X606F Build/PPR1.180610.011;wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/86.0.4240.185 Safari/537.36';
+      service.setDeviceInfo(userAgent);
+      expectAsTablet(service, userAgent);
+      userAgent =
+        'Mozilla/5.0 (Linux; Android 10; SM-T500) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/89.0.4389.105 Safari/537.36';
+      service.setDeviceInfo(userAgent);
+      expectAsTablet(service, userAgent);
+    }
+  ));
 });
