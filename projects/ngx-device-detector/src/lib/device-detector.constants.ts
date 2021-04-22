@@ -421,7 +421,7 @@ export const OS_VERSIONS: any = {
   WINDOWS_PHONE_8_1: 'windows-phone-8-1',
   WINDOWS_PHONE_10: 'windows-phone-10',
   WINDOWS_NT_4_0: 'windows-nt-4-0',
-  MACOSX_11_0: "max-os-x-11-0",
+  MACOSX_11_0: "mac-os-x-11-0",
   MACOSX_16: 'mac-os-x-16',
   MACOSX_15: 'mac-os-x-15',
   MACOSX_14: 'mac-os-x-14',
