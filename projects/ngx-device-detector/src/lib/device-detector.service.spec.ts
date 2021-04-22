@@ -200,7 +200,7 @@ describe('DeviceDetectorService', () => {
     expect(deviceInfo.device).toBe('Macintosh');
     expect(deviceInfo.browser).toBe('Chrome');
     expect(deviceInfo.browser_version).toBe('86.0.4240.198');
-    expect(deviceInfo.os_version).toBe('max-os-x-11-0');
+    expect(deviceInfo.os_version).toBe('mac-os-x-11-0');
   }));
 
   /**
