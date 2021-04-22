@@ -387,6 +387,7 @@ export const DEVICES = {
   AMOI: 'Amoi',
   INQ: 'INQ',
   GENERIC_PHONE: 'Generic Phone',
+  MAC: 'Macintosh'
 };
 
 export const OS = {
@@ -420,6 +421,8 @@ export const OS_VERSIONS: any = {
   WINDOWS_PHONE_8_1: 'windows-phone-8-1',
   WINDOWS_PHONE_10: 'windows-phone-10',
   WINDOWS_NT_4_0: 'windows-nt-4-0',
+  MACOSX_11_0: "max-os-x-11-0",
+  MACOSX_16: 'mac-os-x-16',
   MACOSX_15: 'mac-os-x-15',
   MACOSX_14: 'mac-os-x-14',
   MACOSX_13: 'mac-os-x-13',
@@ -497,6 +500,7 @@ export const BROWSERS_RE: any = {
 export const DEVICES_RE: any = {
   ...MOBILES_RE,
   ...TABLETS_RE,
+  ... OS_RE,
   FIREFOX_OS: { and: [/\bFirefox\b/, /\bMobile\b/] },
   CHROME_BOOK: /\bCrOS\b/,
   PS4: /\bMozilla\/5.0 \(PlayStation 4\b/,
@@ -540,6 +544,8 @@ export const OS_VERSIONS_RE_MAP: any = {
   MACOSX_13: /(Mac OS X 10.13)/,
   MACOSX_14: /(Mac OS X 10.14)/,
   MACOSX_15: /(Mac OS X 10.15)/,
+  MACOSX_16: /(Mac OS X 10.16)/,
+  MACOSX_11_0: /(Mac OS X 11)/,
   iOS: /(iPhone OS\s*[0-9_]+)/,
 };
 
