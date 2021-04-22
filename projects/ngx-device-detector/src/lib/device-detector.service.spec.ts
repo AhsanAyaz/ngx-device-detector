@@ -175,6 +175,34 @@ describe('DeviceDetectorService', () => {
     expect(deviceInfo.os_version).toBe('iOS');
   }));
 
+  it('should detect Firefox in Mac', inject([DeviceDetectorService], (service: DeviceDetectorService) => {
+    const userAgent =
+      'Firefox v 82.0.3 - Mozilla/5.0 (Macintosh; Intel Mac OS X 10.16; rv:82.0) Gecko/20100101 Firefox/82.0';
+    service.setDeviceInfo(userAgent);
+    expect(service.isMobile(userAgent)).toBeFalsy();
+    expect(service.isDesktop(userAgent)).toBeFalsy();
+    expect(service.isTablet(userAgent)).toBeFalsy();
+    const deviceInfo = service.getDeviceInfo();
+    expect(deviceInfo.device).toBe('Macintosh');
+    expect(deviceInfo.browser).toBe('Firefox');
+    expect(deviceInfo.browser_version).toBe('82.0');
+    expect(deviceInfo.os_version).toBe('mac-os-x-16');
+  }));
+
+  it('should detect chrome in Mac', inject([DeviceDetectorService], (service: DeviceDetectorService) => {
+    const userAgent =
+      'Google Chrome v 86.0 - Mozilla/5.0 (Macintosh; Intel Mac OS X 11_0_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.198 Safari/537.36';
+    service.setDeviceInfo(userAgent);
+    expect(service.isMobile(userAgent)).toBeFalsy();
+    expect(service.isDesktop(userAgent)).toBeFalsy();
+    expect(service.isTablet(userAgent)).toBeFalsy();
+    const deviceInfo = service.getDeviceInfo();
+    expect(deviceInfo.device).toBe('Macintosh');
+    expect(deviceInfo.browser).toBe('Chrome');
+    expect(deviceInfo.browser_version).toBe('86.0.4240.198');
+    expect(deviceInfo.os_version).toBe('max-os-x-11-0');
+  }));
+
   /**
    * Issues list below
    * https://github.com/KoderLabs/ngx-device-detector/issues/191
