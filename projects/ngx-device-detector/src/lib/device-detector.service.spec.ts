@@ -29,7 +29,7 @@ describe('DeviceDetectorService', () => {
         os: 'iOS',
         browser: 'Safari',
         device: 'iPhone',
-        os_version: 'iOS',
+        os_version: 'mac-os-x-11-0',
         browser_version: '11.0',
         deviceType: 'mobile',
         orientation: 'landscape',
@@ -189,7 +189,7 @@ describe('DeviceDetectorService', () => {
     expect(deviceInfo.os_version).toBe('mac-os-x-16');
   }));
 
-  it('should detect chrome in Mac', inject([DeviceDetectorService], (service: DeviceDetectorService) => {
+  it('should detect Chrome in Mac', inject([DeviceDetectorService], (service: DeviceDetectorService) => {
     const userAgent =
       'Google Chrome v 86.0 - Mozilla/5.0 (Macintosh; Intel Mac OS X 11_0_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.198 Safari/537.36';
     service.setDeviceInfo(userAgent);
@@ -201,6 +201,34 @@ describe('DeviceDetectorService', () => {
     expect(deviceInfo.browser).toBe('Chrome');
     expect(deviceInfo.browser_version).toBe('86.0.4240.198');
     expect(deviceInfo.os_version).toBe('mac-os-x-11-0');
+  }));
+
+  it('should detect Safari in iPad', inject([DeviceDetectorService], (service: DeviceDetectorService) => {
+    const userAgent =
+      'Mozilla/5.0 (iPad; CPU OS 11_0 like Mac OS X) AppleWebKit/604.1.25 (KHTML, like Gecko) Version/11.0 Mobile/15A5304j Safari/604.1';
+    service.setDeviceInfo(userAgent);
+    expect(service.isMobile(userAgent)).toBeFalsy();
+    expect(service.isDesktop(userAgent)).toBeFalsy();
+    expect(service.isTablet(userAgent)).toBeTruthy();
+    const deviceInfo = service.getDeviceInfo();
+    expect(deviceInfo.device).toBe('iPad');
+    expect(deviceInfo.browser).toBe('Safari');
+    expect(deviceInfo.browser_version).toBe('11.0');
+    expect(deviceInfo.os_version).toBe('mac-os-x-11-0');
+  }));
+
+  it('should detect Chrome in Android', inject([DeviceDetectorService], (service: DeviceDetectorService) => {
+    const userAgent =
+      'Mozilla/5.0 (Linux; U; Android 9; en-us; Mi 9 SE Build/PKQ1.181121.001) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/71.0.3578.141 Mobile Safari/537.36 XiaoMi/MiuiBrowser/11.4.3-g';
+    service.setDeviceInfo(userAgent);
+    expect(service.isMobile(userAgent)).toBeTruthy();
+    expect(service.isDesktop(userAgent)).toBeFalsy();
+    expect(service.isTablet(userAgent)).toBeFalsy();
+    const deviceInfo = service.getDeviceInfo();
+    expect(deviceInfo.device).toBe('Android');
+    expect(deviceInfo.browser).toBe('Chrome');
+    expect(deviceInfo.browser_version).toBe('71.0.3578.141');
+    expect(deviceInfo.os_version).toBe('android-9');
   }));
 
   it('should detect Device type in Alcatel Firefox OS Mobile 48.0 version', inject(
