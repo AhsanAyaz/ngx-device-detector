@@ -387,7 +387,8 @@ export const DEVICES = {
   AMOI: 'Amoi',
   INQ: 'INQ',
   GENERIC_PHONE: 'Generic Phone',
-  MAC: 'Macintosh'
+  MAC: 'Macintosh',
+  MI_SE_9: 'Mi SE 9'
 };
 
 export const OS = {
@@ -439,6 +440,7 @@ export const OS_VERSIONS: any = {
   MACOSX_2: 'mac-os-x-2',
   MACOSX: 'mac-os-x',
   iOS: 'iOS',
+  ANDROID_9: 'android-9',
   UNKNOWN: GENERAL.UKNOWN.toLowerCase(),
 };
 
@@ -508,6 +510,7 @@ export const DEVICES_RE: any = {
   APPLE_TV: /^iTunes-AppleTV\/4.1$/,
   GOOGLE_TV: /\bGoogleTV\b/,
   Tesla: /Tesla\/([0-9]{4}.[0-9]{1,2}.?[0-9]{0,2}.?[0-9]{0,2})-(.{7})/,
+  MI_SE_9: /\bXiaomi\b/
 };
 
 export const OS_VERSIONS_RE_MAP: any = {
@@ -545,8 +548,11 @@ export const OS_VERSIONS_RE_MAP: any = {
   MACOSX_14: /(Mac OS X 10.14)/,
   MACOSX_15: /(Mac OS X 10.15)/,
   MACOSX_16: /(Mac OS X 10.16)/,
-  MACOSX_11_0: /(Mac OS X 11)/,
+  MACOSX_11_0: {
+        or: [/11_0 like Mac OS X/, /Mac OS X 11/]
+  },
   iOS: /(iPhone OS\s*[0-9_]+)/,
+  ANDROID_9: /(Android 9)/
 };
 
 export const BROWSER_VERSIONS_RE_MAP: any = {
