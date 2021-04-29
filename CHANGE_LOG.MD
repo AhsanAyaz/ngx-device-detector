@@ -1,3 +1,12 @@
+## [2.0.8](https://github.com/KoderLabs/ngx-device-detector/compare/v2.0.7...v2.0.8) (2021-04-29)
+
+
+### Bug Fixes
+
+* **tests:** fix tests ([493f1e2](https://github.com/KoderLabs/ngx-device-detector/commit/493f1e2495225c76c2f2d0162f2bee1dfb956412))
+
+
+
 ## [2.0.7](https://github.com/KoderLabs/ngx-device-detector/compare/v2.0.6...v2.0.7) (2021-04-20)
 
 
