@@ -1,5 +1,8 @@
 # See http://help.github.com/ignore-files/ for more about ignoring files.
 
+# editors
+.vscode
+
 # compiled output
 /dist/ngx-device-detector
 /tmp
