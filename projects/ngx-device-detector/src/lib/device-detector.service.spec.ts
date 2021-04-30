@@ -203,33 +203,37 @@ describe('DeviceDetectorService', () => {
     expect(deviceInfo.os_version).toBe('mac-os-x-11-0');
   }));
 
-  it('should detect Device type in Alcatel Firefox OS Mobile 48.0 version', inject([DeviceDetectorService], (service: DeviceDetectorService) => {
-    const userAgent =
-      'Mozilla/5.0 (Mobile; ALCATEL 4052R; rv:48.0) Gecko/48.0 Firefox/48.0 KAIOS/2.5.2';
-    service.setDeviceInfo(userAgent);
-    expect(service.isMobile(userAgent)).toBeTruthy();
-    expect(service.isDesktop(userAgent)).toBeFalsy();
-    expect(service.isTablet(userAgent)).toBeFalsy();
-    const deviceInfo = service.getDeviceInfo();
-    expect(deviceInfo.device).toBe('Firefox-OS');
-    expect(deviceInfo.browser).toBe('Firefox');
-    expect(deviceInfo.browser_version).toBe('48.0');
-    expect(deviceInfo.deviceType).toBe('mobile');
-  }));
+  it('should detect Device type in Alcatel Firefox OS Mobile 48.0 version', inject(
+    [DeviceDetectorService],
+    (service: DeviceDetectorService) => {
+      const userAgent = 'Mozilla/5.0 (Mobile; ALCATEL 4052R; rv:48.0) Gecko/48.0 Firefox/48.0 KAIOS/2.5.2';
+      service.setDeviceInfo(userAgent);
+      expect(service.isMobile(userAgent)).toBeTruthy();
+      expect(service.isDesktop(userAgent)).toBeFalsy();
+      expect(service.isTablet(userAgent)).toBeFalsy();
+      const deviceInfo = service.getDeviceInfo();
+      expect(deviceInfo.device).toBe('Firefox-OS');
+      expect(deviceInfo.browser).toBe('Firefox');
+      expect(deviceInfo.browser_version).toBe('48.0');
+      expect(deviceInfo.deviceType).toBe('mobile');
+    }
+  ));
 
-  it('should detect Device type in Alcatel Firefox OS Mobile 49.0 version', inject([DeviceDetectorService], (service: DeviceDetectorService) => {
-    const userAgent =
-      'Mozilla/5.0 (Mobile; rv:49.0) Gecko/49.0 Firefox/49.0';
-    service.setDeviceInfo(userAgent);
-    expect(service.isMobile(userAgent)).toBeTruthy();
-    expect(service.isDesktop(userAgent)).toBeFalsy();
-    expect(service.isTablet(userAgent)).toBeFalsy();
-    const deviceInfo = service.getDeviceInfo();
-    expect(deviceInfo.device).toBe('Firefox-OS');
-    expect(deviceInfo.browser).toBe('Firefox');
-    expect(deviceInfo.browser_version).toBe('49.0');
-    expect(deviceInfo.deviceType).toBe('mobile');
-  }));
+  it('should detect Device type in Alcatel Firefox OS Mobile 49.0 version', inject(
+    [DeviceDetectorService],
+    (service: DeviceDetectorService) => {
+      const userAgent = 'Mozilla/5.0 (Mobile; rv:49.0) Gecko/49.0 Firefox/49.0';
+      service.setDeviceInfo(userAgent);
+      expect(service.isMobile(userAgent)).toBeTruthy();
+      expect(service.isDesktop(userAgent)).toBeFalsy();
+      expect(service.isTablet(userAgent)).toBeFalsy();
+      const deviceInfo = service.getDeviceInfo();
+      expect(deviceInfo.device).toBe('Firefox-OS');
+      expect(deviceInfo.browser).toBe('Firefox');
+      expect(deviceInfo.browser_version).toBe('49.0');
+      expect(deviceInfo.deviceType).toBe('mobile');
+    }
+  ));
 
   /**
    * Issues list below
