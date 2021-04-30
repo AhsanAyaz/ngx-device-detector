@@ -388,7 +388,7 @@ export const DEVICES = {
   INQ: 'INQ',
   GENERIC_PHONE: 'Generic Phone',
   MAC: 'Macintosh',
-  MI_SE_9: 'Mi SE 9'
+  MI_SE_9: 'Mi SE 9',
 };
 
 export const OS = {
@@ -510,7 +510,7 @@ export const DEVICES_RE: any = {
   APPLE_TV: /^iTunes-AppleTV\/4.1$/,
   GOOGLE_TV: /\bGoogleTV\b/,
   Tesla: /Tesla\/([0-9]{4}.[0-9]{1,2}.?[0-9]{0,2}.?[0-9]{0,2})-(.{7})/,
-  MI_SE_9: /\bXiaomi\b/
+  MI_SE_9: /\bXiaomi\b/,
 };
 
 export const OS_VERSIONS_RE_MAP: any = {
@@ -549,10 +549,10 @@ export const OS_VERSIONS_RE_MAP: any = {
   MACOSX_15: /(Mac OS X 10.15)/,
   MACOSX_16: /(Mac OS X 10.16)/,
   MACOSX_11_0: {
-        or: [/11_0 like Mac OS X/, /Mac OS X 11/]
+    or: [/11_0 like Mac OS X/, /Mac OS X 11/],
   },
   iOS: /(iPhone OS\s*[0-9_]+)/,
-  ANDROID_9: /(Android 9)/
+  ANDROID_9: /(Android 9)/,
 };
 
 export const BROWSER_VERSIONS_RE_MAP: any = {
