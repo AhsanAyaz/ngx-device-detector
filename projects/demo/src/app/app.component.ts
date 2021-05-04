@@ -22,7 +22,6 @@ export class AppComponent {
 
   getDeviceInfo(): void {
     this.deviceInfo = this.deviceService.getDeviceInfo();
-    console.log(this.deviceInfo);
   }
 
   get isMobile(): boolean {

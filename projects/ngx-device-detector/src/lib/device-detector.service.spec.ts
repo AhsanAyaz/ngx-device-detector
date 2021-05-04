@@ -32,7 +32,7 @@ describe('DeviceDetectorService', () => {
         os_version: 'mac-os-x-11-0',
         browser_version: '11.0',
         deviceType: 'mobile',
-        orientation: 'landscape',
+        orientation: 'Unknown',
       };
       expect(service.getDeviceInfo()).toEqual(deviceInformations);
     }
