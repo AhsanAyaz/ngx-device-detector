@@ -180,7 +180,7 @@ describe('DeviceDetectorService', () => {
       'Firefox v 82.0.3 - Mozilla/5.0 (Macintosh; Intel Mac OS X 10.16; rv:82.0) Gecko/20100101 Firefox/82.0';
     service.setDeviceInfo(userAgent);
     expect(service.isMobile(userAgent)).toBeFalsy();
-    expect(service.isDesktop(userAgent)).toBeFalsy();
+    expect(service.isDesktop(userAgent)).toBeTruthy();
     expect(service.isTablet(userAgent)).toBeFalsy();
     const deviceInfo = service.getDeviceInfo();
     expect(deviceInfo.device).toBe('Macintosh');
@@ -194,7 +194,7 @@ describe('DeviceDetectorService', () => {
       'Google Chrome v 86.0 - Mozilla/5.0 (Macintosh; Intel Mac OS X 11_0_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.198 Safari/537.36';
     service.setDeviceInfo(userAgent);
     expect(service.isMobile(userAgent)).toBeFalsy();
-    expect(service.isDesktop(userAgent)).toBeFalsy();
+    expect(service.isDesktop(userAgent)).toBeTruthy();
     expect(service.isTablet(userAgent)).toBeFalsy();
     const deviceInfo = service.getDeviceInfo();
     expect(deviceInfo.device).toBe('Macintosh');
