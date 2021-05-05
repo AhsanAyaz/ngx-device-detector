@@ -354,6 +354,7 @@ export const DEVICES = {
   WINDOWS_PHONE: 'Windows-Phone',
   VITA: 'Vita',
   PS4: 'PS4',
+  MAC: 'Macintosh',
   CHROMECAST: 'Chromecast',
   APPLE_TV: 'Apple-TV',
   GOOGLE_TV: 'Google-TV',
@@ -387,9 +388,17 @@ export const DEVICES = {
   AMOI: 'Amoi',
   INQ: 'INQ',
   GENERIC_PHONE: 'Generic Phone',
-  MAC: 'Macintosh',
   MI_SE_9: 'Mi SE 9',
 };
+
+export const DESKTOP_DEVICES = [
+  DEVICES.PS4,
+  DEVICES.CHROME_BOOK,
+  DEVICES.MAC,
+  DEVICES.DELL,
+  DEVICES.ASUS,
+  DEVICES.UNKNOWN,
+];
 
 export const OS = {
   WINDOWS: 'Windows',
@@ -511,6 +520,9 @@ export const DEVICES_RE: any = {
   GOOGLE_TV: /\bGoogleTV\b/,
   Tesla: /Tesla\/([0-9]{4}.[0-9]{1,2}.?[0-9]{0,2}.?[0-9]{0,2})-(.{7})/,
   MI_SE_9: /\bXiaomi\b/,
+  MAC: {
+    and: [/\bMac OS\b/, { not: { or: [/\biPhone\b/, /\biPad\b/, /\biPod\b/, /\bWindows Phone\b/] } }],
+  },
 };
 
 export const OS_VERSIONS_RE_MAP: any = {
