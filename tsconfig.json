@@ -15,6 +15,5 @@
     "paths": {
       "ngx-device-detector": ["dist/ngx-device-detector/ngx-device-detector", "dist/ngx-device-detector"]
     }
-  },
-  "exclude": ["./dist"]
+  }
 }
