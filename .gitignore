@@ -4,7 +4,7 @@
 .vscode
 
 # compiled output
-/dist/ngx-device-detector
+/dist
 /tmp
 /out-tsc
 # Only exists if Bazel was run

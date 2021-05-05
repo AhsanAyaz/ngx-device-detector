@@ -28,6 +28,7 @@
     "dev:ssr": "ng run demo:serve-ssr",
     "serve:ssr": "node dist/demo/server/main.js",
     "build:ssr": "ng build demo --prod && ng run demo:server:production && cp -a projects/demo/server/. ./dist/demo",
+    "deploy:ssr:demo": "sh scripts/deploy_ssr_demo.sh",
     "prerender": "ng run demo:prerender",
     "postversion": "node scripts/post-version",
     "bump:version": "node scripts/bump-version"
@@ -85,7 +86,7 @@
     "classlist.js": "^1.1.20150312",
     "conventional-changelog-cli": "^2.1.1",
     "express": "^4.15.2",
-    "ngx-device-detector": "^2.0.5",
+    "ngx-device-detector": "^2.0.9",
     "rxjs": "~6.5.5",
     "tslib": "^2.0.0",
     "web-animations-js": "^2.3.2",
