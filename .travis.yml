@@ -1,13 +1,13 @@
 language: node_js
 sudo: true
 node_js:
-  - "12.16.3"
+  - '12.16.3'
 
 demo/dist: xenial
 
 branches:
   only:
-  - master
+    - master
 
 before_script:
   - export CHROME_BIN=/usr/bin/google-chrome
@@ -22,7 +22,7 @@ services:
 script:
   - npm run lint
   - npm install
-  - node_modules/.bin/ng test --project ngx-device-detector --watch=false --code-coverage
+  - npm run test
   - node_modules/.bin/webdriver-manager update
   - npm run build:both:ci
   - cp -R dist/demo/browser ./docs/demo
