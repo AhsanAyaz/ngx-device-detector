@@ -4,8 +4,8 @@
  */
 import { PLATFORM_ID, Inject, Injectable } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
-import * as Constants from './device-detector.constants';
 import { ReTree } from './retree';
+import { DevicesInfo } from './device-detector.constants';
 
 export interface DeviceInfo {
   userAgent: string;
@@ -44,6 +44,16 @@ export class DeviceDetectorService {
   reTree = new ReTree();
   deviceType = '';
   orientation = '';
+  storeDevices = {
+    isMobile: null,
+    isTablet: null,
+    isDesktop: null,
+  };
+  storeDevicesUserAgent = {
+    mobileUserAgent: null,
+    tabletUserAgent: null,
+    desktopUserAgent: null,
+  };
   constructor(@Inject(PLATFORM_ID) private platformId: any) {
     if (isPlatformBrowser(this.platformId) && typeof window !== 'undefined') {
       this.userAgent = window.navigator.userAgent;
@@ -57,6 +67,7 @@ export class DeviceDetectorService {
    * This value is later accessible for usage
    */
   setDeviceInfo(ua = this.userAgent): void {
+    let devicesInfo = new DevicesInfo();
     if (ua !== this.userAgent) {
       this.userAgent = ua;
     }
@@ -68,43 +79,43 @@ export class DeviceDetectorService {
     ];
 
     mappings.forEach(mapping => {
-      this[mapping.prop] = Object.keys(Constants[mapping.const]).reduce((obj: any, item: any) => {
-        if (Constants[mapping.const][item] === 'device') {
+      this[mapping.prop] = Object.keys(devicesInfo[mapping.const]).reduce((obj: any, item: any) => {
+        if (devicesInfo[mapping.const][item] === 'device') {
           // hack for iOS 13 Tablet
           if (
             isPlatformBrowser(this.platformId) &&
-            (!!this.reTree.test(this.userAgent, Constants.TABLETS_RE[iPad]) ||
+            (!!this.reTree.test(this.userAgent, devicesInfo.TABLETS_RE[iPad]) ||
               (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1))
           ) {
-            obj[Constants[mapping.const][item]] = iPad;
+            obj[devicesInfo[mapping.const][item]] = iPad;
             return Object;
           }
         }
-        obj[Constants[mapping.const][item]] = this.reTree.test(ua, Constants[`${mapping.const}_RE`][item]);
+        obj[devicesInfo[mapping.const][item]] = this.reTree.test(ua, devicesInfo[`${mapping.const}_RE`][item]);
         return obj;
       }, {});
     });
 
     mappings.forEach(mapping => {
-      this[mapping.prop] = Object.keys(Constants[mapping.const])
+      this[mapping.prop] = Object.keys(devicesInfo[mapping.const])
         .map(key => {
-          return Constants[mapping.const][key];
+          return devicesInfo[mapping.const][key];
         })
         .reduce((previousValue, currentValue) => {
-          if (mapping.prop === 'device' && previousValue === Constants[mapping.const].ANDROID) {
+          if (mapping.prop === 'device' && previousValue === devicesInfo[mapping.const].ANDROID) {
             // if we have the actual device found, instead of 'Android', return the actual device
             return this[mapping.prop][currentValue] ? currentValue : previousValue;
           } else {
-            return previousValue === Constants[mapping.const].UNKNOWN && this[mapping.prop][currentValue]
+            return previousValue === devicesInfo[mapping.const].UNKNOWN && this[mapping.prop][currentValue]
               ? currentValue
               : previousValue;
           }
-        }, Constants[mapping.const].UNKNOWN);
+        }, devicesInfo[mapping.const].UNKNOWN);
     });
 
     this.browser_version = '0';
-    if (this.browser !== Constants.BROWSERS.UNKNOWN) {
-      const re = Constants.BROWSER_VERSIONS_RE[this.browser];
+    if (this.browser !== devicesInfo.BROWSERS.UNKNOWN) {
+      const re = devicesInfo.BROWSER_VERSIONS_RE[this.browser];
       const res = this.reTree.exec(ua, re);
       if (!!res) {
         this.browser_version = res[1];
@@ -115,7 +126,7 @@ export class DeviceDetectorService {
         ? OrientationType.Landscape
         : OrientationType.Portrait;
     } else {
-      this.orientation = Constants.GENERAL.UKNOWN;
+      this.orientation = devicesInfo.GENERAL.UKNOWN;
     }
 
     this.deviceType = this.isTablet()
@@ -125,6 +136,8 @@ export class DeviceDetectorService {
       : this.isDesktop(this.userAgent)
       ? DeviceType.Desktop
       : DeviceType.Unknown;
+
+    devicesInfo = null;
   }
 
   /**
@@ -153,13 +166,20 @@ export class DeviceDetectorService {
    * @returns whether the current device is a mobile
    */
   public isMobile(userAgent = this.userAgent): boolean {
+    if (this.storeDevices.isMobile !== null && userAgent === this.storeDevicesUserAgent.mobileUserAgent) {
+      return this.storeDevices.isMobile;
+    }
+    let devicesInfo = new DevicesInfo();
     if (this.isTablet(userAgent)) {
       return false;
     }
-    const match = Object.keys(Constants.MOBILES_RE).find(mobile => {
-      return this.reTree.test(userAgent, Constants.MOBILES_RE[mobile]);
+    const match = Object.keys(devicesInfo.MOBILES_RE).find(mobile => {
+      return this.reTree.test(userAgent, devicesInfo.MOBILES_RE[mobile]);
     });
-    return !!match;
+    this.storeDevices.isMobile = !!match;
+    this.storeDevicesUserAgent.mobileUserAgent = userAgent;
+    devicesInfo = null;
+    return this.storeDevices.isMobile;
   }
 
   /**
@@ -169,17 +189,24 @@ export class DeviceDetectorService {
    * @returns whether the current device is a tablet
    */
   public isTablet(userAgent = this.userAgent): boolean {
+    if (this.storeDevices.isTablet !== null && userAgent === this.storeDevicesUserAgent.tabletUserAgent) {
+      return this.storeDevices.isTablet;
+    }
+    let devicesInfo = new DevicesInfo();
     if (
       isPlatformBrowser(this.platformId) &&
-      (!!this.reTree.test(this.userAgent, Constants.TABLETS_RE[iPad]) ||
+      (!!this.reTree.test(this.userAgent, devicesInfo.TABLETS_RE[iPad]) ||
         (typeof navigator !== 'undefined' && navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1))
     ) {
       return true;
     }
-    const match = Object.keys(Constants.TABLETS_RE).find(mobile => {
-      return !!this.reTree.test(userAgent, Constants.TABLETS_RE[mobile]);
+    const match = Object.keys(devicesInfo.TABLETS_RE).find(mobile => {
+      return !!this.reTree.test(userAgent, devicesInfo.TABLETS_RE[mobile]);
     });
-    return !!match;
+    this.storeDevices.isTablet = !!match;
+    this.storeDevicesUserAgent.tabletUserAgent = userAgent;
+    devicesInfo = null;
+    return this.storeDevices.isTablet;
   }
 
   /**
@@ -189,11 +216,18 @@ export class DeviceDetectorService {
    * @returns whether the current device is a desktop device
    */
   public isDesktop(userAgent = this.userAgent): boolean {
-    if (this.device === Constants.DEVICES.UNKNOWN) {
+    if (this.storeDevices.isDesktop !== null && userAgent === this.storeDevicesUserAgent.desktopUserAgent) {
+      return this.storeDevices.isDesktop;
+    }
+    let devicesInfo = new DevicesInfo();
+    if (this.device === devicesInfo.DEVICES.UNKNOWN) {
       if (this.isMobile(userAgent) || this.isTablet(userAgent)) {
         return false;
       }
     }
-    return Constants.DESKTOP_DEVICES.indexOf(this.device) > -1;
+    this.storeDevices.isDesktop = devicesInfo.DESKTOP_DEVICES.indexOf(this.device) > -1;
+    this.storeDevicesUserAgent.desktopUserAgent = userAgent;
+    devicesInfo = null;
+    return this.storeDevices.isDesktop;
   }
 }
