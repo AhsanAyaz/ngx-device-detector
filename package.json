@@ -46,9 +46,12 @@
     "setupFilesAfterEnv": [
       "<rootDir>/jestSetup.ts"
     ],
+    "modulePathIgnorePatterns": [
+      "<rootDir>/dist/"
+    ],
     "testPathIgnorePatterns": [
       "<rootDir>/node_modules/",
-      "<rootDir>/dist/"
+      "<rootDir>/dist"
     ],
     "globals": {
       "ts-jest": {
