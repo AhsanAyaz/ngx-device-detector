@@ -538,13 +538,12 @@ export class DeviceDetectorService {
    * @returns whether the current device is a desktop device
    */
   public isDesktop(userAgent &#x3D; this.userAgent): boolean {
-    const desktopDevices &#x3D; [Constants.DEVICES.PS4, Constants.DEVICES.CHROME_BOOK, Constants.DEVICES.UNKNOWN];
     if (this.device &#x3D;&#x3D;&#x3D; Constants.DEVICES.UNKNOWN) {
       if (this.isMobile(userAgent) || this.isTablet(userAgent)) {
         return false;
       }
     }
-    return desktopDevices.indexOf(this.device) &gt; -1;
+    return Constants.DESKTOP_DEVICES.indexOf(this.device) &gt; -1;
   }
 }
 </code></pre>
