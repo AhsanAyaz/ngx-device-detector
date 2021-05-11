@@ -74,6 +74,9 @@
                             <a href="#BROWSERS_RE" title="projects/ngx-device-detector/src/lib/device-detector.constants.ts"><b>BROWSERS_RE</b>&nbsp;&nbsp;&nbsp;(projects/.../device-detector.constants.ts)</a>
                         </li>
                         <li>
+                            <a href="#DESKTOP_DEVICES" title="projects/ngx-device-detector/src/lib/device-detector.constants.ts"><b>DESKTOP_DEVICES</b>&nbsp;&nbsp;&nbsp;(projects/.../device-detector.constants.ts)</a>
+                        </li>
+                        <li>
                             <a href="#DEVICES" title="projects/ngx-device-detector/src/lib/device-detector.constants.ts"><b>DEVICES</b>&nbsp;&nbsp;&nbsp;(projects/.../device-detector.constants.ts)</a>
                         </li>
                         <li>
@@ -364,6 +367,40 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
+                        <a name="DESKTOP_DEVICES"></a>
+                        <span class="name">
+                            <b>
+                            DESKTOP_DEVICES</b>
+                            <a href="#DESKTOP_DEVICES"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>[]</code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>[
+  DEVICES.PS4,
+  DEVICES.CHROME_BOOK,
+  DEVICES.MAC,
+  DEVICES.DELL,
+  DEVICES.ASUS,
+  DEVICES.UNKNOWN,
+]</code>
+                        </td>
+                    </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
                         <a name="DEVICES"></a>
                         <span class="name">
                             <b>
@@ -387,6 +424,7 @@
   WINDOWS_PHONE: &#x27;Windows-Phone&#x27;,
   VITA: &#x27;Vita&#x27;,
   PS4: &#x27;PS4&#x27;,
+  MAC: &#x27;Macintosh&#x27;,
   CHROMECAST: &#x27;Chromecast&#x27;,
   APPLE_TV: &#x27;Apple-TV&#x27;,
   GOOGLE_TV: &#x27;Google-TV&#x27;,
@@ -420,7 +458,6 @@
   AMOI: &#x27;Amoi&#x27;,
   INQ: &#x27;INQ&#x27;,
   GENERIC_PHONE: &#x27;Generic Phone&#x27;,
-  MAC: &#x27;Macintosh&#x27;,
   MI_SE_9: &#x27;Mi SE 9&#x27;,
 }</code>
                         </td>
@@ -461,6 +498,9 @@
   GOOGLE_TV: /\bGoogleTV\b/,
   Tesla: /Tesla\/([0-9]{4}.[0-9]{1,2}.?[0-9]{0,2}.?[0-9]{0,2})-(.{7})/,
   MI_SE_9: /\bXiaomi\b/,
+  MAC: {
+    and: [/\bMac OS\b/, { not: { or: [/\biPhone\b/, /\biPad\b/, /\biPod\b/, /\bWindows Phone\b/] } }],
+  },
 }</code>
                         </td>
                     </tr>

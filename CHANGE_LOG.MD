@@ -1,3 +1,15 @@
+## [2.0.10](https://github.com/KoderLabs/ngx-device-detector/compare/v2.0.7...v2.0.10) (2021-05-10)
+
+
+### Bug Fixes
+
+* **210:** fix Chrome and Safari not detected as desktop anymore ([cea0f9e](https://github.com/KoderLabs/ngx-device-detector/commit/cea0f9edcfc77620b3b8621af23cfbf39811f645))
+* **ci:** fix travis.yml to use jest tests ([6ec4052](https://github.com/KoderLabs/ngx-device-detector/commit/6ec4052f6c037157d4ecdc9b17ef89d00c8a09d1))
+* **demo:** fix demo deployment in CI ([b7f79c8](https://github.com/KoderLabs/ngx-device-detector/commit/b7f79c8291d4048a41969b4c1d2b8e1c1c7e7963))
+* **tests:** fix tests ([493f1e2](https://github.com/KoderLabs/ngx-device-detector/commit/493f1e2495225c76c2f2d0162f2bee1dfb956412))
+
+
+
 ## [2.0.9](https://github.com/KoderLabs/ngx-device-detector/compare/v2.0.7...v2.0.9) (2021-05-05)
 
 
