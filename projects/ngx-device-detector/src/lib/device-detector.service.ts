@@ -5,7 +5,7 @@
 import { PLATFORM_ID, Inject, Injectable } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
 import { ReTree } from './retree';
-import { DevicesInfo } from './device-detector.constants';
+import DeviceDetectorParser from './device-detector.constants';
 
 export interface DeviceInfo {
   userAgent: string;
@@ -44,15 +44,10 @@ export class DeviceDetectorService {
   reTree = new ReTree();
   deviceType = '';
   orientation = '';
-  storeDevices = {
+  cache = {
     isMobile: null,
     isTablet: null,
     isDesktop: null,
-  };
-  storeDevicesUserAgent = {
-    mobileUserAgent: null,
-    tabletUserAgent: null,
-    desktopUserAgent: null,
   };
   constructor(@Inject(PLATFORM_ID) private platformId: any) {
     if (isPlatformBrowser(this.platformId) && typeof window !== 'undefined') {
@@ -67,10 +62,15 @@ export class DeviceDetectorService {
    * This value is later accessible for usage
    */
   setDeviceInfo(ua = this.userAgent): void {
-    let devicesInfo = new DevicesInfo();
+    let parser = new DeviceDetectorParser();
     if (ua !== this.userAgent) {
       this.userAgent = ua;
     }
+    this.cache = {
+      isMobile: null,
+      isTablet: null,
+      isDesktop: null,
+    };
     const mappings = [
       { const: 'OS', prop: 'os' },
       { const: 'BROWSERS', prop: 'browser' },
@@ -79,43 +79,43 @@ export class DeviceDetectorService {
     ];
 
     mappings.forEach(mapping => {
-      this[mapping.prop] = Object.keys(devicesInfo[mapping.const]).reduce((obj: any, item: any) => {
-        if (devicesInfo[mapping.const][item] === 'device') {
+      this[mapping.prop] = Object.keys(parser[mapping.const]).reduce((obj: any, item: any) => {
+        if (parser[mapping.const][item] === 'device') {
           // hack for iOS 13 Tablet
           if (
             isPlatformBrowser(this.platformId) &&
-            (!!this.reTree.test(this.userAgent, devicesInfo.TABLETS_RE[iPad]) ||
+            (!!this.reTree.test(this.userAgent, parser.TABLETS_RE[iPad]) ||
               (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1))
           ) {
-            obj[devicesInfo[mapping.const][item]] = iPad;
+            obj[parser[mapping.const][item]] = iPad;
             return Object;
           }
         }
-        obj[devicesInfo[mapping.const][item]] = this.reTree.test(ua, devicesInfo[`${mapping.const}_RE`][item]);
+        obj[parser[mapping.const][item]] = this.reTree.test(ua, parser[`${mapping.const}_RE`][item]);
         return obj;
       }, {});
     });
 
     mappings.forEach(mapping => {
-      this[mapping.prop] = Object.keys(devicesInfo[mapping.const])
+      this[mapping.prop] = Object.keys(parser[mapping.const])
         .map(key => {
-          return devicesInfo[mapping.const][key];
+          return parser[mapping.const][key];
         })
         .reduce((previousValue, currentValue) => {
-          if (mapping.prop === 'device' && previousValue === devicesInfo[mapping.const].ANDROID) {
+          if (mapping.prop === 'device' && previousValue === parser[mapping.const].ANDROID) {
             // if we have the actual device found, instead of 'Android', return the actual device
             return this[mapping.prop][currentValue] ? currentValue : previousValue;
           } else {
-            return previousValue === devicesInfo[mapping.const].UNKNOWN && this[mapping.prop][currentValue]
+            return previousValue === parser[mapping.const].UNKNOWN && this[mapping.prop][currentValue]
               ? currentValue
               : previousValue;
           }
-        }, devicesInfo[mapping.const].UNKNOWN);
+        }, parser[mapping.const].UNKNOWN);
     });
 
     this.browser_version = '0';
-    if (this.browser !== devicesInfo.BROWSERS.UNKNOWN) {
-      const re = devicesInfo.BROWSER_VERSIONS_RE[this.browser];
+    if (this.browser !== parser.BROWSERS.UNKNOWN) {
+      const re = parser.BROWSER_VERSIONS_RE[this.browser];
       const res = this.reTree.exec(ua, re);
       if (!!res) {
         this.browser_version = res[1];
@@ -126,7 +126,7 @@ export class DeviceDetectorService {
         ? OrientationType.Landscape
         : OrientationType.Portrait;
     } else {
-      this.orientation = devicesInfo.GENERAL.UKNOWN;
+      this.orientation = parser.GENERAL.UKNOWN;
     }
 
     this.deviceType = this.isTablet()
@@ -137,7 +137,7 @@ export class DeviceDetectorService {
       ? DeviceType.Desktop
       : DeviceType.Unknown;
 
-    devicesInfo = null;
+    parser = null;
   }
 
   /**
@@ -166,20 +166,25 @@ export class DeviceDetectorService {
    * @returns whether the current device is a mobile
    */
   public isMobile(userAgent = this.userAgent): boolean {
-    if (this.storeDevices.isMobile !== null && userAgent === this.storeDevicesUserAgent.mobileUserAgent) {
-      return this.storeDevices.isMobile;
+    if (this.cache.isMobile !== null && userAgent === this.userAgent) {
+      return this.cache.isMobile;
     }
-    let devicesInfo = new DevicesInfo();
+    let parser = new DeviceDetectorParser();
     if (this.isTablet(userAgent)) {
       return false;
     }
-    const match = Object.keys(devicesInfo.MOBILES_RE).find(mobile => {
-      return this.reTree.test(userAgent, devicesInfo.MOBILES_RE[mobile]);
+    const match = Object.keys(parser.MOBILES_RE).find(mobile => {
+      return this.reTree.test(userAgent, parser.MOBILES_RE[mobile]);
     });
-    this.storeDevices.isMobile = !!match;
-    this.storeDevicesUserAgent.mobileUserAgent = userAgent;
-    devicesInfo = null;
-    return this.storeDevices.isMobile;
+    this.cache.isMobile = !!match;
+    if (!!match) {
+      // this is a mobile device, not tablet, and not desktop
+      this.cache.isTablet = false;
+      this.cache.isDesktop = false;
+    }
+    this.userAgent = userAgent;
+    parser = null;
+    return this.cache.isMobile;
   }
 
   /**
@@ -189,24 +194,29 @@ export class DeviceDetectorService {
    * @returns whether the current device is a tablet
    */
   public isTablet(userAgent = this.userAgent): boolean {
-    if (this.storeDevices.isTablet !== null && userAgent === this.storeDevicesUserAgent.tabletUserAgent) {
-      return this.storeDevices.isTablet;
+    if (this.cache.isTablet !== null && userAgent === this.userAgent) {
+      return this.cache.isTablet;
     }
-    let devicesInfo = new DevicesInfo();
+    let parser = new DeviceDetectorParser();
     if (
       isPlatformBrowser(this.platformId) &&
-      (!!this.reTree.test(this.userAgent, devicesInfo.TABLETS_RE[iPad]) ||
+      (!!this.reTree.test(this.userAgent, parser.TABLETS_RE[iPad]) ||
         (typeof navigator !== 'undefined' && navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1))
     ) {
       return true;
     }
-    const match = Object.keys(devicesInfo.TABLETS_RE).find(mobile => {
-      return !!this.reTree.test(userAgent, devicesInfo.TABLETS_RE[mobile]);
+    const match = Object.keys(parser.TABLETS_RE).find(mobile => {
+      return !!this.reTree.test(userAgent, parser.TABLETS_RE[mobile]);
     });
-    this.storeDevices.isTablet = !!match;
-    this.storeDevicesUserAgent.tabletUserAgent = userAgent;
-    devicesInfo = null;
-    return this.storeDevices.isTablet;
+    this.cache.isTablet = !!match;
+    if (!!match) {
+      // this is a tablet device, not mobile, and not desktop
+      this.cache.isMobile = false;
+      this.cache.isDesktop = false;
+    }
+    this.userAgent = userAgent;
+    parser = null;
+    return this.cache.isTablet;
   }
 
   /**
@@ -216,18 +226,23 @@ export class DeviceDetectorService {
    * @returns whether the current device is a desktop device
    */
   public isDesktop(userAgent = this.userAgent): boolean {
-    if (this.storeDevices.isDesktop !== null && userAgent === this.storeDevicesUserAgent.desktopUserAgent) {
-      return this.storeDevices.isDesktop;
+    if (this.cache.isDesktop !== null && userAgent === this.userAgent) {
+      return this.cache.isDesktop;
     }
-    let devicesInfo = new DevicesInfo();
-    if (this.device === devicesInfo.DEVICES.UNKNOWN) {
+    let parser = new DeviceDetectorParser();
+    if (this.device === parser.DEVICES.UNKNOWN) {
       if (this.isMobile(userAgent) || this.isTablet(userAgent)) {
         return false;
       }
     }
-    this.storeDevices.isDesktop = devicesInfo.DESKTOP_DEVICES.indexOf(this.device) > -1;
-    this.storeDevicesUserAgent.desktopUserAgent = userAgent;
-    devicesInfo = null;
-    return this.storeDevices.isDesktop;
+    this.cache.isDesktop = parser.DESKTOP_DEVICES.indexOf(this.device) > -1;
+    if (this.cache.isDesktop) {
+      // this is a desktop device, not mobile, and not tablet
+      this.cache.isTablet = false;
+      this.cache.isMobile = false;
+    }
+    this.userAgent = userAgent;
+    parser = null;
+    return this.cache.isDesktop;
   }
 }

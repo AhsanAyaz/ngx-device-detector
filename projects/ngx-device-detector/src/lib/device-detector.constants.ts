@@ -2,7 +2,7 @@
  * Created by ahsanayaz on 08/11/2016.
  */
 
-export class DevicesInfo {
+class DeviceDetectorParser {
   GENERAL = {
     UKNOWN: 'Unknown',
   };
@@ -597,3 +597,5 @@ export class DevicesInfo {
     return obj;
   }, {});
 }
+
+export default DeviceDetectorParser;
