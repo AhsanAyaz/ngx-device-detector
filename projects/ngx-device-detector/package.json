@@ -26,8 +26,8 @@
     "url": "https://github.com/AhsanAyaz/ngx-device-detector.git/issues"
   },
   "peerDependencies": {
-    "@angular/common": ">=7.0.0 <9.0.0 || ^9.0.0-0 ||^10.0.11 ||^11.0.0 ||^12.0.0",
-    "@angular/core": ">=7.0.0 <9.0.0 || ^9.0.0-0 || ^10.0.11 ||^11.0.0 ||^12.0.0"
+    "@angular/common": ">=7.0.0 <=12.0.0 ||^12.0.0",
+    "@angular/core": ">=7.0.0 <=12.0.0 ||^12.0.0"
   },
   "dependencies": {
     "tslib": "^2.0.0"
