@@ -263,6 +263,22 @@ describe('DeviceDetectorService', () => {
     }
   ));
 
+  it('should detect Device Honeywell RT10A as a tablet', inject(
+    [DeviceDetectorService],
+    (service: DeviceDetectorService) => {
+      const userAgent = 'Mozilla/5.0 (Linux; Android 10; RT10A) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.101 Safari/537.36';
+      service.setDeviceInfo(userAgent);
+      expect(service.isMobile(userAgent)).toBeFalsy();
+      expect(service.isDesktop(userAgent)).toBeFalsy();
+      expect(service.isTablet(userAgent)).toBeTruthy();
+      const deviceInfo = service.getDeviceInfo();
+      expect(deviceInfo.device).toBe('Android');
+      expect(deviceInfo.browser).toBe('Chrome');
+      expect(deviceInfo.browser_version).toBe('87.0.4280.101');
+      expect(deviceInfo.deviceType).toBe('tablet');
+    }
+  ));
+
   /**
    * Issues list below
    * https://github.com/KoderLabs/ngx-device-detector/issues/191
