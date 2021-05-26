@@ -90,7 +90,7 @@
     "classlist.js": "^1.1.20150312",
     "conventional-changelog-cli": "^2.1.1",
     "express": "^4.15.2",
-    "ngx-device-detector": "^2.1.0",
+    "ngx-device-detector": "^2.1.1",
     "rxjs": "~6.5.5",
     "tslib": "^2.2.0",
     "web-animations-js": "^2.3.2",
