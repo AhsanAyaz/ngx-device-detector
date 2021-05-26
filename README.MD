@@ -34,6 +34,19 @@ If you use Angular 5, you must use v1.5.2 or earlier
 
 [SSR Demo](https://ngx-device-detector-ssr.herokuapp.com/)
 
+## Dependencies
+
+Latest version available for each version of Angular
+
+| ngx-toastr | Angular |
+| ---------- | ------- |
+| 1.3.3      | 7.x     |
+| 1.3.5      | 8.x     |
+| 1.4.1      | 9.x     |
+| 1.4.5      | 10.x    |
+| 2.0.3      | 11.x    |
+| current    | >= 12.x |
+
 ## Installation
 
 To install this library, run:

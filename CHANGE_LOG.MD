@@ -1,3 +1,21 @@
+# [2.1.0](https://github.com/KoderLabs/ngx-device-detector/compare/v2.0.10...v2.1.0) (2021-05-26)
+
+
+### Bug Fixes
+
+* **jest:** fix jest env issues for running testS ([cfe4e55](https://github.com/KoderLabs/ngx-device-detector/commit/cfe4e557c7dc29a2cb560b6dddbaf6dfef34adf0))
+
+
+
+# [2.1.0](https://github.com/KoderLabs/ngx-device-detector/compare/v2.0.10...v2.1.0) (2021-05-26)
+
+
+### Bug Fixes
+
+* **jest:** fix jest env issues for running testS ([cfe4e55](https://github.com/KoderLabs/ngx-device-detector/commit/cfe4e557c7dc29a2cb560b6dddbaf6dfef34adf0))
+
+
+
 ## [2.0.10](https://github.com/KoderLabs/ngx-device-detector/compare/v2.0.7...v2.0.10) (2021-05-10)
 
 
