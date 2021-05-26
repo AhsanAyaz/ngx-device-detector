@@ -50,6 +50,9 @@
       "<rootDir>/node_modules/",
       "<rootDir>/dist/"
     ],
+    "modulePathIgnorePatterns": [
+      "<rootDir>/dist/"
+    ],
     "globals": {
       "ts-jest": {
         "tsconfig": "<rootDir>/tsconfig.spec.json",

@@ -18,7 +18,7 @@ describe('DeviceDetectorService', () => {
     expect(service).toBeTruthy();
   }));
 
-  it('should return device info object when getDeviceInfo is called', inject(
+  it('should return device info object for iPhone when getDeviceInfo is called', inject(
     [DeviceDetectorService],
     (service: DeviceDetectorService) => {
       const userAgent =
@@ -38,7 +38,7 @@ describe('DeviceDetectorService', () => {
     }
   ));
 
-  it('should return device details when system is desktop', inject(
+  it('should return device details when system is desktop and using Linux & Chrome', inject(
     [DeviceDetectorService],
     (service: DeviceDetectorService) => {
       const userAgent =
@@ -52,14 +52,13 @@ describe('DeviceDetectorService', () => {
   ));
 
   // tslint:disable-next-line: max-line-length
-  it('should return false when isDesktop is called on a non-desktop userAgent', inject(
-    [DeviceDetectorService],
-    (service: DeviceDetectorService) => {
-      // tslint:disable-next-line:max-line-length
-      const userAgent = `Mozilla/5.0 (iPad; CPU OS 11_0 like Mac OS X) AppleWebKit/604.1.34 (KHTML, like Gecko) Version/11.0 Mobile/15A5341f Safari/604.1`;
-      expect(service.isDesktop(userAgent)).toBeFalsy();
-    }
-  ));
+  it('should detect an iPad correctly', inject([DeviceDetectorService], (service: DeviceDetectorService) => {
+    // tslint:disable-next-line:max-line-length
+    const userAgent = `Mozilla/5.0 (iPad; CPU OS 11_0 like Mac OS X) AppleWebKit/604.1.34 (KHTML, like Gecko) Version/11.0 Mobile/15A5341f Safari/604.1`;
+    expect(service.isDesktop(userAgent)).toBeFalsy();
+    expect(service.isTablet(userAgent)).toBeTruthy();
+    expect(service.isMobile(userAgent)).toBeFalsy();
+  }));
 
   it('should return true, os=`Mac`, browser=`Safari`, device=`iPad` and browser_version=`11.0` when system is iPad tablet', inject(
     [DeviceDetectorService],
