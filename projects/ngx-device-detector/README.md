@@ -38,14 +38,14 @@ If you use Angular 5, you must use v1.5.2 or earlier
 
 Latest version available for each version of Angular
 
-| ngx-toastr | Angular |
-| ---------- | ------- |
-| 1.3.3      | 7.x     |
-| 1.3.5      | 8.x     |
-| 1.4.1      | 9.x     |
-| 1.4.5      | 10.x    |
-| 2.0.3      | 11.x    |
-| current    | >= 12.x |
+| ngx-device-detector | Angular |
+| ------------------- | ------- |
+| 1.3.3               | 7.x     |
+| 1.3.5               | 8.x     |
+| 1.4.1               | 9.x     |
+| 1.4.5               | 10.x    |
+| 2.0.3               | 11.x    |
+| current             | >= 12.x |
 
 ## Installation
 

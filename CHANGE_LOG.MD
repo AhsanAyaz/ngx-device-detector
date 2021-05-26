@@ -1,3 +1,12 @@
+## [2.1.1](https://github.com/KoderLabs/ngx-device-detector/compare/v2.1.0...v2.1.1) (2021-05-26)
+
+
+### Bug Fixes
+
+* **ci:** fix ci builds by bumping to nodejs 12.20 ([ea7dd1c](https://github.com/KoderLabs/ngx-device-detector/commit/ea7dd1c2d4e4dceb83edcd4783951f6804bd3817))
+
+
+
 # [2.1.0](https://github.com/KoderLabs/ngx-device-detector/compare/v2.0.10...v2.1.0) (2021-05-26)
 
 
