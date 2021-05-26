@@ -51,7 +51,8 @@
       "<rootDir>/dist/"
     ],
     "modulePathIgnorePatterns": [
-      "<rootDir>/dist/"
+      "<rootDir>/dist/",
+      "<rootDir>/projects/demo"
     ],
     "globals": {
       "ts-jest": {
@@ -76,33 +77,33 @@
     "url": "https://github.com/AhsanAyaz/ngx-device-detector.git/issues"
   },
   "dependencies": {
-    "@angular/animations": "~11.0.2",
-    "@angular/common": "~11.0.2",
-    "@angular/compiler": "~11.0.2",
-    "@angular/core": "~11.0.2",
-    "@angular/forms": "~11.0.2",
-    "@angular/platform-browser": "~11.0.2",
-    "@angular/platform-browser-dynamic": "~11.0.2",
-    "@angular/platform-server": "~11.0.2",
-    "@angular/router": "~11.0.2",
-    "@nguniversal/express-engine": "^10.0.2",
+    "@angular/animations": "~12.0.1",
+    "@angular/common": "~12.0.1",
+    "@angular/compiler": "~12.0.1",
+    "@angular/core": "~12.0.1",
+    "@angular/forms": "~12.0.1",
+    "@angular/platform-browser": "~12.0.1",
+    "@angular/platform-browser-dynamic": "~12.0.1",
+    "@angular/platform-server": "~12.0.1",
+    "@angular/router": "~12.0.1",
+    "@nguniversal/express-engine": "^12.0.0",
     "classlist.js": "^1.1.20150312",
     "conventional-changelog-cli": "^2.1.1",
     "express": "^4.15.2",
     "ngx-device-detector": "^2.1.0",
     "rxjs": "~6.5.5",
-    "tslib": "^2.0.0",
+    "tslib": "^2.2.0",
     "web-animations-js": "^2.3.2",
-    "zone.js": "~0.10.3"
+    "zone.js": "~0.11.4"
   },
   "devDependencies": {
-    "@angular-devkit/build-angular": "~0.1100.2",
-    "@angular/cli": "~11.0.2",
-    "@angular/compiler-cli": "~11.0.2",
+    "@angular-devkit/build-angular": "~12.0.1",
+    "@angular/cli": "~12.0.1",
+    "@angular/compiler-cli": "~12.0.1",
     "@commitlint/cli": "^11.0.0",
     "@commitlint/config-angular": "^11.0.0",
     "@compodoc/compodoc": "^1.1.11",
-    "@nguniversal/builders": "^10.0.2",
+    "@nguniversal/builders": "^12.0.0",
     "@types/express": "^4.17.0",
     "@types/jest": "^26.0.23",
     "@types/node": "^12.11.1",
@@ -110,13 +111,13 @@
     "husky": "^4.3.0",
     "jest": "^26.6.3",
     "jest-preset-angular": "^8.4.0",
-    "ng-packagr": "^11.0.2",
+    "ng-packagr": "^12.0.2",
     "prettier": "^2.1.1",
     "protractor": "~7.0.0",
     "semver": "^7.3.2",
     "ts-node": "~8.3.0",
     "tslint": "~6.1.0",
-    "typescript": "~4.0.5"
+    "typescript": "~4.2.4"
   },
   "husky": {
     "hooks": {
