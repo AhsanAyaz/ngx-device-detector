@@ -20,16 +20,6 @@
               "tsConfig": "projects/ngx-device-detector/tsconfig.lib.prod.json"
             }
           }
-        },
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": [
-              "projects/ngx-device-detector/tsconfig.lib.json",
-              "projects/ngx-device-detector/tsconfig.spec.json"
-            ],
-            "exclude": ["**/node_modules/**"]
-          }
         }
       }
     },
@@ -107,18 +97,6 @@
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
             "browserTarget": "demo:build"
-          }
-        },
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": [
-              "projects/demo/tsconfig.app.json",
-              "projects/demo/tsconfig.spec.json",
-              "projects/demo/e2e/tsconfig.json",
-              "projects/demo/tsconfig.server.json"
-            ],
-            "exclude": ["**/node_modules/**"]
           }
         },
         "e2e": {
