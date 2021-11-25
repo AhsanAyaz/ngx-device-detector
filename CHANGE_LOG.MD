@@ -1,3 +1,21 @@
+# [2.2.0](https://github.com/KoderLabs/ngx-device-detector/compare/v2.1.1...v2.2.0) (2021-11-25)
+
+
+### Bug Fixes
+
+* **lint:** fix lint issues ([255617a](https://github.com/KoderLabs/ngx-device-detector/commit/255617adfc3b84708c3ab1df4e76d466be7cc1ec))
+
+
+
+# [2.2.0](https://github.com/KoderLabs/ngx-device-detector/compare/v2.1.1...v2.2.0) (2021-11-25)
+
+
+### Bug Fixes
+
+* **lint:** fix lint issues ([255617a](https://github.com/KoderLabs/ngx-device-detector/commit/255617adfc3b84708c3ab1df4e76d466be7cc1ec))
+
+
+
 ## [2.1.1](https://github.com/KoderLabs/ngx-device-detector/compare/v2.1.0...v2.1.1) (2021-05-26)
 
 

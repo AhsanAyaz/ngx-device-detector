@@ -1,11 +1,10 @@
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     var menuCollapsed = false,
         mobileMenu = document.getElementById('mobile-menu');
 
     var localContextInUrl = '';
 
     if (COMPODOC_CURRENT_PAGE_CONTEXT !== '') {
-        localContextInUrl = localContextInUrl;
         switch (COMPODOC_CURRENT_PAGE_CONTEXT) {
             case 'additional-page':
                 localContextInUrl = 'additional-documentation';
@@ -27,7 +26,7 @@ document.addEventListener('DOMContentLoaded', function() {
         return el.className && new RegExp('(\\s|^)' + cls + '(\\s|$)').test(el.className);
     }
 
-    var processLink = function(link, url) {
+    var processLink = function (link, url) {
         if (url.charAt(0) !== '.') {
             var prefix = '';
             switch (COMPODOC_CURRENT_PAGE_DEPTH) {
@@ -54,7 +53,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     };
 
-    var processMenuLinks = function(links, dontAddClass) {
+    var processMenuLinks = function (links, dontAddClass) {
         for (var i = 0; i < links.length; i++) {
             var link = links[i];
             var linkHref = link.getAttribute('href');
@@ -79,11 +78,16 @@ document.addEventListener('DOMContentLoaded', function() {
     var indexLinks = document.querySelectorAll('[data-type="index-link"]');
     processMenuLinks(indexLinks, true);
     var entityLogos = document.querySelectorAll('[data-type="compodoc-logo"]');
-    var processLogos = function(entityLogo) {
+    var processLogos = function (entityLogo) {
         for (var i = 0; i < entityLogos.length; i++) {
             var entityLogo = entityLogos[i];
             if (entityLogo) {
                 var url = entityLogo.getAttribute('data-src');
+                // Dark mode + logo
+                let isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
+                if (isDarkMode) {
+                    url = 'images/compodoc-vectorise-inverted.png';
+                }
                 if (url.charAt(0) !== '.') {
                     var prefix = '';
                     switch (COMPODOC_CURRENT_PAGE_DEPTH) {
@@ -113,8 +117,8 @@ document.addEventListener('DOMContentLoaded', function() {
     };
     processLogos(entityLogos);
 
-    setTimeout(function() {
-        document.getElementById('btn-menu').addEventListener('click', function() {
+    setTimeout(function () {
+        document.getElementById('btn-menu').addEventListener('click', function () {
             if (menuCollapsed) {
                 mobileMenu.style.display = 'none';
             } else {
@@ -132,14 +136,14 @@ document.addEventListener('DOMContentLoaded', function() {
             var collapse = Collapses[o],
                 options = {};
             options.duration = collapse.getAttribute('data-duration');
-            new Collapse(collapse, options);
+            var c = new Collapse(collapse, options);
         }
 
         // collapse menu
         var classnameMenuToggler = document.getElementsByClassName('menu-toggler'),
             faAngleUpClass = 'ion-ios-arrow-up',
             faAngleDownClass = 'ion-ios-arrow-down',
-            toggleItemMenu = function(e) {
+            toggleItemMenu = function (e) {
                 var element = $(e.target),
                     parent = element[0].parentNode,
                     parentLink,
@@ -204,9 +208,8 @@ document.addEventListener('DOMContentLoaded', function() {
                             parentChapterMenu = parentUl.parentNode;
                             if (parentChapterMenu) {
                                 var toggler = parentChapterMenu.querySelector('.menu-toggler'),
-                                    elementIconChild = toggler.getElementsByClassName(
-                                        faAngleUpClass
-                                    )[0];
+                                    elementIconChild =
+                                        toggler.getElementsByClassName(faAngleUpClass)[0];
                                 if (toggler && !elementIconChild) {
                                     toggler.click();
                                 }
@@ -246,7 +249,7 @@ document.addEventListener('DOMContentLoaded', function() {
                         }
                     }
                 }
-                setTimeout(function() {
+                setTimeout(function () {
                     activeMenu.scrollTop = activeLink.offsetTop;
                     if (
                         activeLink.innerHTML.toLowerCase().indexOf('readme') != -1 ||
@@ -255,6 +258,53 @@ document.addEventListener('DOMContentLoaded', function() {
                         activeMenu.scrollTop = 0;
                     }
                 }, 300);
+            }
+        }
+        // Dark mode toggle button
+        var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+        var darkModeState = useDark.matches;
+        var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+        var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+
+        function checkToggle(check) {
+            for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                $darkModeToggleSwitchers[i].checked = check;
+            }
+        }
+
+        function toggleDarkMode(state) {
+            checkToggle(state);
+
+            const hasClass = document.body.classList.contains('dark');
+
+            if (state) {
+                for (var i = 0; i < $darkModeToggles.length; i++) {
+                    $darkModeToggles[i].classList.add('dark');
+                }
+                if (!hasClass) {
+                    document.body.classList.add('dark');
+                }
+            } else {
+                for (var i = 0; i < $darkModeToggles.length; i++) {
+                    $darkModeToggles[i].classList.remove('dark');
+                }
+                if (hasClass) {
+                    document.body.classList.remove('dark');
+                }
+            }
+        }
+
+        useDark.addEventListener('change', function (evt) {
+            toggleDarkMode(evt.matches);
+        });
+        toggleDarkMode(darkModeState);
+
+        if ($darkModeToggles.length > 0) {
+            for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                    darkModeState = !darkModeState;
+                    toggleDarkMode(darkModeState);
+                });
             }
         }
     }, 0);
