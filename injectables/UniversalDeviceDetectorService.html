@@ -8,7 +8,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
-	      <link rel="stylesheet" href="../styles/style.css">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
         <link rel="stylesheet" href="../styles/Vagrant.css">
     </head>
     <body>
@@ -39,7 +40,7 @@
 
 <ol class="breadcrumb">
   <li>Injectables</li>
-  <li>UniversalDeviceDetectorService</li>
+  <li >UniversalDeviceDetectorService</li>
 </ol>
 
 <ul class="nav nav-tabs" role="tablist">
@@ -59,6 +60,7 @@
         <p class="comment">
             <code>projects/demo/src/app/server.ts</code>
         </p>
+
 
 
             <p class="comment">
@@ -82,34 +84,34 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
-                                <a href="#browser">browser</a>
+                                <a href="#browser" >browser</a>
                             </li>
                             <li>
-                                <a href="#browser_version">browser_version</a>
+                                <a href="#browser_version" >browser_version</a>
                             </li>
                             <li>
-                                <a href="#device">device</a>
+                                <a href="#device" >device</a>
                             </li>
                             <li>
-                                <a href="#deviceType">deviceType</a>
+                                <a href="#deviceType" >deviceType</a>
                             </li>
                             <li>
-                                <a href="#orientation">orientation</a>
+                                <a href="#orientation" >orientation</a>
                             </li>
                             <li>
-                                <a href="#os">os</a>
+                                <a href="#os" >os</a>
                             </li>
                             <li>
-                                <a href="#os_version">os_version</a>
+                                <a href="#os_version" >os_version</a>
                             </li>
                             <li>
-                                <a href="#reTree">reTree</a>
+                                <a href="#reTree" >reTree</a>
                             </li>
                             <li>
-                                <a href="#ua">ua</a>
+                                <a href="#ua" >ua</a>
                             </li>
                             <li>
-                                <a href="#userAgent">userAgent</a>
+                                <a href="#userAgent" >userAgent</a>
                             </li>
                         </ul>
                     </td>
@@ -125,22 +127,22 @@
                         <ul class="index-list">
                             <li>
                                     <span class="modifier">Public</span>
-                                <a href="#getDeviceInfo">getDeviceInfo</a>
+                                <a href="#getDeviceInfo" >getDeviceInfo</a>
                             </li>
                             <li>
                                     <span class="modifier">Public</span>
-                                <a href="#isDesktop">isDesktop</a>
+                                <a href="#isDesktop" >isDesktop</a>
                             </li>
                             <li>
                                     <span class="modifier">Public</span>
-                                <a href="#isMobile">isMobile</a>
+                                <a href="#isMobile" >isMobile</a>
                             </li>
                             <li>
                                     <span class="modifier">Public</span>
-                                <a href="#isTablet">isTablet</a>
+                                <a href="#isTablet" >isTablet</a>
                             </li>
                             <li>
-                                <a href="#setDeviceInfo">setDeviceInfo</a>
+                                <a href="#setDeviceInfo" >setDeviceInfo</a>
                             </li>
                         </ul>
                     </td>
@@ -226,10 +228,8 @@
                 <td class="col-md-4">
                     <a name="getDeviceInfo"></a>
                     <span class="name">
-                        <b>
-                            <span class="modifier">Public</span>
-                            getDeviceInfo
-                        </b>
+                        <span class="modifier">Public</span>
+                        <span ><b>getDeviceInfo</b></span>
                         <a href="#getDeviceInfo"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
@@ -279,10 +279,8 @@
                 <td class="col-md-4">
                     <a name="isDesktop"></a>
                     <span class="name">
-                        <b>
-                            <span class="modifier">Public</span>
-                            isDesktop
-                        </b>
+                        <span class="modifier">Public</span>
+                        <span ><b>isDesktop</b></span>
                         <a href="#isDesktop"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
@@ -311,9 +309,12 @@
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>if the current device is a desktop device.</p>
+</div>
 
                     <div class="io-description">
                         <b>Parameters :</b>
+                        
                         <table class="params">
                             <thead>
                                 <tr>
@@ -358,10 +359,8 @@
                 <td class="col-md-4">
                     <a name="isMobile"></a>
                     <span class="name">
-                        <b>
-                            <span class="modifier">Public</span>
-                            isMobile
-                        </b>
+                        <span class="modifier">Public</span>
+                        <span ><b>isMobile</b></span>
                         <a href="#isMobile"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
@@ -390,9 +389,12 @@
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>if the current device is a mobile and also check current device is tablet so it will return false.</p>
+</div>
 
                     <div class="io-description">
                         <b>Parameters :</b>
+                        
                         <table class="params">
                             <thead>
                                 <tr>
@@ -437,10 +439,8 @@
                 <td class="col-md-4">
                     <a name="isTablet"></a>
                     <span class="name">
-                        <b>
-                            <span class="modifier">Public</span>
-                            isTablet
-                        </b>
+                        <span class="modifier">Public</span>
+                        <span ><b>isTablet</b></span>
                         <a href="#isTablet"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
@@ -469,9 +469,12 @@
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>if the current device is a tablet.</p>
+</div>
 
                     <div class="io-description">
                         <b>Parameters :</b>
+                        
                         <table class="params">
                             <thead>
                                 <tr>
@@ -516,9 +519,7 @@
                 <td class="col-md-4">
                     <a name="setDeviceInfo"></a>
                     <span class="name">
-                        <b>
-                            setDeviceInfo
-                        </b>
+                        <span ><b>setDeviceInfo</b></span>
                         <a href="#setDeviceInfo"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
@@ -546,9 +547,12 @@
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>This value is later accessible for usage</p>
+</div>
 
                     <div class="io-description">
                         <b>Parameters :</b>
+                        
                         <table class="params">
                             <thead>
                                 <tr>
@@ -589,393 +593,383 @@
 </section>
             <section>
     
-        <h3 id="inputs">
-            Properties
-        </h3>
-        <table class="table table-sm table-bordered">
-            <tbody>
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="browser"></a>
+                    <span class="name">
+                        <span ><b>browser</b></span>
+                        <a href="#browser"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
                 <tr>
                     <td class="col-md-4">
-                        <a name="browser"></a>
-                        <span class="name">
-                            <b>
-                            browser</b>
-                            <a href="#browser"><span class="icon ion-ios-link"></span></a>
-                        </span>
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
                     </td>
                 </tr>
-                    <tr>
-                        <td class="col-md-4">
-                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
-
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="col-md-4">
-                            <i>Default value : </i><code>&#x27;&#x27;</code>
-                        </td>
-                    </tr>
-                            <tr>
-                                <td class="col-md-4">
-                                    <div class="io-line">Inherited from         <code><a href="../injectables/DeviceDetectorService.html" target="_self" >DeviceDetectorService</a></code>
-</div>
-                                </td>
-                            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;&#x27;</code>
+                    </td>
+                </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in         <code><a href="../injectables/DeviceDetectorService.html#source" target="_self" >DeviceDetectorService:40</a></code>
+                                <div class="io-line">Inherited from         <code><a href="../injectables/DeviceDetectorService.html" target="_self" >DeviceDetectorService</a></code>
 </div>
                             </td>
                         </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in         <code><a href="../injectables/DeviceDetectorService.html#source" target="_self" >DeviceDetectorService:40</a></code>
+</div>
+                        </td>
+                    </tr>
 
 
-            </tbody>
-        </table>
-        <table class="table table-sm table-bordered">
-            <tbody>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="browser_version"></a>
+                    <span class="name">
+                        <span ><b>browser_version</b></span>
+                        <a href="#browser_version"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
                 <tr>
                     <td class="col-md-4">
-                        <a name="browser_version"></a>
-                        <span class="name">
-                            <b>
-                            browser_version</b>
-                            <a href="#browser_version"><span class="icon ion-ios-link"></span></a>
-                        </span>
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
                     </td>
                 </tr>
-                    <tr>
-                        <td class="col-md-4">
-                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
-
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="col-md-4">
-                            <i>Default value : </i><code>&#x27;&#x27;</code>
-                        </td>
-                    </tr>
-                            <tr>
-                                <td class="col-md-4">
-                                    <div class="io-line">Inherited from         <code><a href="../injectables/DeviceDetectorService.html" target="_self" >DeviceDetectorService</a></code>
-</div>
-                                </td>
-                            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;&#x27;</code>
+                    </td>
+                </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in         <code><a href="../injectables/DeviceDetectorService.html#source" target="_self" >DeviceDetectorService:43</a></code>
+                                <div class="io-line">Inherited from         <code><a href="../injectables/DeviceDetectorService.html" target="_self" >DeviceDetectorService</a></code>
 </div>
                             </td>
                         </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in         <code><a href="../injectables/DeviceDetectorService.html#source" target="_self" >DeviceDetectorService:43</a></code>
+</div>
+                        </td>
+                    </tr>
 
 
-            </tbody>
-        </table>
-        <table class="table table-sm table-bordered">
-            <tbody>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="device"></a>
+                    <span class="name">
+                        <span ><b>device</b></span>
+                        <a href="#device"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
                 <tr>
                     <td class="col-md-4">
-                        <a name="device"></a>
-                        <span class="name">
-                            <b>
-                            device</b>
-                            <a href="#device"><span class="icon ion-ios-link"></span></a>
-                        </span>
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
                     </td>
                 </tr>
-                    <tr>
-                        <td class="col-md-4">
-                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
-
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="col-md-4">
-                            <i>Default value : </i><code>&#x27;&#x27;</code>
-                        </td>
-                    </tr>
-                            <tr>
-                                <td class="col-md-4">
-                                    <div class="io-line">Inherited from         <code><a href="../injectables/DeviceDetectorService.html" target="_self" >DeviceDetectorService</a></code>
-</div>
-                                </td>
-                            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;&#x27;</code>
+                    </td>
+                </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in         <code><a href="../injectables/DeviceDetectorService.html#source" target="_self" >DeviceDetectorService:41</a></code>
+                                <div class="io-line">Inherited from         <code><a href="../injectables/DeviceDetectorService.html" target="_self" >DeviceDetectorService</a></code>
 </div>
                             </td>
                         </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in         <code><a href="../injectables/DeviceDetectorService.html#source" target="_self" >DeviceDetectorService:41</a></code>
+</div>
+                        </td>
+                    </tr>
 
 
-            </tbody>
-        </table>
-        <table class="table table-sm table-bordered">
-            <tbody>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="deviceType"></a>
+                    <span class="name">
+                        <span ><b>deviceType</b></span>
+                        <a href="#deviceType"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
                 <tr>
                     <td class="col-md-4">
-                        <a name="deviceType"></a>
-                        <span class="name">
-                            <b>
-                            deviceType</b>
-                            <a href="#deviceType"><span class="icon ion-ios-link"></span></a>
-                        </span>
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
                     </td>
                 </tr>
-                    <tr>
-                        <td class="col-md-4">
-                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
-
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="col-md-4">
-                            <i>Default value : </i><code>&#x27;&#x27;</code>
-                        </td>
-                    </tr>
-                            <tr>
-                                <td class="col-md-4">
-                                    <div class="io-line">Inherited from         <code><a href="../injectables/DeviceDetectorService.html" target="_self" >DeviceDetectorService</a></code>
-</div>
-                                </td>
-                            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;&#x27;</code>
+                    </td>
+                </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in         <code><a href="../injectables/DeviceDetectorService.html#source" target="_self" >DeviceDetectorService:45</a></code>
+                                <div class="io-line">Inherited from         <code><a href="../injectables/DeviceDetectorService.html" target="_self" >DeviceDetectorService</a></code>
 </div>
                             </td>
                         </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in         <code><a href="../injectables/DeviceDetectorService.html#source" target="_self" >DeviceDetectorService:45</a></code>
+</div>
+                        </td>
+                    </tr>
 
 
-            </tbody>
-        </table>
-        <table class="table table-sm table-bordered">
-            <tbody>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="orientation"></a>
+                    <span class="name">
+                        <span ><b>orientation</b></span>
+                        <a href="#orientation"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
                 <tr>
                     <td class="col-md-4">
-                        <a name="orientation"></a>
-                        <span class="name">
-                            <b>
-                            orientation</b>
-                            <a href="#orientation"><span class="icon ion-ios-link"></span></a>
-                        </span>
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
                     </td>
                 </tr>
-                    <tr>
-                        <td class="col-md-4">
-                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
-
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="col-md-4">
-                            <i>Default value : </i><code>&#x27;&#x27;</code>
-                        </td>
-                    </tr>
-                            <tr>
-                                <td class="col-md-4">
-                                    <div class="io-line">Inherited from         <code><a href="../injectables/DeviceDetectorService.html" target="_self" >DeviceDetectorService</a></code>
-</div>
-                                </td>
-                            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;&#x27;</code>
+                    </td>
+                </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in         <code><a href="../injectables/DeviceDetectorService.html#source" target="_self" >DeviceDetectorService:46</a></code>
+                                <div class="io-line">Inherited from         <code><a href="../injectables/DeviceDetectorService.html" target="_self" >DeviceDetectorService</a></code>
 </div>
                             </td>
                         </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in         <code><a href="../injectables/DeviceDetectorService.html#source" target="_self" >DeviceDetectorService:46</a></code>
+</div>
+                        </td>
+                    </tr>
 
 
-            </tbody>
-        </table>
-        <table class="table table-sm table-bordered">
-            <tbody>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="os"></a>
+                    <span class="name">
+                        <span ><b>os</b></span>
+                        <a href="#os"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
                 <tr>
                     <td class="col-md-4">
-                        <a name="os"></a>
-                        <span class="name">
-                            <b>
-                            os</b>
-                            <a href="#os"><span class="icon ion-ios-link"></span></a>
-                        </span>
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
                     </td>
                 </tr>
-                    <tr>
-                        <td class="col-md-4">
-                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
-
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="col-md-4">
-                            <i>Default value : </i><code>&#x27;&#x27;</code>
-                        </td>
-                    </tr>
-                            <tr>
-                                <td class="col-md-4">
-                                    <div class="io-line">Inherited from         <code><a href="../injectables/DeviceDetectorService.html" target="_self" >DeviceDetectorService</a></code>
-</div>
-                                </td>
-                            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;&#x27;</code>
+                    </td>
+                </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in         <code><a href="../injectables/DeviceDetectorService.html#source" target="_self" >DeviceDetectorService:39</a></code>
+                                <div class="io-line">Inherited from         <code><a href="../injectables/DeviceDetectorService.html" target="_self" >DeviceDetectorService</a></code>
 </div>
                             </td>
                         </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in         <code><a href="../injectables/DeviceDetectorService.html#source" target="_self" >DeviceDetectorService:39</a></code>
+</div>
+                        </td>
+                    </tr>
 
 
-            </tbody>
-        </table>
-        <table class="table table-sm table-bordered">
-            <tbody>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="os_version"></a>
+                    <span class="name">
+                        <span ><b>os_version</b></span>
+                        <a href="#os_version"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
                 <tr>
                     <td class="col-md-4">
-                        <a name="os_version"></a>
-                        <span class="name">
-                            <b>
-                            os_version</b>
-                            <a href="#os_version"><span class="icon ion-ios-link"></span></a>
-                        </span>
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
                     </td>
                 </tr>
-                    <tr>
-                        <td class="col-md-4">
-                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
-
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="col-md-4">
-                            <i>Default value : </i><code>&#x27;&#x27;</code>
-                        </td>
-                    </tr>
-                            <tr>
-                                <td class="col-md-4">
-                                    <div class="io-line">Inherited from         <code><a href="../injectables/DeviceDetectorService.html" target="_self" >DeviceDetectorService</a></code>
-</div>
-                                </td>
-                            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;&#x27;</code>
+                    </td>
+                </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in         <code><a href="../injectables/DeviceDetectorService.html#source" target="_self" >DeviceDetectorService:42</a></code>
+                                <div class="io-line">Inherited from         <code><a href="../injectables/DeviceDetectorService.html" target="_self" >DeviceDetectorService</a></code>
 </div>
                             </td>
                         </tr>
-
-
-            </tbody>
-        </table>
-        <table class="table table-sm table-bordered">
-            <tbody>
-                <tr>
-                    <td class="col-md-4">
-                        <a name="reTree"></a>
-                        <span class="name">
-                            <b>
-                            reTree</b>
-                            <a href="#reTree"><span class="icon ion-ios-link"></span></a>
-                        </span>
-                    </td>
-                </tr>
                     <tr>
                         <td class="col-md-4">
-                            <i>Default value : </i><code>new ReTree()</code>
+                                <div class="io-line">Defined in         <code><a href="../injectables/DeviceDetectorService.html#source" target="_self" >DeviceDetectorService:42</a></code>
+</div>
                         </td>
                     </tr>
-                            <tr>
-                                <td class="col-md-4">
-                                    <div class="io-line">Inherited from         <code><a href="../injectables/DeviceDetectorService.html" target="_self" >DeviceDetectorService</a></code>
-</div>
-                                </td>
-                            </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="reTree"></a>
+                    <span class="name">
+                        <span ><b>reTree</b></span>
+                        <a href="#reTree"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new ReTree()</code>
+                    </td>
+                </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in         <code><a href="../injectables/DeviceDetectorService.html#source" target="_self" >DeviceDetectorService:44</a></code>
+                                <div class="io-line">Inherited from         <code><a href="../injectables/DeviceDetectorService.html" target="_self" >DeviceDetectorService</a></code>
 </div>
                             </td>
                         </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in         <code><a href="../injectables/DeviceDetectorService.html#source" target="_self" >DeviceDetectorService:44</a></code>
+</div>
+                        </td>
+                    </tr>
 
 
-            </tbody>
-        </table>
-        <table class="table table-sm table-bordered">
-            <tbody>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ua"></a>
+                    <span class="name">
+                        <span ><b>ua</b></span>
+                        <a href="#ua"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
                 <tr>
                     <td class="col-md-4">
-                        <a name="ua"></a>
-                        <span class="name">
-                            <b>
-                            ua</b>
-                            <a href="#ua"><span class="icon ion-ios-link"></span></a>
-                        </span>
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
                     </td>
                 </tr>
-                    <tr>
-                        <td class="col-md-4">
-                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
-
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="col-md-4">
-                            <i>Default value : </i><code>&#x27;&#x27;</code>
-                        </td>
-                    </tr>
-                            <tr>
-                                <td class="col-md-4">
-                                    <div class="io-line">Inherited from         <code><a href="../injectables/DeviceDetectorService.html" target="_self" >DeviceDetectorService</a></code>
-</div>
-                                </td>
-                            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;&#x27;</code>
+                    </td>
+                </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in         <code><a href="../injectables/DeviceDetectorService.html#source" target="_self" >DeviceDetectorService:37</a></code>
+                                <div class="io-line">Inherited from         <code><a href="../injectables/DeviceDetectorService.html" target="_self" >DeviceDetectorService</a></code>
 </div>
                             </td>
                         </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in         <code><a href="../injectables/DeviceDetectorService.html#source" target="_self" >DeviceDetectorService:37</a></code>
+</div>
+                        </td>
+                    </tr>
 
 
-            </tbody>
-        </table>
-        <table class="table table-sm table-bordered">
-            <tbody>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="userAgent"></a>
+                    <span class="name">
+                        <span ><b>userAgent</b></span>
+                        <a href="#userAgent"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
                 <tr>
                     <td class="col-md-4">
-                        <a name="userAgent"></a>
-                        <span class="name">
-                            <b>
-                            userAgent</b>
-                            <a href="#userAgent"><span class="icon ion-ios-link"></span></a>
-                        </span>
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
                     </td>
                 </tr>
-                    <tr>
-                        <td class="col-md-4">
-                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
-
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="col-md-4">
-                            <i>Default value : </i><code>&#x27;&#x27;</code>
-                        </td>
-                    </tr>
-                            <tr>
-                                <td class="col-md-4">
-                                    <div class="io-line">Inherited from         <code><a href="../injectables/DeviceDetectorService.html" target="_self" >DeviceDetectorService</a></code>
-</div>
-                                </td>
-                            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;&#x27;</code>
+                    </td>
+                </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in         <code><a href="../injectables/DeviceDetectorService.html#source" target="_self" >DeviceDetectorService:38</a></code>
+                                <div class="io-line">Inherited from         <code><a href="../injectables/DeviceDetectorService.html" target="_self" >DeviceDetectorService</a></code>
 </div>
                             </td>
                         </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in         <code><a href="../injectables/DeviceDetectorService.html#source" target="_self" >DeviceDetectorService:38</a></code>
+</div>
+                        </td>
+                    </tr>
 
 
-            </tbody>
-        </table>
+        </tbody>
+    </table>
 </section>
 
     </div>
@@ -1023,14 +1017,14 @@ export class AppServerModule {}
 
 
 
-                   
+
 
 
 
 
                    </div><div class="search-results">
     <div class="has-results">
-        <h1 class="search-results-title"><span class='search-results-count'></span> result-matching "<span class='search-query'></span>"</h1>
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
         <ul class="search-results-list"></ul>
     </div>
     <div class="no-results">
@@ -1042,6 +1036,15 @@ export class AppServerModule {}
            </div>
        </div>
 
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
        <script>
             var COMPODOC_CURRENT_PAGE_DEPTH = 1;
             var COMPODOC_CURRENT_PAGE_CONTEXT = 'injectable';
@@ -1051,9 +1054,9 @@ export class AppServerModule {}
 
        <script src="../js/libs/custom-elements.min.js"></script>
        <script src="../js/libs/lit-html.js"></script>
-       <!-- Required to polyfill modern browsers as code is ES5 for IE... -->
-       <script src="../js/libs/custom-elements-es5-adapter.js" charset="utf-8" defer></script>
+
        <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
 
        <script src="../js/libs/bootstrap-native.js"></script>
 
