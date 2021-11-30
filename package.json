@@ -1,6 +1,6 @@
 {
   "name": "ngx-device-detector-ws",
-  "version": "2.2.1",
+  "version": "3.0.0",
   "license": "MIT",
   "scripts": {
     "ng": "ng",
@@ -89,7 +89,7 @@
     "@nguniversal/express-engine": "^13.0.1",
     "conventional-changelog-cli": "^2.1.1",
     "express": "^4.17.1",
-    "ngx-device-detector": "^2.2.1",
+    "ngx-device-detector": "^3.0.0",
     "rxjs": "^7.4.0",
     "tslib": "^2.3.1",
     "zone.js": "~0.11.4"
