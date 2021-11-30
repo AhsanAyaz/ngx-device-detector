@@ -7,10 +7,11 @@ An Angular 6+ powered AOT compatible device detector that helps to identify brow
 </p>
 
 <p align="center">
-<a href="https://travis-ci.org/KoderLabs/ngx-device-detector"><img src="https://img.shields.io/travis/koderlabs/ngx-device-detector?style=flat" alt="travis build status" ></a>
+<a href="https://github.com/KoderLabs/ngx-device-detector/actions"><img src="https://github.com/Koderlabs/ngx-device-detector/actions/workflows/main.yml/badge.svg" alt="build status" ></a>
 <a href="https://www.npmjs.com/package/ngx-device-detector"><img src="https://img.shields.io/npm/v/ngx-device-detector.svg" alt="npm version" ></a>
-<a href="https://www.npmjs.com/package/ngx-device-detector"><img src="https://img.shields.io/github/stars/KoderLabs/ngx-device-detector.svg?style=social&label=Star&style=flat-square" alt="github stars" ></a>
 <a href="https://www.npmjs.com/package/ngx-device-detector"><img src="https://img.shields.io/github/license/koderlabs/ngx-device-detector?style=flat" alt="license" ></a>
+<a href="https://www.npmjs.com/package/ngx-device-detector"><img src="https://badgen.net/github/stars/KoderLabs/ngx-device-detector" alt="stars" ></a>
+
 </p>
 <p align="center">
   <a href="https://www.npmjs.com/package/ng2-device-detector">Deprecated package :</a>
