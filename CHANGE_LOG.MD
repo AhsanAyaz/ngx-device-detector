@@ -1,3 +1,12 @@
+## [2.2.1](https://github.com/KoderLabs/ngx-device-detector/compare/v2.1.1...v2.2.1) (2021-11-30)
+
+
+### Bug Fixes
+
+* **backward-compat:** fix angular12 backward compat ([d4ddcaa](https://github.com/KoderLabs/ngx-device-detector/commit/d4ddcaa9142ed885e8af55f99314fd716127e6ad))
+
+
+
 # [2.2.0](https://github.com/KoderLabs/ngx-device-detector/compare/v2.1.1...v2.2.0) (2021-11-25)
 
 

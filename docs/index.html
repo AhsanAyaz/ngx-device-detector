@@ -8,7 +8,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <link rel="icon" type="image/x-icon" href="./images/favicon.ico">
-	      <link rel="stylesheet" href="./styles/style.css">
+	   <link rel="stylesheet" href="./styles/style.css">
+        <link rel="stylesheet" href="./styles/dark.css">
         <link rel="stylesheet" href="./styles/Vagrant.css">
     </head>
     <body>
@@ -40,10 +41,11 @@ An Angular 6+ powered AOT compatible device detector that helps to identify brow
 </p>
 
 <p align="center">
-<a href="https://travis-ci.org/KoderLabs/ngx-device-detector"><img src="https://img.shields.io/travis/koderlabs/ngx-device-detector?style=flat" alt="travis build status" ></a>
+<a href="https://github.com/KoderLabs/ngx-device-detector/actions"><img src="https://github.com/Koderlabs/ngx-device-detector/actions/workflows/main.yml/badge.svg" alt="build status" ></a>
 <a href="https://www.npmjs.com/package/ngx-device-detector"><img src="https://img.shields.io/npm/v/ngx-device-detector.svg" alt="npm version" ></a>
-<a href="https://www.npmjs.com/package/ngx-device-detector"><img src="https://img.shields.io/github/stars/KoderLabs/ngx-device-detector.svg?style=social&label=Star&style=flat-square" alt="github stars" ></a>
 <a href="https://www.npmjs.com/package/ngx-device-detector"><img src="https://img.shields.io/github/license/koderlabs/ngx-device-detector?style=flat" alt="license" ></a>
+<a href="https://www.npmjs.com/package/ngx-device-detector"><img src="https://badgen.net/github/stars/KoderLabs/ngx-device-detector" alt="stars" ></a>
+
 </p>
 <p align="center">
   <a href="https://www.npmjs.com/package/ng2-device-detector">Deprecated package :</a>
@@ -89,7 +91,7 @@ If you use Angular 5, you must use v1.5.2 or earlier
 <td>10.x</td>
 </tr>
 <tr>
-<td>2.0.3</td>
+<td>2.0.5</td>
 <td>11.x</td>
 </tr>
 <tr>
@@ -200,14 +202,14 @@ export class UniversalDeviceDetectorService extends DeviceDetectorService {
 
 
 
-                   
+
 
 
 
 
                    </div><div class="search-results">
     <div class="has-results">
-        <h1 class="search-results-title"><span class='search-results-count'></span> result-matching "<span class='search-query'></span>"</h1>
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
         <ul class="search-results-list"></ul>
     </div>
     <div class="no-results">
@@ -219,6 +221,15 @@ export class UniversalDeviceDetectorService extends DeviceDetectorService {
            </div>
        </div>
 
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
        <script>
             var COMPODOC_CURRENT_PAGE_DEPTH = 0;
             var COMPODOC_CURRENT_PAGE_CONTEXT = 'getting-started';
@@ -228,9 +239,9 @@ export class UniversalDeviceDetectorService extends DeviceDetectorService {
 
        <script src="./js/libs/custom-elements.min.js"></script>
        <script src="./js/libs/lit-html.js"></script>
-       <!-- Required to polyfill modern browsers as code is ES5 for IE... -->
-       <script src="./js/libs/custom-elements-es5-adapter.js" charset="utf-8" defer></script>
+
        <script src="./js/menu-wc.js" defer></script>
+       <script nomodule src="./js/menu-wc_es5.js" defer></script>
 
        <script src="./js/libs/bootstrap-native.js"></script>
 
