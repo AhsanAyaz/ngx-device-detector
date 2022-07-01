@@ -188,12 +188,6 @@ the demo will be up at `localhost:4200`
 
 Please see [CHANGE_LOG.MD](CHANGE_LOG.MD) for the updates.
 
-## IE10, IE11 Compatibility
-
-If you're consuming the library for IE10 & IE11, please refer to the `polyfills.ts` file in your project.
-
-For example, for an Angular 9.x+ project, you can refer to the changes done in [this PR](https://github.com/KoderLabs/ngx-device-detector/pull/184/files) for our [demo project](https://koderlabs.github.io/ngx-device-detector/demo/) that works on IE11
-
 ## Credits
 
 The library is inspired by and based on the work from [ng-device-detector ](https://github.com/srfrnk/ng-device-detector). Also used a typescript wrapper of the amazing work in [ReTree](https://github.com/srfrnk/re-tree) for regex based needs and an Angular2 Library Creator boilerplate to get the work started fast. I.e. [Generator Angular2 library](https://github.com/jvandemo/generator-angular2-library).
