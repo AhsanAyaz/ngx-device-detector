@@ -1,7 +1,7 @@
 language: node_js
 sudo: true
 node_js:
-  - '12.20'
+  - 16
 
 demo/dist: xenial
 
