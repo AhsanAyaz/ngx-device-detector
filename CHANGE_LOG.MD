@@ -1,3 +1,13 @@
+# [4.0.0](https://github.com/KoderLabs/ngx-device-detector/compare/v3.0.0...v4.0.0) (2022-07-05)
+
+
+### Features
+
+* **angular:** upgrade to angular 14 ([ec1ca8e](https://github.com/KoderLabs/ngx-device-detector/commit/ec1ca8ea2e2fa5ce7499d5cfc758b25f9ec22e92))
+* **ie11:** remove IE11 compatiblity information ([84f0d74](https://github.com/KoderLabs/ngx-device-detector/commit/84f0d744475c8ad6b83f32b161c7e7460687239b))
+
+
+
 # [3.0.0](https://github.com/KoderLabs/ngx-device-detector/compare/v2.2.1...v3.0.0) (2021-11-30)
 
 
