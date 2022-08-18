@@ -1,0 +1,21 @@
+name: Lint and Build
+on:
+  pull_request:
+    branches:
+      - master
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2.3.4
+      - name: Use Node.js 12.8
+        uses: actions/setup-node@v2
+        with:
+          node-version: '14'
+      - name: Install dependencies
+        run: npm install
+      - name: Lint and Test
+        run: npm run test && npm run lint
+      - name: Build
+        run: npm run build:ci
