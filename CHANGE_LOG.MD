@@ -1,3 +1,11 @@
+## [4.0.1](https://github.com/KoderLabs/ngx-device-detector/compare/v4.0.0...v4.0.1) (2022-08-18)
+
+
+
+## [4.0.1](https://github.com/KoderLabs/ngx-device-detector/compare/v4.0.0...v4.0.1) (2022-08-18)
+
+
+
 # [4.0.0](https://github.com/KoderLabs/ngx-device-detector/compare/v3.0.0...v4.0.0) (2022-07-05)
 
 
