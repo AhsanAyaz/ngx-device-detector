@@ -4,14 +4,9 @@
   "compilerOptions": {
     "outDir": "../../out-tsc/server",
     "target": "es2016",
-    "types": [
-      "node"
-    ]
+    "types": ["node"]
   },
-  "files": [
-    "src/demo.ts",
-    "server.ts"
-  ],
+  "files": ["src/demo.ts", "server.ts"],
   "angularCompilerOptions": {
     "entryModule": "./src/demo#AppServerModule"
   }
