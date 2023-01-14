@@ -9,11 +9,18 @@
     "experimentalDecorators": true,
     "moduleResolution": "node",
     "importHelpers": true,
-    "target": "es2020",
+    "target": "ES2022",
     "module": "es2020",
-    "lib": ["es2018", "dom"],
+    "lib": [
+      "es2018",
+      "dom"
+    ],
     "paths": {
-      "ngx-device-detector": ["dist/ngx-device-detector/ngx-device-detector", "dist/ngx-device-detector"]
-    }
+      "ngx-device-detector": [
+        "dist/ngx-device-detector/ngx-device-detector",
+        "dist/ngx-device-detector"
+      ]
+    },
+    "useDefineForClassFields": false
   }
 }
