@@ -3,14 +3,9 @@
   "extends": "./tsconfig.app.json",
   "compilerOptions": {
     "outDir": "../../out-tsc/server",
-    "types": [
-      "node"
-    ]
+    "types": ["node"]
   },
-  "files": [
-    "src/demo.ts",
-    "server.ts"
-  ],
+  "files": ["src/demo.ts", "server.ts"],
   "angularCompilerOptions": {
     "entryModule": "./src/demo#AppServerModule"
   }
