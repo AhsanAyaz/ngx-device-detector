@@ -992,7 +992,7 @@ import { isPlatformServer } from &#x27;@angular/common&#x27;;
 export class UniversalDeviceDetectorService extends DeviceDetectorService {
   constructor(@Inject(PLATFORM_ID) platformId: any, @Optional() @Inject(REQUEST) request: Request) {
     super(platformId);
-    if (isPlatformServer(platformId)){
+    if (isPlatformServer(platformId)) {
       super.setDeviceInfo((request.headers[&#x27;user-agent&#x27;] as string) || &#x27;&#x27;);
     }
   }
@@ -1001,10 +1001,12 @@ export class UniversalDeviceDetectorService extends DeviceDetectorService {
 @NgModule({
   imports: [AppModule, ServerModule],
   bootstrap: [AppComponent],
-  providers: [{
-    provide: DeviceDetectorService,
-    useClass: UniversalDeviceDetectorService
-  },]
+  providers: [
+    {
+      provide: DeviceDetectorService,
+      useClass: UniversalDeviceDetectorService,
+    },
+  ],
 })
 export class AppServerModule {}
 </code></pre>
