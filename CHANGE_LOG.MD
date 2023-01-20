@@ -1,3 +1,12 @@
+# [5.0.0](https://github.com/KoderLabs/ngx-device-detector/compare/v4.0.0...v5.0.0) (2023-01-20)
+
+
+### Bug Fixes
+
+* **package.json:** add missing scripts ([0bebd2e](https://github.com/KoderLabs/ngx-device-detector/commit/0bebd2e2f34073892ec71feb729805319ff55c10))
+
+
+
 ## [4.0.1](https://github.com/KoderLabs/ngx-device-detector/compare/v4.0.0...v4.0.1) (2022-08-18)
 
 

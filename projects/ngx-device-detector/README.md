@@ -1,3 +1,8 @@
+<div style="text-align: center; width: 100%">
+  <img src="https://raw.githubusercontent.com/KoderLabs/ngx-device-detector/master/assets/logo.svg" width="200">
+</div>
+
+
 <a href="https://koderlabs.github.io/ngx-device-detector">
   <h1 align="center">ngx-device-detector</h1>
 </a>
@@ -47,8 +52,9 @@ Latest version available for each version of Angular
 | 1.4.5               | 10.x    |
 | 2.0.5               | 11.x    |
 | 2.1.0               | 12.x    |
-| 3.0.0               | 13.x    |
-| 4.0.0               | 14.x    |
+| 3.x.x               | 13.x    |
+| 4.x.x               | 14.x    |
+| 5.x.x               | 15.x    |
 
 ## Installation
 
