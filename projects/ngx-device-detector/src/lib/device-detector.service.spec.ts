@@ -1,5 +1,5 @@
-import { TestBed, inject } from '@angular/core/testing';
-import { DeviceDetectorService } from './device-detector.service';
+import {inject, TestBed} from '@angular/core/testing';
+import {DeviceDetectorService} from './device-detector.service';
 
 function expectAsTablet(service, userAgent) {
   expect(service.isMobile(userAgent)).toBeFalsy();
@@ -23,9 +23,16 @@ describe('DeviceDetectorService', () => {
     (service: DeviceDetectorService) => {
       const userAgent =
         'Mozilla/5.0 (iPhone; CPU iPhone OS 11_0 like Mac OS X) AppleWebKit/604.1.38 Version/11.0 Mobile/15A372 Safari/604.1';
-      service.setDeviceInfo(userAgent);
+      const userAgentData: UADataValues = {
+        brands: [{
+          brand: 'Chromium',
+          version: '110'
+        }]
+      };
+      service.setDeviceInfo(userAgent, userAgentData);
       const deviceInformations = {
         userAgent: `Mozilla/5.0 (iPhone; CPU iPhone OS 11_0 like Mac OS X) AppleWebKit/604.1.38 Version/11.0 Mobile/15A372 Safari/604.1`,
+        userAgentData: userAgentData,
         os: 'iOS',
         browser: 'Safari',
         device: 'iPhone',
@@ -300,6 +307,25 @@ describe('DeviceDetectorService', () => {
         'Mozilla/5.0 (Linux; Android 10; SM-T500) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/89.0.4389.105 Safari/537.36';
       service.setDeviceInfo(userAgent);
       expectAsTablet(service, userAgent);
+    }
+  ));
+
+  it('should detect Brave version 110 on macOS', inject(
+    [DeviceDetectorService],
+    (service: DeviceDetectorService) => {
+      const userAgent = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36';
+      const userAgentData = {
+        brands: [{
+          brand: 'Brave',
+          version: '110'
+        }]
+      };
+      service.setDeviceInfo(userAgent, userAgentData);
+      expect(service.isDesktop(userAgent)).toBeTruthy();
+      expect(service.os).toBe('Mac');
+      expect(service.os_version).toBe('mac-os-x-15');
+      expect(service.browser).toBe('Brave');
+      expect(service.browser_version).toBe('110');
     }
   ));
 });

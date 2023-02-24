@@ -1,14 +1,16 @@
 // tslint:disable: variable-name
+import {isPlatformBrowser} from '@angular/common';
 /**
  * Created by ahsanayaz on 08/11/2016.
  */
-import { PLATFORM_ID, Inject, Injectable } from '@angular/core';
-import { isPlatformBrowser } from '@angular/common';
+import {Inject, Injectable, PLATFORM_ID} from '@angular/core';
 import * as Constants from './device-detector.constants';
-import { ReTree } from './retree';
+import {BROWSERS_BRAND} from './device-detector.constants';
+import {ReTree} from './retree';
 
 export interface DeviceInfo {
   userAgent: string;
+  userAgentData?: UADataValues
   os: string;
   browser: string;
   device: string;
@@ -17,12 +19,14 @@ export interface DeviceInfo {
   deviceType: string;
   orientation: string;
 }
+
 export enum DeviceType {
   Mobile = 'mobile',
   Tablet = 'tablet',
   Desktop = 'desktop',
   Unknown = 'unknown',
 }
+
 export enum OrientationType {
   Portrait = 'portrait',
   Landscape = 'landscape',
@@ -36,6 +40,7 @@ const iPad = 'iPad';
 export class DeviceDetectorService {
   ua = '';
   userAgent = '';
+  userAgentData: UADataValues = null;
   os = '';
   browser = '';
   device = '';
@@ -44,11 +49,13 @@ export class DeviceDetectorService {
   reTree = new ReTree();
   deviceType = '';
   orientation = '';
+
   constructor(@Inject(PLATFORM_ID) private platformId: any) {
     if (isPlatformBrowser(this.platformId) && typeof window !== 'undefined') {
       this.userAgent = window.navigator.userAgent;
+      this.userAgentData = window.navigator.userAgentData;
     }
-    this.setDeviceInfo(this.userAgent);
+    this.setDeviceInfo(this.userAgent, this.userAgentData);
   }
 
   /**
@@ -56,15 +63,18 @@ export class DeviceDetectorService {
    * @desc Sets the initial value of the device when the service is initiated.
    * This value is later accessible for usage
    */
-  setDeviceInfo(ua = this.userAgent): void {
+  setDeviceInfo(ua = this.userAgent, uad = this.userAgentData): void {
     if (ua !== this.userAgent) {
       this.userAgent = ua;
     }
+    if (uad !== this.userAgentData) {
+      this.userAgentData = uad;
+    }
     const mappings = [
-      { const: 'OS', prop: 'os' },
-      { const: 'BROWSERS', prop: 'browser' },
-      { const: 'DEVICES', prop: 'device' },
-      { const: 'OS_VERSIONS', prop: 'os_version' },
+      {const: 'OS', prop: 'os'},
+      {const: 'BROWSERS', prop: 'browser'},
+      {const: 'DEVICES', prop: 'device'},
+      {const: 'OS_VERSIONS', prop: 'os_version'},
     ];
 
     mappings.forEach(mapping => {
@@ -80,7 +90,7 @@ export class DeviceDetectorService {
             return Object;
           }
         }
-        obj[Constants[mapping.const][item]] = this.reTree.test(ua, Constants[`${mapping.const}_RE`][item]);
+        obj[Constants[mapping.const][item]] = this.checkItem(mapping.const, item, ua, uad);
         return obj;
       }, {});
     });
@@ -104,11 +114,7 @@ export class DeviceDetectorService {
 
     this.browser_version = '0';
     if (this.browser !== Constants.BROWSERS.UNKNOWN) {
-      const re = Constants.BROWSER_VERSIONS_RE[this.browser];
-      const res = this.reTree.exec(ua, re);
-      if (!!res) {
-        this.browser_version = res[1];
-      }
+      this.browser_version = this.getBrowserVersion(ua, uad) ?? this.browser_version;
     }
     if (typeof window !== 'undefined' && window.matchMedia) {
       this.orientation = window.matchMedia('(orientation: landscape)').matches
@@ -121,10 +127,10 @@ export class DeviceDetectorService {
     this.deviceType = this.isTablet()
       ? DeviceType.Tablet
       : this.isMobile(this.userAgent)
-      ? DeviceType.Mobile
-      : this.isDesktop(this.userAgent)
-      ? DeviceType.Desktop
-      : DeviceType.Unknown;
+        ? DeviceType.Mobile
+        : this.isDesktop(this.userAgent)
+          ? DeviceType.Desktop
+          : DeviceType.Unknown;
   }
 
   /**
@@ -135,6 +141,7 @@ export class DeviceDetectorService {
   public getDeviceInfo(): DeviceInfo {
     const deviceInfo: DeviceInfo = {
       userAgent: this.userAgent,
+      userAgentData: this.userAgentData,
       os: this.os,
       browser: this.browser,
       device: this.device,
@@ -195,5 +202,48 @@ export class DeviceDetectorService {
       }
     }
     return Constants.DESKTOP_DEVICES.indexOf(this.device) > -1;
+  }
+
+  /**
+   * Conditionally tests an item via either the user agent data (modern chromium browsers) or via
+   * regular expression matching of the user agent (legacy).
+   *
+   * @param mappingConst current mapping const
+   * @param item current item to inspect
+   * @param ua user agent string
+   * @param uad optional user agent data (modern chromium browsers)
+   */
+  private checkItem(mappingConst: string, item: any, ua: string, uad?: UADataValues): boolean {
+    if (uad) {
+      const brandConstant = Constants[`${mappingConst}_BRAND`];
+      const brandMapping = brandConstant && brandConstant[item];
+      if (brandMapping) {
+        return uad.brands.some(brand => brand.brand === brandMapping.brand);
+      }
+    }
+    return this.reTree.test(ua, Constants[`${mappingConst}_RE`][item]);
+  }
+
+  /**
+   * Conditionally gets the browser version based on either user agent data (modern chromium
+   * browsers) or the user agent string (legacy).
+   *
+   * @param ua user agent string
+   * @param uad optional user agent data
+   */
+  private getBrowserVersion(ua: string, uad?: UADataValues): string {
+    if (uad) {
+      const brandMapping = Object.values(BROWSERS_BRAND)
+        .find(browsersBrand => browsersBrand.browser === this.browser);
+      if (brandMapping) {
+        const result = uad.brands.find(brand => brand.brand === brandMapping.brand);
+        if (result) {
+          return result.version;
+        }
+      }
+    }
+    const re = Constants.BROWSER_VERSIONS_RE[this.browser];
+    const res = this.reTree.exec(ua, re);
+    return !!res ? res[1] : null;
   }
 }
