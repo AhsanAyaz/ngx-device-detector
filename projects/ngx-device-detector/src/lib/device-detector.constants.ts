@@ -28,13 +28,13 @@ export const BROWSERS = {
 export const BROWSERS_BRAND = {
   BRAVE: {
     brand: 'Brave',
-    browser: BROWSERS.BRAVE
+    browser: BROWSERS.BRAVE,
   },
   CHROME: {
     brand: 'Google Chrome',
-    browser: BROWSERS.CHROME
-  }
-}
+    browser: BROWSERS.CHROME,
+  },
+};
 
 export const MOBILES_RE = {
   // tslint:disable-next-line:max-line-length

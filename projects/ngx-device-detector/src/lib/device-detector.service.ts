@@ -1,16 +1,16 @@
 // tslint:disable: variable-name
-import {isPlatformBrowser} from '@angular/common';
+import { isPlatformBrowser } from '@angular/common';
 /**
  * Created by ahsanayaz on 08/11/2016.
  */
-import {Inject, Injectable, PLATFORM_ID} from '@angular/core';
+import { Inject, Injectable, PLATFORM_ID } from '@angular/core';
 import * as Constants from './device-detector.constants';
-import {BROWSERS_BRAND} from './device-detector.constants';
-import {ReTree} from './retree';
+import { BROWSERS_BRAND } from './device-detector.constants';
+import { ReTree } from './retree';
 
 export interface DeviceInfo {
   userAgent: string;
-  userAgentData?: UADataValues
+  userAgentData?: UADataValues;
   os: string;
   browser: string;
   device: string;
@@ -71,10 +71,10 @@ export class DeviceDetectorService {
       this.userAgentData = uad;
     }
     const mappings = [
-      {const: 'OS', prop: 'os'},
-      {const: 'BROWSERS', prop: 'browser'},
-      {const: 'DEVICES', prop: 'device'},
-      {const: 'OS_VERSIONS', prop: 'os_version'},
+      { const: 'OS', prop: 'os' },
+      { const: 'BROWSERS', prop: 'browser' },
+      { const: 'DEVICES', prop: 'device' },
+      { const: 'OS_VERSIONS', prop: 'os_version' },
     ];
 
     mappings.forEach(mapping => {
@@ -127,10 +127,10 @@ export class DeviceDetectorService {
     this.deviceType = this.isTablet()
       ? DeviceType.Tablet
       : this.isMobile(this.userAgent)
-        ? DeviceType.Mobile
-        : this.isDesktop(this.userAgent)
-          ? DeviceType.Desktop
-          : DeviceType.Unknown;
+      ? DeviceType.Mobile
+      : this.isDesktop(this.userAgent)
+      ? DeviceType.Desktop
+      : DeviceType.Unknown;
   }
 
   /**
@@ -233,8 +233,7 @@ export class DeviceDetectorService {
    */
   private getBrowserVersion(ua: string, uad?: UADataValues): string {
     if (uad) {
-      const brandMapping = Object.values(BROWSERS_BRAND)
-        .find(browsersBrand => browsersBrand.browser === this.browser);
+      const brandMapping = Object.values(BROWSERS_BRAND).find(browsersBrand => browsersBrand.browser === this.browser);
       if (brandMapping) {
         const result = uad.brands.find(brand => brand.brand === brandMapping.brand);
         if (result) {
