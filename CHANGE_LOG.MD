@@ -1,3 +1,12 @@
+# [6.0.0](https://github.com/KoderLabs/ngx-device-detector/compare/v5.0.1...v6.0.0) (2023-05-13)
+
+
+### Features
+
+* **v16:** migrate to v16 ([fa8c1f6](https://github.com/KoderLabs/ngx-device-detector/commit/fa8c1f6eb84fdf9601d1200d763a09fb7f27c7c3))
+
+
+
 ## [5.0.1](https://github.com/KoderLabs/ngx-device-detector/compare/v5.0.0...v5.0.1) (2023-01-20)
 
 
