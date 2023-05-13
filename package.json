@@ -110,6 +110,7 @@
     "codelyzer": "~6.0.2",
     "husky": "~8.0.2",
     "jest": "~29.5.0",
+    "jest-environment-jsdom": "^29.5.0",
     "jest-preset-angular": "~12.2.3",
     "ng-packagr": "~16.0.1",
     "prettier": "~2.8.0",
