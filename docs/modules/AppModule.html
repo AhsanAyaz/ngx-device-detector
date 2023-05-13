@@ -175,8 +175,7 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { BrowserModule } from &#x27;@angular/platform-browser&#x27;;
-import { NgModule } from &#x27;@angular/core&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { APP_ID, NgModule } from &#x27;@angular/core&#x27;;
 
 import { AppComponent } from &#x27;./app.component&#x27;;
 
@@ -186,8 +185,11 @@ import { NoopAnimationsModule } from &#x27;@angular/platform-browser/animations&
 
 @NgModule({
   declarations: [AppComponent, KeysPipe],
-  imports: [NoopAnimationsModule, BrowserModule.withServerTransition({ appId: &#x27;serverApp&#x27; }), CommonModule],
-  providers: [],
+  imports: [NoopAnimationsModule, CommonModule],
+  providers: [{
+    provide: APP_ID,
+    useValue: &#x27;serverApp&#x27;
+  }],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

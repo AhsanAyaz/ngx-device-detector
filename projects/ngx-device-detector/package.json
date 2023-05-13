@@ -1,6 +1,6 @@
 {
   "name": "ngx-device-detector",
-  "version": "5.0.1",
+  "version": "6.0.0",
   "license": "MIT",
   "repository": {
     "type": "git",
@@ -26,8 +26,8 @@
     "url": "https://github.com/AhsanAyaz/ngx-device-detector.git/issues"
   },
   "peerDependencies": {
-    "@angular/common": "^15.0.0",
-    "@angular/core": "^15.0.0"
+    "@angular/common": "^16.0.0",
+    "@angular/core": "^16.0.0"
   },
   "dependencies": {
     "tslib": "^2.0.0"
