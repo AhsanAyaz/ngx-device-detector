@@ -302,4 +302,21 @@ describe('DeviceDetectorService', () => {
       expectAsTablet(service, userAgent);
     }
   ));
+  it('should detect Device Samsung Galaxy Tab S7+ as a tablet', inject(
+    [DeviceDetectorService],
+    (service: DeviceDetectorService) => {
+      const userAgent =
+        'Mozilla/5.0 (Linux; Android 11; SM-T970) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.152 Safari/537.36';
+      service.setDeviceInfo(userAgent);
+      expect(service.isMobile(userAgent)).toBeFalsy();
+      expect(service.isDesktop(userAgent)).toBeFalsy();
+      expect(service.isTablet(userAgent)).toBeTruthy();
+      const deviceInfo = service.getDeviceInfo();
+      expect(deviceInfo.device).toBe('Android');
+      expect(deviceInfo.browser).toBe('Chrome');
+      expect(deviceInfo.browser_version).toBe('88.0.4324.152');
+      expect(deviceInfo.deviceType).toBe('tablet');
+    }
+  ));
+
 });
