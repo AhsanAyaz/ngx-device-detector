@@ -302,6 +302,24 @@ describe('DeviceDetectorService', () => {
       expectAsTablet(service, userAgent);
     }
   ));
+
+  it('should detect Device HUAWEI AGS-L09 as a tablet', inject(
+    [DeviceDetectorService],
+    (service: DeviceDetectorService) => {
+      const userAgent =
+        'Mozilla/5.0 (Linux; Android 7.0; AGS-L09) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36';
+      service.setDeviceInfo(userAgent);
+      expect(service.isMobile(userAgent)).toBeFalsy();
+      expect(service.isDesktop(userAgent)).toBeFalsy();
+      expect(service.isTablet(userAgent)).toBeTruthy();
+      const deviceInfo = service.getDeviceInfo();
+      expect(deviceInfo.device).toBe('Android');
+      expect(deviceInfo.browser).toBe('Chrome');
+      expect(deviceInfo.browser_version).toBe('103.0.0.0');
+      expect(deviceInfo.deviceType).toBe('tablet');
+    }
+  ));
+
   it('should detect Device Samsung Galaxy Tab S7+ as a tablet', inject(
     [DeviceDetectorService],
     (service: DeviceDetectorService) => {
@@ -318,5 +336,4 @@ describe('DeviceDetectorService', () => {
       expect(deviceInfo.deviceType).toBe('tablet');
     }
   ));
-
 });
