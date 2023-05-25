@@ -38,7 +38,7 @@ If you use Angular 5, you must use v1.5.2 or earlier
 
 [Regular Demo](https://koderlabs.github.io/ngx-device-detector/demo)
 
-[SSR Demo](https://ngx-device-detector-ssr.herokuapp.com/)
+<!-- [SSR Demo](https://ngx-device-detector-ssr.herokuapp.com/) -->
 
 ## Dependencies
 
@@ -55,6 +55,7 @@ Latest version available for each version of Angular
 | 3.x.x               | 13.x    |
 | 4.x.x               | 14.x    |
 | 5.x.x               | 15.x    |
+| 6.x.x               | 16.x    |
 
 ## Installation
 
@@ -201,3 +202,15 @@ The library is inspired by and based on the work from [ng-device-detector ](http
 ## License
 
 [MIT](https://github.com/KoderLabs/ngx-device-detector/blob/master/LICENSE)
+
+
+## Sponsorship
+
+If you like the library and want to support, you can do it by buying me a coffee at
+
+<a
+  title="Like Ahsan's work? Buy him a coffee"
+  class="bmac"
+  href="https://www.buymeacoffee.com/codewithahsan">
+<img src="https://img.buymeacoffee.com/button-api/?text=Buy me a coffee&emoji=&slug=codewithahsan&button_colour=BD5FFF&font_colour=ffffff&font_family=Comic&outline_colour=000000&coffee_colour=FFDD00" />
+</a>

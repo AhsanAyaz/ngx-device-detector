@@ -1,3 +1,30 @@
+## [6.0.1](https://github.com/KoderLabs/ngx-device-detector/compare/v5.0.1...v6.0.1) (2023-05-23)
+
+
+### Bug Fixes
+
+* **jest:** fix jest-preset-angular dependency ([85c8fd4](https://github.com/KoderLabs/ngx-device-detector/commit/85c8fd4ed265bbdfd27a0c7cfa874e2d11157be7))
+* **jest:** install jsdom separately ([7d2f13d](https://github.com/KoderLabs/ngx-device-detector/commit/7d2f13dc9cd34803b492ea5a9fbe961f4ce1ec53))
+* **tests:** update workflow to use node v18 ([afa4bb5](https://github.com/KoderLabs/ngx-device-detector/commit/afa4bb5b9da70f469e04dce7da354aef4fb8adb7))
+
+
+### Features
+
+* detect HUAWEI AGS-L09 as tablet ([62d1232](https://github.com/KoderLabs/ngx-device-detector/commit/62d1232cad8a0921da80c9f6afc4033f2f34f3f4))
+* detect Samsung Galaxy Tab S7+ SM-T970 as a tablet ([757a502](https://github.com/KoderLabs/ngx-device-detector/commit/757a502c3953546e82540e29d634b5b2f3417db7))
+* **v16:** migrate to v16 ([2ab640c](https://github.com/KoderLabs/ngx-device-detector/commit/2ab640c0a758fbdc906a502b90a60f0c6d78e8bd))
+
+
+
+# [6.0.0](https://github.com/KoderLabs/ngx-device-detector/compare/v5.0.1...v6.0.0) (2023-05-13)
+
+
+### Features
+
+* **v16:** migrate to v16 ([fa8c1f6](https://github.com/KoderLabs/ngx-device-detector/commit/fa8c1f6eb84fdf9601d1200d763a09fb7f27c7c3))
+
+
+
 ## [5.0.1](https://github.com/KoderLabs/ngx-device-detector/compare/v5.0.0...v5.0.1) (2023-01-20)
 
 
