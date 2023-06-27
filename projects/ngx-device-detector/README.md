@@ -8,7 +8,7 @@
 </a>
 
 <p align="center">
-An Angular 6+ powered AOT compatible device detector that helps to identify browser, os and other useful information regarding the device using the app. The processing is based on user-agent.
+An Angular 6+ powered AOT compatible device detector that helps to identify browser, os and other useful information regarding the device using the app. The processing is based on user-agent. This library was built at <a href="https://github.com/KoderLabs">KoderLabs</a>, which is one of the best places I've worked at ❤️
 </p>
 
 <p align="center">

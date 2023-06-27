@@ -1,3 +1,7 @@
+## [6.0.2](https://github.com/AhsanAyaz/ngx-device-detector/compare/v6.0.1...v6.0.2) (2023-06-27)
+
+
+
 ## [6.0.1](https://github.com/AhsanAyaz/ngx-device-detector/compare/v5.0.1...v6.0.1) (2023-05-23)
 
 
