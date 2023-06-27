@@ -7,6 +7,7 @@ export const GENERAL = {
 };
 
 export const BROWSERS = {
+  BRAVE: 'Brave',
   CHROME: 'Chrome',
   FIREFOX: 'Firefox',
   SAFARI: 'Safari',
@@ -18,6 +19,21 @@ export const BROWSERS = {
   SAMSUNG: 'Samsung',
   UCBROWSER: 'UC-Browser',
   UNKNOWN: GENERAL.UKNOWN,
+};
+
+/**
+ * Brand constants supported in {@code navigator.userAgentData}, mapped to browser constant. See
+ * <a href="https://developer.mozilla.org/en-US/docs/Web/API/Navigator/userAgentData">Navigator.userAgentData</a>
+ */
+export const BROWSERS_BRAND = {
+  BRAVE: {
+    brand: 'Brave',
+    browser: BROWSERS.BRAVE,
+  },
+  CHROME: {
+    brand: 'Google Chrome',
+    browser: BROWSERS.CHROME,
+  },
 };
 
 export const MOBILES_RE = {

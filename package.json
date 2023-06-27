@@ -118,7 +118,8 @@
     "semver": "~7.3.8",
     "ts-node": "~10.9.1",
     "tslint": "~6.1.0",
-    "typescript": "~5.0.4"
+    "typescript": "~5.0.4",
+    "user-agent-data-types": "^0.3.0"
   },
   "husky": {
     "hooks": {
