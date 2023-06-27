@@ -1,21 +1,21 @@
 <p align="center">
-  <img src="https://raw.githubusercontent.com/KoderLabs/ngx-device-detector/master/assets/logo.svg" width="200">
+  <img src="https://raw.githubusercontent.com/AhsanAyaz/ngx-device-detector/master/assets/logo.svg" width="200">
 </p>
 
 
-<a href="https://koderlabs.github.io/ngx-device-detector">
+<a href="https://ahsanayaz.github.io/ngx-device-detector">
   <h1 align="center">ngx-device-detector</h1>
 </a>
 
 <p align="center">
-An Angular 6+ powered AOT compatible device detector that helps to identify browser, os and other useful information regarding the device using the app. The processing is based on user-agent.
+An Angular 6+ powered AOT compatible device detector that helps to identify browser, os and other useful information regarding the device using the app. The processing is based on user-agent. This library was built at <a href="https://github.com/KoderLabs">KoderLabs</a>, which is one of the best places I've worked at ❤️
 </p>
 
 <p align="center">
-<a href="https://github.com/KoderLabs/ngx-device-detector/actions"><img src="https://github.com/Koderlabs/ngx-device-detector/actions/workflows/main.yml/badge.svg" alt="build status" ></a>
+<a href="https://github.com/AhsanAyaz/ngx-device-detector/actions"><img src="https://github.com/ahsanayaz/ngx-device-detector/actions/workflows/main.yml/badge.svg" alt="build status" ></a>
 <a href="https://www.npmjs.com/package/ngx-device-detector"><img src="https://img.shields.io/npm/v/ngx-device-detector.svg" alt="npm version" ></a>
-<a href="https://www.npmjs.com/package/ngx-device-detector"><img src="https://img.shields.io/github/license/koderlabs/ngx-device-detector?style=flat" alt="license" ></a>
-<a href="https://www.npmjs.com/package/ngx-device-detector"><img src="https://badgen.net/github/stars/KoderLabs/ngx-device-detector" alt="stars" ></a>
+<a href="https://www.npmjs.com/package/ngx-device-detector"><img src="https://img.shields.io/github/license/ahsanayaz/ngx-device-detector?style=flat" alt="license" ></a>
+<a href="https://www.npmjs.com/package/ngx-device-detector"><img src="https://badgen.net/github/stars/AhsanAyaz/ngx-device-detector" alt="stars" ></a>
 
 </p>
 <p align="center">
@@ -32,11 +32,11 @@ If you use Angular 5, you must use v1.5.2 or earlier
 
 ## DOCS
 
-[Ngx Device Detector DOCS](https://koderlabs.github.io/ngx-device-detector)
+[Ngx Device Detector DOCS](https://ahsanayaz.github.io/ngx-device-detector)
 
 ## Live DEMO
 
-[Regular Demo](https://koderlabs.github.io/ngx-device-detector/demo)
+[Regular Demo](https://ahsanayaz.github.io/ngx-device-detector/demo)
 
 <!-- [SSR Demo](https://ngx-device-detector-ssr.herokuapp.com/) -->
 
@@ -201,7 +201,7 @@ The library is inspired by and based on the work from [ng-device-detector ](http
 
 ## License
 
-[MIT](https://github.com/KoderLabs/ngx-device-detector/blob/master/LICENSE)
+[MIT](https://github.com/AhsanAyaz/ngx-device-detector/blob/master/LICENSE)
 
 
 ## Sponsorship

@@ -7,7 +7,7 @@
     "start": "ng serve",
     "build:lib": "ng build ngx-device-detector --configuration production",
     "build:demo": "ng build demo --configuration production",
-    "build:ci": "ng build demo --base-href https://koderlabs.github.io/ngx-device-detector/demo/ --configuration production --output-hashing=all",
+    "build:ci": "ng build demo --base-href https://ahsanayaz.github.io/ngx-device-detector/demo/ --configuration production --output-hashing=all",
     "docs": "npm run docs:build",
     "docs:build": "compodoc -p --tsconfig ./tsconfig.json -n ngx-device-detector -d docs --hideGenerator --theme Vagrant",
     "docs:serve": "npm run docs:build -- -s",
@@ -37,7 +37,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/KoderLabs/ngx-device-detector.git"
+    "url": "https://github.com/AhsanAyaz/ngx-device-detector.git"
   },
   "author": {
     "name": "Muhammad Ahsan Ayaz",

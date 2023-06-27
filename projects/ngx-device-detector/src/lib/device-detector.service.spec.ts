@@ -281,9 +281,9 @@ describe('DeviceDetectorService', () => {
 
   /**
    * Issues list below
-   * https://github.com/KoderLabs/ngx-device-detector/issues/191
-   * https://github.com/KoderLabs/ngx-device-detector/issues/194
-   * https://github.com/KoderLabs/ngx-device-detector/issues/180
+   * https://github.com/AhsanAyaz/ngx-device-detector/issues/191
+   * https://github.com/AhsanAyaz/ngx-device-detector/issues/194
+   * https://github.com/AhsanAyaz/ngx-device-detector/issues/180
    */
   it('should detect the missing tablets reported by community', inject(
     [DeviceDetectorService],

@@ -34,10 +34,10 @@ It means a lot that you took time out to improve this package and contribute bac
 
 ### Relevant Links
 
-[Project Page](https://github.com/KoderLabs/ngx-device-detector)
+[Project Page](https://github.com/AhsanAyaz/ngx-device-detector)
 
 [Author](https://github.com/AhsanAyaz)
 
 [NPM Package](https://www.npmjs.com/package/ngx-device-detector)
 
-[License](https://github.com/KoderLabs/ngx-device-detector/blob/master/LICENSE)
+[License](https://github.com/AhsanAyaz/ngx-device-detector/blob/master/LICENSE)
