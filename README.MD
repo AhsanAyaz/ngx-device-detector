@@ -45,7 +45,7 @@ If you use Angular 5, you must use v1.5.2 or earlier
 Latest version available for each version of Angular
 
 | ngx-device-detector | Angular |
-| ------------------- | ------- |
+|---------------------|---------|
 | 1.3.3               | 7.x     |
 | 1.3.5               | 8.x     |
 | 1.4.1               | 9.x     |
@@ -56,6 +56,7 @@ Latest version available for each version of Angular
 | 4.x.x               | 14.x    |
 | 5.x.x               | 15.x    |
 | 6.x.x               | 16.x    |
+| 7.x.x               | 17.x    |
 
 ## Installation
 
