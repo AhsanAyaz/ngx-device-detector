@@ -1,3 +1,12 @@
+# [7.0.0](https://github.com/AhsanAyaz/ngx-device-detector/compare/v6.0.2...v7.0.0) (2023-11-16)
+
+
+### Features
+
+* **v17:** migrate to v17 ([70f3f53](https://github.com/AhsanAyaz/ngx-device-detector/commit/70f3f53d1cefb9bfde2fd06ee21140e8ec98f22d))
+
+
+
 ## [6.0.2](https://github.com/AhsanAyaz/ngx-device-detector/compare/v6.0.1...v6.0.2) (2023-06-27)
 
 
