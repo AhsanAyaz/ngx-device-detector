@@ -4,7 +4,7 @@ import { ServerModule } from '@angular/platform-server';
 import { AppModule } from './app.module';
 import { AppComponent } from './app.component';
 import { Inject, Injectable, Optional, PLATFORM_ID } from '@angular/core';
-import { REQUEST } from '@nguniversal/express-engine/tokens';
+import { REQUEST } from '../express.tokens';
 import { Request } from 'express';
 import { DeviceDetectorService } from 'ngx-device-detector';
 import { isPlatformServer } from '@angular/common';

@@ -1,1 +1,1 @@
-export { AppServerModule } from './app/server';
+export { AppServerModule as bootstrap } from './app/server';
