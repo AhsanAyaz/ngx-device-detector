@@ -20,7 +20,7 @@ jobs:
       - name: Build
         run: npm run build:ci && cp -R dist/demo/browser ./docs/demo
       - name: GitHub Pages action
-        uses: peaceiris/actions-gh-pages@v3.7.3
+        uses: peaceiris/actions-gh-pages@v3.9.3
         with:
-          github_token: ${{ secrets.ACCESS_TOKEN }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./docs
