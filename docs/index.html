@@ -160,10 +160,15 @@ If you use Angular 5, you must use v1.5.2 or earlier
     }
     ...
   }
-</code></pre></div><p>To ensure Universal has the correct User Agent for device detection, you&#39;ll need to provide it manually. If using ExpressJS for example:</p>
-<p><strong>universal-device-detector.service.ts:</strong></p>
+</code></pre></div><p>For SSR, you have to make sure that the User Agent is available for device detection. I.e. you&#39;ll need to provide it manually. If using ExpressJS for example:</p>
+<p><strong>express.tokens.ts</strong></p>
+<div><pre class="line-numbers"><code class="language-typescript">import { InjectionToken } from &#39;&#64;angular/core&#39;;
+import { Request, Response } from &#39;express&#39;;
+
+export const REQUEST = new InjectionToken&lt;Request&gt;(&#39;REQUEST&#39;);
+export const RESPONSE = new InjectionToken&lt;Response&gt;(&#39;RESPONSE&#39;);</code></pre></div><p><strong>universal-device-detector.service.ts:</strong></p>
 <div><pre class="line-numbers"><code class="language-typescript">import { Inject, Injectable, Optional, PLATFORM_ID } from &#39;&#64;angular/core&#39;;
-import { REQUEST } from &#39;&#64;nguniversal/express-engine/tokens&#39;;
+import { REQUEST } from &#39;path/to/express.tokens&#39;;
 import { Request } from &#39;express&#39;;
 import { DeviceDetectorService } from &#39;ngx-device-detector&#39;;
 import { isPlatformServer } from &#39;&#64;angular/common&#39;;

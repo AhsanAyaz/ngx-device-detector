@@ -103,13 +103,23 @@ In your component where you want to use the Device Service
 
 ```
 
-To ensure Universal has the correct User Agent for device detection, you'll need to provide it manually. If using ExpressJS for example:
+For SSR, you have to make sure that the User Agent is available for device detection. I.e. you'll need to provide it manually. If using ExpressJS for example:
+
+**express.tokens.ts**
+
+```typescript
+import { InjectionToken } from '@angular/core';
+import { Request, Response } from 'express';
+
+export const REQUEST = new InjectionToken<Request>('REQUEST');
+export const RESPONSE = new InjectionToken<Response>('RESPONSE');
+```
 
 **universal-device-detector.service.ts:**
 
 ```typescript
 import { Inject, Injectable, Optional, PLATFORM_ID } from '@angular/core';
-import { REQUEST } from '@nguniversal/express-engine/tokens';
+import { REQUEST } from 'path/to/express.tokens';
 import { Request } from 'express';
 import { DeviceDetectorService } from 'ngx-device-detector';
 import { isPlatformServer } from '@angular/common';
