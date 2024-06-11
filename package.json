@@ -73,7 +73,8 @@
     "angular5",
     "angular6",
     "angular7",
-    "angular8"
+    "angular8",
+    "angular18"
   ],
   "bugs": {
     "url": "https://github.com/AhsanAyaz/ngx-device-detector.git/issues"
