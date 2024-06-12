@@ -1,3 +1,13 @@
+# [8.0.0](https://github.com/AhsanAyaz/ngx-device-detector/compare/v7.0.0...v8.0.0) (2024-06-11)
+
+
+### Bug Fixes
+
+* **ci:** fix ci token for ghpages ([3004442](https://github.com/AhsanAyaz/ngx-device-detector/commit/3004442cd1a6caa3a2daea0d8fe5f4e057cdb553))
+* **demo:** bump ngx-device-detector version to 7.x ([7cb3874](https://github.com/AhsanAyaz/ngx-device-detector/commit/7cb38744ce6fc5cd75e1776b3042a89e6bcc8ca1))
+
+
+
 # [7.0.0](https://github.com/AhsanAyaz/ngx-device-detector/compare/v6.0.2...v7.0.0) (2023-11-16)
 
 
