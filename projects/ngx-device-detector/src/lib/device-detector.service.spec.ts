@@ -35,7 +35,7 @@ describe('DeviceDetectorService', () => {
         orientation: 'Unknown',
       };
       expect(service.getDeviceInfo()).toEqual(deviceInformations);
-    }
+    },
   ));
 
   it('should return device details when system is desktop and using Linux & Chrome', inject(
@@ -48,7 +48,7 @@ describe('DeviceDetectorService', () => {
       expect(service.os).toBe('Linux');
       expect(service.browser).toBe('Chrome');
       expect(service.browser_version).toBe('74.0.3729.131');
-    }
+    },
   ));
 
   // tslint:disable-next-line: max-line-length
@@ -70,7 +70,7 @@ describe('DeviceDetectorService', () => {
       expect(service.browser).toBe('Safari');
       expect(service.device).toBe('iPad');
       expect(service.browser_version).toBe('11.0');
-    }
+    },
   ));
 
   it('should return false when system is not tablet', inject(
@@ -79,7 +79,7 @@ describe('DeviceDetectorService', () => {
       const userAgent = `Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko)
       Chrome/74.0.3729.131 Safari/537.36`;
       expect(service.isTablet(userAgent)).toBeFalsy();
-    }
+    },
   ));
 
   it('should return true, os=`iOS`, browser=`Safari`, device=`iPhone` and browser_version=`11.0` when system is mobile', inject(
@@ -93,7 +93,7 @@ describe('DeviceDetectorService', () => {
       expect(service.browser).toBe('Safari');
       expect(service.device).toBe('iPhone');
       expect(service.browser_version).toBe('11.0');
-    }
+    },
   ));
 
   it('should return false when system is not mobile', inject(
@@ -101,7 +101,7 @@ describe('DeviceDetectorService', () => {
     (service: DeviceDetectorService) => {
       const userAgent = `Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.131 Safari/537.36`;
       expect(service.isMobile(userAgent)).toBeFalsy();
-    }
+    },
   ));
 
   it('should detect Tesla given the user agents', inject([DeviceDetectorService], (service: DeviceDetectorService) => {
@@ -137,7 +137,7 @@ describe('DeviceDetectorService', () => {
       expect(service.isMobile(userAgent)).toBeFalsy();
       expect(service.isDesktop(userAgent)).toBeTruthy();
       expect(service.isTablet(userAgent)).toBeFalsy();
-    }
+    },
   ));
 
   it('should detect Pixel2 as mobile', inject([DeviceDetectorService], (service: DeviceDetectorService) => {
@@ -157,7 +157,7 @@ describe('DeviceDetectorService', () => {
       expect(service.isMobile(userAgent)).toBeFalsy();
       expect(service.isDesktop(userAgent)).toBeTruthy();
       expect(service.isTablet(userAgent)).toBeFalsy();
-    }
+    },
   ));
 
   it('should detect Firefox in iOS', inject([DeviceDetectorService], (service: DeviceDetectorService) => {
@@ -243,7 +243,7 @@ describe('DeviceDetectorService', () => {
       expect(deviceInfo.browser).toBe('Firefox');
       expect(deviceInfo.browser_version).toBe('48.0');
       expect(deviceInfo.deviceType).toBe('mobile');
-    }
+    },
   ));
 
   it('should detect Device type in Alcatel Firefox OS Mobile 49.0 version', inject(
@@ -259,7 +259,7 @@ describe('DeviceDetectorService', () => {
       expect(deviceInfo.browser).toBe('Firefox');
       expect(deviceInfo.browser_version).toBe('49.0');
       expect(deviceInfo.deviceType).toBe('mobile');
-    }
+    },
   ));
 
   it('should detect Device Honeywell RT10A as a tablet', inject(
@@ -276,7 +276,7 @@ describe('DeviceDetectorService', () => {
       expect(deviceInfo.browser).toBe('Chrome');
       expect(deviceInfo.browser_version).toBe('87.0.4280.101');
       expect(deviceInfo.deviceType).toBe('tablet');
-    }
+    },
   ));
 
   /**
@@ -300,7 +300,7 @@ describe('DeviceDetectorService', () => {
         'Mozilla/5.0 (Linux; Android 10; SM-T500) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/89.0.4389.105 Safari/537.36';
       service.setDeviceInfo(userAgent);
       expectAsTablet(service, userAgent);
-    }
+    },
   ));
 
   it('should detect Device HUAWEI AGS-L09 as a tablet', inject(
@@ -317,7 +317,7 @@ describe('DeviceDetectorService', () => {
       expect(deviceInfo.browser).toBe('Chrome');
       expect(deviceInfo.browser_version).toBe('103.0.0.0');
       expect(deviceInfo.deviceType).toBe('tablet');
-    }
+    },
   ));
 
   it('should detect Device Samsung Galaxy Tab S7+ as a tablet', inject(
@@ -334,6 +334,6 @@ describe('DeviceDetectorService', () => {
       expect(deviceInfo.browser).toBe('Chrome');
       expect(deviceInfo.browser_version).toBe('88.0.4324.152');
       expect(deviceInfo.deviceType).toBe('tablet');
-    }
+    },
   ));
 });

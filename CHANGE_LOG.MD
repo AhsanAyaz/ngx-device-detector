@@ -1,3 +1,33 @@
+## 8.0.0 (2024-06-12)
+
+* revert(package.json): revert the package version in favor of automation ([904817b](https://github.com/AhsanAyaz/ngx-device-detector/commit/904817b))
+* bump v8 ([46218a0](https://github.com/AhsanAyaz/ngx-device-detector/commit/46218a0))
+* ncu completed ([a292844](https://github.com/AhsanAyaz/ngx-device-detector/commit/a292844))
+* ng update completed ([bbf115a](https://github.com/AhsanAyaz/ngx-device-detector/commit/bbf115a))
+* ng update completed ([bb0c47c](https://github.com/AhsanAyaz/ngx-device-detector/commit/bb0c47c))
+* ng update completed ([1358fb9](https://github.com/AhsanAyaz/ngx-device-detector/commit/1358fb9))
+* packages update ([04d18c6](https://github.com/AhsanAyaz/ngx-device-detector/commit/04d18c6))
+* project peerDependencies ([088af2c](https://github.com/AhsanAyaz/ngx-device-detector/commit/088af2c))
+* fix(ci): fix ci token for ghpages ([3004442](https://github.com/AhsanAyaz/ngx-device-detector/commit/3004442))
+* fix(demo): bump ngx-device-detector version to 7.x ([7cb3874](https://github.com/AhsanAyaz/ngx-device-detector/commit/7cb3874))
+
+
+
+## 8.0.0 (2024-06-12)
+
+* revert(package.json): revert the package version in favor of automation ([904817b](https://github.com/AhsanAyaz/ngx-device-detector/commit/904817b))
+* bump v8 ([46218a0](https://github.com/AhsanAyaz/ngx-device-detector/commit/46218a0))
+* ncu completed ([a292844](https://github.com/AhsanAyaz/ngx-device-detector/commit/a292844))
+* ng update completed ([bbf115a](https://github.com/AhsanAyaz/ngx-device-detector/commit/bbf115a))
+* ng update completed ([bb0c47c](https://github.com/AhsanAyaz/ngx-device-detector/commit/bb0c47c))
+* ng update completed ([1358fb9](https://github.com/AhsanAyaz/ngx-device-detector/commit/1358fb9))
+* packages update ([04d18c6](https://github.com/AhsanAyaz/ngx-device-detector/commit/04d18c6))
+* project peerDependencies ([088af2c](https://github.com/AhsanAyaz/ngx-device-detector/commit/088af2c))
+* fix(ci): fix ci token for ghpages ([3004442](https://github.com/AhsanAyaz/ngx-device-detector/commit/3004442))
+* fix(demo): bump ngx-device-detector version to 7.x ([7cb3874](https://github.com/AhsanAyaz/ngx-device-detector/commit/7cb3874))
+
+
+
 # [7.0.0](https://github.com/AhsanAyaz/ngx-device-detector/compare/v6.0.2...v7.0.0) (2023-11-16)
 
 

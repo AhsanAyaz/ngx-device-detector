@@ -121,10 +121,10 @@ export class DeviceDetectorService {
     this.deviceType = this.isTablet()
       ? DeviceType.Tablet
       : this.isMobile(this.userAgent)
-      ? DeviceType.Mobile
-      : this.isDesktop(this.userAgent)
-      ? DeviceType.Desktop
-      : DeviceType.Unknown;
+        ? DeviceType.Mobile
+        : this.isDesktop(this.userAgent)
+          ? DeviceType.Desktop
+          : DeviceType.Unknown;
   }
 
   /**
