@@ -13,10 +13,61 @@
         <link rel="stylesheet" href="./styles/Vagrant.css">
     </head>
     <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
 
-        <div class="navbar navbar-default navbar-fixed-top visible-xs">
-            <a href="./" class="navbar-brand">ngx-device-detector</a>
-            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="./" class="navbar-brand">ngx-device-detector</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
         </div>
 
         <div class="xs-menu menu" id="mobile-menu">
@@ -25,14 +76,14 @@
 
         <div class="container-fluid main">
            <div class="row main">
-               <div class="hidden-xs menu">
+               <div class="d-none d-md-block menu">
                    <compodoc-menu mode="normal"></compodoc-menu>
                </div>
                <!-- START CONTENT -->
                <div class="content getting-started">
                    <div class="content-data">
 
-<h2 id="how-to-contribute">How to Contribute</h2>
+<h2>How to Contribute</h2>
 <p>There are many ways you can Contribute to this project!</p>
 <ul>
 <li>Create issues or help close them</li>
@@ -40,7 +91,7 @@
 <li>Help write Tests or improve Examples / Documentation</li>
 <li>Share repo with others.</li>
 </ul>
-<h3 id="issues">Issues</h3>
+<h3>Issues</h3>
 <p>Found a bug, have some feedback or really want some feature? Lock in an Issue. Here are some tips:</p>
 <ul>
 <li>Make sure the bug you&#39;re reporting really is a bug and you have read the docs/readme.</li>
@@ -49,7 +100,7 @@
 <li>Go through existing issues. Make sure that it hasn&#39;t already been opened.</li>
 <li>If planning on helping close an issue, don&#39;t be shy. Ask questions and get more information before sending your PR.</li>
 </ul>
-<h3 id="pull-requests">Pull Requests</h3>
+<h3>Pull Requests</h3>
 <p>Want to fix a bug, implement a feature or help with the tests / docs? Please read this first:</p>
 <ul>
 <li>Make sure there&#39;s an open issue for what you&#39;re sending in your Pull Request. If not, open it.</li>
@@ -61,9 +112,9 @@
 <li>This way no two devs are working on the same thing.</li>
 <li>If required, update the CHANGELOG.md file with a small summary of your changes in the latest version (add a new section if needed)</li>
 </ul>
-<h3 id="finally-thank-you">Finally, Thank you!</h3>
+<h3>Finally, Thank you!</h3>
 <p>It means a lot that you took time out to improve this package and contribute back to the community. 🎉</p>
-<h3 id="relevant-links">Relevant Links</h3>
+<h3>Relevant Links</h3>
 <p><a href="https://github.com/AhsanAyaz/ngx-device-detector">Project Page</a></p>
 <p><a href="https://github.com/AhsanAyaz">Author</a></p>
 <p><a href="https://www.npmjs.com/package/ngx-device-detector">NPM Package</a></p>
@@ -118,6 +169,19 @@
             var COMPODOC_CURRENT_PAGE_URL = 'contributing.html';
             var MAX_SEARCH_RESULTS = 15;
        </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
 
        <script src="./js/libs/custom-elements.min.js"></script>
        <script src="./js/libs/lit-html.js"></script>
