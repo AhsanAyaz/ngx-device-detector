@@ -216,14 +216,7 @@ The library is inspired by and based on the work from [ng-device-detector ](http
 
 [MIT](https://github.com/AhsanAyaz/ngx-device-detector/blob/master/LICENSE)
 
+## Need help with your Angular/Web projects
+Write to us at [IOMechs](info@iomechs.com)
 
-## Sponsorship
-
-If you like the library and want to support, you can do it by buying me a coffee at
-
-<a
-  title="Like Ahsan's work? Buy him a coffee"
-  class="bmac"
-  href="https://www.buymeacoffee.com/codewithahsan">
-<img src="https://img.buymeacoffee.com/button-api/?text=Buy me a coffee&emoji=&slug=codewithahsan&button_colour=BD5FFF&font_colour=ffffff&font_family=Comic&outline_colour=000000&coffee_colour=FFDD00" />
-</a>
+![iomechs-logo](assets/iomechs-logo-dark.svg)
