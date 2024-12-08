@@ -134,6 +134,10 @@
                         <td class="col-md-3">Name</td>
                         <td class="col-md-9">keys</td>
                     </tr>
+                    <tr>
+                        <td class="col-md-3">Standalone</td>
+                        <td class="col-md-9"><code>true</code></td>
+                    </tr>
                 </tbody>
             </table>
         </section>
@@ -163,8 +167,8 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="7"
-                                    class="link-to-prism">projects/demo/src/app/pipes/keys.pipe.ts:7</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="5"
+                                    class="link-to-prism">projects/demo/src/app/pipes/keys.pipe.ts:5</a></div>
                         </td>
                     </tr>
 
@@ -235,9 +239,7 @@
     <div class="tab-pane fade  tab-source-code" id="source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Pipe, PipeTransform } from &#x27;@angular/core&#x27;;
 
-@Pipe({
-  name: &#x27;keys&#x27;,
-})
+@Pipe({ name: &#x27;keys&#x27;, standalone:true })
 export class KeysPipe implements PipeTransform {
   transform(value, props: string[] &#x3D; []): any {
     const keys &#x3D; [];
