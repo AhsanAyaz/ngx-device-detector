@@ -1,3 +1,19 @@
+## 9.0.0 (2024-12-08)
+
+* chore(angular): add ssr ([a9f1eac](https://github.com/AhsanAyaz/ngx-device-detector/commit/a9f1eac))
+* chore(angular): update to v19 ([483af46](https://github.com/AhsanAyaz/ngx-device-detector/commit/483af46))
+* chore(logo): update logo svg ([ffe9768](https://github.com/AhsanAyaz/ngx-device-detector/commit/ffe9768))
+
+
+
+## 9.0.0 (2024-12-08)
+
+* chore(angular): add ssr ([a9f1eac](https://github.com/AhsanAyaz/ngx-device-detector/commit/a9f1eac))
+* chore(angular): update to v19 ([483af46](https://github.com/AhsanAyaz/ngx-device-detector/commit/483af46))
+* chore(logo): update logo svg ([ffe9768](https://github.com/AhsanAyaz/ngx-device-detector/commit/ffe9768))
+
+
+
 ## 8.0.0 (2024-06-12)
 
 * revert(package.json): revert the package version in favor of automation ([904817b](https://github.com/AhsanAyaz/ngx-device-detector/commit/904817b))
