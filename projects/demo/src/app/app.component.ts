@@ -1,11 +1,14 @@
 import { Component, VERSION } from '@angular/core';
 import { DeviceDetectorService } from 'ngx-device-detector';
+import { NgClass, NgIf, NgFor } from '@angular/common';
+import { KeysPipe } from './pipes/keys.pipe';
 
 @Component({
     selector: 'app-root',
     templateUrl: './app.component.html',
     styleUrls: ['./app.component.scss'],
-    standalone: false
+    imports: [NgClass, NgIf, NgFor, KeysPipe],
+    standalone: true
 })
 export class AppComponent {
   propsToShow = ['userAgent', 'os', 'browser', 'device', 'os_version', 'browser_version', 'deviceType', 'orientation'];
