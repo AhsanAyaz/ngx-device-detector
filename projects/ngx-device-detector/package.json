@@ -1,6 +1,6 @@
 {
   "name": "ngx-device-detector",
-  "version": "9.0.0",
+  "version": "10.0.0",
   "license": "MIT",
   "repository": {
     "type": "git",
@@ -33,6 +33,6 @@
     "@angular/core": "^20.0.0"
   },
   "dependencies": {
-    "tslib": "^2.0.0"
+    "tslib": "^2.6.3"
   }
 }

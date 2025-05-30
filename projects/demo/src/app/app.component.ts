@@ -1,22 +1,27 @@
-import { Component, VERSION } from '@angular/core';
+import { Component, VERSION, inject } from '@angular/core';
 import { DeviceDetectorService } from 'ngx-device-detector';
-import { NgClass, NgIf, NgFor } from '@angular/common';
+import { NgClass } from '@angular/common';
 import { KeysPipe } from './pipes/keys.pipe';
 
 @Component({
     selector: 'app-root',
     templateUrl: './app.component.html',
     styleUrls: ['./app.component.scss'],
-    imports: [NgClass, NgIf, NgFor, KeysPipe],
+    imports: [NgClass, KeysPipe],
     standalone: true
 })
 export class AppComponent {
+  private deviceService = inject(DeviceDetectorService);
+
   propsToShow = ['userAgent', 'os', 'browser', 'device', 'os_version', 'browser_version', 'deviceType', 'orientation'];
   deviceInfo = null;
   version = VERSION.full;
   userAgentInputVal = null;
   ua;
-  constructor(private deviceService: DeviceDetectorService) {
+
+  /** Inserted by Angular inject() migration for backwards compatibility */
+  constructor(...args: unknown[]);
+  constructor() {
     try {
       this.ua = window.navigator.userAgent;
     } catch {
