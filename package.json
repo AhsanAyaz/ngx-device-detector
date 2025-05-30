@@ -1,6 +1,6 @@
 {
   "name": "ngx-device-detector-ws",
-  "version": "9.0.1",
+  "version": "10.0.2",
   "license": "MIT",
   "scripts": {
     "ng": "ng",
@@ -22,9 +22,9 @@
     "test": "jest",
     "test:coverage": "jest --coverage",
     "e2e": "ng e2e",
-    "copy:readme": "cp README.MD ./projects/ngx-device-detector",
-    "changelog": "conventional-changelog -p angular -i CHANGE_LOG.MD -s",
-    "copy:changelog": "cp CHANGE_LOG.MD ./dist/ngx-device-detector",
+    "copy:readme": "cp README.md ./projects/ngx-device-detector",
+    "changelog": "conventional-changelog -p angular -i CHANGE_LOG.md -s",
+    "copy:changelog": "cp CHANGE_LOG.md ./dist/ngx-device-detector",
     "prerelease": "npm run changelog && npm run format:fix:lib && npm run copy:readme && npm run build:lib && npm run docs:build && npm run copy:changelog",
     "release": "cd dist/ngx-device-detector && npm publish && cd ../../",
     "deploy:ssr:demo": "sh scripts/deploy_ssr_demo.sh",
@@ -132,3 +132,4 @@
     }
   }
 }
+

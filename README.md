@@ -2,7 +2,6 @@
   <img src="https://raw.githubusercontent.com/AhsanAyaz/ngx-device-detector/master/assets/logo.svg" width="200">
 </p>
 
-
 <a href="https://ahsanayaz.github.io/ngx-device-detector">
   <h1 align="center">ngx-device-detector</h1>
 </a>
@@ -45,7 +44,7 @@ If you use Angular 5, you must use v1.5.2 or earlier
 Latest version available for each version of Angular
 
 | ngx-device-detector | Angular |
-|---------------------|---------|
+| ------------------- | ------- |
 | 1.3.3               | 7.x     |
 | 1.3.5               | 8.x     |
 | 1.4.1               | 9.x     |
@@ -207,7 +206,7 @@ the demo will be up at `localhost:4200`
 
 ## Change Log
 
-Please see [CHANGE_LOG.MD](CHANGE_LOG.MD) for the updates.
+Please see [CHANGE_LOG.md](CHANGE_LOG.md) for the updates.
 
 ## Credits
 
@@ -218,4 +217,5 @@ The library is inspired by and based on the work from [ng-device-detector ](http
 [MIT](https://github.com/AhsanAyaz/ngx-device-detector/blob/master/LICENSE)
 
 ## Need help with your Angular/Web projects
+
 Write to us at [IOMechs](mailto:info@iomechs.com)

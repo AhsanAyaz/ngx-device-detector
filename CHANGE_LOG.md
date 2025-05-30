@@ -1,3 +1,13 @@
+## <small>9.0.2 (2025-05-30)</small>
+
+
+
+
+## <small>9.0.2 (2025-05-30)</small>
+
+
+
+
 ## 9.0.0 (2024-12-08)
 
 * chore(angular): add ssr ([a9f1eac](https://github.com/AhsanAyaz/ngx-device-detector/commit/a9f1eac))
