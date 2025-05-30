@@ -22,14 +22,15 @@
     "angular7",
     "angular8",
     "angular18",
-    "angular19"
+    "angular19",
+    "angular20"
   ],
   "bugs": {
     "url": "https://github.com/AhsanAyaz/ngx-device-detector.git/issues"
   },
   "peerDependencies": {
-    "@angular/common": "^19.0.0",
-    "@angular/core": "^19.0.0"
+    "@angular/common": "^20.0.0",
+    "@angular/core": "^20.0.0"
   },
   "dependencies": {
     "tslib": "^2.0.0"
