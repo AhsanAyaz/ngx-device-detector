@@ -221,7 +221,7 @@ export const TABLETS_RE = {
         Livingstone|Cervantes|Avant|Aquaris ([E|M]10|M8))|Maxwell.*Lite|Maxwell.*Plus`),
   HuaweiTablet:
     new RegExp(`MediaPad|MediaPad 7 Youth|MediaPad T3 10|IDEOS S7|S7-201c|S7-202u|S7-101|S7-103|S7-104|S7-105|S7-106|
-        S7-201|S7-Slim|M2-A01L|BAH-L09|BAH-W09|AGS-W09|AGS-L09`),
+        S7-201|S7-Slim|M2-A01L|BAH-L09|BAH-W09|AGS-W09|AGS-L09|BAH3-W09`),
   NecTablet: /\bN-06D|\bN-08D/,
   PantechTablet: /Pantech.*P4100/,
   BronchoTablet: /Broncho.*(N701|N708|N802|a710)/,
