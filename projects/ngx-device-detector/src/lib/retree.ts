@@ -3,11 +3,20 @@
  */
 
 export class ReTree {
+  private regexCache = new Map<string, RegExp>();
+
   constructor() {}
+
+  private getRegex(pattern: string): RegExp {
+    if (!this.regexCache.has(pattern)) {
+      this.regexCache.set(pattern, new RegExp(pattern));
+    }
+    return this.regexCache.get(pattern)!;
+  }
 
   public test(str: string, regex: any): any {
     if (typeof regex === 'string') {
-      regex = new RegExp(regex);
+      regex = this.getRegex(regex);
     }
 
     if (regex instanceof RegExp) {
@@ -29,7 +38,7 @@ export class ReTree {
 
   public exec(str: string, regex: any): any {
     if (typeof regex === 'string') {
-      regex = new RegExp(regex);
+      regex = this.getRegex(regex);
     }
 
     if (regex instanceof RegExp) {

@@ -188,6 +188,48 @@ describe('DeviceDetectorService', () => {
     expect(deviceInfo.os_version).toBe('mac-os-x-16');
   }));
 
+  it('should detect Firefox 135 in macOS correctly (not as MS-Edge-Chromium)', inject([DeviceDetectorService], (service: DeviceDetectorService) => {
+    // Test multiple Firefox 135 variants
+    const userAgents = [
+      'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15) Gecko/20100101 Firefox/135.0',
+      'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Firefox/135.0',
+      'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7; rv:135.0) Gecko/20100101 Firefox/135.0'
+    ];
+    
+    userAgents.forEach((userAgent, index) => {
+      service.setDeviceInfo(userAgent);
+      
+      expect(service.isMobile(userAgent)).toBeFalsy();
+      expect(service.isDesktop(userAgent)).toBeTruthy();
+      expect(service.isTablet(userAgent)).toBeFalsy();
+      const deviceInfo = service.getDeviceInfo();
+      expect(deviceInfo.device).toBe('Macintosh');
+      expect(deviceInfo.browser).toBe('Firefox');
+      expect(deviceInfo.browser_version).toBe('135.0');
+      expect(deviceInfo.os).toBe('Mac');
+    });
+  }));
+
+  it('should correctly detect Firefox vs MS-Edge-Chromium on macOS', inject([DeviceDetectorService], (service: DeviceDetectorService) => {
+    // Test the reported user agent string from the GitHub issue
+    const firefoxUA = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:137.0) Gecko/20100101 Firefox/137.0';
+    service.setDeviceInfo(firefoxUA);
+    
+    expect(service.isMobile(firefoxUA)).toBeFalsy();
+    expect(service.isDesktop(firefoxUA)).toBeTruthy();
+    expect(service.isTablet(firefoxUA)).toBeFalsy();
+    
+    const deviceInfo = service.getDeviceInfo();
+    expect(deviceInfo.device).toBe('Macintosh');
+    expect(deviceInfo.browser).toBe('Firefox');
+    expect(deviceInfo.browser_version).toBe('137.0');
+    expect(deviceInfo.os).toBe('Mac');
+    expect(deviceInfo.deviceType).toBe('desktop');
+    
+    // Ensure it's NOT detected as MS-Edge-Chromium
+    expect(deviceInfo.browser).not.toBe('MS-Edge-Chromium');
+  }));
+
   it('should detect Chrome in Mac', inject([DeviceDetectorService], (service: DeviceDetectorService) => {
     const userAgent =
       'Google Chrome v 86.0 - Mozilla/5.0 (Macintosh; Intel Mac OS X 11_0_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.198 Safari/537.36';
@@ -334,6 +376,54 @@ describe('DeviceDetectorService', () => {
       expect(deviceInfo.browser).toBe('Chrome');
       expect(deviceInfo.browser_version).toBe('88.0.4324.152');
       expect(deviceInfo.deviceType).toBe('tablet');
+    },
+  ));
+
+  it('should detect Samsung Galaxy Tab SM-T515 as tablet', inject(
+    [DeviceDetectorService],
+    (service: DeviceDetectorService) => {
+      const userAgent = 'Mozilla/5.0 (Linux; Android 10; SM-T515) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.66 Safari/537.36';
+      service.setDeviceInfo(userAgent);
+      expectAsTablet(service, userAgent);
+      const deviceInfo = service.getDeviceInfo();
+      expect(deviceInfo.device).toBe('Android');
+      expect(deviceInfo.browser).toBe('Chrome');
+      expect(deviceInfo.browser_version).toBe('90.0.4430.66');
+      expect(deviceInfo.deviceType).toBe('tablet');
+    },
+  ));
+
+  it('should have improved performance for setDeviceInfo', inject(
+    [DeviceDetectorService],
+    (service: DeviceDetectorService) => {
+      const userAgents = [
+        'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36',
+        'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36',
+        'Mozilla/5.0 (Linux; Android 10; SM-T515) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.66 Safari/537.36',
+        'Mozilla/5.0 (iPhone; CPU iPhone OS 14_6 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Mobile/15E148 Safari/604.1',
+        'Mozilla/5.0 (iPad; CPU OS 14_6 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Mobile/15E148 Safari/604.1'
+      ];
+
+      const iterations = 100;
+      const startTime = performance.now();
+      
+      for (let i = 0; i < iterations; i++) {
+        for (const ua of userAgents) {
+          service.setDeviceInfo(ua);
+        }
+      }
+      
+      const endTime = performance.now();
+      const totalTime = endTime - startTime;
+      const avgTimePerCall = totalTime / (iterations * userAgents.length);
+      
+      // Performance metrics for verification (uncomment for debugging)
+      // console.log(`Total time for ${iterations * userAgents.length} calls: ${totalTime.toFixed(2)}ms`);
+      // console.log(`Average time per setDeviceInfo call: ${avgTimePerCall.toFixed(2)}ms`);
+      
+      // Performance expectation: should be faster than 5ms per call on modern devices
+      // This is much better than the reported 85.96ms
+      expect(avgTimePerCall).toBeLessThan(5);
     },
   ));
 });

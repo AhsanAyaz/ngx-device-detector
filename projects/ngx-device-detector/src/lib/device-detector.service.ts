@@ -56,60 +56,71 @@ export class DeviceDetectorService {
    * @desc Sets the initial value of the device when the service is initiated.
    * This value is later accessible for usage
    */
+  private detectFromMapping(ua: string, mapping: { const: string, prop: string }): string {
+    const constants = Constants[mapping.const] as any;
+    const regexMap = Constants[`${mapping.const}_RE`] as any;
+    
+    // Special case for iOS 13 Tablet hack
+    if (constants.device && constants.device === 'device') {
+      if (
+        isPlatformBrowser(this.platformId) &&
+        (!!this.reTree.test(this.userAgent, Constants.TABLETS_RE[iPad]) ||
+          (typeof navigator !== 'undefined' && navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1))
+      ) {
+        return iPad;
+      }
+    }
+
+    // Find first match - early exit optimization
+    for (const key of Object.keys(constants)) {
+      const regexPattern = regexMap[key];
+      if (regexPattern && this.reTree.test(ua, regexPattern)) {
+        return constants[key];
+      }
+    }
+
+    return constants.UNKNOWN || Constants.GENERAL.UKNOWN;
+  }
+
   setDeviceInfo(ua = this.userAgent): void {
     if (ua !== this.userAgent) {
       this.userAgent = ua;
     }
-    const mappings = [
-      { const: 'OS', prop: 'os' },
-      { const: 'BROWSERS', prop: 'browser' },
-      { const: 'DEVICES', prop: 'device' },
-      { const: 'OS_VERSIONS', prop: 'os_version' },
-    ];
 
-    mappings.forEach(mapping => {
-      this[mapping.prop] = Object.keys(Constants[mapping.const]).reduce((obj: any, item: any) => {
-        if (Constants[mapping.const][item] === 'device') {
-          // hack for iOS 13 Tablet
-          if (
-            isPlatformBrowser(this.platformId) &&
-            (!!this.reTree.test(this.userAgent, Constants.TABLETS_RE[iPad]) ||
-              (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1))
-          ) {
-            obj[Constants[mapping.const][item]] = iPad;
-            return Object;
-          }
+    // Optimized detection with early exit
+    this.os = this.detectFromMapping(ua, { const: 'OS', prop: 'os' });
+    this.browser = this.detectFromMapping(ua, { const: 'BROWSERS', prop: 'browser' });
+    this.device = this.detectFromMapping(ua, { const: 'DEVICES', prop: 'device' });
+    
+    // Handle Android device refinement
+    if (this.device === Constants.DEVICES.ANDROID) {
+      const deviceConstants = Constants.DEVICES as any;
+      const deviceRegexMap = Constants.DEVICES_RE as any;
+      
+      for (const key of Object.keys(deviceConstants)) {
+        const regexPattern = deviceRegexMap[key];
+        if (regexPattern && this.reTree.test(ua, regexPattern) && deviceConstants[key] !== Constants.DEVICES.ANDROID) {
+          this.device = deviceConstants[key];
+          break; // Early exit when found
         }
-        obj[Constants[mapping.const][item]] = this.reTree.test(ua, Constants[`${mapping.const}_RE`][item]);
-        return obj;
-      }, {});
-    });
+      }
+    }
+    
+    this.os_version = this.detectFromMapping(ua, { const: 'OS_VERSIONS', prop: 'os_version' });
 
-    mappings.forEach(mapping => {
-      this[mapping.prop] = Object.keys(Constants[mapping.const])
-        .map(key => {
-          return Constants[mapping.const][key];
-        })
-        .reduce((previousValue, currentValue) => {
-          if (mapping.prop === 'device' && previousValue === Constants[mapping.const].ANDROID) {
-            // if we have the actual device found, instead of 'Android', return the actual device
-            return this[mapping.prop][currentValue] ? currentValue : previousValue;
-          } else {
-            return previousValue === Constants[mapping.const].UNKNOWN && this[mapping.prop][currentValue]
-              ? currentValue
-              : previousValue;
-          }
-        }, Constants[mapping.const].UNKNOWN);
-    });
-
+    // Browser version detection - only if browser is known
     this.browser_version = '0';
     if (this.browser !== Constants.BROWSERS.UNKNOWN) {
       const re = Constants.BROWSER_VERSIONS_RE[this.browser];
-      const res = this.reTree.exec(ua, re);
-      if (!!res) {
-        this.browser_version = res[1];
+      if (re) {
+        const res = this.reTree.exec(ua, re);
+        if (!!res) {
+          this.browser_version = res[1];
+        }
       }
     }
+
+    // Orientation detection
     if (typeof window !== 'undefined' && window.matchMedia) {
       this.orientation = window.matchMedia('(orientation: landscape)').matches
         ? OrientationType.Landscape
@@ -118,6 +129,7 @@ export class DeviceDetectorService {
       this.orientation = Constants.GENERAL.UKNOWN;
     }
 
+    // Device type detection - lazy evaluation
     this.deviceType = this.isTablet()
       ? DeviceType.Tablet
       : this.isMobile(this.userAgent)
@@ -156,10 +168,14 @@ export class DeviceDetectorService {
     if (this.isTablet(userAgent)) {
       return false;
     }
-    const match = Object.keys(Constants.MOBILES_RE).find(mobile => {
-      return this.reTree.test(userAgent, Constants.MOBILES_RE[mobile]);
-    });
-    return !!match;
+    
+    // Early exit optimization - stop at first match
+    for (const key of Object.keys(Constants.MOBILES_RE)) {
+      if (this.reTree.test(userAgent, Constants.MOBILES_RE[key])) {
+        return true;
+      }
+    }
+    return false;
   }
 
   /**
@@ -169,6 +185,7 @@ export class DeviceDetectorService {
    * @returns whether the current device is a tablet
    */
   public isTablet(userAgent = this.userAgent): boolean {
+    // iOS 13 Tablet special case
     if (
       isPlatformBrowser(this.platformId) &&
       (!!this.reTree.test(this.userAgent, Constants.TABLETS_RE[iPad]) ||
@@ -176,10 +193,14 @@ export class DeviceDetectorService {
     ) {
       return true;
     }
-    const match = Object.keys(Constants.TABLETS_RE).find(mobile => {
-      return !!this.reTree.test(userAgent, Constants.TABLETS_RE[mobile]);
-    });
-    return !!match;
+    
+    // Early exit optimization - stop at first match
+    for (const key of Object.keys(Constants.TABLETS_RE)) {
+      if (this.reTree.test(userAgent, Constants.TABLETS_RE[key])) {
+        return true;
+      }
+    }
+    return false;
   }
 
   /**
