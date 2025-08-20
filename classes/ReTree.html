@@ -139,6 +139,21 @@
     <h3 id="index">Index</h3>
     <table class="table table-sm table-bordered index-table">
         <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#regexCache" >regexCache</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
 
                 <tr>
                     <td class="col-md-4">
@@ -151,6 +166,10 @@
                             <li>
                                     <span class="modifier">Public</span>
                                 <a href="#exec" >exec</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#getRegex" >getRegex</a>
                             </li>
                             <li>
                                     <span class="modifier">Public</span>
@@ -179,7 +198,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="5" class="link-to-prism">projects/ngx-device-detector/src/lib/retree.ts:5</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="6" class="link-to-prism">projects/ngx-device-detector/src/lib/retree.ts:6</a></div>
                             </td>
                         </tr>
 
@@ -187,6 +206,38 @@
         </table>
 </section>
 
+            <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="regexCache"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>regexCache</b></span>
+                        <a href="#regexCache"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new Map&lt;string, RegExp&gt;()</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="6" class="link-to-prism">projects/ngx-device-detector/src/lib/retree.ts:6</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
 
             <section data-compodoc="block-methods">
     
@@ -215,8 +266,8 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="30"
-                                    class="link-to-prism">projects/ngx-device-detector/src/lib/retree.ts:30</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="39"
+                                    class="link-to-prism">projects/ngx-device-detector/src/lib/retree.ts:39</a></div>
                         </td>
                     </tr>
 
@@ -278,6 +329,75 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
+                    <a name="getRegex"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>getRegex</b></span>
+                        <a href="#getRegex"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>getRegex(pattern: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="10"
+                                    class="link-to-prism">projects/ngx-device-detector/src/lib/retree.ts:10</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>pattern</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>RegExp</code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
                     <a name="test"></a>
                     <span class="name">
                             <span class="modifier">Public</span>
@@ -296,8 +416,8 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="8"
-                                    class="link-to-prism">projects/ngx-device-detector/src/lib/retree.ts:8</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="17"
+                                    class="link-to-prism">projects/ngx-device-detector/src/lib/retree.ts:17</a></div>
                         </td>
                     </tr>
 
@@ -366,11 +486,20 @@
 
     <div class="tab-pane fade  tab-source-code" id="source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">export class ReTree {
+  private regexCache &#x3D; new Map&lt;string, RegExp&gt;();
+
   constructor() {}
+
+  private getRegex(pattern: string): RegExp {
+    if (!this.regexCache.has(pattern)) {
+      this.regexCache.set(pattern, new RegExp(pattern));
+    }
+    return this.regexCache.get(pattern)!;
+  }
 
   public test(str: string, regex: any): any {
     if (typeof regex &#x3D;&#x3D;&#x3D; &#x27;string&#x27;) {
-      regex &#x3D; new RegExp(regex);
+      regex &#x3D; this.getRegex(regex);
     }
 
     if (regex instanceof RegExp) {
@@ -392,7 +521,7 @@
 
   public exec(str: string, regex: any): any {
     if (typeof regex &#x3D;&#x3D;&#x3D; &#x27;string&#x27;) {
-      regex &#x3D; new RegExp(regex);
+      regex &#x3D; this.getRegex(regex);
     }
 
     if (regex instanceof RegExp) {
