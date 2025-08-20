@@ -33,6 +33,7 @@ describe('DeviceDetectorService', () => {
         browser_version: '11.0',
         deviceType: 'mobile',
         orientation: 'Unknown',
+        isDesktopMode: false,
       };
       expect(service.getDeviceInfo()).toEqual(deviceInformations);
     },
@@ -426,4 +427,76 @@ describe('DeviceDetectorService', () => {
       expect(avgTimePerCall).toBeLessThan(5);
     },
   ));
+
+  describe('Desktop Mode Detection', () => {
+    it('should detect regular desktop as NOT in desktop mode', inject(
+      [DeviceDetectorService],
+      (service: DeviceDetectorService) => {
+        const desktopUA = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36';
+        service.setDeviceInfo(desktopUA);
+        
+        expect(service.isDesktopModeEnabled()).toBeFalsy();
+        expect(service.getDeviceInfo().isDesktopMode).toBeFalsy();
+        expect(service.getDeviceInfo().deviceType).toBe('desktop');
+      }
+    ));
+
+    it('should detect regular mobile as NOT in desktop mode', inject(
+      [DeviceDetectorService],
+      (service: DeviceDetectorService) => {
+        const mobileUA = 'Mozilla/5.0 (iPhone; CPU iPhone OS 14_6 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Mobile/15E148 Safari/604.1';
+        service.setDeviceInfo(mobileUA);
+        
+        expect(service.isDesktopModeEnabled()).toBeFalsy();
+        expect(service.getDeviceInfo().isDesktopMode).toBeFalsy();
+        expect(service.getDeviceInfo().deviceType).toBe('mobile');
+      }
+    ));
+
+    it('should detect tablet as NOT in desktop mode', inject(
+      [DeviceDetectorService],
+      (service: DeviceDetectorService) => {
+        const tabletUA = 'Mozilla/5.0 (iPad; CPU OS 14_6 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Mobile/15E148 Safari/604.1';
+        service.setDeviceInfo(tabletUA);
+        
+        expect(service.isDesktopModeEnabled()).toBeFalsy();
+        expect(service.getDeviceInfo().isDesktopMode).toBeFalsy();
+        expect(service.getDeviceInfo().deviceType).toBe('tablet');
+      }
+    ));
+
+    // Note: These tests simulate desktop mode scenarios, but since we can't mock 
+    // browser APIs like touch support in Jest without significant setup,
+    // we test the logic flow and ensure proper integration
+    it('should include isDesktopMode property in device info', inject(
+      [DeviceDetectorService],
+      (service: DeviceDetectorService) => {
+        const userAgent = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36';
+        service.setDeviceInfo(userAgent);
+        
+        const deviceInfo = service.getDeviceInfo();
+        expect(deviceInfo.hasOwnProperty('isDesktopMode')).toBeTruthy();
+        expect(typeof deviceInfo.isDesktopMode).toBe('boolean');
+      }
+    ));
+
+    it('should have isDesktopModeEnabled method available', inject(
+      [DeviceDetectorService],
+      (service: DeviceDetectorService) => {
+        expect(typeof service.isDesktopModeEnabled).toBe('function');
+        expect(typeof service.isDesktopModeEnabled()).toBe('boolean');
+      }
+    ));
+
+    it('should maintain consistency between isDesktopModeEnabled method and DeviceInfo property', inject(
+      [DeviceDetectorService],
+      (service: DeviceDetectorService) => {
+        const userAgent = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36';
+        service.setDeviceInfo(userAgent);
+        
+        const deviceInfo = service.getDeviceInfo();
+        expect(service.isDesktopModeEnabled()).toEqual(deviceInfo.isDesktopMode);
+      }
+    ));
+  });
 });

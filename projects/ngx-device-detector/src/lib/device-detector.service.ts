@@ -16,6 +16,7 @@ export interface DeviceInfo {
   browser_version: string;
   deviceType: string;
   orientation: string;
+  isDesktopMode: boolean;
 }
 export enum DeviceType {
   Mobile = 'mobile',
@@ -44,6 +45,7 @@ export class DeviceDetectorService {
   reTree = new ReTree();
   deviceType = '';
   orientation = '';
+  isDesktopMode = false;
   constructor(@Inject(PLATFORM_ID) private platformId: any) {
     if (isPlatformBrowser(this.platformId) && typeof window !== 'undefined') {
       this.userAgent = window.navigator.userAgent;
@@ -80,6 +82,89 @@ export class DeviceDetectorService {
     }
 
     return constants.UNKNOWN || Constants.GENERAL.UKNOWN;
+  }
+
+  /**
+   * Detects if a mobile device is running in desktop mode
+   * Desktop mode occurs when mobile browsers request desktop websites
+   * by sending desktop user agent strings while retaining mobile characteristics
+   */
+  private detectDesktopMode(ua: string): boolean {
+    if (!isPlatformBrowser(this.platformId) || typeof window === 'undefined') {
+      return false;
+    }
+
+    // If user agent already indicates mobile/tablet, it's not desktop mode
+    if (this.deviceType === DeviceType.Mobile || this.deviceType === DeviceType.Tablet) {
+      return false;
+    }
+
+    // If it's genuinely desktop, it's not desktop mode
+    if (this.deviceType !== DeviceType.Desktop) {
+      return false;
+    }
+
+    // Desktop mode detection indicators
+    const indicators = {
+      // Touch support despite desktop UA
+      hasTouch: 'ontouchstart' in window || (navigator.maxTouchPoints && navigator.maxTouchPoints > 0),
+      
+      // Mobile-like screen dimensions (rough heuristics)
+      hasMobileScreenSize: this.hasMobileScreenDimensions(),
+      
+      // Mobile browser signatures in desktop mode
+      hasMobileBrowserSignatures: this.hasMobileBrowserSignatures(ua),
+      
+      // Orientation support (more common on mobile)
+      hasOrientationSupport: 'orientation' in window || 'onorientationchange' in window,
+      
+      // Device motion/orientation APIs (mobile-specific)
+      hasDeviceMotion: 'DeviceMotionEvent' in window || 'DeviceOrientationEvent' in window
+    };
+
+    // If device has touch + desktop UA, it's likely desktop mode
+    if (indicators.hasTouch) {
+      return true;
+    }
+
+    // If multiple mobile indicators are present with desktop UA, likely desktop mode
+    const mobileIndicatorCount = Object.values(indicators).filter(Boolean).length;
+    return mobileIndicatorCount >= 2;
+  }
+
+  /**
+   * Checks if screen dimensions suggest mobile device
+   */
+  private hasMobileScreenDimensions(): boolean {
+    if (typeof window === 'undefined' || !window.screen) {
+      return false;
+    }
+
+    const { width, height } = window.screen;
+    const maxDimension = Math.max(width, height);
+    const minDimension = Math.min(width, height);
+    
+    // Typical mobile screen characteristics
+    // Most phones: width <= 428px, most tablets: width <= 1024px
+    return maxDimension <= 1024 && minDimension <= 768;
+  }
+
+  /**
+   * Checks for mobile browser signatures that might leak through in desktop mode
+   */
+  private hasMobileBrowserSignatures(ua: string): boolean {
+    // Some mobile browsers leave traces even in desktop mode
+    const mobileSignatures = [
+      /Mobile.*Safari/,     // Mobile Safari signatures
+      /Chrome.*Mobile/,     // Chrome mobile signatures  
+      /Android.*Chrome/,    // Android Chrome hints
+      /iPhone.*CriOS/,      // Chrome on iOS hints
+      /iPad.*CriOS/,        // Chrome on iPad hints
+      /Mobile.*Firefox/,    // Firefox mobile hints
+      /FxiOS/               // Firefox on iOS
+    ];
+
+    return mobileSignatures.some(pattern => pattern.test(ua));
   }
 
   setDeviceInfo(ua = this.userAgent): void {
@@ -137,6 +222,9 @@ export class DeviceDetectorService {
         : this.isDesktop(this.userAgent)
           ? DeviceType.Desktop
           : DeviceType.Unknown;
+
+    // Desktop mode detection - check if mobile device is masquerading as desktop
+    this.isDesktopMode = this.detectDesktopMode(ua);
   }
 
   /**
@@ -154,6 +242,7 @@ export class DeviceDetectorService {
       browser_version: this.browser_version,
       deviceType: this.deviceType,
       orientation: this.orientation,
+      isDesktopMode: this.isDesktopMode,
     };
     return deviceInfo;
   }
@@ -216,5 +305,15 @@ export class DeviceDetectorService {
       }
     }
     return Constants.DESKTOP_DEVICES.indexOf(this.device) > -1;
+  }
+
+  /**
+   * @desc Checks if the current device is a mobile device running in desktop mode.
+   * Desktop mode occurs when mobile browsers request desktop websites by sending
+   * desktop user agent strings while retaining mobile hardware characteristics.
+   * @returns whether the current device is in desktop mode
+   */
+  public isDesktopModeEnabled(): boolean {
+    return this.isDesktopMode;
   }
 }
