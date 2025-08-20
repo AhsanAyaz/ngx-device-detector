@@ -148,6 +148,9 @@
                                 <a href="#deviceType" >deviceType</a>
                             </li>
                             <li>
+                                <a href="#isDesktopMode" >isDesktopMode</a>
+                            </li>
+                            <li>
                                 <a href="#orientation" >orientation</a>
                             </li>
                             <li>
@@ -178,12 +181,32 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#detectDesktopMode" >detectDesktopMode</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#detectFromMapping" >detectFromMapping</a>
+                            </li>
+                            <li>
                                     <span class="modifier">Public</span>
                                 <a href="#getDeviceInfo" >getDeviceInfo</a>
                             </li>
                             <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#hasMobileBrowserSignatures" >hasMobileBrowserSignatures</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#hasMobileScreenDimensions" >hasMobileScreenDimensions</a>
+                            </li>
+                            <li>
                                     <span class="modifier">Public</span>
                                 <a href="#isDesktop" >isDesktop</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#isDesktopModeEnabled" >isDesktopModeEnabled</a>
                             </li>
                             <li>
                                     <span class="modifier">Public</span>
@@ -219,7 +242,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="46" class="link-to-prism">projects/ngx-device-detector/src/lib/device-detector.service.ts:46</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="48" class="link-to-prism">projects/ngx-device-detector/src/lib/device-detector.service.ts:48</a></div>
                             </td>
                         </tr>
 
@@ -266,6 +289,162 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
+                    <a name="detectDesktopMode"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>detectDesktopMode</b></span>
+                        <a href="#detectDesktopMode"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>detectDesktopMode(ua: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="96"
+                                    class="link-to-prism">projects/ngx-device-detector/src/lib/device-detector.service.ts:96</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Detects if a mobile device is running in desktop mode
+Desktop mode occurs when mobile browsers request desktop websites
+by sending desktop user agent strings while retaining mobile characteristics</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>ua</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="detectFromMapping"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>detectFromMapping</b></span>
+                        <a href="#detectFromMapping"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>detectFromMapping(ua: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, mapping: literal type)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="61"
+                                    class="link-to-prism">projects/ngx-device-detector/src/lib/device-detector.service.ts:61</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>This value is later accessible for usage</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>ua</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>mapping</td>
+                                            <td>
+                                                        <code>literal type</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
                     <a name="getDeviceInfo"></a>
                     <span class="name">
                             <span class="modifier">Public</span>
@@ -284,8 +463,8 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="135"
-                                    class="link-to-prism">projects/ngx-device-detector/src/lib/device-detector.service.ts:135</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="239"
+                                    class="link-to-prism">projects/ngx-device-detector/src/lib/device-detector.service.ts:239</a></div>
                         </td>
                     </tr>
 
@@ -301,6 +480,118 @@
                                 <p>the device information object.</p>
 
                             </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="hasMobileBrowserSignatures"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>hasMobileBrowserSignatures</b></span>
+                        <a href="#hasMobileBrowserSignatures"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>hasMobileBrowserSignatures(ua: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="159"
+                                    class="link-to-prism">projects/ngx-device-detector/src/lib/device-detector.service.ts:159</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Checks for mobile browser signatures that might leak through in desktop mode</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>ua</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="hasMobileScreenDimensions"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>hasMobileScreenDimensions</b></span>
+                        <a href="#hasMobileScreenDimensions"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>hasMobileScreenDimensions()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="142"
+                                    class="link-to-prism">projects/ngx-device-detector/src/lib/device-detector.service.ts:142</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Checks if screen dimensions suggest mobile device</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                        </div>
                 </td>
             </tr>
         </tbody>
@@ -327,8 +618,8 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="191"
-                                    class="link-to-prism">projects/ngx-device-detector/src/lib/device-detector.service.ts:191</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="309"
+                                    class="link-to-prism">projects/ngx-device-detector/src/lib/device-detector.service.ts:309</a></div>
                         </td>
                     </tr>
 
@@ -381,6 +672,52 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
+                    <a name="isDesktopModeEnabled"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>isDesktopModeEnabled</b></span>
+                        <a href="#isDesktopModeEnabled"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>isDesktopModeEnabled()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="322"
+                                    class="link-to-prism">projects/ngx-device-detector/src/lib/device-detector.service.ts:322</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Desktop mode occurs when mobile browsers request desktop websites by sending
+desktop user agent strings while retaining mobile hardware characteristics.</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>whether the current device is in desktop mode</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
                     <a name="isMobile"></a>
                     <span class="name">
                             <span class="modifier">Public</span>
@@ -399,8 +736,8 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="155"
-                                    class="link-to-prism">projects/ngx-device-detector/src/lib/device-detector.service.ts:155</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="260"
+                                    class="link-to-prism">projects/ngx-device-detector/src/lib/device-detector.service.ts:260</a></div>
                         </td>
                     </tr>
 
@@ -471,8 +808,8 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="171"
-                                    class="link-to-prism">projects/ngx-device-detector/src/lib/device-detector.service.ts:171</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="280"
+                                    class="link-to-prism">projects/ngx-device-detector/src/lib/device-detector.service.ts:280</a></div>
                         </td>
                     </tr>
 
@@ -541,16 +878,14 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="59"
-                                    class="link-to-prism">projects/ngx-device-detector/src/lib/device-detector.service.ts:59</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="174"
+                                    class="link-to-prism">projects/ngx-device-detector/src/lib/device-detector.service.ts:174</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                        <div class="io-description"><p>This value is later accessible for usage</p>
-</div>
 
                             <div class="io-description">
                                 <b>Parameters :</b>
@@ -620,7 +955,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="40" class="link-to-prism">projects/ngx-device-detector/src/lib/device-detector.service.ts:40</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="41" class="link-to-prism">projects/ngx-device-detector/src/lib/device-detector.service.ts:41</a></div>
                         </td>
                     </tr>
 
@@ -651,7 +986,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="43" class="link-to-prism">projects/ngx-device-detector/src/lib/device-detector.service.ts:43</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="44" class="link-to-prism">projects/ngx-device-detector/src/lib/device-detector.service.ts:44</a></div>
                         </td>
                     </tr>
 
@@ -682,7 +1017,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="41" class="link-to-prism">projects/ngx-device-detector/src/lib/device-detector.service.ts:41</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="42" class="link-to-prism">projects/ngx-device-detector/src/lib/device-detector.service.ts:42</a></div>
                         </td>
                     </tr>
 
@@ -713,7 +1048,32 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="45" class="link-to-prism">projects/ngx-device-detector/src/lib/device-detector.service.ts:45</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="46" class="link-to-prism">projects/ngx-device-detector/src/lib/device-detector.service.ts:46</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="isDesktopMode"></a>
+                    <span class="name">
+                        <span ><b>isDesktopMode</b></span>
+                        <a href="#isDesktopMode"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="48" class="link-to-prism">projects/ngx-device-detector/src/lib/device-detector.service.ts:48</a></div>
                         </td>
                     </tr>
 
@@ -744,7 +1104,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="46" class="link-to-prism">projects/ngx-device-detector/src/lib/device-detector.service.ts:46</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="47" class="link-to-prism">projects/ngx-device-detector/src/lib/device-detector.service.ts:47</a></div>
                         </td>
                     </tr>
 
@@ -775,7 +1135,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="39" class="link-to-prism">projects/ngx-device-detector/src/lib/device-detector.service.ts:39</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="40" class="link-to-prism">projects/ngx-device-detector/src/lib/device-detector.service.ts:40</a></div>
                         </td>
                     </tr>
 
@@ -806,7 +1166,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="42" class="link-to-prism">projects/ngx-device-detector/src/lib/device-detector.service.ts:42</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="43" class="link-to-prism">projects/ngx-device-detector/src/lib/device-detector.service.ts:43</a></div>
                         </td>
                     </tr>
 
@@ -831,7 +1191,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="44" class="link-to-prism">projects/ngx-device-detector/src/lib/device-detector.service.ts:44</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="45" class="link-to-prism">projects/ngx-device-detector/src/lib/device-detector.service.ts:45</a></div>
                         </td>
                     </tr>
 
@@ -862,7 +1222,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="37" class="link-to-prism">projects/ngx-device-detector/src/lib/device-detector.service.ts:37</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="38" class="link-to-prism">projects/ngx-device-detector/src/lib/device-detector.service.ts:38</a></div>
                         </td>
                     </tr>
 
@@ -893,7 +1253,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="38" class="link-to-prism">projects/ngx-device-detector/src/lib/device-detector.service.ts:38</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="39" class="link-to-prism">projects/ngx-device-detector/src/lib/device-detector.service.ts:39</a></div>
                         </td>
                     </tr>
 
@@ -920,6 +1280,7 @@ export interface DeviceInfo {
   browser_version: string;
   deviceType: string;
   orientation: string;
+  isDesktopMode: boolean;
 }
 export enum DeviceType {
   Mobile &#x3D; &#x27;mobile&#x27;,
@@ -948,6 +1309,7 @@ export class DeviceDetectorService {
   reTree &#x3D; new ReTree();
   deviceType &#x3D; &#x27;&#x27;;
   orientation &#x3D; &#x27;&#x27;;
+  isDesktopMode &#x3D; false;
   constructor(@Inject(PLATFORM_ID) private platformId: any) {
     if (isPlatformBrowser(this.platformId) &amp;&amp; typeof window !&#x3D;&#x3D; &#x27;undefined&#x27;) {
       this.userAgent &#x3D; window.navigator.userAgent;
@@ -960,60 +1322,158 @@ export class DeviceDetectorService {
    * @desc Sets the initial value of the device when the service is initiated.
    * This value is later accessible for usage
    */
+  private detectFromMapping(ua: string, mapping: { const: string; prop: string }): string {
+    const constants &#x3D; Constants[mapping.const] as any;
+    const regexMap &#x3D; Constants[&#x60;${mapping.const}_RE&#x60;] as any;
+
+    // Special case for iOS 13 Tablet hack
+    if (
+      constants.device &amp;&amp;
+      constants.device &#x3D;&#x3D;&#x3D; &#x27;device&#x27; &amp;&amp;
+      isPlatformBrowser(this.platformId) &amp;&amp;
+      (!!this.reTree.test(this.userAgent, Constants.TABLETS_RE[iPad]) ||
+        (typeof navigator !&#x3D;&#x3D; &#x27;undefined&#x27; &amp;&amp;
+          navigator.platform &amp;&amp;
+          // eslint-disable-next-line deprecation/deprecation
+          navigator.platform.includes(&#x27;Mac&#x27;) &amp;&amp;
+          navigator.maxTouchPoints &gt; 1))
+    ) {
+      return iPad;
+    }
+
+    // Find first match - early exit optimization
+    for (const key of Object.keys(constants)) {
+      const regexPattern &#x3D; regexMap[key];
+      if (regexPattern &amp;&amp; this.reTree.test(ua, regexPattern)) {
+        return constants[key];
+      }
+    }
+
+    return constants.UNKNOWN || Constants.GENERAL.UKNOWN;
+  }
+
+  /**
+   * Detects if a mobile device is running in desktop mode
+   * Desktop mode occurs when mobile browsers request desktop websites
+   * by sending desktop user agent strings while retaining mobile characteristics
+   */
+  private detectDesktopMode(ua: string): boolean {
+    if (!isPlatformBrowser(this.platformId) || typeof window &#x3D;&#x3D;&#x3D; &#x27;undefined&#x27;) {
+      return false;
+    }
+
+    // If user agent already indicates mobile/tablet, it&#x27;s not desktop mode
+    if (this.deviceType &#x3D;&#x3D;&#x3D; DeviceType.Mobile || this.deviceType &#x3D;&#x3D;&#x3D; DeviceType.Tablet) {
+      return false;
+    }
+
+    // If it&#x27;s genuinely desktop, it&#x27;s not desktop mode
+    if (this.deviceType !&#x3D;&#x3D; DeviceType.Desktop) {
+      return false;
+    }
+
+    // Desktop mode detection indicators
+    const indicators &#x3D; {
+      // Touch support despite desktop UA
+      hasTouch: &#x27;ontouchstart&#x27; in window || (navigator.maxTouchPoints &amp;&amp; navigator.maxTouchPoints &gt; 0),
+
+      // Mobile-like screen dimensions (rough heuristics)
+      hasMobileScreenSize: this.hasMobileScreenDimensions(),
+
+      // Mobile browser signatures in desktop mode
+      hasMobileBrowserSignatures: this.hasMobileBrowserSignatures(ua),
+
+      // Orientation support (more common on mobile)
+      hasOrientationSupport: &#x27;orientation&#x27; in window || &#x27;onorientationchange&#x27; in window,
+
+      // Device motion/orientation APIs (mobile-specific)
+      hasDeviceMotion: &#x27;DeviceMotionEvent&#x27; in window || &#x27;DeviceOrientationEvent&#x27; in window,
+    };
+
+    // If device has touch + desktop UA, it&#x27;s likely desktop mode
+    if (indicators.hasTouch) {
+      return true;
+    }
+
+    // If multiple mobile indicators are present with desktop UA, likely desktop mode
+    const mobileIndicatorCount &#x3D; Object.values(indicators).filter(Boolean).length;
+    return mobileIndicatorCount &gt;&#x3D; 2;
+  }
+
+  /**
+   * Checks if screen dimensions suggest mobile device
+   */
+  private hasMobileScreenDimensions(): boolean {
+    if (typeof window &#x3D;&#x3D;&#x3D; &#x27;undefined&#x27; || !window.screen) {
+      return false;
+    }
+
+    const { width, height } &#x3D; window.screen;
+    const maxDimension &#x3D; Math.max(width, height);
+    const minDimension &#x3D; Math.min(width, height);
+
+    // Typical mobile screen characteristics
+    // Most phones: width &lt;&#x3D; 428px, most tablets: width &lt;&#x3D; 1024px
+    return maxDimension &lt;&#x3D; 1024 &amp;&amp; minDimension &lt;&#x3D; 768;
+  }
+
+  /**
+   * Checks for mobile browser signatures that might leak through in desktop mode
+   */
+  private hasMobileBrowserSignatures(ua: string): boolean {
+    // Some mobile browsers leave traces even in desktop mode
+    const mobileSignatures &#x3D; [
+      /Mobile.*Safari/, // Mobile Safari signatures
+      /Chrome.*Mobile/, // Chrome mobile signatures
+      /Android.*Chrome/, // Android Chrome hints
+      /iPhone.*CriOS/, // Chrome on iOS hints
+      /iPad.*CriOS/, // Chrome on iPad hints
+      /Mobile.*Firefox/, // Firefox mobile hints
+      /FxiOS/, // Firefox on iOS
+    ];
+
+    return mobileSignatures.some(pattern &#x3D;&gt; pattern.test(ua));
+  }
+
   setDeviceInfo(ua &#x3D; this.userAgent): void {
     if (ua !&#x3D;&#x3D; this.userAgent) {
       this.userAgent &#x3D; ua;
     }
-    const mappings &#x3D; [
-      { const: &#x27;OS&#x27;, prop: &#x27;os&#x27; },
-      { const: &#x27;BROWSERS&#x27;, prop: &#x27;browser&#x27; },
-      { const: &#x27;DEVICES&#x27;, prop: &#x27;device&#x27; },
-      { const: &#x27;OS_VERSIONS&#x27;, prop: &#x27;os_version&#x27; },
-    ];
 
-    mappings.forEach(mapping &#x3D;&gt; {
-      this[mapping.prop] &#x3D; Object.keys(Constants[mapping.const]).reduce((obj: any, item: any) &#x3D;&gt; {
-        if (Constants[mapping.const][item] &#x3D;&#x3D;&#x3D; &#x27;device&#x27;) {
-          // hack for iOS 13 Tablet
-          if (
-            isPlatformBrowser(this.platformId) &amp;&amp;
-            (!!this.reTree.test(this.userAgent, Constants.TABLETS_RE[iPad]) ||
-              (navigator.platform &#x3D;&#x3D;&#x3D; &#x27;MacIntel&#x27; &amp;&amp; navigator.maxTouchPoints &gt; 1))
-          ) {
-            obj[Constants[mapping.const][item]] &#x3D; iPad;
-            return Object;
-          }
+    // Optimized detection with early exit
+    this.os &#x3D; this.detectFromMapping(ua, { const: &#x27;OS&#x27;, prop: &#x27;os&#x27; });
+    this.browser &#x3D; this.detectFromMapping(ua, { const: &#x27;BROWSERS&#x27;, prop: &#x27;browser&#x27; });
+    this.device &#x3D; this.detectFromMapping(ua, { const: &#x27;DEVICES&#x27;, prop: &#x27;device&#x27; });
+
+    // Handle Android device refinement
+    if (this.device &#x3D;&#x3D;&#x3D; Constants.DEVICES.ANDROID) {
+      const deviceConstants &#x3D; Constants.DEVICES as any;
+      const deviceRegexMap &#x3D; Constants.DEVICES_RE as any;
+
+      for (const key of Object.keys(deviceConstants)) {
+        const regexPattern &#x3D; deviceRegexMap[key];
+        if (regexPattern &amp;&amp; this.reTree.test(ua, regexPattern) &amp;&amp; deviceConstants[key] !&#x3D;&#x3D; Constants.DEVICES.ANDROID) {
+          this.device &#x3D; deviceConstants[key];
+          break; // Early exit when found
         }
-        obj[Constants[mapping.const][item]] &#x3D; this.reTree.test(ua, Constants[&#x60;${mapping.const}_RE&#x60;][item]);
-        return obj;
-      }, {});
-    });
+      }
+    }
 
-    mappings.forEach(mapping &#x3D;&gt; {
-      this[mapping.prop] &#x3D; Object.keys(Constants[mapping.const])
-        .map(key &#x3D;&gt; {
-          return Constants[mapping.const][key];
-        })
-        .reduce((previousValue, currentValue) &#x3D;&gt; {
-          if (mapping.prop &#x3D;&#x3D;&#x3D; &#x27;device&#x27; &amp;&amp; previousValue &#x3D;&#x3D;&#x3D; Constants[mapping.const].ANDROID) {
-            // if we have the actual device found, instead of &#x27;Android&#x27;, return the actual device
-            return this[mapping.prop][currentValue] ? currentValue : previousValue;
-          } else {
-            return previousValue &#x3D;&#x3D;&#x3D; Constants[mapping.const].UNKNOWN &amp;&amp; this[mapping.prop][currentValue]
-              ? currentValue
-              : previousValue;
-          }
-        }, Constants[mapping.const].UNKNOWN);
-    });
+    this.os_version &#x3D; this.detectFromMapping(ua, { const: &#x27;OS_VERSIONS&#x27;, prop: &#x27;os_version&#x27; });
 
+    // Browser version detection - only if browser is known
     this.browser_version &#x3D; &#x27;0&#x27;;
     if (this.browser !&#x3D;&#x3D; Constants.BROWSERS.UNKNOWN) {
       const re &#x3D; Constants.BROWSER_VERSIONS_RE[this.browser];
-      const res &#x3D; this.reTree.exec(ua, re);
-      if (!!res) {
-        this.browser_version &#x3D; res[1];
+      if (re) {
+        const res &#x3D; this.reTree.exec(ua, re);
+        if (res) {
+          this.browser_version &#x3D; res[1];
+        }
       }
     }
+
+    // Orientation detection
     if (typeof window !&#x3D;&#x3D; &#x27;undefined&#x27; &amp;&amp; window.matchMedia) {
       this.orientation &#x3D; window.matchMedia(&#x27;(orientation: landscape)&#x27;).matches
         ? OrientationType.Landscape
@@ -1022,6 +1482,7 @@ export class DeviceDetectorService {
       this.orientation &#x3D; Constants.GENERAL.UKNOWN;
     }
 
+    // Device type detection - lazy evaluation
     this.deviceType &#x3D; this.isTablet()
       ? DeviceType.Tablet
       : this.isMobile(this.userAgent)
@@ -1029,6 +1490,9 @@ export class DeviceDetectorService {
         : this.isDesktop(this.userAgent)
           ? DeviceType.Desktop
           : DeviceType.Unknown;
+
+    // Desktop mode detection - check if mobile device is masquerading as desktop
+    this.isDesktopMode &#x3D; this.detectDesktopMode(ua);
   }
 
   /**
@@ -1046,6 +1510,7 @@ export class DeviceDetectorService {
       browser_version: this.browser_version,
       deviceType: this.deviceType,
       orientation: this.orientation,
+      isDesktopMode: this.isDesktopMode,
     };
     return deviceInfo;
   }
@@ -1060,10 +1525,14 @@ export class DeviceDetectorService {
     if (this.isTablet(userAgent)) {
       return false;
     }
-    const match &#x3D; Object.keys(Constants.MOBILES_RE).find(mobile &#x3D;&gt; {
-      return this.reTree.test(userAgent, Constants.MOBILES_RE[mobile]);
-    });
-    return !!match;
+
+    // Early exit optimization - stop at first match
+    for (const key of Object.keys(Constants.MOBILES_RE)) {
+      if (this.reTree.test(userAgent, Constants.MOBILES_RE[key])) {
+        return true;
+      }
+    }
+    return false;
   }
 
   /**
@@ -1073,17 +1542,26 @@ export class DeviceDetectorService {
    * @returns whether the current device is a tablet
    */
   public isTablet(userAgent &#x3D; this.userAgent): boolean {
+    // iOS 13 Tablet special case
     if (
       isPlatformBrowser(this.platformId) &amp;&amp;
       (!!this.reTree.test(this.userAgent, Constants.TABLETS_RE[iPad]) ||
-        (typeof navigator !&#x3D;&#x3D; &#x27;undefined&#x27; &amp;&amp; navigator.platform &#x3D;&#x3D;&#x3D; &#x27;MacIntel&#x27; &amp;&amp; navigator.maxTouchPoints &gt; 1))
+        (typeof navigator !&#x3D;&#x3D; &#x27;undefined&#x27; &amp;&amp;
+          navigator.platform &amp;&amp;
+          // eslint-disable-next-line deprecation/deprecation
+          navigator.platform.includes(&#x27;Mac&#x27;) &amp;&amp;
+          navigator.maxTouchPoints &gt; 1))
     ) {
       return true;
     }
-    const match &#x3D; Object.keys(Constants.TABLETS_RE).find(mobile &#x3D;&gt; {
-      return !!this.reTree.test(userAgent, Constants.TABLETS_RE[mobile]);
-    });
-    return !!match;
+
+    // Early exit optimization - stop at first match
+    for (const key of Object.keys(Constants.TABLETS_RE)) {
+      if (this.reTree.test(userAgent, Constants.TABLETS_RE[key])) {
+        return true;
+      }
+    }
+    return false;
   }
 
   /**
@@ -1093,12 +1571,20 @@ export class DeviceDetectorService {
    * @returns whether the current device is a desktop device
    */
   public isDesktop(userAgent &#x3D; this.userAgent): boolean {
-    if (this.device &#x3D;&#x3D;&#x3D; Constants.DEVICES.UNKNOWN) {
-      if (this.isMobile(userAgent) || this.isTablet(userAgent)) {
-        return false;
-      }
+    if (this.device &#x3D;&#x3D;&#x3D; Constants.DEVICES.UNKNOWN &amp;&amp; (this.isMobile(userAgent) || this.isTablet(userAgent))) {
+      return false;
     }
-    return Constants.DESKTOP_DEVICES.indexOf(this.device) &gt; -1;
+    return Constants.DESKTOP_DEVICES.includes(this.device);
+  }
+
+  /**
+   * @desc Checks if the current device is a mobile device running in desktop mode.
+   * Desktop mode occurs when mobile browsers request desktop websites by sending
+   * desktop user agent strings while retaining mobile hardware characteristics.
+   * @returns whether the current device is in desktop mode
+   */
+  public isDesktopModeEnabled(): boolean {
+    return this.isDesktopMode;
   }
 }
 </code></pre>
