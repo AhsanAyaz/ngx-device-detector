@@ -18,4 +18,4 @@ jobs:
       - name: Lint and Test
         run: npm run test && npm run lint
       - name: Build
-        run: npm run build:ci
+        run: npm run build:lib && npm run build:ci

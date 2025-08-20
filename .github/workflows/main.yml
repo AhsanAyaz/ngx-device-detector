@@ -18,7 +18,7 @@ jobs:
       - name: Lint and Test
         run: npm run test && npm run lint
       - name: Build
-        run: npm run build:ci && cp -R dist/demo/browser ./docs/demo
+        run: npm run build:lib && npm run build:ci && cp -R dist/demo/browser ./docs/demo
       - name: GitHub Pages action
         uses: peaceiris/actions-gh-pages@v3.9.3
         with:
