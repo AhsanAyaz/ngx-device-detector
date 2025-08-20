@@ -58,19 +58,23 @@ export class DeviceDetectorService {
    * @desc Sets the initial value of the device when the service is initiated.
    * This value is later accessible for usage
    */
-  private detectFromMapping(ua: string, mapping: { const: string, prop: string }): string {
+  private detectFromMapping(ua: string, mapping: { const: string; prop: string }): string {
     const constants = Constants[mapping.const] as any;
     const regexMap = Constants[`${mapping.const}_RE`] as any;
-    
+
     // Special case for iOS 13 Tablet hack
-    if (constants.device && constants.device === 'device') {
-      if (
-        isPlatformBrowser(this.platformId) &&
-        (!!this.reTree.test(this.userAgent, Constants.TABLETS_RE[iPad]) ||
-          (typeof navigator !== 'undefined' && navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1))
-      ) {
-        return iPad;
-      }
+    if (
+      constants.device &&
+      constants.device === 'device' &&
+      isPlatformBrowser(this.platformId) &&
+      (!!this.reTree.test(this.userAgent, Constants.TABLETS_RE[iPad]) ||
+        (typeof navigator !== 'undefined' &&
+          navigator.platform &&
+          // eslint-disable-next-line deprecation/deprecation
+          navigator.platform.includes('Mac') &&
+          navigator.maxTouchPoints > 1))
+    ) {
+      return iPad;
     }
 
     // Find first match - early exit optimization
@@ -108,18 +112,18 @@ export class DeviceDetectorService {
     const indicators = {
       // Touch support despite desktop UA
       hasTouch: 'ontouchstart' in window || (navigator.maxTouchPoints && navigator.maxTouchPoints > 0),
-      
+
       // Mobile-like screen dimensions (rough heuristics)
       hasMobileScreenSize: this.hasMobileScreenDimensions(),
-      
+
       // Mobile browser signatures in desktop mode
       hasMobileBrowserSignatures: this.hasMobileBrowserSignatures(ua),
-      
+
       // Orientation support (more common on mobile)
       hasOrientationSupport: 'orientation' in window || 'onorientationchange' in window,
-      
+
       // Device motion/orientation APIs (mobile-specific)
-      hasDeviceMotion: 'DeviceMotionEvent' in window || 'DeviceOrientationEvent' in window
+      hasDeviceMotion: 'DeviceMotionEvent' in window || 'DeviceOrientationEvent' in window,
     };
 
     // If device has touch + desktop UA, it's likely desktop mode
@@ -143,7 +147,7 @@ export class DeviceDetectorService {
     const { width, height } = window.screen;
     const maxDimension = Math.max(width, height);
     const minDimension = Math.min(width, height);
-    
+
     // Typical mobile screen characteristics
     // Most phones: width <= 428px, most tablets: width <= 1024px
     return maxDimension <= 1024 && minDimension <= 768;
@@ -155,13 +159,13 @@ export class DeviceDetectorService {
   private hasMobileBrowserSignatures(ua: string): boolean {
     // Some mobile browsers leave traces even in desktop mode
     const mobileSignatures = [
-      /Mobile.*Safari/,     // Mobile Safari signatures
-      /Chrome.*Mobile/,     // Chrome mobile signatures  
-      /Android.*Chrome/,    // Android Chrome hints
-      /iPhone.*CriOS/,      // Chrome on iOS hints
-      /iPad.*CriOS/,        // Chrome on iPad hints
-      /Mobile.*Firefox/,    // Firefox mobile hints
-      /FxiOS/               // Firefox on iOS
+      /Mobile.*Safari/, // Mobile Safari signatures
+      /Chrome.*Mobile/, // Chrome mobile signatures
+      /Android.*Chrome/, // Android Chrome hints
+      /iPhone.*CriOS/, // Chrome on iOS hints
+      /iPad.*CriOS/, // Chrome on iPad hints
+      /Mobile.*Firefox/, // Firefox mobile hints
+      /FxiOS/, // Firefox on iOS
     ];
 
     return mobileSignatures.some(pattern => pattern.test(ua));
@@ -176,12 +180,12 @@ export class DeviceDetectorService {
     this.os = this.detectFromMapping(ua, { const: 'OS', prop: 'os' });
     this.browser = this.detectFromMapping(ua, { const: 'BROWSERS', prop: 'browser' });
     this.device = this.detectFromMapping(ua, { const: 'DEVICES', prop: 'device' });
-    
+
     // Handle Android device refinement
     if (this.device === Constants.DEVICES.ANDROID) {
       const deviceConstants = Constants.DEVICES as any;
       const deviceRegexMap = Constants.DEVICES_RE as any;
-      
+
       for (const key of Object.keys(deviceConstants)) {
         const regexPattern = deviceRegexMap[key];
         if (regexPattern && this.reTree.test(ua, regexPattern) && deviceConstants[key] !== Constants.DEVICES.ANDROID) {
@@ -190,7 +194,7 @@ export class DeviceDetectorService {
         }
       }
     }
-    
+
     this.os_version = this.detectFromMapping(ua, { const: 'OS_VERSIONS', prop: 'os_version' });
 
     // Browser version detection - only if browser is known
@@ -199,7 +203,7 @@ export class DeviceDetectorService {
       const re = Constants.BROWSER_VERSIONS_RE[this.browser];
       if (re) {
         const res = this.reTree.exec(ua, re);
-        if (!!res) {
+        if (res) {
           this.browser_version = res[1];
         }
       }
@@ -257,7 +261,7 @@ export class DeviceDetectorService {
     if (this.isTablet(userAgent)) {
       return false;
     }
-    
+
     // Early exit optimization - stop at first match
     for (const key of Object.keys(Constants.MOBILES_RE)) {
       if (this.reTree.test(userAgent, Constants.MOBILES_RE[key])) {
@@ -278,11 +282,15 @@ export class DeviceDetectorService {
     if (
       isPlatformBrowser(this.platformId) &&
       (!!this.reTree.test(this.userAgent, Constants.TABLETS_RE[iPad]) ||
-        (typeof navigator !== 'undefined' && navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1))
+        (typeof navigator !== 'undefined' &&
+          navigator.platform &&
+          // eslint-disable-next-line deprecation/deprecation
+          navigator.platform.includes('Mac') &&
+          navigator.maxTouchPoints > 1))
     ) {
       return true;
     }
-    
+
     // Early exit optimization - stop at first match
     for (const key of Object.keys(Constants.TABLETS_RE)) {
       if (this.reTree.test(userAgent, Constants.TABLETS_RE[key])) {
@@ -299,12 +307,10 @@ export class DeviceDetectorService {
    * @returns whether the current device is a desktop device
    */
   public isDesktop(userAgent = this.userAgent): boolean {
-    if (this.device === Constants.DEVICES.UNKNOWN) {
-      if (this.isMobile(userAgent) || this.isTablet(userAgent)) {
-        return false;
-      }
+    if (this.device === Constants.DEVICES.UNKNOWN && (this.isMobile(userAgent) || this.isTablet(userAgent))) {
+      return false;
     }
-    return Constants.DESKTOP_DEVICES.indexOf(this.device) > -1;
+    return Constants.DESKTOP_DEVICES.includes(this.device);
   }
 
   /**
