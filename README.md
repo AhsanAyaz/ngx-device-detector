@@ -95,10 +95,12 @@ In your component where you want to use the Device Service
       const isMobile = this.deviceService.isMobile();
       const isTablet = this.deviceService.isTablet();
       const isDesktopDevice = this.deviceService.isDesktop();
+      const isDesktopMode = this.deviceService.isDesktopModeEnabled();
       console.log(this.deviceInfo);
       console.log(isMobile);  // returns if the device is a mobile device (android / iPhone / windows-phone etc)
       console.log(isTablet);  // returns if the device us a tablet (iPad etc)
       console.log(isDesktopDevice); // returns if the app is running on a Desktop browser.
+      console.log(isDesktopMode); // returns if a mobile device is running in desktop mode
     }
     ...
   }
@@ -155,12 +157,14 @@ Holds the following properties
 - device
 - userAgent
 - os_version
+- isDesktopMode
 
 ## Helper Methods
 
 - **isMobile() :** returns if the device is a mobile device (android / iPhone/ windows-phone etc)
 - **isTablet() :** returns if the device us a tablet (iPad etc)
 - **isDesktop() :** returns if the app is running on a Desktop browser.
+- **isDesktopModeEnabled() :** returns if a mobile device is running in desktop mode (mobile browsers requesting desktop websites)
 
 ## Development
 

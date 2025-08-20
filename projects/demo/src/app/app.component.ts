@@ -13,7 +13,7 @@ import { KeysPipe } from './pipes/keys.pipe';
 export class AppComponent {
   private deviceService = inject(DeviceDetectorService);
 
-  propsToShow = ['userAgent', 'os', 'browser', 'device', 'os_version', 'browser_version', 'deviceType', 'orientation'];
+  propsToShow = ['userAgent', 'os', 'browser', 'device', 'os_version', 'browser_version', 'deviceType', 'orientation', 'isDesktopMode'];
   deviceInfo = null;
   version = VERSION.full;
   userAgentInputVal = null;
@@ -44,6 +44,10 @@ export class AppComponent {
 
   get isDesktop(): boolean {
     return this.deviceService.isDesktop();
+  }
+
+  get isDesktopMode(): boolean {
+    return this.deviceService.isDesktopModeEnabled();
   }
 
   applyDevice(userAgent = this.ua): void {
