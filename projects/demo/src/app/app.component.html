@@ -5,7 +5,7 @@
     </a>
     <div class="demo-heading">
       <div style="text-align: center; width: 100%">
-        <img src="https://raw.githubusercontent.com/AhsanAyaz/ngx-device-detector/master/assets/logo.svg" width="200">
+        <img src="https://raw.githubusercontent.com/AhsanAyaz/ngx-device-detector/master/assets/logo.svg" width="200" />
       </div>
       <a href="https://github.com/ahsanayaz/ngx-device-detector">
         <h1 align="center" class="demo-heading-text">ngx-device-detector</h1>
@@ -19,16 +19,16 @@
       <p align="center" class="badges">
         <a href="https://github.com/ahsanayaz/ngx-device-detector/actions/workflows/main.yml"
           ><img
-          src="https://github.com/ahsanayaz/ngx-device-detector/actions/workflows/main.yml/badge.svg"
-          alt="build status"
+            src="https://github.com/ahsanayaz/ngx-device-detector/actions/workflows/main.yml/badge.svg"
+            alt="build status"
         /></a>
         <a href="https://www.npmjs.com/package/ngx-device-detector"
           ><img src="https://img.shields.io/npm/v/ngx-device-detector.svg" alt="npm version"
         /></a>
         <a href="https://www.npmjs.com/package/ngx-device-detector"
           ><img
-          src="https://img.shields.io/github/stars/AhsanAyaz/ngx-device-detector.svg?style=social&label=Star&style=flat-square"
-          alt="github stars"
+            src="https://img.shields.io/github/stars/AhsanAyaz/ngx-device-detector.svg?style=social&label=Star&style=flat-square"
+            alt="github stars"
         /></a>
         <a href="https://www.npmjs.com/package/ngx-device-detector"
           ><img src="https://img.shields.io/npm/l/ngx-device-detector.svg?style=flat-square" alt="license"
@@ -74,12 +74,16 @@
           <th>Property</th>
           <th>Value</th>
         </tr>
-        @for (info of deviceInfo | keys : propsToShow; track info) {
+        @for (info of deviceInfo | keys: propsToShow; track info) {
           <tr class="info-item w3-hover-blue">
             <td>{{ info.key }}</td>
             <td>{{ info.value }}</td>
           </tr>
         }
+        <tr>
+          <td>&nbsp;</td>
+          <td>&nbsp;</td>
+        </tr>
         <tr class="info-item w3-hover-blue">
           <td>isDesktop()</td>
           <td>{{ isDesktop }}</td>
@@ -91,10 +95,6 @@
         <tr class="info-item w3-hover-blue">
           <td>isTablet()</td>
           <td>{{ isTablet }}</td>
-        </tr>
-        <tr class="info-item w3-hover-blue">
-          <td>isDesktopModeEnabled()</td>
-          <td>{{ isDesktopMode }}</td>
         </tr>
       </table>
     </div>
