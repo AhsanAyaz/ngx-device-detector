@@ -1,5 +1,15 @@
 ## 10.1.0 (2025-08-20)
 
+* chore: bump version to 10.1.0 with changelog and docs ([398672a](https://github.com/AhsanAyaz/ngx-device-detector/commit/398672a))
+* chore: fix lint and deprecated API issues ([980229c](https://github.com/AhsanAyaz/ngx-device-detector/commit/980229c))
+* feat: add isDesktopMode for mobile devices running Desktop mode ([cb157a3](https://github.com/AhsanAyaz/ngx-device-detector/commit/cb157a3))
+* perf(retree): optimize performance and add missing devices ([954744b](https://github.com/AhsanAyaz/ngx-device-detector/commit/954744b))
+* Update device-detector.constants.ts ([86b9ef8](https://github.com/AhsanAyaz/ngx-device-detector/commit/86b9ef8))
+
+
+
+## 10.1.0 (2025-08-20)
+
 * chore: fix lint and deprecated API issues ([980229c](https://github.com/AhsanAyaz/ngx-device-detector/commit/980229c))
 * feat: add isDesktopMode for mobile devices running Desktop mode ([cb157a3](https://github.com/AhsanAyaz/ngx-device-detector/commit/cb157a3))
 * perf(retree): optimize performance and add missing devices ([954744b](https://github.com/AhsanAyaz/ngx-device-detector/commit/954744b))
