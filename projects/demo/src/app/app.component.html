@@ -74,7 +74,7 @@
           <th>Property</th>
           <th>Value</th>
         </tr>
-        @for (info of deviceInfo | keys: propsToShow; track info) {
+        @for (info of deviceInfo() | keys: propsToShow; track info) {
           <tr class="info-item w3-hover-blue">
             <td>{{ info.key }}</td>
             <td>{{ info.value }}</td>

@@ -1,18 +1,15 @@
-/* To learn more about this file see: https://angular.io/config/tsconfig. */
 {
-  "extends": "../../tsconfig.json",
-  "compilerOptions": {
-    "outDir": "../../out-tsc/app",
-    "types": [
-      "node"
+    "extends": "../../tsconfig.json",
+    "compilerOptions": {
+        "outDir": "./out-tsc/app",
+        "module": "ES2022",
+        "target": "ES2024"
+    },
+    "include": [
+        "src/**/*.ts"
+    ],
+    "exclude": [
+        "**/*.spec.ts",
+        "**/*.e2e-spec.ts",
     ]
-  },
-  "files": [
-    "src/main.ts",
-    "server.ts",
-    "src/server.ts"
-  ],
-  "include": [
-    "src/**/*.d.ts"
-  ]
 }
