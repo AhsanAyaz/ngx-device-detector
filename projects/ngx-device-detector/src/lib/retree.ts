@@ -3,14 +3,13 @@
  */
 
 export class ReTree {
-  private regexCache = new Map<string, RegExp>();
-
-  constructor() {}
+  private readonly regexCache = new Map<string, RegExp>();
 
   private getRegex(pattern: string): RegExp {
     if (!this.regexCache.has(pattern)) {
       this.regexCache.set(pattern, new RegExp(pattern));
     }
+
     return this.regexCache.get(pattern)!;
   }
 

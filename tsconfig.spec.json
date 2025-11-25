@@ -2,7 +2,7 @@
   "extends": "./tsconfig.json",
   "compilerOptions": {
     "outDir": "./out-tsc/spec",
-    "types": ["jest", "node"],
+    "types": ["vitest/global", "node"],
     "esModuleInterop": true
   },
   "files": ["projects/demo/src/polyfills.ts"],

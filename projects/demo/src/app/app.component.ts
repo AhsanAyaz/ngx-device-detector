@@ -1,5 +1,5 @@
-import { Component, VERSION, inject } from '@angular/core';
-import { DeviceDetectorService } from 'ngx-device-detector';
+import { Component, VERSION, inject, signal } from '@angular/core';
+import { DeviceDetectorService, DeviceInfo } from 'projects/ngx-device-detector/src/lib/device-detector.service';
 import { NgClass } from '@angular/common';
 import { KeysPipe } from './pipes/keys.pipe';
 
@@ -8,54 +8,57 @@ import { KeysPipe } from './pipes/keys.pipe';
     templateUrl: './app.component.html',
     styleUrls: ['./app.component.scss'],
     imports: [NgClass, KeysPipe],
-    standalone: true
+    standalone: true,
 })
 export class AppComponent {
-  private deviceService = inject(DeviceDetectorService);
 
-  propsToShow = ['userAgent', 'os', 'browser', 'device', 'os_version', 'browser_version', 'deviceType', 'orientation', 'isDesktopMode'];
-  deviceInfo = null;
-  version = VERSION.full;
-  userAgentInputVal = null;
-  ua;
+    protected readonly propsToShow = [
+        'userAgent',
+        'os',
+        'browser',
+        'device',
+        'os_version',
+        'browser_version',
+        'deviceType',
+        'orientation',
+        'isDesktopMode',
+    ];
+    protected readonly deviceInfo = signal<DeviceInfo | null>(null);
+    protected readonly version = VERSION.full;
+    private readonly ua = globalThis.navigator.userAgent;
 
-  /** Inserted by Angular inject() migration for backwards compatibility */
-  constructor(...args: unknown[]);
-  constructor() {
-    try {
-      this.ua = window.navigator.userAgent;
-    } catch {
-      console.log('UA not available');
+    private readonly deviceService = inject(DeviceDetectorService);
+
+    constructor() {
+        this.applyDevice();
     }
-    this.applyDevice();
-  }
 
-  getDeviceInfo(): void {
-    this.deviceInfo = this.deviceService.getDeviceInfo();
-  }
+    getDeviceInfo(): void {
+        this.deviceInfo.set(this.deviceService.getDeviceInfo());
+    }
 
-  get isMobile(): boolean {
-    return this.deviceService.isMobile();
-  }
+    get isMobile(): boolean {
+        return this.deviceService.isMobile();
+    }
 
-  get isTablet(): boolean {
-    return this.deviceService.isTablet();
-  }
+    get isTablet(): boolean {
+        return this.deviceService.isTablet();
+    }
 
-  get isDesktop(): boolean {
-    return this.deviceService.isDesktop();
-  }
+    get isDesktop(): boolean {
+        return this.deviceService.isDesktop();
+    }
 
-  get isDesktopMode(): boolean {
-    return this.deviceService.isDesktopModeEnabled();
-  }
+    get isDesktopMode(): boolean {
+        return this.deviceService.isDesktopModeEnabled();
+    }
 
-  applyDevice(userAgent = this.ua): void {
-    this.deviceService.setDeviceInfo(userAgent);
-    this.getDeviceInfo();
-  }
+    applyDevice(userAgent = this.ua): void {
+        this.deviceService.setDeviceInfo(userAgent);
+        this.getDeviceInfo();
+    }
 
-  resetDeviceInfo(): void {
-    this.applyDevice();
-  }
+    resetDeviceInfo(): void {
+        this.applyDevice();
+    }
 }
