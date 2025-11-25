@@ -10,7 +10,7 @@
       "prefix": "lib",
       "architect": {
         "build": {
-          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "builder": "@angular/build:ng-packagr",
           "options": {
             "tsConfig": "projects/ngx-device-detector/tsconfig.lib.json",
             "project": "projects/ngx-device-detector/ng-package.json"
@@ -26,6 +26,16 @@
         },
         "test": {
           "builder": "@angular/build:unit-test"
+        },
+        "lint": {
+          "builder": "@angular-eslint/builder:lint",
+          "options": {
+            "lintFilePatterns": [
+              "projects/ngx-device-detector/**/*.ts",
+              "projects/ngx-device-detector/**/*.html"
+            ],
+            "eslintConfig": "projects/ngx-device-detector/eslint.config.mjs"
+          }
         }
       }
     },
@@ -48,8 +58,13 @@
             },
             "index": "projects/demo/src/index.html",
             "tsConfig": "projects/demo/tsconfig.app.json",
-            "assets": ["projects/demo/src/favicon.ico", "projects/demo/src/assets"],
-            "styles": ["projects/demo/src/styles.scss"],
+            "assets": [
+              "projects/demo/src/favicon.ico",
+              "projects/demo/src/assets"
+            ],
+            "styles": [
+              "projects/demo/src/styles.scss"
+            ],
             "scripts": [],
             "extractLicenses": false,
             "sourceMap": true,

@@ -5,7 +5,6 @@
     "types": ["vitest/global", "node"],
     "esModuleInterop": true
   },
-  "files": ["projects/demo/src/polyfills.ts"],
   "include": ["projects/**/src/**/*.spec.ts", "projects/**/src/**/*.d.ts"],
   "exclude": ["./dist"]
 }

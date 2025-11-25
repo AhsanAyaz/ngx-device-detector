@@ -1,8 +1,7 @@
-// tslint:disable: variable-name
 /**
  * Created by ahsanayaz on 08/11/2016.
  */
-import { Inject, Injectable, PLATFORM_ID, signal } from '@angular/core';
+import { computed, inject, Injectable, PLATFORM_ID, Signal, signal } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
 import * as Constants from './device-detector.constants';
 import { ReTree } from './retree';
@@ -27,6 +26,7 @@ export enum DeviceType {
 export enum OrientationType {
     Portrait = 'portrait',
     Landscape = 'landscape',
+    Unknown = 'Unknown'
 }
 
 const iPad = 'iPad';
@@ -35,26 +35,82 @@ const iPad = 'iPad';
     providedIn: 'root',
 })
 export class DeviceDetectorService {
-    private readonly ua = signal('');
-    private readonly userAgent = signal('');
-    private readonly os = signal('');
-    private readonly browser = signal('');
-    private readonly device = signal('');
-    private readonly os_version = signal('');
-    private readonly browser_version = signal('');
-    private readonly reTree = signal(new ReTree());
-    private readonly deviceType = signal('');
-    private readonly orientation = signal('');
-    private readonly isDesktopMode = signal(false);
 
-    constructor(
-        @Inject(PLATFORM_ID) private readonly platformId: string
-    ) {
+    public readonly deviceInfo: Signal<DeviceInfo>;
+
+    private readonly _ua = signal('');
+    private readonly _userAgent = signal('');
+    private readonly _os = signal('');
+    private readonly _browser = signal('');
+    private readonly _device = signal('');
+    private readonly _os_version = signal('');
+    private readonly _browser_version = signal('');
+    private readonly _deviceType = signal<DeviceType>(DeviceType.Unknown);
+    private readonly _orientation = signal<OrientationType | undefined>(undefined);
+    private readonly _isDesktopMode = signal(false);
+
+    private readonly reTree = signal(new ReTree());
+    private readonly platformId = inject(PLATFORM_ID);
+
+    constructor() {
         if (isPlatformBrowser(this.platformId)) {
-            this.userAgent.set(globalThis.navigator.userAgent);
+            this._userAgent.set(globalThis.navigator.userAgent);
         }
 
-        this.setDeviceInfo(this.userAgent());
+        this.setDeviceInfo(this._userAgent());
+        this.deviceInfo = computed(() => {
+            return {
+                userAgent: this._userAgent(),
+                os: this._os(),
+                browser: this._browser(),
+                device: this._device(),
+                os_version: this._os_version(),
+                browser_version: this._browser_version(),
+                deviceType: this._deviceType(),
+                orientation: this._orientation(),
+                isDesktopMode: this._isDesktopMode(),
+            } satisfies DeviceInfo;
+        });
+    }
+
+    public get ua(): Signal<string> {
+        return this._ua;
+    }
+
+    public get browser(): Signal<string> {
+        return this._browser;
+    }
+
+    public get device(): Signal<string> {
+        return this._device;
+    }
+
+    public get userAgent(): Signal<string> {
+        return this._userAgent;
+    }
+
+    public get os(): Signal<string> {
+        return this._os;
+    }
+
+    public get os_version(): Signal<string> {
+        return this._os_version;
+    }
+
+    public get browser_version(): Signal<string> {
+        return this._browser_version;
+    }
+
+    public get deviceType(): Signal<DeviceType> {
+        return this._deviceType;
+    }
+
+    public get orientation(): Signal<OrientationType> {
+        return this._orientation;
+    }
+
+    public get isDesktopMode(): Signal<boolean> {
+        return this._isDesktopMode;
     }
 
     /**
@@ -63,18 +119,17 @@ export class DeviceDetectorService {
      * This value is later accessible for usage
      */
     private detectFromMapping(ua: string, mapping: { const: string; prop: string }): string {
-        const constants = Constants[mapping.const] as any;
-        const regexMap = Constants[`${mapping.const}_RE`] as any;
+        const constants = Constants[mapping.const];
+        const regexMap = Constants[`${mapping.const}_RE`];
 
         // Special case for iOS 13 Tablet hack
         if (
             constants.device &&
             constants.device === 'device' &&
             isPlatformBrowser(this.platformId) &&
-            (!!this.reTree().test(this.userAgent(), Constants.TABLETS_RE[iPad]) ||
+            (!!this.reTree().test(this._userAgent(), Constants.TABLETS_RE[iPad]) ||
                 (typeof navigator !== 'undefined' &&
                     navigator.platform &&
-                    // eslint-disable-next-line deprecation/deprecation
                     navigator.platform.includes('Mac') &&
                     navigator.maxTouchPoints > 1))
         ) {
@@ -103,12 +158,12 @@ export class DeviceDetectorService {
         }
 
         // If user agent already indicates mobile/tablet, it's not desktop mode
-        if (this.deviceType() === DeviceType.Mobile || this.deviceType() === DeviceType.Tablet) {
+        if (this._deviceType() === DeviceType.Mobile || this.deviceType() === DeviceType.Tablet) {
             return false;
         }
 
         // If it's genuinely desktop, it's not desktop mode
-        if (this.deviceType() !== DeviceType.Desktop) {
+        if (this._deviceType() === DeviceType.Desktop) {
             return false;
         }
 
@@ -175,18 +230,18 @@ export class DeviceDetectorService {
         return mobileSignatures.some(pattern => pattern.test(ua));
     }
 
-    public setDeviceInfo(ua = this.userAgent()): void {
-        if (ua !== this.userAgent()) {
-            this.userAgent.set(ua);
+    public setDeviceInfo(ua = this._userAgent()): void {
+        if (ua !== this._userAgent()) {
+            this._userAgent.set(ua);
         }
 
         // Optimized detection with early exit
-        this.os.set(this.detectFromMapping(ua, { const: 'OS', prop: 'os' }));
-        this.browser.set(this.detectFromMapping(ua, { const: 'BROWSERS', prop: 'browser' }));
-        this.device.set(this.detectFromMapping(ua, { const: 'DEVICES', prop: 'device' }));
+        this._os.set(this.detectFromMapping(ua, { const: 'OS', prop: 'os' }));
+        this._browser.set(this.detectFromMapping(ua, { const: 'BROWSERS', prop: 'browser' }));
+        this._device.set(this.detectFromMapping(ua, { const: 'DEVICES', prop: 'device' }));
 
         // Handle Android device refinement
-        if (this.device() === Constants.DEVICES.ANDROID) {
+        if (this._device() === Constants.DEVICES.ANDROID) {
             const deviceConstants = Constants.DEVICES;
 
             for (const key of Object.keys(deviceConstants)) {
@@ -196,55 +251,56 @@ export class DeviceDetectorService {
                     this.reTree().test(ua, regexPattern) &&
                     deviceConstants[key] !== Constants.DEVICES.ANDROID
                 ) {
-                    this.device.set(deviceConstants[key]);
+                    this._device.set(deviceConstants[key]);
                     break; // Early exit when found
                 }
             }
         }
 
-        this.os_version.set(this.detectFromMapping(ua, { const: 'OS_VERSIONS', prop: 'os_version' }));
+        this._os_version.set(this.detectFromMapping(ua, { const: 'OS_VERSIONS', prop: 'os_version' }));
 
         // Browser version detection - only if browser is known
-        this.browser_version.set('0');
+        this._browser_version.set('0');
         if (this.browser() !== Constants.BROWSERS.UNKNOWN) {
             const re = Constants.BROWSER_VERSIONS_RE[this.browser()];
             if (re) {
                 const res = this.reTree().exec(ua, re);
                 if (res) {
-                    this.browser_version.set(res[1]);
+                    this._browser_version.set(res[1]);
                 }
             }
         }
 
         // Orientation detection
         if (globalThis?.matchMedia) {
-            this.orientation.set(
+            this._orientation.set(
                 globalThis.matchMedia('(orientation: landscape)').matches
                     ? OrientationType.Landscape
                     : OrientationType.Portrait,
             );
         } else {
-            this.orientation.set(Constants.GENERAL.UKNOWN);
+            this._orientation.set(Constants.GENERAL.UKNOWN as OrientationType);
         }
 
         // Device type detection - lazy evaluation
         if (this.isTablet()) {
-            this.deviceType.set(DeviceType.Tablet);
+            this._deviceType.set(DeviceType.Tablet);
         } else if (this.isMobile()) {
-            this.deviceType.set(DeviceType.Mobile);
+            this._deviceType.set(DeviceType.Mobile);
         } else if (this.isDesktop()) {
-            this.deviceType.set(DeviceType.Desktop);
+            this._deviceType.set(DeviceType.Desktop);
         } else {
-            this.deviceType.set(DeviceType.Unknown);
+            this._deviceType.set(DeviceType.Unknown);
         }
 
         // Desktop mode detection - check if mobile device is masquerading as desktop
-        this.isDesktopMode.set(this.detectDesktopMode(ua));
+        this._isDesktopMode.set(this.detectDesktopMode(ua));
     }
 
     /**
      * @author Ahsan Ayaz
      * @desc Returns the device information
+     * @deprecated Use `deviceInfo` signal instead.
      * @returns the device information object.
      */
     public getDeviceInfo(): DeviceInfo {
@@ -294,7 +350,6 @@ export class DeviceDetectorService {
             (!!this.reTree().test(this.userAgent(), Constants.TABLETS_RE[iPad]) ||
                 (typeof navigator !== 'undefined' &&
                     navigator.platform &&
-                    // eslint-disable-next-line deprecation/deprecation
                     navigator.platform.includes('Mac') &&
                     navigator.maxTouchPoints > 1))
         ) {

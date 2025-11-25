@@ -1,5 +1,5 @@
 import { TestBed, ComponentFixture, waitForAsync } from '@angular/core/testing';
-import { DeviceDetectorService } from 'ngx-device-detector';
+import { DeviceDetectorService } from 'projects/ngx-device-detector/src/lib/device-detector.service';
 import { AppComponent } from './app.component';
 import { KeysPipe } from './pipes/keys.pipe';
 

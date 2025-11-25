@@ -1,22 +1,30 @@
 {
-  "compileOnSave": false,
-  "compilerOptions": {
-    "baseUrl": "./",
-    "outDir": "./dist/out-tsc",
-    "sourceMap": true,
-    "esModuleInterop": true,
-    "declaration": false,
-    "experimentalDecorators": true,
-    "moduleResolution": "bundler",
-    "importHelpers": true,
-    "target": "ES2022",
-    "module": "es2020",
-    "paths": {
-      "ngx-device-detector": [
-        "dist/ngx-device-detector/ngx-device-detector",
-        "dist/ngx-device-detector"
-      ]
+    "compileOnSave": false,
+    "compilerOptions": {
+        "baseUrl": "./",
+        "outDir": "./dist/out-tsc",
+        "sourceMap": true,
+        "esModuleInterop": true,
+        "declaration": false,
+        "experimentalDecorators": true,
+        "moduleResolution": "bundler",
+        "importHelpers": true,
+        "target": "ES2022",
+        "module": "es2020",
+        "paths": {
+            "ngx-device-detector": [
+                "dist/ngx-device-detector/ngx-device-detector",
+                "dist/ngx-device-detector"
+            ]
+        },
+        "useDefineForClassFields": false
     },
-    "useDefineForClassFields": false
-  }
+    "references": [
+        {
+            "path": "./projects/ngx-device-detector/tsconfig.lib.json"
+        },
+        {
+            "path": "./projects/ngx-device-detector/tsconfig.spec.json"
+        }
+    ]
 }

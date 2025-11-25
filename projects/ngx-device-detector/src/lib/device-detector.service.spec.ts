@@ -1,10 +1,10 @@
 import { TestBed, inject } from '@angular/core/testing';
 import { DeviceDetectorService } from './device-detector.service';
 
-function expectAsTablet(service, userAgent) {
-    expect(service.isMobile(userAgent)).toBeFalsy();
-    expect(service.isDesktop(userAgent)).toBeFalsy();
-    expect(service.isTablet(userAgent)).toBeTruthy();
+function expectAsTablet(service: DeviceDetectorService, userAgent: string): void {
+    expect(service.isMobile(userAgent)).toBe(false);
+    expect(service.isDesktop(userAgent)).toBe(false);
+    expect(service.isTablet(userAgent)).toBe(true);
 }
 
 describe('DeviceDetectorService', () => {
@@ -35,7 +35,7 @@ describe('DeviceDetectorService', () => {
                 orientation: 'Unknown',
                 isDesktopMode: false,
             };
-            expect(service.getDeviceInfo()).toEqual(deviceInformations);
+            expect(service.deviceInfo()).toEqual(deviceInformations);
         },
     ));
 
@@ -46,15 +46,13 @@ describe('DeviceDetectorService', () => {
                 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.131 Safari/537.36';
             service.setDeviceInfo(userAgent);
             expect(service.isDesktop(userAgent)).toBeTruthy();
-            expect(service.os).toBe('Linux');
-            expect(service.browser).toBe('Chrome');
-            expect(service.browser_version).toBe('74.0.3729.131');
+            expect(service.os()).toBe('Linux');
+            expect(service.browser()).toBe('Chrome');
+            expect(service.browser_version()).toBe('74.0.3729.131');
         },
     ));
 
-    // tslint:disable-next-line: max-line-length
     it('should detect an iPad correctly', inject([DeviceDetectorService], (service: DeviceDetectorService) => {
-        // tslint:disable-next-line:max-line-length
         const userAgent = `Mozilla/5.0 (iPad; CPU OS 11_0 like Mac OS X) AppleWebKit/604.1.34 (KHTML, like Gecko) Version/11.0 Mobile/15A5341f Safari/604.1`;
         expect(service.isDesktop(userAgent)).toBeFalsy();
         expect(service.isTablet(userAgent)).toBeTruthy();
@@ -67,10 +65,10 @@ describe('DeviceDetectorService', () => {
             const userAgent = `Mozilla/5.0 (iPad; CPU OS 11_0 like Mac OS X) AppleWebKit/604.1.34 Version/11.0 Mobile/15A5341f Safari/604.1`;
             service.setDeviceInfo(userAgent);
             expectAsTablet(service, userAgent);
-            expect(service.os).toBe('iOS');
-            expect(service.browser).toBe('Safari');
-            expect(service.device).toBe('iPad');
-            expect(service.browser_version).toBe('11.0');
+            expect(service.os()).toBe('iOS');
+            expect(service.browser()).toBe('Safari');
+            expect(service.device()).toBe('iPad');
+            expect(service.browser_version()).toBe('11.0');
         },
     ));
 
@@ -86,14 +84,13 @@ describe('DeviceDetectorService', () => {
     it('should return true, os=`iOS`, browser=`Safari`, device=`iPhone` and browser_version=`11.0` when system is mobile', inject(
         [DeviceDetectorService],
         (service: DeviceDetectorService) => {
-            // tslint:disable-next-line:max-line-length
             const userAgent = `Mozilla/5.0 (iPhone; CPU iPhone OS 11_0 like Mac OS X) AppleWebKit/604.1.38 Version/11.0 Mobile/15A372 Safari/604.1`;
             service.setDeviceInfo(userAgent);
             expect(service.isMobile(userAgent)).toBeTruthy();
-            expect(service.os).toBe('iOS');
-            expect(service.browser).toBe('Safari');
-            expect(service.device).toBe('iPhone');
-            expect(service.browser_version).toBe('11.0');
+            expect(service.os()).toBe('iOS');
+            expect(service.browser()).toBe('Safari');
+            expect(service.device()).toBe('iPhone');
+            expect(service.browser_version()).toBe('11.0');
         },
     ));
 
@@ -108,10 +105,9 @@ describe('DeviceDetectorService', () => {
     it('should detect Tesla given the user agents', inject(
         [DeviceDetectorService],
         (service: DeviceDetectorService) => {
-            // tslint:disable-next-line: max-line-length
             const userAgent = `Mozilla/5.0 (X11; GNU/Linux) AppleWebKit/537.36 (KHTML, like Gecko) Chromium/75.0.3770.100 Chrome/75.0.3770.100 Safari/537.36 Tesla/2019.32.11.1-d39e85a`;
             service.setDeviceInfo(userAgent);
-            expect(service.device).toBe('Tesla');
+            expect(service.device()).toBe('Tesla');
         },
     ));
 
@@ -155,8 +151,7 @@ describe('DeviceDetectorService', () => {
     it('should not consider a desktop device as tablet', inject(
         [DeviceDetectorService],
         (service: DeviceDetectorService) => {
-            // tslint:disable-next-line:max-line-length
-            const userAgent =
+                       const userAgent =
                 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/77.0.3865.120 Safari/537.36';
             expect(service.isMobile(userAgent)).toBeFalsy();
             expect(service.isDesktop(userAgent)).toBeTruthy();
@@ -171,7 +166,7 @@ describe('DeviceDetectorService', () => {
         expect(service.isMobile(userAgent)).toBeTruthy();
         expect(service.isDesktop(userAgent)).toBeFalsy();
         expect(service.isTablet(userAgent)).toBeFalsy();
-        const deviceInfo = service.getDeviceInfo();
+        const deviceInfo = service.deviceInfo();
         expect(deviceInfo.device).toBe('iPhone');
         expect(deviceInfo.browser).toBe('Firefox');
         expect(deviceInfo.browser_version).toBe('20.1');
@@ -185,7 +180,7 @@ describe('DeviceDetectorService', () => {
         expect(service.isMobile(userAgent)).toBeFalsy();
         expect(service.isDesktop(userAgent)).toBeTruthy();
         expect(service.isTablet(userAgent)).toBeFalsy();
-        const deviceInfo = service.getDeviceInfo();
+        const deviceInfo = service.deviceInfo();
         expect(deviceInfo.device).toBe('Macintosh');
         expect(deviceInfo.browser).toBe('Firefox');
         expect(deviceInfo.browser_version).toBe('82.0');
@@ -202,13 +197,14 @@ describe('DeviceDetectorService', () => {
                 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7; rv:135.0) Gecko/20100101 Firefox/135.0',
             ];
 
-            userAgents.forEach((userAgent, index) => {
+            userAgents.forEach((userAgent) => {
                 service.setDeviceInfo(userAgent);
 
                 expect(service.isMobile(userAgent)).toBeFalsy();
                 expect(service.isDesktop(userAgent)).toBeTruthy();
                 expect(service.isTablet(userAgent)).toBeFalsy();
-                const deviceInfo = service.getDeviceInfo();
+
+                const deviceInfo = service.deviceInfo();
                 expect(deviceInfo.device).toBe('Macintosh');
                 expect(deviceInfo.browser).toBe('Firefox');
                 expect(deviceInfo.browser_version).toBe('135.0');
@@ -228,7 +224,7 @@ describe('DeviceDetectorService', () => {
             expect(service.isDesktop(firefoxUA)).toBeTruthy();
             expect(service.isTablet(firefoxUA)).toBeFalsy();
 
-            const deviceInfo = service.getDeviceInfo();
+            const deviceInfo = service.deviceInfo();
             expect(deviceInfo.device).toBe('Macintosh');
             expect(deviceInfo.browser).toBe('Firefox');
             expect(deviceInfo.browser_version).toBe('137.0');
@@ -247,7 +243,7 @@ describe('DeviceDetectorService', () => {
         expect(service.isMobile(userAgent)).toBeFalsy();
         expect(service.isDesktop(userAgent)).toBeTruthy();
         expect(service.isTablet(userAgent)).toBeFalsy();
-        const deviceInfo = service.getDeviceInfo();
+        const deviceInfo = service.deviceInfo();
         expect(deviceInfo.device).toBe('Macintosh');
         expect(deviceInfo.browser).toBe('Chrome');
         expect(deviceInfo.browser_version).toBe('86.0.4240.198');
@@ -261,7 +257,7 @@ describe('DeviceDetectorService', () => {
         expect(service.isMobile(userAgent)).toBeFalsy();
         expect(service.isDesktop(userAgent)).toBeFalsy();
         expect(service.isTablet(userAgent)).toBeTruthy();
-        const deviceInfo = service.getDeviceInfo();
+        const deviceInfo = service.deviceInfo();
         expect(deviceInfo.device).toBe('iPad');
         expect(deviceInfo.browser).toBe('Safari');
         expect(deviceInfo.browser_version).toBe('11.0');
@@ -275,7 +271,7 @@ describe('DeviceDetectorService', () => {
         expect(service.isMobile(userAgent)).toBeTruthy();
         expect(service.isDesktop(userAgent)).toBeFalsy();
         expect(service.isTablet(userAgent)).toBeFalsy();
-        const deviceInfo = service.getDeviceInfo();
+        const deviceInfo = service.deviceInfo();
         expect(deviceInfo.device).toBe('Android');
         expect(deviceInfo.browser).toBe('Chrome');
         expect(deviceInfo.browser_version).toBe('71.0.3578.141');
@@ -290,7 +286,7 @@ describe('DeviceDetectorService', () => {
             expect(service.isMobile(userAgent)).toBeTruthy();
             expect(service.isDesktop(userAgent)).toBeFalsy();
             expect(service.isTablet(userAgent)).toBeFalsy();
-            const deviceInfo = service.getDeviceInfo();
+            const deviceInfo = service.deviceInfo();
             expect(deviceInfo.device).toBe('Firefox-OS');
             expect(deviceInfo.browser).toBe('Firefox');
             expect(deviceInfo.browser_version).toBe('48.0');
@@ -306,7 +302,7 @@ describe('DeviceDetectorService', () => {
             expect(service.isMobile(userAgent)).toBeTruthy();
             expect(service.isDesktop(userAgent)).toBeFalsy();
             expect(service.isTablet(userAgent)).toBeFalsy();
-            const deviceInfo = service.getDeviceInfo();
+            const deviceInfo = service.deviceInfo();
             expect(deviceInfo.device).toBe('Firefox-OS');
             expect(deviceInfo.browser).toBe('Firefox');
             expect(deviceInfo.browser_version).toBe('49.0');
@@ -323,7 +319,7 @@ describe('DeviceDetectorService', () => {
             expect(service.isMobile(userAgent)).toBeFalsy();
             expect(service.isDesktop(userAgent)).toBeFalsy();
             expect(service.isTablet(userAgent)).toBeTruthy();
-            const deviceInfo = service.getDeviceInfo();
+            const deviceInfo = service.deviceInfo();
             expect(deviceInfo.device).toBe('Android');
             expect(deviceInfo.browser).toBe('Chrome');
             expect(deviceInfo.browser_version).toBe('87.0.4280.101');
@@ -364,7 +360,7 @@ describe('DeviceDetectorService', () => {
             expect(service.isMobile(userAgent)).toBeFalsy();
             expect(service.isDesktop(userAgent)).toBeFalsy();
             expect(service.isTablet(userAgent)).toBeTruthy();
-            const deviceInfo = service.getDeviceInfo();
+            const deviceInfo = service.deviceInfo();
             expect(deviceInfo.device).toBe('Android');
             expect(deviceInfo.browser).toBe('Chrome');
             expect(deviceInfo.browser_version).toBe('103.0.0.0');
@@ -381,7 +377,7 @@ describe('DeviceDetectorService', () => {
             expect(service.isMobile(userAgent)).toBeFalsy();
             expect(service.isDesktop(userAgent)).toBeFalsy();
             expect(service.isTablet(userAgent)).toBeTruthy();
-            const deviceInfo = service.getDeviceInfo();
+            const deviceInfo = service.deviceInfo();
             expect(deviceInfo.device).toBe('Android');
             expect(deviceInfo.browser).toBe('Chrome');
             expect(deviceInfo.browser_version).toBe('88.0.4324.152');
@@ -396,7 +392,7 @@ describe('DeviceDetectorService', () => {
                 'Mozilla/5.0 (Linux; Android 10; SM-T515) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.66 Safari/537.36';
             service.setDeviceInfo(userAgent);
             expectAsTablet(service, userAgent);
-            const deviceInfo = service.getDeviceInfo();
+            const deviceInfo = service.deviceInfo();
             expect(deviceInfo.device).toBe('Android');
             expect(deviceInfo.browser).toBe('Chrome');
             expect(deviceInfo.browser_version).toBe('90.0.4430.66');
@@ -447,8 +443,8 @@ describe('DeviceDetectorService', () => {
                 service.setDeviceInfo(desktopUA);
 
                 expect(service.isDesktopModeEnabled()).toBeFalsy();
-                expect(service.getDeviceInfo().isDesktopMode).toBeFalsy();
-                expect(service.getDeviceInfo().deviceType).toBe('desktop');
+                expect(service.deviceInfo().isDesktopMode).toBeFalsy();
+                expect(service.deviceInfo().deviceType).toBe('desktop');
             },
         ));
 
@@ -460,8 +456,8 @@ describe('DeviceDetectorService', () => {
                 service.setDeviceInfo(mobileUA);
 
                 expect(service.isDesktopModeEnabled()).toBeFalsy();
-                expect(service.getDeviceInfo().isDesktopMode).toBeFalsy();
-                expect(service.getDeviceInfo().deviceType).toBe('mobile');
+                expect(service.deviceInfo().isDesktopMode).toBeFalsy();
+                expect(service.deviceInfo().deviceType).toBe('mobile');
             },
         ));
 
@@ -473,8 +469,8 @@ describe('DeviceDetectorService', () => {
                 service.setDeviceInfo(tabletUA);
 
                 expect(service.isDesktopModeEnabled()).toBeFalsy();
-                expect(service.getDeviceInfo().isDesktopMode).toBeFalsy();
-                expect(service.getDeviceInfo().deviceType).toBe('tablet');
+                expect(service.deviceInfo().isDesktopMode).toBeFalsy();
+                expect(service.deviceInfo().deviceType).toBe('tablet');
             },
         ));
 
@@ -488,8 +484,8 @@ describe('DeviceDetectorService', () => {
                     'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36';
                 service.setDeviceInfo(userAgent);
 
-                const deviceInfo = service.getDeviceInfo();
-                expect(deviceInfo.hasOwnProperty('isDesktopMode')).toBeTruthy();
+                const deviceInfo = service.deviceInfo();
+                expect(Object.prototype.hasOwnProperty.call(deviceInfo, 'isDesktopMode')).toBeTruthy();
                 expect(typeof deviceInfo.isDesktopMode).toBe('boolean');
             },
         ));
@@ -509,7 +505,7 @@ describe('DeviceDetectorService', () => {
                     'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36';
                 service.setDeviceInfo(userAgent);
 
-                const deviceInfo = service.getDeviceInfo();
+                const deviceInfo = service.deviceInfo();
                 expect(service.isDesktopModeEnabled()).toEqual(deviceInfo.isDesktopMode);
             },
         ));
