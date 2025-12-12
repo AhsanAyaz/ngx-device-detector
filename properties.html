@@ -62,6 +62,20 @@
                }
                toggleDarkMode(darkModeState);
           </script>
+          <script>
+              // --- Iframe navigation tracking for Template Playground ---
+              function sendCurrentUrlToParent() {
+                  if (window.parent && window.parent !== window) {
+                      window.parent.postMessage({
+                          type: 'compodoc-iframe-navigate',
+                          url: window.location.pathname + window.location.hash
+                      }, '*');
+                  }
+              }
+              window.addEventListener('hashchange', sendCurrentUrlToParent, false);
+              window.addEventListener('popstate', sendCurrentUrlToParent, false);
+              window.addEventListener('DOMContentLoaded', sendCurrentUrlToParent, false);
+          </script>
 
         <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
                <div class="d-flex">
@@ -98,14 +112,18 @@
 
 
 
+
+
+
+
     <ol class="breadcrumb">
         <li class="breadcrumb-item">Properties</li>
     </ol>
     <ul class="properties-list">
         <li>
-            <b>Version</b> : 10.1.0</li>
+            <b>Version</b> : 12.0.0</li>
         <li>
-            <b>Keywords</b> : angular, device, device detector, device detection, ngx-device-detector, angular device detector, angular5, angular6, angular7, angular8, angular18, angular19, angular20</li>
+            <b>Keywords</b> : angular, device, device detector, device detection, ngx-device-detector, angular device detector, angular5, angular6, angular7, angular8, angular18, angular19, angular20, angular21</li>
         <li>
             <b>Bugs</b> : https://github.com/AhsanAyaz/ngx-device-detector.git/issues</li>
         <li>
@@ -174,7 +192,6 @@
        <script src="./js/libs/es6-shim.min.js"></script>
        <script src="./js/libs/EventDispatcher.js"></script>
        <script src="./js/libs/promise.min.js"></script>
-       <script src="./js/libs/zepto.min.js"></script>
 
        <script src="./js/compodoc.js"></script>
 

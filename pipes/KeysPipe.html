@@ -62,6 +62,20 @@
                }
                toggleDarkMode(darkModeState);
           </script>
+          <script>
+              // --- Iframe navigation tracking for Template Playground ---
+              function sendCurrentUrlToParent() {
+                  if (window.parent && window.parent !== window) {
+                      window.parent.postMessage({
+                          type: 'compodoc-iframe-navigate',
+                          url: window.location.pathname + window.location.hash
+                      }, '*');
+                  }
+              }
+              window.addEventListener('hashchange', sendCurrentUrlToParent, false);
+              window.addEventListener('popstate', sendCurrentUrlToParent, false);
+              window.addEventListener('DOMContentLoaded', sendCurrentUrlToParent, false);
+          </script>
 
         <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
                <div class="d-flex">
@@ -82,6 +96,10 @@
                <!-- START CONTENT -->
                <div class="content pipe">
                    <div class="content-data">
+
+
+
+
 
 
 
@@ -153,6 +171,7 @@
                 <td class="col-md-4">
                     <a name="transform"></a>
                     <span class="name">
+                            <span class="modifier">Public</span>
                         <span ><b>transform</b></span>
                         <a href="#transform"><span class="icon ion-ios-link"></span></a>
                     </span>
@@ -160,15 +179,16 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>transform(value, props: string[])</code>
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>transform(value: <a href="../interfaces/DeviceInfo.html" target="_self">DeviceInfo</a>, props: string[])</code>
                 </td>
             </tr>
 
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="5"
-                                    class="link-to-prism">projects/demo/src/app/pipes/keys.pipe.ts:5</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="9"
+                                    class="link-to-prism">projects/demo/src/app/pipes/keys.pipe.ts:9</a></div>
                         </td>
                     </tr>
 
@@ -192,6 +212,7 @@
                                         <tr>
                                                 <td>value</td>
                                             <td>
+                                                            <code><a href="../interfaces/DeviceInfo.html" target="_self" >DeviceInfo</a></code>
                                             </td>
 
                                             <td>
@@ -221,7 +242,7 @@
                                 </table>
                             </div>
                         <div class="io-description">
-                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                            <b>Returns : </b>    <code>literal type[]</code>
 
                         </div>
                             <div class="io-description">
@@ -238,25 +259,29 @@
 
     <div class="tab-pane fade  tab-source-code" id="source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Pipe, PipeTransform } from &#x27;@angular/core&#x27;;
+import { DeviceInfo } from &#x27;ngx-device-detector&#x27;;
 
-@Pipe({ name: &#x27;keys&#x27;, standalone:true })
+@Pipe({
+    name: &#x27;keys&#x27;,
+    standalone: true,
+})
 export class KeysPipe implements PipeTransform {
-  transform(value, props: string[] &#x3D; []): any {
-    const keys &#x3D; [];
-    const noFilter &#x3D; props.length &#x3D;&#x3D;&#x3D; 0;
-    for (const key in value) {
-      if (noFilter) {
-        if (value.hasOwnProperty(key)) {
-          keys.push({ key, value: value[key] });
+    public transform(value: DeviceInfo, props: string[] &#x3D; []): { key: string; value: unknown }[] {
+        const keys: { key: string; value: unknown }[] &#x3D; [];
+        const noFilter &#x3D; props.length &#x3D;&#x3D;&#x3D; 0;
+
+        for (const key in value) {
+            if (noFilter) {
+                if (value.hasOwnProperty(key)) {
+                    keys.push({ key, value: value[key] });
+                }
+            } else if (props.includes(key)) {
+                keys.push({ key, value: value[key] });
+            }
         }
-      } else {
-        if (props.indexOf(key) !&#x3D;&#x3D; -1) {
-          keys.push({ key, value: value[key] });
-        }
-      }
+
+        return keys;
     }
-    return keys;
-  }
 }
 </code></pre>
     </div>
@@ -326,7 +351,6 @@ export class KeysPipe implements PipeTransform {
        <script src="../js/libs/es6-shim.min.js"></script>
        <script src="../js/libs/EventDispatcher.js"></script>
        <script src="../js/libs/promise.min.js"></script>
-       <script src="../js/libs/zepto.min.js"></script>
 
        <script src="../js/compodoc.js"></script>
 

@@ -62,6 +62,20 @@
                }
                toggleDarkMode(darkModeState);
           </script>
+          <script>
+              // --- Iframe navigation tracking for Template Playground ---
+              function sendCurrentUrlToParent() {
+                  if (window.parent && window.parent !== window) {
+                      window.parent.postMessage({
+                          type: 'compodoc-iframe-navigate',
+                          url: window.location.pathname + window.location.hash
+                      }, '*');
+                  }
+              }
+              window.addEventListener('hashchange', sendCurrentUrlToParent, false);
+              window.addEventListener('popstate', sendCurrentUrlToParent, false);
+              window.addEventListener('DOMContentLoaded', sendCurrentUrlToParent, false);
+          </script>
 
         <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
                <div class="d-flex">
@@ -82,6 +96,10 @@
                <!-- START CONTENT -->
                <div class="content class">
                    <div class="content-data">
+
+
+
+
 
 
 
@@ -149,6 +167,7 @@
                         <ul class="index-list">
                             <li>
                                     <span class="modifier">Private</span>
+                                    <span class="modifier">Readonly</span>
                                 <a href="#regexCache" >regexCache</a>
                             </li>
                         </ul>
@@ -187,24 +206,6 @@
     </table>
 </section>
 
-            <section data-compodoc="block-constructor">
-    <h3 id="constructor">Constructor</h3>
-        <table class="table table-sm table-bordered">
-            <tbody>
-                <tr>
-                    <td class="col-md-4">
-<code>constructor()</code>
-                    </td>
-                </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="6" class="link-to-prism">projects/ngx-device-detector/src/lib/retree.ts:6</a></div>
-                            </td>
-                        </tr>
-
-            </tbody>
-        </table>
-</section>
 
             <section data-compodoc="block-properties">
     
@@ -218,11 +219,18 @@
                     <a name="regexCache"></a>
                     <span class="name">
                             <span class="modifier">Private</span>
+                            <span class="modifier">Readonly</span>
                         <span ><b>regexCache</b></span>
                         <a href="#regexCache"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>unknown</code>
+
+                    </td>
+                </tr>
                 <tr>
                     <td class="col-md-4">
                         <i>Default value : </i><code>new Map&lt;string, RegExp&gt;()</code>
@@ -259,15 +267,15 @@
             <tr>
                 <td class="col-md-4">
                         <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>exec(str: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, regex: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                    <code>exec(str: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, regex: unknown)</code>
                 </td>
             </tr>
 
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="39"
-                                    class="link-to-prism">projects/ngx-device-detector/src/lib/retree.ts:39</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="44"
+                                    class="link-to-prism">projects/ngx-device-detector/src/lib/retree.ts:44</a></div>
                         </td>
                     </tr>
 
@@ -302,7 +310,7 @@
                                         <tr>
                                                 <td>regex</td>
                                             <td>
-                                                            <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                                        <code>unknown</code>
                                             </td>
 
                                             <td>
@@ -315,7 +323,7 @@
                                 </table>
                             </div>
                         <div class="io-description">
-                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                            <b>Returns : </b>    <code>RegExpExecArray | null</code>
 
                         </div>
                             <div class="io-description">
@@ -347,8 +355,8 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="10"
-                                    class="link-to-prism">projects/ngx-device-detector/src/lib/retree.ts:10</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="8"
+                                    class="link-to-prism">projects/ngx-device-detector/src/lib/retree.ts:8</a></div>
                         </td>
                     </tr>
 
@@ -409,15 +417,15 @@
             <tr>
                 <td class="col-md-4">
                         <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>test(str: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, regex: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                    <code>test(str: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, regex: unknown)</code>
                 </td>
             </tr>
 
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="17"
-                                    class="link-to-prism">projects/ngx-device-detector/src/lib/retree.ts:17</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="20"
+                                    class="link-to-prism">projects/ngx-device-detector/src/lib/retree.ts:20</a></div>
                         </td>
                     </tr>
 
@@ -452,7 +460,7 @@
                                         <tr>
                                                 <td>regex</td>
                                             <td>
-                                                            <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                                        <code>unknown</code>
                                             </td>
 
                                             <td>
@@ -465,7 +473,7 @@
                                 </table>
                             </div>
                         <div class="io-description">
-                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                            <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
 
                         </div>
                             <div class="io-description">
@@ -486,54 +494,57 @@
 
     <div class="tab-pane fade  tab-source-code" id="source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">export class ReTree {
-  private regexCache &#x3D; new Map&lt;string, RegExp&gt;();
+    private readonly regexCache &#x3D; new Map&lt;string, RegExp&gt;();
 
-  constructor() {}
+    private getRegex(pattern: string): RegExp {
+        const regex &#x3D; this.regexCache.get(pattern);
+        if (!regex) {
+            const newRegex &#x3D; new RegExp(pattern);
 
-  private getRegex(pattern: string): RegExp {
-    if (!this.regexCache.has(pattern)) {
-      this.regexCache.set(pattern, new RegExp(pattern));
-    }
-    return this.regexCache.get(pattern)!;
-  }
+            this.regexCache.set(pattern, newRegex);
+            return newRegex;
+        }
 
-  public test(str: string, regex: any): any {
-    if (typeof regex &#x3D;&#x3D;&#x3D; &#x27;string&#x27;) {
-      regex &#x3D; this.getRegex(regex);
+        return regex;
     }
 
-    if (regex instanceof RegExp) {
-      return regex.test(str);
-    } else if (regex &amp;&amp; Array.isArray(regex.and)) {
-      return regex.and.every((item: any) &#x3D;&gt; {
-        return this.test(str, item);
-      });
-    } else if (regex &amp;&amp; Array.isArray(regex.or)) {
-      return regex.or.some((item: any) &#x3D;&gt; {
-        return this.test(str, item);
-      });
-    } else if (regex &amp;&amp; regex.not) {
-      return !this.test(str, regex.not);
-    } else {
-      return false;
-    }
-  }
+    public test(str: string, regex: unknown): boolean {
+        if (typeof regex &#x3D;&#x3D;&#x3D; &#x27;string&#x27;) {
+            regex &#x3D; this.getRegex(regex);
+        }
 
-  public exec(str: string, regex: any): any {
-    if (typeof regex &#x3D;&#x3D;&#x3D; &#x27;string&#x27;) {
-      regex &#x3D; this.getRegex(regex);
+        if (regex instanceof RegExp) {
+            return regex.test(str);
+        } else if (regex &amp;&amp; typeof regex &#x3D;&#x3D;&#x3D; &#x27;object&#x27;) {
+            if (&#x27;and&#x27; in regex &amp;&amp; Array.isArray(regex.and)) {
+                return regex.and.every(item &#x3D;&gt; this.test(str, item));
+            }
+
+            if (&#x27;or&#x27; in regex &amp;&amp; Array.isArray(regex.or)) {
+                return regex.or.some(item &#x3D;&gt; this.test(str, item));
+            }
+
+            if (&#x27;not&#x27; in regex) {
+                return !this.test(str, regex.not);
+            }
+        }
+
+        return false;
     }
 
-    if (regex instanceof RegExp) {
-      return regex.exec(str);
-    } else if (regex &amp;&amp; Array.isArray(regex)) {
-      return regex.reduce((res: any, item: any) &#x3D;&gt; {
-        return !!res ? res : this.exec(str, item);
-      }, null);
-    } else {
-      return null;
+    public exec(str: string, regex: unknown): RegExpExecArray | null {
+        if (typeof regex &#x3D;&#x3D;&#x3D; &#x27;string&#x27;) {
+            regex &#x3D; this.getRegex(regex);
+        }
+
+        if (regex instanceof RegExp) {
+            return regex.exec(str);
+        } else if (regex &amp;&amp; Array.isArray(regex)) {
+            return regex.reduce((res, item) &#x3D;&gt; res ?? this.exec(str, item), null);
+        } else {
+            return null;
+        }
     }
-  }
 }
 </code></pre>
     </div>
@@ -601,7 +612,6 @@
        <script src="../js/libs/es6-shim.min.js"></script>
        <script src="../js/libs/EventDispatcher.js"></script>
        <script src="../js/libs/promise.min.js"></script>
-       <script src="../js/libs/zepto.min.js"></script>
 
        <script src="../js/compodoc.js"></script>
 

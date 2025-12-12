@@ -62,6 +62,20 @@
                }
                toggleDarkMode(darkModeState);
           </script>
+          <script>
+              // --- Iframe navigation tracking for Template Playground ---
+              function sendCurrentUrlToParent() {
+                  if (window.parent && window.parent !== window) {
+                      window.parent.postMessage({
+                          type: 'compodoc-iframe-navigate',
+                          url: window.location.pathname + window.location.hash
+                      }, '*');
+                  }
+              }
+              window.addEventListener('hashchange', sendCurrentUrlToParent, false);
+              window.addEventListener('popstate', sendCurrentUrlToParent, false);
+              window.addEventListener('DOMContentLoaded', sendCurrentUrlToParent, false);
+          </script>
 
         <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
                <div class="d-flex">
@@ -82,6 +96,10 @@
                <!-- START CONTENT -->
                <div class="content coverage">
                    <div class="content-data">
+
+
+
+
 
 
 
@@ -122,7 +140,7 @@
         <tr class="low">
             <td>
                 <!-- miscellaneous -->
-                <a href="./classes/AppPage.html">projects/demo/e2e/src/app.po.ts</a>
+                        <a href="./classes/AppPage.html">projects/demo/e2e/src/app.po.ts</a>
             </td>
             <td>class</td>
             <td>AppPage</td>
@@ -134,7 +152,7 @@
         <tr class="low">
             <td>
                 <!-- miscellaneous -->
-                <a href="./miscellaneous/functions.html#app">projects/demo/server.ts</a>
+                        <a href="./miscellaneous/functions.html#app">projects/demo/server.ts</a>
             </td>
             <td>function</td>
             <td>app</td>
@@ -146,7 +164,7 @@
         <tr class="low">
             <td>
                 <!-- miscellaneous -->
-                <a href="./miscellaneous/functions.html#run">projects/demo/server.ts</a>
+                        <a href="./miscellaneous/functions.html#run">projects/demo/server.ts</a>
             </td>
             <td>function</td>
             <td>run</td>
@@ -158,19 +176,19 @@
         <tr class="low">
             <td>
                 <!-- miscellaneous -->
-                <a href="./components/AppComponent.html">projects/demo/src/app/app.component.ts</a>
+                        <a href="./components/AppComponent.html">projects/demo/src/app/app.component.ts</a>
             </td>
             <td>component</td>
             <td>AppComponent</td>
             <td align="right" data-sort="0">
                 <span class="coverage-percent">0 %</span>
-                <span class="coverage-count">(0/11)</span>
+                <span class="coverage-count">(0/10)</span>
             </td>
         </tr>
         <tr class="low">
             <td>
                 <!-- miscellaneous -->
-                <a href="./miscellaneous/variables.html#config">projects/demo/src/app/app.config.server.ts</a>
+                        <a href="./miscellaneous/variables.html#config">projects/demo/src/app/app.config.server.ts</a>
             </td>
             <td>variable</td>
             <td>config</td>
@@ -182,7 +200,7 @@
         <tr class="low">
             <td>
                 <!-- miscellaneous -->
-                <a href="./miscellaneous/variables.html#serverConfig">projects/demo/src/app/app.config.server.ts</a>
+                        <a href="./miscellaneous/variables.html#serverConfig">projects/demo/src/app/app.config.server.ts</a>
             </td>
             <td>variable</td>
             <td>serverConfig</td>
@@ -194,7 +212,7 @@
         <tr class="low">
             <td>
                 <!-- miscellaneous -->
-                <a href="./miscellaneous/variables.html#appConfig">projects/demo/src/app/app.config.ts</a>
+                        <a href="./miscellaneous/variables.html#appConfig">projects/demo/src/app/app.config.ts</a>
             </td>
             <td>variable</td>
             <td>appConfig</td>
@@ -206,7 +224,7 @@
         <tr class="low">
             <td>
                 <!-- miscellaneous -->
-                <a href="./pipes/KeysPipe.html">projects/demo/src/app/pipes/keys.pipe.ts</a>
+                        <a href="./pipes/KeysPipe.html">projects/demo/src/app/pipes/keys.pipe.ts</a>
             </td>
             <td>pipe</td>
             <td>KeysPipe</td>
@@ -218,7 +236,7 @@
         <tr class="low">
             <td>
                 <!-- miscellaneous -->
-                <a href="./miscellaneous/variables.html#REQUEST">projects/demo/src/express.tokens.ts</a>
+                        <a href="./miscellaneous/variables.html#REQUEST">projects/demo/src/express.tokens.ts</a>
             </td>
             <td>variable</td>
             <td>REQUEST</td>
@@ -230,7 +248,7 @@
         <tr class="low">
             <td>
                 <!-- miscellaneous -->
-                <a href="./miscellaneous/variables.html#RESPONSE">projects/demo/src/express.tokens.ts</a>
+                        <a href="./miscellaneous/variables.html#RESPONSE">projects/demo/src/express.tokens.ts</a>
             </td>
             <td>variable</td>
             <td>RESPONSE</td>
@@ -242,7 +260,7 @@
         <tr class="low">
             <td>
                 <!-- miscellaneous -->
-                <a href="./miscellaneous/variables.html#bootstrap">projects/demo/src/main.server.ts</a>
+                        <a href="./miscellaneous/variables.html#bootstrap">projects/demo/src/main.server.ts</a>
             </td>
             <td>variable</td>
             <td>bootstrap</td>
@@ -254,7 +272,7 @@
         <tr class="low">
             <td>
                 <!-- miscellaneous -->
-                <a href="./miscellaneous/variables.html#app">projects/demo/src/server.ts</a>
+                        <a href="./miscellaneous/variables.html#app">projects/demo/src/server.ts</a>
             </td>
             <td>variable</td>
             <td>app</td>
@@ -266,7 +284,7 @@
         <tr class="low">
             <td>
                 <!-- miscellaneous -->
-                <a href="./miscellaneous/variables.html#browserDistFolder">projects/demo/src/server.ts</a>
+                        <a href="./miscellaneous/variables.html#browserDistFolder">projects/demo/src/server.ts</a>
             </td>
             <td>variable</td>
             <td>browserDistFolder</td>
@@ -278,7 +296,7 @@
         <tr class="low">
             <td>
                 <!-- miscellaneous -->
-                <a href="./miscellaneous/variables.html#commonEngine">projects/demo/src/server.ts</a>
+                        <a href="./miscellaneous/variables.html#commonEngine">projects/demo/src/server.ts</a>
             </td>
             <td>variable</td>
             <td>commonEngine</td>
@@ -290,7 +308,7 @@
         <tr class="low">
             <td>
                 <!-- miscellaneous -->
-                <a href="./miscellaneous/variables.html#indexHtml">projects/demo/src/server.ts</a>
+                        <a href="./miscellaneous/variables.html#indexHtml">projects/demo/src/server.ts</a>
             </td>
             <td>variable</td>
             <td>indexHtml</td>
@@ -302,7 +320,7 @@
         <tr class="low">
             <td>
                 <!-- miscellaneous -->
-                <a href="./miscellaneous/variables.html#serverDistFolder">projects/demo/src/server.ts</a>
+                        <a href="./miscellaneous/variables.html#serverDistFolder">projects/demo/src/server.ts</a>
             </td>
             <td>variable</td>
             <td>serverDistFolder</td>
@@ -314,7 +332,7 @@
         <tr class="low">
             <td>
                 <!-- miscellaneous -->
-                <a href="./miscellaneous/variables.html#BROWSER_VERSIONS_RE">projects/ngx-device-detector/src/lib/device-detector.constants.ts</a>
+                        <a href="./miscellaneous/variables.html#BROWSER_VERSIONS_RE">projects/ngx-device-detector/src/lib/device-detector.constants.ts</a>
             </td>
             <td>variable</td>
             <td>BROWSER_VERSIONS_RE</td>
@@ -326,7 +344,7 @@
         <tr class="low">
             <td>
                 <!-- miscellaneous -->
-                <a href="./miscellaneous/variables.html#BROWSER_VERSIONS_RE_MAP">projects/ngx-device-detector/src/lib/device-detector.constants.ts</a>
+                        <a href="./miscellaneous/variables.html#BROWSER_VERSIONS_RE_MAP">projects/ngx-device-detector/src/lib/device-detector.constants.ts</a>
             </td>
             <td>variable</td>
             <td>BROWSER_VERSIONS_RE_MAP</td>
@@ -338,7 +356,7 @@
         <tr class="low">
             <td>
                 <!-- miscellaneous -->
-                <a href="./miscellaneous/variables.html#BROWSERS">projects/ngx-device-detector/src/lib/device-detector.constants.ts</a>
+                        <a href="./miscellaneous/variables.html#BROWSERS">projects/ngx-device-detector/src/lib/device-detector.constants.ts</a>
             </td>
             <td>variable</td>
             <td>BROWSERS</td>
@@ -350,7 +368,7 @@
         <tr class="low">
             <td>
                 <!-- miscellaneous -->
-                <a href="./miscellaneous/variables.html#BROWSERS_RE">projects/ngx-device-detector/src/lib/device-detector.constants.ts</a>
+                        <a href="./miscellaneous/variables.html#BROWSERS_RE">projects/ngx-device-detector/src/lib/device-detector.constants.ts</a>
             </td>
             <td>variable</td>
             <td>BROWSERS_RE</td>
@@ -362,7 +380,7 @@
         <tr class="low">
             <td>
                 <!-- miscellaneous -->
-                <a href="./miscellaneous/variables.html#DESKTOP_DEVICES">projects/ngx-device-detector/src/lib/device-detector.constants.ts</a>
+                        <a href="./miscellaneous/variables.html#DESKTOP_DEVICES">projects/ngx-device-detector/src/lib/device-detector.constants.ts</a>
             </td>
             <td>variable</td>
             <td>DESKTOP_DEVICES</td>
@@ -374,7 +392,7 @@
         <tr class="low">
             <td>
                 <!-- miscellaneous -->
-                <a href="./miscellaneous/variables.html#DEVICES">projects/ngx-device-detector/src/lib/device-detector.constants.ts</a>
+                        <a href="./miscellaneous/variables.html#DEVICES">projects/ngx-device-detector/src/lib/device-detector.constants.ts</a>
             </td>
             <td>variable</td>
             <td>DEVICES</td>
@@ -386,7 +404,7 @@
         <tr class="low">
             <td>
                 <!-- miscellaneous -->
-                <a href="./miscellaneous/variables.html#DEVICES_RE">projects/ngx-device-detector/src/lib/device-detector.constants.ts</a>
+                        <a href="./miscellaneous/variables.html#DEVICES_RE">projects/ngx-device-detector/src/lib/device-detector.constants.ts</a>
             </td>
             <td>variable</td>
             <td>DEVICES_RE</td>
@@ -398,7 +416,7 @@
         <tr class="very-good">
             <td>
                 <!-- miscellaneous -->
-                <a href="./miscellaneous/variables.html#GENERAL">projects/ngx-device-detector/src/lib/device-detector.constants.ts</a>
+                        <a href="./miscellaneous/variables.html#GENERAL">projects/ngx-device-detector/src/lib/device-detector.constants.ts</a>
             </td>
             <td>variable</td>
             <td>GENERAL</td>
@@ -410,7 +428,7 @@
         <tr class="low">
             <td>
                 <!-- miscellaneous -->
-                <a href="./miscellaneous/variables.html#MOBILES_RE">projects/ngx-device-detector/src/lib/device-detector.constants.ts</a>
+                        <a href="./miscellaneous/variables.html#MOBILES_RE">projects/ngx-device-detector/src/lib/device-detector.constants.ts</a>
             </td>
             <td>variable</td>
             <td>MOBILES_RE</td>
@@ -422,7 +440,7 @@
         <tr class="low">
             <td>
                 <!-- miscellaneous -->
-                <a href="./miscellaneous/variables.html#OS">projects/ngx-device-detector/src/lib/device-detector.constants.ts</a>
+                        <a href="./miscellaneous/variables.html#OS">projects/ngx-device-detector/src/lib/device-detector.constants.ts</a>
             </td>
             <td>variable</td>
             <td>OS</td>
@@ -434,7 +452,7 @@
         <tr class="low">
             <td>
                 <!-- miscellaneous -->
-                <a href="./miscellaneous/variables.html#OS_RE">projects/ngx-device-detector/src/lib/device-detector.constants.ts</a>
+                        <a href="./miscellaneous/variables.html#OS_RE">projects/ngx-device-detector/src/lib/device-detector.constants.ts</a>
             </td>
             <td>variable</td>
             <td>OS_RE</td>
@@ -446,7 +464,7 @@
         <tr class="low">
             <td>
                 <!-- miscellaneous -->
-                <a href="./miscellaneous/variables.html#OS_VERSIONS">projects/ngx-device-detector/src/lib/device-detector.constants.ts</a>
+                        <a href="./miscellaneous/variables.html#OS_VERSIONS">projects/ngx-device-detector/src/lib/device-detector.constants.ts</a>
             </td>
             <td>variable</td>
             <td>OS_VERSIONS</td>
@@ -458,7 +476,7 @@
         <tr class="low">
             <td>
                 <!-- miscellaneous -->
-                <a href="./miscellaneous/variables.html#OS_VERSIONS_RE">projects/ngx-device-detector/src/lib/device-detector.constants.ts</a>
+                        <a href="./miscellaneous/variables.html#OS_VERSIONS_RE">projects/ngx-device-detector/src/lib/device-detector.constants.ts</a>
             </td>
             <td>variable</td>
             <td>OS_VERSIONS_RE</td>
@@ -470,7 +488,7 @@
         <tr class="low">
             <td>
                 <!-- miscellaneous -->
-                <a href="./miscellaneous/variables.html#OS_VERSIONS_RE_MAP">projects/ngx-device-detector/src/lib/device-detector.constants.ts</a>
+                        <a href="./miscellaneous/variables.html#OS_VERSIONS_RE_MAP">projects/ngx-device-detector/src/lib/device-detector.constants.ts</a>
             </td>
             <td>variable</td>
             <td>OS_VERSIONS_RE_MAP</td>
@@ -482,7 +500,7 @@
         <tr class="low">
             <td>
                 <!-- miscellaneous -->
-                <a href="./miscellaneous/variables.html#TABLETS_RE">projects/ngx-device-detector/src/lib/device-detector.constants.ts</a>
+                        <a href="./miscellaneous/variables.html#TABLETS_RE">projects/ngx-device-detector/src/lib/device-detector.constants.ts</a>
             </td>
             <td>variable</td>
             <td>TABLETS_RE</td>
@@ -494,19 +512,19 @@
         <tr class="medium">
             <td>
                 <!-- miscellaneous -->
-                <a href="./injectables/DeviceDetectorService.html">projects/ngx-device-detector/src/lib/device-detector.service.ts</a>
+                        <a href="./injectables/DeviceDetectorService.html">projects/ngx-device-detector/src/lib/device-detector.service.ts</a>
             </td>
             <td>injectable</td>
             <td>DeviceDetectorService</td>
-            <td align="right" data-sort="34">
-                <span class="coverage-percent">34 %</span>
-                <span class="coverage-count">(8/23)</span>
+            <td align="right" data-sort="32">
+                <span class="coverage-percent">32 %</span>
+                <span class="coverage-count">(8/25)</span>
             </td>
         </tr>
         <tr class="low">
             <td>
                 <!-- miscellaneous -->
-                <a href="./interfaces/DeviceInfo.html">projects/ngx-device-detector/src/lib/device-detector.service.ts</a>
+                        <a href="./interfaces/DeviceInfo.html">projects/ngx-device-detector/src/lib/device-detector.service.ts</a>
             </td>
             <td>interface</td>
             <td>DeviceInfo</td>
@@ -518,7 +536,7 @@
         <tr class="low">
             <td>
                 <!-- miscellaneous -->
-                <a href="./miscellaneous/variables.html#iPad">projects/ngx-device-detector/src/lib/device-detector.service.ts</a>
+                        <a href="./miscellaneous/variables.html#iPad">projects/ngx-device-detector/src/lib/device-detector.service.ts</a>
             </td>
             <td>variable</td>
             <td>iPad</td>
@@ -530,13 +548,13 @@
         <tr class="low">
             <td>
                 <!-- miscellaneous -->
-                <a href="./classes/ReTree.html">projects/ngx-device-detector/src/lib/retree.ts</a>
+                        <a href="./classes/ReTree.html">projects/ngx-device-detector/src/lib/retree.ts</a>
             </td>
             <td>class</td>
             <td>ReTree</td>
-            <td align="right" data-sort="16">
-                <span class="coverage-percent">16 %</span>
-                <span class="coverage-count">(1/6)</span>
+            <td align="right" data-sort="20">
+                <span class="coverage-percent">20 %</span>
+                <span class="coverage-count">(1/5)</span>
             </td>
         </tr>
     </tbody>
@@ -602,7 +620,6 @@
        <script src="./js/libs/es6-shim.min.js"></script>
        <script src="./js/libs/EventDispatcher.js"></script>
        <script src="./js/libs/promise.min.js"></script>
-       <script src="./js/libs/zepto.min.js"></script>
 
        <script src="./js/compodoc.js"></script>
 

@@ -62,6 +62,20 @@
                }
                toggleDarkMode(darkModeState);
           </script>
+          <script>
+              // --- Iframe navigation tracking for Template Playground ---
+              function sendCurrentUrlToParent() {
+                  if (window.parent && window.parent !== window) {
+                      window.parent.postMessage({
+                          type: 'compodoc-iframe-navigate',
+                          url: window.location.pathname + window.location.hash
+                      }, '*');
+                  }
+              }
+              window.addEventListener('hashchange', sendCurrentUrlToParent, false);
+              window.addEventListener('popstate', sendCurrentUrlToParent, false);
+              window.addEventListener('DOMContentLoaded', sendCurrentUrlToParent, false);
+          </script>
 
         <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
                <div class="d-flex">
@@ -80,8 +94,9 @@
                    <compodoc-menu mode="normal"></compodoc-menu>
                </div>
                <!-- START CONTENT -->
-               <div class="content getting-started">
+               <div class="content readme">
                    <div class="content-data">
+
 
 <p align="center">
   <img src="https://raw.githubusercontent.com/AhsanAyaz/ngx-device-detector/master/assets/logo.svg" width="200">
@@ -215,10 +230,12 @@ If you use Angular 5, you must use v1.5.2 or earlier
       const isMobile = this.deviceService.isMobile();
       const isTablet = this.deviceService.isTablet();
       const isDesktopDevice = this.deviceService.isDesktop();
+      const isDesktopMode = this.deviceService.isDesktopModeEnabled();
       console.log(this.deviceInfo);
       console.log(isMobile);  // returns if the device is a mobile device (android / iPhone / windows-phone etc)
       console.log(isTablet);  // returns if the device us a tablet (iPad etc)
       console.log(isDesktopDevice); // returns if the app is running on a Desktop browser.
+      console.log(isDesktopMode); // returns if a mobile device is running in desktop mode
     }
     ...
   }
@@ -255,12 +272,14 @@ export class UniversalDeviceDetectorService extends DeviceDetectorService {
 <li>device</li>
 <li>userAgent</li>
 <li>os_version</li>
+<li>isDesktopMode</li>
 </ul>
 <h2>Helper Methods</h2>
 <ul>
 <li><strong>isMobile() :</strong> returns if the device is a mobile device (android / iPhone/ windows-phone etc)</li>
 <li><strong>isTablet() :</strong> returns if the device us a tablet (iPad etc)</li>
 <li><strong>isDesktop() :</strong> returns if the app is running on a Desktop browser.</li>
+<li><strong>isDesktopModeEnabled() :</strong> returns if a mobile device is running in desktop mode (mobile browsers requesting desktop websites)</li>
 </ul>
 <h2>Development</h2>
 <p>To generate all <code>*.js</code>, <code>*.js.map</code> and <code>*.d.ts</code> files:</p>
@@ -280,6 +299,9 @@ export class UniversalDeviceDetectorService extends DeviceDetectorService {
 <p><a href="https://github.com/AhsanAyaz/ngx-device-detector/blob/master/LICENSE">MIT</a></p>
 <h2>Need help with your Angular/Web projects</h2>
 <p>Write to us at <a href="mailto:info@iomechs.com">IOMechs</a></p>
+
+
+
 
 
 
@@ -326,7 +348,7 @@ export class UniversalDeviceDetectorService extends DeviceDetectorService {
 
        <script>
             var COMPODOC_CURRENT_PAGE_DEPTH = 0;
-            var COMPODOC_CURRENT_PAGE_CONTEXT = 'getting-started';
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'readme';
             var COMPODOC_CURRENT_PAGE_URL = 'index.html';
             var MAX_SEARCH_RESULTS = 15;
        </script>
@@ -355,7 +377,6 @@ export class UniversalDeviceDetectorService extends DeviceDetectorService {
        <script src="./js/libs/es6-shim.min.js"></script>
        <script src="./js/libs/EventDispatcher.js"></script>
        <script src="./js/libs/promise.min.js"></script>
-       <script src="./js/libs/zepto.min.js"></script>
 
        <script src="./js/compodoc.js"></script>
 
