@@ -1,3 +1,19 @@
+## 11.0.0 (2025-12-12)
+
+* chore: release 11.0.0 ([5b6a92d](https://github.com/AhsanAyaz/ngx-device-detector/commit/5b6a92d))
+* chore(demo): update the view to remove duplicate properties ([318043e](https://github.com/AhsanAyaz/ngx-device-detector/commit/318043e))
+* fix: add missing tsconfig.spec.json and update package-lock.json for Angular 21 upgrade ([89d2040](https://github.com/AhsanAyaz/ngx-device-detector/commit/89d2040))
+* fix(ci): build library before demo to resolve missing isDesktopModeEnabled method ([5ff921b](https://github.com/AhsanAyaz/ngx-device-detector/commit/5ff921b))
+* Fix lint ([92f554c](https://github.com/AhsanAyaz/ngx-device-detector/commit/92f554c))
+* Replace TSLint with ESLint ([b1dfdfb](https://github.com/AhsanAyaz/ngx-device-detector/commit/b1dfdfb))
+* Replaced jest with vitest, constants with signals ([4f19bcd](https://github.com/AhsanAyaz/ngx-device-detector/commit/4f19bcd))
+* Tidy up project ([bdbc816](https://github.com/AhsanAyaz/ngx-device-detector/commit/bdbc816))
+* Update package-lock ([6e34437](https://github.com/AhsanAyaz/ngx-device-detector/commit/6e34437))
+* Use npm central ([b357ea3](https://github.com/AhsanAyaz/ngx-device-detector/commit/b357ea3))
+* feat(demo): add isDesktopMode support to demo app and README ([86e6a98](https://github.com/AhsanAyaz/ngx-device-detector/commit/86e6a98))
+
+
+
 ## 10.1.0 (2025-08-20)
 
 * chore: bump version to 10.1.0 with changelog and docs ([398672a](https://github.com/AhsanAyaz/ngx-device-detector/commit/398672a))

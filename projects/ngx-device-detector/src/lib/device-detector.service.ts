@@ -26,7 +26,7 @@ export enum DeviceType {
 export enum OrientationType {
     Portrait = 'portrait',
     Landscape = 'landscape',
-    Unknown = 'Unknown'
+    Unknown = 'Unknown',
 }
 
 const iPad = 'iPad';
@@ -35,7 +35,6 @@ const iPad = 'iPad';
     providedIn: 'root',
 })
 export class DeviceDetectorService {
-
     public readonly deviceInfo: Signal<DeviceInfo>;
 
     private readonly _ua = signal('');
