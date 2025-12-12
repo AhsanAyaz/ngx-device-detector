@@ -94,7 +94,7 @@
                    <compodoc-menu mode="normal"></compodoc-menu>
                </div>
                <!-- START CONTENT -->
-               <div class="content pipe">
+               <div class="content injectable">
                    <div class="content-data">
 
 
@@ -108,12 +108,9 @@
 
 
 
-
-
-
 <ol class="breadcrumb">
-  <li class="breadcrumb-item">Pipes</li>
-  <li class="breadcrumb-item" >KeysPipe</li>
+  <li class="breadcrumb-item">Injectables</li>
+  <li class="breadcrumb-item" >ZipExportService</li>
 </ol>
 
 <ul class="nav nav-tabs" role="tablist">
@@ -133,32 +130,53 @@
 
 <div class="tab-content">
     <div class="tab-pane fade active in" id="info">
-
         <p class="comment">
             <h3>File</h3>
         </p>
         <p class="comment">
-            <code>projects/demo/src/app/pipes/keys.pipe.ts</code>
+            <code>docs/template-playground/zip-export.service.ts</code>
         </p>
 
 
 
 
-        <section data-compodoc="block-metadata">
-            <h3>Metadata</h3>
-            <table class="table table-sm table-hover metadata">
-                <tbody>
-                    <tr>
-                        <td class="col-md-3">Name</td>
-                        <td class="col-md-9">keys</td>
-                    </tr>
-                    <tr>
-                        <td class="col-md-3">Standalone</td>
-                        <td class="col-md-9"><code>true</code></td>
-                    </tr>
-                </tbody>
-            </table>
-        </section>
+
+            <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#downloadBlob" >downloadBlob</a>
+                            </li>
+                            <li>
+                                <a href="#exportTemplates" >exportTemplates</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#generateReadme" >generateReadme</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
 
             <section data-compodoc="block-methods">
     
@@ -169,26 +187,26 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="transform"></a>
+                    <a name="downloadBlob"></a>
                     <span class="name">
-                            <span class="modifier">Public</span>
-                        <span ><b>transform</b></span>
-                        <a href="#transform"><span class="icon ion-ios-link"></span></a>
+                            <span class="modifier">Private</span>
+                        <span ><b>downloadBlob</b></span>
+                        <a href="#downloadBlob"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
                         <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>transform(value: <a href="../interfaces/DeviceInfo.html" target="_self">DeviceInfo</a>, props: string[])</code>
+                    <code>downloadBlob(blob: Blob, filename: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
                 </td>
             </tr>
 
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="9"
-                                    class="link-to-prism">projects/demo/src/app/pipes/keys.pipe.ts:9</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="75"
+                                    class="link-to-prism">docs/template-playground/zip-export.service.ts:75</a></div>
                         </td>
                     </tr>
 
@@ -205,49 +223,149 @@
                                             <td>Name</td>
                                                 <td>Type</td>
                                             <td>Optional</td>
-                                                <td>Default value</td>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <tr>
-                                                <td>value</td>
+                                                <td>blob</td>
                                             <td>
-                                                            <code><a href="../interfaces/DeviceInfo.html" target="_self" >DeviceInfo</a></code>
+                                                        <code>Blob</code>
                                             </td>
 
                                             <td>
                                                     No
                                             </td>
 
-                                            <td>
-                                            </td>
 
                                         </tr>
                                         <tr>
-                                                <td>props</td>
+                                                <td>filename</td>
                                             <td>
-                                                        <code>string[]</code>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
                                             </td>
 
                                             <td>
                                                     No
                                             </td>
 
-                                            <td>
-                                                    <code>[]</code>
-                                            </td>
 
                                         </tr>
                                     </tbody>
                                 </table>
                             </div>
                         <div class="io-description">
-                            <b>Returns : </b>    <code>literal type[]</code>
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
 
                         </div>
                             <div class="io-description">
                                 
                             </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="exportTemplates"></a>
+                    <span class="name">
+                        <span ><b>exportTemplates</b></span>
+                        <a href="#exportTemplates"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>exportTemplates(files: any[])</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="10"
+                                    class="link-to-prism">docs/template-playground/zip-export.service.ts:10</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>files</td>
+                                            <td>
+                                                        <code>any[]</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="generateReadme"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>generateReadme</b></span>
+                        <a href="#generateReadme"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>generateReadme()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="29"
+                                    class="link-to-prism">docs/template-playground/zip-export.service.ts:29</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                        </div>
                 </td>
             </tr>
         </tbody>
@@ -258,35 +376,99 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Pipe, PipeTransform } from &#x27;@angular/core&#x27;;
-import { DeviceInfo } from &#x27;ngx-device-detector&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable } from &#x27;@angular/core&#x27;;
 
-@Pipe({
-    name: &#x27;keys&#x27;,
-    standalone: true,
+declare const JSZip: any;
+
+@Injectable({
+  providedIn: &#x27;root&#x27;
 })
-export class KeysPipe implements PipeTransform {
-    public transform(value: DeviceInfo, props: string[] &#x3D; []): { key: string; value: unknown }[] {
-        const keys: { key: string; value: unknown }[] &#x3D; [];
-        const noFilter &#x3D; props.length &#x3D;&#x3D;&#x3D; 0;
+export class ZipExportService {
 
-        for (const key in value) {
-            if (noFilter) {
-                if (value.hasOwnProperty(key)) {
-                    keys.push({ key, value: value[key] });
-                }
-            } else if (props.includes(key)) {
-                keys.push({ key, value: value[key] });
-            }
-        }
+  exportTemplates(files: any[]) {
+    const zip &#x3D; new JSZip();
 
-        return keys;
-    }
+    // Add all template files to the ZIP
+    files.forEach(file &#x3D;&gt; {
+      zip.file(file.path, file.content);
+    });
+
+    // Add a README with instructions
+    const readme &#x3D; this.generateReadme();
+    zip.file(&#x27;README.md&#x27;, readme);
+
+    // Generate and download the ZIP file
+    zip.generateAsync({ type: &#x27;blob&#x27; })
+      .then((content: Blob) &#x3D;&gt; {
+        this.downloadBlob(content, &#x27;compodoc-templates.zip&#x27;);
+      });
+  }
+
+  private generateReadme(): string {
+    return &#x60;# Compodoc Custom Templates
+
+This ZIP file contains customized templates for Compodoc documentation generation.
+
+## Contents
+
+- **Templates** (\&#x60;.hbs\&#x60; files): Handlebars templates for generating documentation pages
+- **Styles** (\&#x60;.css\&#x60; files): Stylesheets for customizing the appearance
+- **Scripts** (\&#x60;.js\&#x60; files): JavaScript files for additional functionality
+
+## Usage
+
+1. Extract this ZIP file to a directory on your system
+2. Use the \&#x60;--templates\&#x60; flag when running Compodoc to specify the path to your custom templates:
+
+   \&#x60;\&#x60;\&#x60;bash
+   compodoc -p tsconfig.json --templates ./path/to/custom/templates/
+   \&#x60;\&#x60;\&#x60;
+
+## Template Structure
+
+- \&#x60;page.hbs\&#x60; - Main page template
+- \&#x60;partials/\&#x60; - Directory containing partial templates
+- \&#x60;styles/\&#x60; - Directory containing CSS files
+- \&#x60;js/\&#x60; - Directory containing JavaScript files
+
+## Customization Tips
+
+1. **Templates**: Use Handlebars syntax to customize the HTML structure
+2. **Styles**: Modify CSS to change colors, fonts, layout, etc.
+3. **Scripts**: Add custom JavaScript functionality
+
+## Backup
+
+Always keep a backup of your original templates before making changes.
+
+## Documentation
+
+For more information about customizing Compodoc templates, visit:
+https://compodoc.app/guides/template-customization.html
+
+Generated by Compodoc Template Playground
+&#x60;;
+  }
+
+  private downloadBlob(blob: Blob, filename: string) {
+    const url &#x3D; window.URL.createObjectURL(blob);
+    const a &#x3D; document.createElement(&#x27;a&#x27;);
+    a.href &#x3D; url;
+    a.download &#x3D; filename;
+    a.style.display &#x3D; &#x27;none&#x27;;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    window.URL.revokeObjectURL(url);
+  }
 }
 </code></pre>
     </div>
 
 </div>
+
+
+
 
 
 
@@ -322,8 +504,8 @@ export class KeysPipe implements PipeTransform {
 
        <script>
             var COMPODOC_CURRENT_PAGE_DEPTH = 1;
-            var COMPODOC_CURRENT_PAGE_CONTEXT = 'pipe';
-            var COMPODOC_CURRENT_PAGE_URL = 'KeysPipe.html';
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'injectable';
+            var COMPODOC_CURRENT_PAGE_URL = 'ZipExportService.html';
             var MAX_SEARCH_RESULTS = 15;
        </script>
 

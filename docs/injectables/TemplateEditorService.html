@@ -1,0 +1,903 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>ngx-device-detector</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+        <link rel="stylesheet" href="../styles/Vagrant.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+          <script>
+              // --- Iframe navigation tracking for Template Playground ---
+              function sendCurrentUrlToParent() {
+                  if (window.parent && window.parent !== window) {
+                      window.parent.postMessage({
+                          type: 'compodoc-iframe-navigate',
+                          url: window.location.pathname + window.location.hash
+                      }, '*');
+                  }
+              }
+              window.addEventListener('hashchange', sendCurrentUrlToParent, false);
+              window.addEventListener('popstate', sendCurrentUrlToParent, false);
+              window.addEventListener('DOMContentLoaded', sendCurrentUrlToParent, false);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">ngx-device-detector</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content injectable">
+                   <div class="content-data">
+
+
+
+
+
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Injectables</li>
+  <li class="breadcrumb-item" >TemplateEditorService</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" 
+                class="nav-link"
+                class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" 
+                class="nav-link"
+                
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info">
+        <p class="comment">
+            <h3>File</h3>
+        </p>
+        <p class="comment">
+            <code>docs/template-playground/template-editor.service.ts</code>
+        </p>
+
+
+
+
+
+            <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#editor" >editor</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#onChangeCallback" >onChangeCallback</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#destroy" >destroy</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#getLanguageFromFileType" >getLanguageFromFileType</a>
+                            </li>
+                            <li>
+                                <a href="#initializeEditor" >initializeEditor</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#registerHandlebarsLanguage" >registerHandlebarsLanguage</a>
+                            </li>
+                            <li>
+                                <a href="#setEditorContent" >setEditorContent</a>
+                            </li>
+                            <li>
+                                <a href="#setOnChangeCallback" >setOnChangeCallback</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+
+            <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="destroy"></a>
+                    <span class="name">
+                        <span ><b>destroy</b></span>
+                        <a href="#destroy"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>destroy()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="167"
+                                    class="link-to-prism">docs/template-playground/template-editor.service.ts:167</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getLanguageFromFileType"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>getLanguageFromFileType</b></span>
+                        <a href="#getLanguageFromFileType"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>getLanguageFromFileType(fileType: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="71"
+                                    class="link-to-prism">docs/template-playground/template-editor.service.ts:71</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>fileType</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="initializeEditor"></a>
+                    <span class="name">
+                        <span ><b>initializeEditor</b></span>
+                        <a href="#initializeEditor"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>initializeEditor(container: HTMLElement)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="12"
+                                    class="link-to-prism">docs/template-playground/template-editor.service.ts:12</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>container</td>
+                                            <td>
+                                                        <code>HTMLElement</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="registerHandlebarsLanguage"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>registerHandlebarsLanguage</b></span>
+                        <a href="#registerHandlebarsLanguage"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>registerHandlebarsLanguage()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="87"
+                                    class="link-to-prism">docs/template-playground/template-editor.service.ts:87</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="setEditorContent"></a>
+                    <span class="name">
+                        <span ><b>setEditorContent</b></span>
+                        <a href="#setEditorContent"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>setEditorContent(content: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, fileType: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="59"
+                                    class="link-to-prism">docs/template-playground/template-editor.service.ts:59</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>content</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>fileType</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="setOnChangeCallback"></a>
+                    <span class="name">
+                        <span ><b>setOnChangeCallback</b></span>
+                        <a href="#setOnChangeCallback"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>setOnChangeCallback(callback: (value: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>) => void)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="67"
+                                    class="link-to-prism">docs/template-playground/template-editor.service.ts:67</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>callback</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/function" target="_blank" >function</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+            <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="editor"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>editor</b></span>
+                        <a href="#editor"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="9" class="link-to-prism">docs/template-playground/template-editor.service.ts:9</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="onChangeCallback"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>onChangeCallback</b></span>
+                        <a href="#onChangeCallback"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>unknown | null</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>null</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="10" class="link-to-prism">docs/template-playground/template-editor.service.ts:10</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+    </div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable } from &#x27;@angular/core&#x27;;
+
+declare const monaco: any;
+
+@Injectable({
+  providedIn: &#x27;root&#x27;
+})
+export class TemplateEditorService {
+  private editor: any;
+  private onChangeCallback: ((value: string) &#x3D;&gt; void) | null &#x3D; null;
+
+  initializeEditor(container: HTMLElement) {
+    // Initialize Monaco Editor
+    this.editor &#x3D; monaco.editor.create(container, {
+      value: &#x27;&#x27;,
+      language: &#x27;html&#x27;,
+      theme: &#x27;vs-dark&#x27;,
+      automaticLayout: true,
+      minimap: {
+        enabled: true
+      },
+      scrollBeyondLastLine: false,
+      fontSize: 14,
+      wordWrap: &#x27;on&#x27;,
+      lineNumbers: &#x27;on&#x27;,
+      roundedSelection: false,
+      scrollbar: {
+        horizontal: &#x27;visible&#x27;,
+        vertical: &#x27;visible&#x27;
+      },
+      overviewRulerLanes: 2,
+      quickSuggestions: {
+        other: true,
+        comments: true,
+        strings: true
+      },
+      parameterHints: {
+        enabled: true
+      },
+      autoClosingBrackets: &#x27;always&#x27;,
+      autoClosingQuotes: &#x27;always&#x27;,
+      suggestOnTriggerCharacters: true,
+      acceptSuggestionOnEnter: &#x27;on&#x27;,
+      tabCompletion: &#x27;on&#x27;,
+      wordBasedSuggestions: false
+    });
+
+    // Set up change listener
+    this.editor.onDidChangeModelContent(() &#x3D;&gt; {
+      if (this.onChangeCallback) {
+        this.onChangeCallback(this.editor.getValue());
+      }
+    });
+
+    // Register custom language definitions
+    this.registerHandlebarsLanguage();
+  }
+
+  setEditorContent(content: string, fileType: string) {
+    if (this.editor) {
+      const language &#x3D; this.getLanguageFromFileType(fileType);
+      const model &#x3D; monaco.editor.createModel(content, language);
+      this.editor.setModel(model);
+    }
+  }
+
+  setOnChangeCallback(callback: (value: string) &#x3D;&gt; void) {
+    this.onChangeCallback &#x3D; callback;
+  }
+
+  private getLanguageFromFileType(fileType: string): string {
+    switch (fileType) {
+      case &#x27;hbs&#x27;:
+        return &#x27;handlebars&#x27;;
+      case &#x27;css&#x27;:
+      case &#x27;scss&#x27;:
+        return &#x27;css&#x27;;
+      case &#x27;js&#x27;:
+        return &#x27;javascript&#x27;;
+      case &#x27;ts&#x27;:
+        return &#x27;typescript&#x27;;
+      default:
+        return &#x27;html&#x27;;
+    }
+  }
+
+  private registerHandlebarsLanguage() {
+    // Register Handlebars language for Monaco Editor
+    if (monaco.languages.getLanguages().find((lang: any) &#x3D;&gt; lang.id &#x3D;&#x3D;&#x3D; &#x27;handlebars&#x27;)) {
+      return; // Already registered
+    }
+
+    monaco.languages.register({ id: &#x27;handlebars&#x27; });
+
+    monaco.languages.setMonarchTokensProvider(&#x27;handlebars&#x27;, {
+      tokenizer: {
+        root: [
+          [/\{\{\{/, { token: &#x27;keyword&#x27;, next: &#x27;@handlebars_unescaped&#x27; }],
+          [/\{\{/, { token: &#x27;keyword&#x27;, next: &#x27;@handlebars&#x27; }],
+          [/&lt;!DOCTYPE/, &#x27;metatag&#x27;, &#x27;@doctype&#x27;],
+          [/&lt;!--/, &#x27;comment&#x27;, &#x27;@comment&#x27;],
+          [/(&lt;)(\w+)/, [&#x27;delimiter&#x27;, { token: &#x27;tag&#x27;, next: &#x27;@tag&#x27; }]],
+          [/(&lt;\/)(\w+)/, [&#x27;delimiter&#x27;, { token: &#x27;tag&#x27;, next: &#x27;@tag&#x27; }]],
+          [/&lt;/, &#x27;delimiter&#x27;],
+          [/[^&lt;]+/]
+        ],
+
+        handlebars_unescaped: [
+          [/\}\}\}/, { token: &#x27;keyword&#x27;, next: &#x27;@pop&#x27; }],
+          [/[^}]+/, &#x27;variable&#x27;]
+        ],
+
+        handlebars: [
+          [/\}\}/, { token: &#x27;keyword&#x27;, next: &#x27;@pop&#x27; }],
+          [/#if|#unless|#each|#with|\/if|\/unless|\/each|\/with/, &#x27;keyword&#x27;],
+          [/[a-zA-Z_][\w]*/, &#x27;variable&#x27;],
+          [/[^}]+/, &#x27;variable&#x27;]
+        ],
+
+        comment: [
+          [/--&gt;/, &#x27;comment&#x27;, &#x27;@pop&#x27;],
+          [/[^-]+/, &#x27;comment&#x27;],
+          [/./, &#x27;comment&#x27;]
+        ],
+
+        doctype: [
+          [/[^&gt;]+/, &#x27;metatag.content&#x27;],
+          [/&gt;/, &#x27;metatag&#x27;, &#x27;@pop&#x27;]
+        ],
+
+        tag: [
+          [/[ \t\r\n]+/, &#x27;white&#x27;],
+          [/(\w+)(\s*&#x3D;\s*)(&quot;([^&quot;]*)&quot;)/, [&#x27;attribute.name&#x27;, &#x27;delimiter&#x27;, &#x27;attribute.value&#x27;, &#x27;attribute.value&#x27;]],
+          [/(\w+)(\s*&#x3D;\s*)(&#x27;([^&#x27;]*)&#x27;)/, [&#x27;attribute.name&#x27;, &#x27;delimiter&#x27;, &#x27;attribute.value&#x27;, &#x27;attribute.value&#x27;]],
+          [/\w+/, &#x27;attribute.name&#x27;],
+          [/&gt;/, &#x27;delimiter&#x27;, &#x27;@pop&#x27;]
+        ]
+      }
+    });
+
+    monaco.languages.setLanguageConfiguration(&#x27;handlebars&#x27;, {
+      comments: {
+        blockComment: [&#x27;&lt;!--&#x27;, &#x27;--&gt;&#x27;]
+      },
+      brackets: [
+        [&#x27;&lt;&#x27;, &#x27;&gt;&#x27;],
+        [&#x27;{{&#x27;, &#x27;}}&#x27;],
+        [&#x27;{{{&#x27;, &#x27;}}}&#x27;]
+      ],
+      autoClosingPairs: [
+        { open: &#x27;&lt;&#x27;, close: &#x27;&gt;&#x27; },
+        { open: &#x27;{{&#x27;, close: &#x27;}}&#x27; },
+        { open: &#x27;{{{&#x27;, close: &#x27;}}}&#x27; },
+        { open: &#x27;&quot;&#x27;, close: &#x27;&quot;&#x27; },
+        { open: &quot;&#x27;&quot;, close: &quot;&#x27;&quot; }
+      ],
+      surroundingPairs: [
+        { open: &#x27;&lt;&#x27;, close: &#x27;&gt;&#x27; },
+        { open: &#x27;{{&#x27;, close: &#x27;}}&#x27; },
+        { open: &#x27;{{{&#x27;, close: &#x27;}}}&#x27; },
+        { open: &#x27;&quot;&#x27;, close: &#x27;&quot;&#x27; },
+        { open: &quot;&#x27;&quot;, close: &quot;&#x27;&quot; }
+      ]
+    });
+  }
+
+  destroy() {
+    if (this.editor) {
+      this.editor.dispose();
+      this.editor &#x3D; null;
+    }
+  }
+}
+</code></pre>
+    </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'injectable';
+            var COMPODOC_CURRENT_PAGE_URL = 'TemplateEditorService.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>
