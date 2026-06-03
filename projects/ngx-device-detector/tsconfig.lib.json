@@ -1,25 +1,11 @@
-/* To learn more about this file see: https://angular.io/config/tsconfig. */
 {
-    "extends": "../../tsconfig.json",
-    "compilerOptions": {
-        "outDir": "../../out-tsc/lib",
-        "declarationMap": true,
-        "declaration": true,
-        "inlineSources": true,
-        "types": []
-    },
-    "angularCompilerOptions": {
-        "skipTemplateCodegen": true,
-        "strictMetadataEmit": true,
-        "enableResourceInlining": true
-    },
-    "exclude": ["**/*.spec.ts"],
-    "references": [
-        {
-            "path": "tsconfig.lib.spec.json"
-        },
-        {
-            "path": "tsconfig.lib.prod.json"
-        }
-    ]
+  "extends": "../../tsconfig.json",
+  "compilerOptions": {
+    "outDir": "../../out-tsc/lib",
+    "declarationMap": true,
+    "declaration": true,
+    "types": []
+  },
+  "include": ["src/**/*.ts"],
+  "exclude": ["**/*.spec.ts"]
 }

@@ -21,8 +21,6 @@
     "lint": "ng lint",
     "lint:fix": "ng lint --fix",
     "test": "ng test ngx-device-detector --watch=false",
-    "test:coverage": "jest --coverage",
-    "e2e": "ng e2e",
     "copy:readme": "cp README.md ./projects/ngx-device-detector",
     "changelog": "conventional-changelog -p angular -i CHANGE_LOG.md -s",
     "copy:changelog": "cp CHANGE_LOG.md ./dist/ngx-device-detector",
@@ -41,26 +39,6 @@
     "name": "Muhammad Ahsan Ayaz",
     "email": "ahsan.ubitian@gmail.com"
   },
-  "jest": {
-    "preset": "jest-preset-angular",
-    "setupFilesAfterEnv": [
-      "<rootDir>/jestSetup.ts"
-    ],
-    "testPathIgnorePatterns": [
-      "<rootDir>/node_modules/",
-      "<rootDir>/dist/"
-    ],
-    "modulePathIgnorePatterns": [
-      "<rootDir>/dist/",
-      "<rootDir>/projects/demo"
-    ],
-    "globals": {
-      "ts-jest": {
-        "tsconfig": "<rootDir>/tsconfig.spec.json",
-        "stringifyContentPathRegex": "\\.html$"
-      }
-    }
-  },
   "keywords": [
     "angular",
     "device",
@@ -75,49 +53,50 @@
     "angular18",
     "angular19",
     "angular20",
-    "angular21"
+    "angular21",
+    "angular22"
   ],
   "bugs": {
     "url": "https://github.com/AhsanAyaz/ngx-device-detector.git/issues"
   },
   "dependencies": {
-    "@angular/animations": "^21.0.0",
-    "@angular/common": "^21.0.0",
-    "@angular/compiler": "^21.0.0",
-    "@angular/core": "^21.0.0",
-    "@angular/forms": "^21.0.0",
-    "@angular/platform-browser": "^21.0.0",
-    "@angular/platform-browser-dynamic": "^21.0.0",
-    "@angular/platform-server": "^21.0.0",
-    "@angular/router": "^21.0.0",
-    "@angular/ssr": "^21.0.0",
-    "@eslint/js": "^9.39.1",
+    "@angular/animations": "^22.0.0",
+    "@angular/common": "^22.0.0",
+    "@angular/compiler": "^22.0.0",
+    "@angular/core": "^22.0.0",
+    "@angular/forms": "^22.0.0",
+    "@angular/platform-browser": "^22.0.0",
+    "@angular/platform-browser-dynamic": "^22.0.0",
+    "@angular/platform-server": "^22.0.0",
+    "@angular/router": "^22.0.0",
+    "@angular/ssr": "^22.0.0",
+    "@eslint/js": "^10.0.1",
     "conventional-changelog-cli": "^5.0.0",
     "express": "^5.1.0",
     "rxjs": "^7.8.2",
     "tslib": "^2.8.1"
   },
   "devDependencies": {
-    "@angular-devkit/build-angular": "^21.0.0",
-    "@angular/cli": "^21.0.0",
-    "@angular/compiler-cli": "^21.0.0",
-    "@commitlint/cli": "^20.1.0",
-    "@commitlint/config-angular": "^20.0.0",
-    "@compodoc/compodoc": "^1.1.32",
+    "@angular/build": "^22.0.0",
+    "@angular/cli": "^22.0.0",
+    "@angular/compiler-cli": "^22.0.0",
+    "@commitlint/cli": "^21.0.2",
+    "@commitlint/config-angular": "^21.0.2",
+    "@compodoc/compodoc": "^1.2.1",
     "@types/express": "^5.0.5",
-    "@types/node": "^24.10.1",
-    "angular-eslint": "21.0.1",
-    "eslint": "^9.39.1",
+    "@types/node": "^25.9.2",
+    "angular-eslint": "22.0.0",
+    "eslint": "^10.4.1",
     "eslint-config-prettier": "^10.1.8",
-    "eslint-plugin-prettier": "^5.5.4",
+    "eslint-plugin-prettier": "^5.5.6",
     "husky": "^9.1.7",
-    "jsdom": "^27.2.0",
-    "ng-packagr": "^21.0.0",
-    "prettier": "^3.6.2",
-    "semver": "^7.7.3",
-    "typescript": "^5.9.3",
-    "typescript-eslint": "8.46.4",
-    "vitest": "^4.0.13"
+    "jsdom": "^29.1.1",
+    "ng-packagr": "^22.0.0",
+    "prettier": "^3.8.3",
+    "semver": "^7.8.2",
+    "typescript": "^6.0.3",
+    "typescript-eslint": "^8.60.1",
+    "vitest": "^4.1.8"
   },
   "husky": {
     "hooks": {

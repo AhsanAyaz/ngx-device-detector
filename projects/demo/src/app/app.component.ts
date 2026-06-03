@@ -1,5 +1,5 @@
-import { Component, VERSION, inject, signal } from '@angular/core';
-import { DeviceDetectorService, DeviceInfo } from 'projects/ngx-device-detector/src/lib/device-detector.service';
+import { Component, VERSION, inject } from '@angular/core';
+import { DeviceDetectorService } from 'ngx-device-detector'
 import { NgClass } from '@angular/common';
 import { KeysPipe } from './pipes/keys.pipe';
 
@@ -11,6 +11,7 @@ import { KeysPipe } from './pipes/keys.pipe';
     standalone: true,
 })
 export class AppComponent {
+    private readonly deviceService = inject(DeviceDetectorService);
 
     protected readonly propsToShow = [
         'userAgent',
@@ -23,18 +24,12 @@ export class AppComponent {
         'orientation',
         'isDesktopMode',
     ];
-    protected readonly deviceInfo = signal<DeviceInfo | null>(null);
+    protected readonly deviceInfo = this.deviceService.deviceInfo;
     protected readonly version = VERSION.full;
     private readonly ua = globalThis.navigator.userAgent;
 
-    private readonly deviceService = inject(DeviceDetectorService);
-
     constructor() {
         this.applyDevice();
-    }
-
-    getDeviceInfo(): void {
-        this.deviceInfo.set(this.deviceService.getDeviceInfo());
     }
 
     get isMobile(): boolean {
@@ -55,7 +50,6 @@ export class AppComponent {
 
     applyDevice(userAgent = this.ua): void {
         this.deviceService.setDeviceInfo(userAgent);
-        this.getDeviceInfo();
     }
 
     resetDeviceInfo(): void {
