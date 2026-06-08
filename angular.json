@@ -11,21 +11,21 @@
       "architect": {
         "build": {
           "builder": "@angular/build:ng-packagr",
-          "options": {
-            "tsConfig": "projects/ngx-device-detector/tsconfig.lib.json",
-            "project": "projects/ngx-device-detector/ng-package.json"
-          },
           "configurations": {
             "production": {
               "tsConfig": "projects/ngx-device-detector/tsconfig.lib.prod.json"
             },
             "development": {
-              "tsConfig": "projects/ngx-device-detector/tsconfig.lib.spec.json"
+              "tsConfig": "projects/ngx-device-detector/tsconfig.lib.json"
             }
-          }
+          },
+          "defaultConfiguration": "production"
         },
         "test": {
-          "builder": "@angular/build:unit-test"
+          "builder": "@angular/build:unit-test",
+          "options": {
+            "tsConfig": "projects/ngx-device-detector/tsconfig.spec.json"
+          }
         },
         "lint": {
           "builder": "@angular-eslint/builder:lint",
@@ -51,11 +51,9 @@
       "prefix": "app",
       "architect": {
         "build": {
-          "builder": "@angular-devkit/build-angular:application",
+          "builder": "@angular/build:application",
           "options": {
-            "outputPath": {
-              "base": "dist/demo"
-            },
+            "outputPath": "dist/demo",
             "index": "projects/demo/src/index.html",
             "tsConfig": "projects/demo/tsconfig.app.json",
             "assets": [
@@ -69,7 +67,6 @@
             "extractLicenses": false,
             "sourceMap": true,
             "optimization": false,
-            "namedChunks": true,
             "browser": "projects/demo/src/main.ts",
             "server": "projects/demo/src/main.server.ts",
             "prerender": true,
@@ -79,11 +76,7 @@
           },
           "configurations": {
             "production": {
-              "optimization": true,
               "outputHashing": "all",
-              "sourceMap": false,
-              "namedChunks": false,
-              "extractLicenses": true,
               "budgets": [
                 {
                   "type": "initial",
@@ -96,37 +89,26 @@
                   "maximumError": "10kb"
                 }
               ]
+            },
+            "development": {
+              "optimization": false,
+              "extractLicenses": false,
+              "sourceMap": true
             }
-          }
+          },
+          "defaultConfiguration": "production"
         },
         "serve": {
-          "builder": "@angular-devkit/build-angular:dev-server",
-          "options": {
-            "buildTarget": "demo:build"
-          },
+          "builder": "@angular/build:dev-server",
           "configurations": {
             "production": {
               "buildTarget": "demo:build:production"
+            },
+            "development": {
+              "buildTarget": "demo:build:development"
             }
-          }
-        },
-        "extract-i18n": {
-          "builder": "@angular-devkit/build-angular:extract-i18n",
-          "options": {
-            "buildTarget": "demo:build"
-          }
-        },
-        "e2e": {
-          "builder": "@angular-devkit/build-angular:protractor",
-          "options": {
-            "protractorConfig": "projects/demo/e2e/protractor.conf.js",
-            "devServerTarget": "demo:serve"
           },
-          "configurations": {
-            "production": {
-              "devServerTarget": "demo:serve:production"
-            }
-          }
+          "defaultConfiguration": "development"
         }
       }
     }
