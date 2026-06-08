@@ -1,3 +1,16 @@
+# [12.0.0](https://github.com/AhsanAyaz/ngx-device-detector/compare/v10.1.0...v12.0.0) (2026-06-08)
+
+
+### Bug Fixes
+
+* add missing tsconfig.spec.json and update package-lock.json for Angular 21 upgrade ([89d2040](https://github.com/AhsanAyaz/ngx-device-detector/commit/89d2040f275c7e10b58b4806466153daaccb5277))
+* **ci:** build library before demo to resolve missing isDesktopModeEnabled method ([5ff921b](https://github.com/AhsanAyaz/ngx-device-detector/commit/5ff921bd5277b9a14ce2c70ee30a8629e2ee6e24))
+
+
+### Features
+
+* **demo:** add isDesktopMode support to demo app and README ([86e6a98](https://github.com/AhsanAyaz/ngx-device-detector/commit/86e6a98d3dce77c33efcb038f18c18852e08731f))
+
 ## 11.0.0 (2025-12-12)
 
 * chore: release 11.0.0 ([5b6a92d](https://github.com/AhsanAyaz/ngx-device-detector/commit/5b6a92d))
